@@ -31,7 +31,7 @@ public class LoginController {
 				return "redirect:list-init";
 			}
 		}
-		model.addAttribute("errorMsg", "正しいアカウントを入力してください。");
+		model.addAttribute("errorMsg", "正しいアカウントを入力してください。(ID:1  PWD:123456)");
 		// アカウントが間違う場合、エラーメッセージ表示する
 		return "login";
 
