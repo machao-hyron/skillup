@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta http-equiv="Content-Type" content="application/json; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" media="screen" href="css/common.css">
+	<link rel="stylesheet" media="screen" href="css/login.css">
+	<title>homePage</title>
+</head>
+
+<body class="flex-center">
+	<form method="post" action="/homePage">
+		<div style="color:rgb(0, 255, 64)" th:text="${errorMsg}" />
+
+		<table class="flex-center login-border">
+			<tr>
+				<td>名前：</td>
+				<td><input type="text" name="name" /></td>
+			</tr>
+			<tr>
+				<td>生年月日：</td>
+				<td><input type="text" name="birthNum" /></td>
+			</tr>
+			<tr>
+				<td>電話番号：</td>
+				<td><input type="text" name="telNum" /></td>
+			</tr>
+			<tr>
+				<td colspan="3" align="center"><input type="submit" value="次へ"></input></td>
+			</tr>
+		</table>
+
+	</form>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+	<script>
+		$(function () {
+			//alert("123");
+		});
+	</script>
+</body>
+
+</html>
