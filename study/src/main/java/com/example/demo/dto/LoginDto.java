@@ -2,16 +2,11 @@ package com.example.demo.dto;
 
 import java.io.Serializable;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Getter
-@Setter
+@Data
 public class LoginDto implements Serializable{
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	/** ID */

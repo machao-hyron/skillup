@@ -1,6 +1,8 @@
 package com.example.demo.service;
 
 import com.example.demo.dto.LoginDto;
+import com.example.demo.entity.TUserInfo;
+import com.example.demo.util.Result;
 
 public interface LoginService {
 
@@ -11,4 +13,6 @@ public interface LoginService {
 	 * @return true->チェックOK；fals->チェックfalse；
 	 */
 	boolean loginAcntCheck(LoginDto dto);
+
+	Result loginSelectOne(LoginDto dto);
 }
