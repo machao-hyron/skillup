@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <classPathEntry location="C:\Users\cebin.li\.m2\repository\mysql\mysql-connector-java\5.1.46\mysql-connector-java-5.1.46.jar" />
+    <context id="MySql" targetRuntime="MyBatis3">
+<!--         <plugin type="org.mybatis.generator.plugins.SerializablePlugin" /> -->
+      <jdbcConnection
+              driverClass="com.mysql.jdbc.Driver"
+              connectionURL="jdbc:mysql://127.0.0.1:3306/d311_study"
+              userId="root"
+              password="mysql123456" />
+      <!-- Entity java文件生成 -->
+      <javaModelGenerator targetPackage="com.example.demo.entity" targetProject="src/main/java"></javaModelGenerator>
+      <!-- Mapper XML文件生成 -->
+      <sqlMapGenerator targetPackage="com.example.demo.mapper"  targetProject="src/main/resources"></sqlMapGenerator>
+      <!-- Mapper java文件生成 -->
+      <javaClientGenerator targetPackage="com.example.demo.mapper" targetProject="src/main/java" type="XMLMAPPER"></javaClientGenerator>
+      <!-- 表对象（T开头的所有表） -->
+      <table schema="d311_study" tableName="t%">
+          <columnOverride column="create_datetime" javaType="java.time.LocalDateTime"></columnOverride>
+          <columnOverride column="update_datetime" javaType="java.time.LocalDateTime"></columnOverride>
+      </table>
+    </context>
+
+</generatorConfiguration>
