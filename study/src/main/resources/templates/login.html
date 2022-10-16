@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta http-equiv="Content-Type" content="application/json; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" media="screen" href="css/common.css">
+	<link rel="stylesheet" media="screen" href="css/login.css">
+	<title>Login</title>
+</head>
+
+<body class="flex-center">
+	<form method="post" action="login">
+		<div style="color:red" th:text="${errorMsg}" />
+
+		<table class="flex-center login-border">
+			<tr>
+				<td>ユーザーID：</td>
+				<td><input type="text" name="id" id="id" required pattern="^[0-9]{1,15}$" /></td>
+			</tr>
+			<tr>
+				<td>パスワード：</td>
+				<td><input type="password" name="pwd" id="pwd" required pattern="^[A-Za-z0-9]{6,15}$"/></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center"><input type="submit" value="ログイン"></input></td>
+			</tr>
+		</table>
+
+	</form>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+	<script>
+		$(function () {
+			//alert("123");
+		});
+	</script>
+</body>
+
+</html>
+<script type="text/javascript">
+	$('form').click(function() {
+		password();
+		name();
+	})
+
+	function password() {
+		var pw = document.getElementById('pwd');
+		if (pw.validity.valueMissing) {
+			pw.setCustomValidity('パスワードを入力してください。');
+		} else if (pw.validity.patternMismatch) {
+			pw.setCustomValidity('パスワードは半角英数字6~15桁で入力してください。');
+		} else {
+			pw.setCustomValidity('');
+		} 
+	}
+
+	function name() {
+		var name = document.getElementById('id');
+		if (name.validity.valueMissing) {
+			name.setCustomValidity('ユーザIDを入力してください。');
+		} else if (name.validity.patternMismatch) {
+			name.setCustomValidity('ユーザIDは半角数字15桁以内で入力してください。');
+		} else {
+			name.setCustomValidity('');
+		}
+	}
+</script>

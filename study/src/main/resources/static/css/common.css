@@ -1,0 +1,22 @@
+.flex-center{
+	display:flex;
+	justify-content: center;
+}
+div.infoBox{
+	clear:left;
+	white-space:normal;
+	word-break:break-all;
+}
+
+div.infoBox td{
+	width:200px;
+	white-space:normal;
+	border:1px #808080 solid;
+}
+
+div.infoBox th{
+	width:120px;
+	text-align:left;
+	border:1px #808080 solid;
+	background-color:#87CEFA;
+}
