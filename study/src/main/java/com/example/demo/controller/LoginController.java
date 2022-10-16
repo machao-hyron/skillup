@@ -37,16 +37,13 @@ public class LoginController {
 		LoginDto dto = new LoginDto();
 		dto.setId(request.getParameter("id"));
 		dto.setPwd(request.getParameter("pwd"));
-		log.info(dto.toString());
 		//用户名密码检查
-
 		if ( StringUtils.isEmpty(dto.getId()) || StringUtils.isEmpty(dto.getPwd())){
 			model.addAttribute("errormsg","用户名或密码不能为空");
 			return "login";
 		}
 		Result r = loginService.loginSelectOne(dto);
 
-		log.info(r.toString());
 		//service  返回值error
 		if (r.getCode().equals(500)){
 			model.addAttribute("errormsg",r.getMessage());
@@ -57,7 +54,7 @@ public class LoginController {
 		//密码校验
 		if (userInfo.getPwd().equals(dto.getPwd())){
 			session.setAttribute(StringConstant.SESSION_USERINFO,userInfo);
-			return "redirect:list-init";
+			return "forward:/toindex";
 		}else {
 			model.addAttribute("errormsg","密码不正确");
 			return "login";

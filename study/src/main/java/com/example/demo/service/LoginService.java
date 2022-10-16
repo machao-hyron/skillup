@@ -1,7 +1,6 @@
 package com.example.demo.service;
 
 import com.example.demo.dto.LoginDto;
-import com.example.demo.entity.TUserInfo;
 import com.example.demo.util.Result;
 
 public interface LoginService {
