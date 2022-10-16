@@ -8,11 +8,21 @@
     <title>登录信息一览画面</title>
 </head>
 <body>
-    <tr th:each="tUserInfo,eee:${tUserInfo}">
-        <td th:text="${tUserInfo.userName}"></td>
-    </tr>
-    <p>
-        hello world!
-    <p/>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>姓名</th>
+            <th>年龄</th>
+            <th>性别</th>
+            <th>密码</th>
+        </tr>
+        <tr th:each="tUserInfo,eee:${tUserInfo}">
+            <td th:text="${tUserInfo.userId}"></td>
+            <td th:text="${tUserInfo.userName}"></td>
+            <td th:text="${tUserInfo.age}"></td>
+            <td th:text="${tUserInfo.sex}"></td>
+            <td th:text="${tUserInfo.pwd}"></td>
+        </tr>
+    </table>
 </body>
 </html>

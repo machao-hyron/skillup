@@ -1,11 +1,12 @@
 package com.example.demo.service;
 
-import com.example.demo.dto.InitDto;
+import com.example.demo.entity.TUserInfo;
+
+import java.util.List;
 
 public interface InitService {
     /**
      * 员工信息查询
-     * @return 员工信息
      */
-    String init();
+    List<TUserInfo> init();
 }
