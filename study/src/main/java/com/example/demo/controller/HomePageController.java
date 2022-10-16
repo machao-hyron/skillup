@@ -3,7 +3,6 @@ package com.example.demo.controller;
 import java.util.ArrayList;
 import java.util.List;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,7 +19,10 @@ public class HomePageController {
 	@GetMapping(value = "homePage")
 	public String showUserInfo(final Model model) {
 		List<TUserInfo> userInfoList = new ArrayList<TUserInfo>();
+		//ユーザ情報取得 
 		userInfoList = homePageService.getUSerInfo();
+		//そのまま画面への出力
+		model.addAttribute("userInfoList", userInfoList);
 		// 文字列形式変換後,画面への出力
 		StringBuilder allUserInfo = new StringBuilder();
 		String resultString = "";
@@ -29,7 +31,7 @@ public class HomePageController {
 			allUserInfo.append(" ");
 		}
 		resultString = allUserInfo.toString();
-		model.addAttribute("userInfoList", resultString);
+		model.addAttribute("resultString", resultString);
 		return "homePage";
 	}
 

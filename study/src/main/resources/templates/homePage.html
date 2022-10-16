@@ -10,10 +10,12 @@
 </head>
 
 <body class="flex-center">
-<input type='text' id='userInfoList' hidden th:value='${userInfoList}'>
-<div >
-<p th:text="${userInfoList}"></p>
-
+<div>
+<h3><strong>文字列形式で表示</strong></h3><hr/>
+<p th:text="${resultString}"></p></br>
+<h3><strong>List形式で表示</strong></h3><hr/>
+<p th:text="${userInfoList}"></p></br>
+<h3><strong>Table形式で表示</strong></h3><hr/></br>
 <form method="post" action="/homePage">
 <table border="1">
 <caption>個人情報</caption>
@@ -26,27 +28,39 @@
     <th>create_datetime</th>
     <th>upadte_datetime</th>
     <th>pwd</th>
+    <th colspan=2>変更</th>
     </tr>
-    <tr>
-    <td>${userInfoList}</td>
-    <td>${userInfoList}</td>
-    <td>${userInfoList}</td>
-    <td>${userInfoList}</td>
-    <td>${userInfoList}</td>
-    <td>${userInfoList}</td>
-    <td>${userInfoList}</td>
-    <td>${userInfoList}</td>
+    <tr th:each="item:${userInfoList}">
+    <td th:text="${item.userId}"></td>
+    <td th:text="${item.userName}"></td>
+    <td th:text="${item.age}"></td>
+    <td th:text="${item.sex}"></td>
+    <td th:text="${item.memo}"></td>
+    <td th:text="${item.createDatetime}"></td>
+    <td th:text="${item.upadteDatetime}"></td>
+    <td th:text="${item.pwd}"></td>
+    <td><button onclick="fun1()" type="button">修正</button></td>
+    <td><button onclick="fun2()" type="button">削除</button></td>
+    
     </tr>
 </table>
 </form>
 </div>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.1.min.js"></script>	
 	<script th:inline='javascript'>
+	var resultString=document.getElementById('resultString');
+	console.log(resultString);
 	var userInfoList=document.getElementById('userInfoList');
 	console.log(userInfoList);
-	
 	</script>
-	
+	<script>
+	function fun1(){
+	alert('すみません、一旦修正できませんよ！');	
+	}
+	function fun2(){
+	alert('すみません、一旦削除できませんよ！');	
+	}
+	</script>
 </body>
 
 </html>
