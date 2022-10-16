@@ -1,0 +1,92 @@
+<!DOCTYPE>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>江苏海隆软件技术有限公司</title>
+    <link th:href="@{/assets/css/bootstrap.min.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/index.css}" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+<div class="wrapp">
+    <div class="tx">
+        <div class="tx_lan"></div>
+    </div>
+    <div style="min-height: 843px;" class="bai">
+        <div class="top">
+		<span class="logo float_l">
+			<img th:src="@{/assets/images/ind_03.png}">
+		</span>
+            <span th:text="${'欢迎你:' + indexFormModel.username}" class="yx float_r">欢迎您，张xx</span>
+        </div>
+        <!--nav-->
+
+        <!--main  开始-->
+        <div class="tzz">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">用户ID</th>
+                    <th scope="col">年龄</th>
+                    <th scope="col">性别</th>
+                    <th scope="col">性别</th>
+                    <th scope="col">备忘录</th>
+					<th scope="col">创建时间</th>
+					<th scope="col">更新时间</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="userinfo,stat : ${indexFormModel.userInfos}">
+                    <th scope="row" th:text="${stat.index + 1}">#</th>
+                    <td th:text="${userinfo.userId}"></td>
+                    <td th:text="${userinfo.userName}"></td>
+                    <td th:text="${userinfo.age}"></td>
+                    <td th:text="${userinfo.sex}"></td>
+                    <th:block th:switch="${userinfo.memo}">
+                        <td th:case="null" th:text="无"></td>
+                        <td th:case="*" th:text="${userinfo.memo}"></td>
+                    </th:block>
+                    <th:block th:switch="${userinfo.createDatetime}">
+                        <td th:case="null" th:text="无"></td>
+                        <td th:case="*" th:text="${userinfo.createDatetime}"></td>
+                    </th:block>
+                    <th:block th:switch="${userinfo.upadteDatetime}">
+                        <td th:case="null" th:text="无"></td>
+                        <td th:case="*" th:text="${userinfo.upadteDatetime}"></td>
+                    </th:block>
+                    <!--
+                    <td th:text="${userinfo.createDatetime}"></td>
+                    <td th:text="${userinfo.upadteDatetime}"></td>-->
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <!--main  结束-->
+    </div>
+    <!--foot-->
+    <div class="foot">
+        <span class="ft1 float_l">2010-2016(C) 2016 江苏海隆软件技术有限公司</span>
+        <span class="ft2 float_l"><a href="http://www.hyron.com/about_to_js.asp">关于江苏海隆</a> &nbsp;|&nbsp;
+
+            <!--<a href="other.asp?id=930">法律声明 </a>  &nbsp;|&nbsp; -->
+  		<a href="javascript:;">法律声明 </a>  &nbsp;|&nbsp;
+
+            <!--<a href="other.asp?id=931">使用条款  </a>  &nbsp;|&nbsp; -->
+  		<a href="javascript:;">使用条款  </a>  &nbsp;|&nbsp;
+
+            <!--<a href="other.asp?id=932">隐私保护  </a>  &nbsp;|&nbsp; -->
+  		<a href="javascript:;">隐私保护  </a>  &nbsp;|&nbsp;
+
+
+  		　<a href="https://beian.miit.gov.cn/" target="_blank">苏ICP备10221839号-3</a>　海隆软件是中国著名的软件企业</span>
+        <span class="ft3 float_r"><img th:src="@{/assets/images/ind_40.png}"></span>
+    </div>
+
+
+</div>
+
+
+</body>
+</html>
