@@ -19,5 +19,17 @@ public class LoginDto implements Serializable{
 	
 	/** PWD */
 	private String pwd;
+
+	public CharSequence getId() {
+		
+		
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public CharSequence getPwd() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }
