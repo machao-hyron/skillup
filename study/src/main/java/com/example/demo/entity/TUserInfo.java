@@ -267,4 +267,12 @@ public class TUserInfo {
     public void setPwd(String pwd) {
         this.pwd = pwd;
     }
+
+	@Override
+	public String toString() {
+		return "TUserInfo [userId=" + userId + ", userName=" + userName + ", age=" + age + ", sex=" + sex + ", memo="
+				+ memo + ", createDatetime=" + createDatetime + ", upadteDatetime=" + upadteDatetime + ", pwd=" + pwd
+				+ "]";
+	}
+    
 }

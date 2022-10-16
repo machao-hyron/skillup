@@ -10,34 +10,43 @@
 </head>
 
 <body class="flex-center">
-	<form method="post" action="/homePage">
-		<div style="color:rgb(0, 255, 64)" th:text="${errorMsg}" />
+<input type='text' id='userInfoList' hidden th:value='${userInfoList}'>
+<div >
+<p th:text="${userInfoList}"></p>
 
-		<table class="flex-center login-border">
-			<tr>
-				<td>名前：</td>
-				<td><input type="text" name="name" /></td>
-			</tr>
-			<tr>
-				<td>生年月日：</td>
-				<td><input type="text" name="birthNum" /></td>
-			</tr>
-			<tr>
-				<td>電話番号：</td>
-				<td><input type="text" name="telNum" /></td>
-			</tr>
-			<tr>
-				<td colspan="3" align="center"><input type="submit" value="次へ"></input></td>
-			</tr>
-		</table>
-
-	</form>
-	<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-	<script>
-		$(function () {
-			//alert("123");
-		});
+<form method="post" action="/homePage">
+<table border="1">
+<caption>個人情報</caption>
+    <tr>
+    <th>user_id</th>
+    <th>user_name</th>
+    <th>age</th>
+    <th>sex</th>
+    <th>memo</th>
+    <th>create_datetime</th>
+    <th>upadte_datetime</th>
+    <th>pwd</th>
+    </tr>
+    <tr>
+    <td>${userInfoList}</td>
+    <td>${userInfoList}</td>
+    <td>${userInfoList}</td>
+    <td>${userInfoList}</td>
+    <td>${userInfoList}</td>
+    <td>${userInfoList}</td>
+    <td>${userInfoList}</td>
+    <td>${userInfoList}</td>
+    </tr>
+</table>
+</form>
+</div>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.1.min.js"></script>	
+	<script th:inline='javascript'>
+	var userInfoList=document.getElementById('userInfoList');
+	console.log(userInfoList);
+	
 	</script>
+	
 </body>
 
 </html>
