@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="application/json; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" media="screen" href="css/common.css">
+    <title>search</title>
+</head>
+<body>
+<p><a th:href="@{/modify}">新增用户</a></p>
+<table border="1" width="100%">
+    <tr style="background: grey;height: 60px">
+        <th>用户名称</th>
+        <th>年龄</th>
+        <th>性别</th>
+        <th>密码</th>
+        <th>操作</th>
+    </tr>
+    <tr th:each="user:${userList}" style="border: 1px solid black;height: 60px">
+        <td th:text="${user.userName}"></td>
+        <td th:text="${user.age}"></td>
+        <td th:text="${user.sex}"></td>
+        <td th:text="${user.pwd}"></td>
+        <td>
+            <a th:href="@{/modify?userId=}+${user.userId}">修改</a></br>
+            <a href="javascript:void(0)" th:href="@{/delete?userId=}+${user.userId}">删除</a>
+        </td>
+        
+    </tr>
+</table>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>修改</title>
+</head>
+<body>
+<form action="/update" method="post" id="form1">
+
+    <input th:value="${modify.userId}" type="text" name="userId" id="userId" hidden/>
+    <table width="50%">
+        <tr>
+            <td colspan="2"><h3 style="text-align: center">修改用户信息</h3>
+            </td>
+
+        </tr>
+        <tr>
+            <td width="30%">用户名称：</td>
+            <td width="70%"><input th:value="${modify.userName}" type="text" name="userName"
+                                   id="userName"/></td>
+        </tr>
+        <tr>
+            <td width="30%">年龄：</td>
+            <td width="70%"><input th:value="${modify.age}" type="text" name="age"
+                                   id="age"/>
+            </td>
+        </tr>
+        <tr>
+            <td width="30%">性别：</td>
+            <td width="70%">
+                <input  th:checked="${modify.sex} eq '男'? 'true':'false'" type="radio" name="sex" id="sex" value="男"/>男
+                <input th:checked="${modify.sex} eq '女'? 'true':'false'" type="radio" name="sex" id="sex1" value="女"/>女
+            </td>
+        </tr>
+        <tr>
+            <td width="30%">密码：</td>
+            <td width="70%"><input th:value="${modify.pwd}" type="password" name="pwd"
+                                   id="pwd"/></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" id="btn2" value="保存"/>
+                <a th:href="@{/search}"><input type="button" value="返回" id="btn1"/></a>
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
