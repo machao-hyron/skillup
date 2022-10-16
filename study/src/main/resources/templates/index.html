@@ -1,12 +1,10 @@
 <!DOCTYPE>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
-
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>江苏海隆软件技术有限公司</title>
     <link th:href="@{/assets/css/bootstrap.min.css}" rel="stylesheet" type="text/css"/>
     <link th:href="@{/css/index.css}" rel="stylesheet" type="text/css">
-
 </head>
 <body>
 <div class="wrapp">
@@ -56,9 +54,6 @@
                         <td th:case="null" th:text="无"></td>
                         <td th:case="*" th:text="${userinfo.upadteDatetime}"></td>
                     </th:block>
-                    <!--
-                    <td th:text="${userinfo.createDatetime}"></td>
-                    <td th:text="${userinfo.upadteDatetime}"></td>-->
                 </tr>
                 </tbody>
             </table>
