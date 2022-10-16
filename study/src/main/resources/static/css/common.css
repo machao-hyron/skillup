@@ -1,4 +1,25 @@
+body {
+	font-family: "Microsoft YaHei", sans-serif;
+	color: #4d5259;
+	line-height: 1.72;
+	font-size: 14px;
+	overflow-x: hidden;
+	background-color: #F4F5FA;
+}
+html,
+body {
+	height: 100%;
+}
 .flex-center{
 	display:flex;
 	justify-content: center;
+}
+.center-vh {
+	display: -webkit-box;
+	display: flex;
+	-webkit-box-pack: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	align-items: center;
+	height: 100%;
 }
