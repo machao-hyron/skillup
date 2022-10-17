@@ -7,8 +7,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.demo.entity.TUserInfo;
-import com.example.demo.entity.TUserInfoExample;
-import com.example.demo.mapper.TUserInfoMapper;
 import com.example.demo.service.TuserInfoService;
 
 @Controller
