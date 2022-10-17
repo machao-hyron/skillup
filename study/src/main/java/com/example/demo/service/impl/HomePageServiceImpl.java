@@ -22,7 +22,7 @@ public class HomePageServiceImpl implements HomePageService {
 	public List<TUserInfo> getUSerInfo() {
 		TUserInfoExample example = new TUserInfoExample();
 		example.createCriteria();
-		// データベースのヨーザー情報取得
+		// データベースのユーザーザ情報取得
 		List<TUserInfo> userInfoList = userInfoMapper.selectByExample(example);
 		if (!CollectionUtils.isEmpty(userInfoList)) {
 			return userInfoList;
