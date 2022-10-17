@@ -14,7 +14,7 @@ public class LogBackAspect {
 
     @Pointcut("@annotation(com.example.demo.commen.LogBack)")
     public void myPointCut(){
-        //签名
+        //抽取出切入点，给增强通知使用
     }
 
     @Around("myPointCut()")
