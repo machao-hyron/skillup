@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="application/json; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" media="screen" href="css/common.css">
+    <link rel="stylesheet" media="screen" href="css/login.css">
+    <title>登录</title>
+</head>
+<body>
+<table border="1" style="text-align: center" width="1000">
+    <tr>
+        <th>ID</th>
+        <th>姓名</th>
+        <th>年龄</th>
+        <th>性别</th>
+        <th>密码</th>
+    </tr>
+    <tr th:each="tUserInfo,eee:${tUserInfo}">
+        <td th:text="${tUserInfo.userId}"></td>
+        <td th:text="${tUserInfo.userName}"></td>
+        <td th:text="${tUserInfo.age}"></td>
+        <td th:text="${tUserInfo.sex}"></td>
+        <td th:text="${tUserInfo.pwd}"></td>
+    </tr>
+</table>
+</body>
+</html>
