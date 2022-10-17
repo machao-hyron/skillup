@@ -9,24 +9,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.example.demo.entity.TUserInfo;
 import com.example.demo.entity.TUserInfoExample;
 import com.example.demo.mapper.TUserInfoMapper;
+import com.example.demo.service.TuserInfoService;
 
 @Controller
 public class SearchController {
 	
 	@Autowired
-	private TUserInfoMapper tUserInfoMapper;
+	private TuserInfoService tuserInfoService;
 	
 	@RequestMapping("/search")
 	public String search(Model model){
-		TUserInfoExample example = new TUserInfoExample();
-		List<TUserInfo> userList = tUserInfoMapper.selectByExample(example);
-		model.addAttribute("userList",userList);
+		List<TUserInfo> selectByExample = tuserInfoService.findAll();
+		model.addAttribute("userList",selectByExample);
 		return "user";
 	}
 
 	@RequestMapping("/modify")
 	public String modify(Integer userId,Model model){
-		TUserInfo tUserInfo = tUserInfoMapper.selectByPrimaryKey(userId);
+		TUserInfo tUserInfo = tuserInfoService.selectByPrimaryKey(userId);
 		model.addAttribute("modify",tUserInfo==null ?new TUserInfo() :tUserInfo);
 		return "modify";
 	}
@@ -34,16 +34,16 @@ public class SearchController {
 	@RequestMapping("/update")
 	public String update(TUserInfo tUserInfo){
 		if(tUserInfo.getUserId() == null){
-			tUserInfoMapper.insert(tUserInfo);
+			tuserInfoService.insert(tUserInfo);
 		}else{
-			tUserInfoMapper.updateByPrimaryKeySelective(tUserInfo);
+			tuserInfoService.updateByPrimaryKeySelective(tUserInfo);
 		}
 		return "redirect:search";
 	}
 
 	@RequestMapping("/delete")
 	public String delete(Integer userId){
-		tUserInfoMapper.deleteByPrimaryKey(userId);
+		tuserInfoService.deleteByPrimaryKey(userId);
 		return "redirect:search";
 	}
 }
