@@ -24,9 +24,9 @@ public class LoginController {
 	@PostMapping(value = "login")
 	public String loginbtn(LoginDto dto, final Model model) {
 
-		if (true/*StringUtils.isNotEmpty(dto.getId()) && StringUtils.isNotBlank(dto.getPwd())*/) {
+		if (StringUtils.isNotEmpty(dto.getId()) && StringUtils.isNotBlank(dto.getPwd())) {
 			// ログインアカウントが認証正しい場合、次画面へ遷移
-			if (true/*loginService.loginAcntCheck(dto)*/) {
+			if (loginService.loginAcntCheck(dto)) {
 				// TODO 検索一覧画面へ遷移する
 				return "redirect:userdata";
 			}

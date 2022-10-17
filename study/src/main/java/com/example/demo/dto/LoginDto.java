@@ -2,12 +2,38 @@ package com.example.demo.dto;
 
 import java.io.Serializable;
 
+import org.springframework.ui.Model;
+
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
+
 public class LoginDto implements Serializable{
+
+	/**
+	 * 
+	 */
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getPwd() {
+		return pwd;
+	}
+
+	public void setPwd(String pwd) {
+		this.pwd = pwd;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 
 	/**
 	 * 
@@ -19,17 +45,5 @@ public class LoginDto implements Serializable{
 	
 	/** PWD */
 	private String pwd;
-
-	public CharSequence getId() {
-		
-		
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public CharSequence getPwd() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 	
 }
