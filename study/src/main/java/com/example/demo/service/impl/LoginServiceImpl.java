@@ -14,7 +14,10 @@ import com.example.demo.service.LoginService;
 
 @Service
 public class LoginServiceImpl implements LoginService {
-	
+
+	/**
+	 *
+	 */
 	@Autowired
 	private TUserInfoMapper userInfoMapper;
 

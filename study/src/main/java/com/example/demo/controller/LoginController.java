@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.demo.dto.LoginDto;
 import com.example.demo.service.LoginService;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class LoginController {
@@ -24,6 +25,7 @@ public class LoginController {
 
 	@PostMapping(value = "login")
 	public String loginbtn(LoginDto dto, final Model model) {
+
 
 		if (StringUtils.isNotEmpty(dto.getId()) && StringUtils.isNotBlank(dto.getPwd())) {
 			// ログインアカウントが認証正しい場合、次画面へ遷移
