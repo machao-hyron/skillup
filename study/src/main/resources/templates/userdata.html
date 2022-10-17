@@ -8,26 +8,31 @@
 </head>
 
 <body class="flex-center">
-
-		<table align="center">
-			<tr>
-	            <th>ID</th>
-	            <th>姓名</th>
-	            <th>年龄</th>
-	            <th>性别</th>
-	            <th>密码</th>
+		<div higeth:30% ></div>
+		<div>
+			<table border="1" align="center"　>
+				<tr>
+		            <th>ID</th>
+		            <th>姓名</th>
+		            <th>年龄</th>
+		            <th>性别</th>
+		            <th>密码</th>
+		            <th>1</th>
+		            <th>2</th>
 				</tr>
-			<tr>
-		    <tr th:each="tUserInfo,eee:${tUserInfo}">
-	            <td th:text="${tUserInfo.userId}"></td>
-	            <td th:text="${tUserInfo.userName}"></td>
-	            <td th:text="${tUserInfo.age}"></td>
-	            <td th:text="${tUserInfo.sex}"></td>
-	            <td th:text="${tUserInfo.pwd}"></td>
-			</tr>
-			
-		</table>
-
+				
+			    <tr th:each="tUserInfo,eee:${tUserInfo}">
+		            <td th:text="${tUserInfo.userId}"></td>
+		            <td th:text="${tUserInfo.userName}"></td>
+		            <td th:text="${tUserInfo.age}"></td>
+		            <td th:text="${tUserInfo.sex}"></td>
+		            <td th:text="${tUserInfo.pwd}"></td>
+		            <td><input name="search" type="button" value="修正"></td>
+		            <td><input name="edit" type="button" value="删除"></td> 
+				</tr>
+				
+			</table>
+		</div>
 
 </body>
 
