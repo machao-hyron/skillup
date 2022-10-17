@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta http-equiv="Content-Type" content="application/json; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" media="screen" href="css/common.css">
+    <link rel="stylesheet" media="screen" href="css/login.css">
+    <title>全部人员信息</title>
+</head>
+
+
+
+<body class="flex-center">
+<!--    <button onclick="query()">查询</button>-->
+    <table>
+        <tr>
+            <th>账号</th>
+            <th>名字</th>
+            <th>密码</th>
+        </tr>
+        <tr th:each="userInfo:${tUserInfo}">
+            <td th:text="${userInfo.userId}"></td>
+            <td th:text="${userInfo.userName}"></td>
+            <td th:text="${userInfo.pwd}"></td>
+        </tr>
+    </table>
+</body>
+<!--<script>-->
+<!--    function query(){-->
+<!--        $.ajax({-->
+<!--            url:'/main',-->
+<!--            type:'get',-->
+<!--            success:function (res) {-->
+<!--                alert(res.action)-->
+<!--            }-->
+<!--        })-->
+<!--    }-->
+<!--</script>-->
+</html>
