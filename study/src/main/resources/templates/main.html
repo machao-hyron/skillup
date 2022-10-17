@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" media="screen" href="css/common.css">
+<link rel="stylesheet" media="screen" href="css/login.css">
+<head>
+    <meta charset="UTF-8">
+    <title>Main</title>
+</head>
+<body>
+<table class="flex-center login-border">
+    <table class="flex-center login-border" th:each="item:${DTO}">
+        <tr>
+            <td>ID：</td>
+            <td><p th:text="${item.id}"></p></td>
+        </tr>
+        <tr>
+            <td>名前 ：</td>
+            <td><p th:text="${item.name}"></p></td>
+        </tr>
+        <tr>
+            <td>年齢 ：</td>
+            <td><p th:text="${item.age}"></p></td>
+        </tr>
+        <tr>
+            <td>性別 ：</td>
+            <td><p th:text="${item.sex}"></p></td>
+        </tr>
+    </table>
+    <!--<tr>-->
+        <!--<td colspan="2" align="center"><input type="submit" value="Submit"></input></td>-->
+    <!--</tr>-->
+</table>
+</body>
+</html>
