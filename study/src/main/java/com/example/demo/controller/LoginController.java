@@ -30,10 +30,8 @@ public class LoginController {
 				// TODO 検索一覧画面へ遷移する
 				return "redirect:search";
 			}
-		}else {
-			return "login";
-			
 		}
+		
 		model.addAttribute("errorMsg", "正しいアカウントを入力してください。(ID:1  PWD:123456)");
 		// アカウントが間違う場合、エラーメッセージ表示する
 		return "login";
