@@ -54,4 +54,11 @@ public class ListInitServiceImpl implements ListInitService {
        int i = userInfoMapper.insert(tUserInfo);
         return i==1;
     }
+
+    @Override
+    public boolean deleteUser(int id) {
+        // TODO Auto-generated method stub
+        int i =userInfoMapper.deleteByPrimaryKey(id);//根据id删除用户
+        return i == 1;
+    }
 }

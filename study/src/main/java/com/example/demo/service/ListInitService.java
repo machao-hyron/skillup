@@ -25,4 +25,6 @@ public interface ListInitService {
 	 * @return true->Insert OK；fals-> Insert fail;
 	 */
     boolean insertUser(UserDto dto);
+
+	boolean deleteUser(int id);
 }
