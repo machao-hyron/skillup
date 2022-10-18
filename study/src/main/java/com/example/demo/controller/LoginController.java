@@ -1,6 +1,9 @@
 package com.example.demo.controller;
 
 import org.apache.commons.lang3.StringUtils;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +16,8 @@ import com.example.demo.service.LoginService;
 @Controller
 public class LoginController {
 
+	Logger logger = LoggerFactory.getLogger(this.getClass());
+
 	@Autowired
 	private LoginService loginService;
 
@@ -23,6 +28,8 @@ public class LoginController {
 
 	@PostMapping(value = "login")
 	public String loginbtn(LoginDto dto, final Model model) {
+
+		logger.info("LoginController.loginbtn开始");
 
 		if (StringUtils.isNotEmpty(dto.getId()) && StringUtils.isNotBlank(dto.getPwd())) {
 			// ログインアカウントが認証正しい場合、次画面へ遷移

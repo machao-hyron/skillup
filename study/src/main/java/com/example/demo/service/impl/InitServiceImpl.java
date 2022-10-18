@@ -5,7 +5,8 @@ import com.example.demo.entity.TUserInfoExample;
 import com.example.demo.mapper.TUserInfoMapper;
 import com.example.demo.service.InitService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -15,14 +16,19 @@ import java.util.List;
 @Service
 public class InitServiceImpl implements InitService {
 
+    Logger logger = LoggerFactory.getLogger(this.getClass());
+
     @Resource
     private TUserInfoMapper userInfoMapper;
 
     @Override
     public List<TUserInfo> init() {
+
+        logger.info("InitService.init开始");
+
         TUserInfoExample example = new TUserInfoExample();
         List<TUserInfo> tUserInfo = userInfoMapper.selectByExample(example);
-        log.info("userinfoSize:" + tUserInfo.size());
+        logger.info("userinfoSize:" + tUserInfo.size());
         return tUserInfo;
     }
 }

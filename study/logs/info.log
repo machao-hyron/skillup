@@ -1,0 +1,78 @@
+2022-10-18 21:34:14.101 [main] INFO  com.example.demo.StudyApplication -Starting StudyApplication using Java 1.8.0_211 on DESKTOP-0KALMA1 with PID 9076 (E:\hyron\Lihongwei\study\target\classes started by Mr.li in E:\hyron\Lihongwei\study)
+2022-10-18 21:34:14.101 [main] INFO  com.example.demo.StudyApplication -The following 1 profile is active: "dev"
+2022-10-18 21:34:15.554 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer -Tomcat initialized with port(s): 8080 (http)
+2022-10-18 21:34:15.554 [main] INFO  org.apache.catalina.core.AprLifecycleListener -An older version [1.2.23] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.30]
+2022-10-18 21:34:15.554 [main] INFO  org.apache.catalina.core.AprLifecycleListener -Loaded Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
+2022-10-18 21:34:15.554 [main] INFO  org.apache.catalina.core.AprLifecycleListener -APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [false].
+2022-10-18 21:34:15.554 [main] INFO  org.apache.catalina.core.AprLifecycleListener -APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-10-18 21:34:15.554 [main] INFO  org.apache.catalina.core.AprLifecycleListener -OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
+2022-10-18 21:34:15.569 [main] INFO  org.apache.coyote.http11.Http11NioProtocol -Initializing ProtocolHandler ["http-nio-8080"]
+2022-10-18 21:34:15.569 [main] INFO  org.apache.catalina.core.StandardService -Starting service [Tomcat]
+2022-10-18 21:34:15.569 [main] INFO  org.apache.catalina.core.StandardEngine -Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-10-18 21:34:15.716 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] -Initializing Spring embedded WebApplicationContext
+2022-10-18 21:34:15.716 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext -Root WebApplicationContext: initialization completed in 1546 ms
+2022-10-18 21:34:16.440 [main] INFO  org.apache.coyote.http11.Http11NioProtocol -Starting ProtocolHandler ["http-nio-8080"]
+2022-10-18 21:34:16.456 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer -Tomcat started on port(s): 8080 (http) with context path ''
+2022-10-18 21:34:16.471 [main] INFO  com.example.demo.StudyApplication -Started StudyApplication in 3.159 seconds (JVM running for 4.683)
+2022-10-18 21:34:26.666 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] -Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-10-18 21:34:26.667 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet -Initializing Servlet 'dispatcherServlet'
+2022-10-18 21:34:26.668 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet -Completed initialization in 1 ms
+2022-10-18 21:34:33.452 [http-nio-8080-exec-2] INFO  com.example.demo.controller.LoginController -LoginController.loginbtn开始
+2022-10-18 21:34:33.463 [http-nio-8080-exec-2] INFO  com.example.demo.service.impl.LoginServiceImpl -LoginService.loginAcntCheck开始
+2022-10-18 21:34:33.517 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource -HikariPool-1 - Starting...
+2022-10-18 21:34:34.308 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource -HikariPool-1 - Start completed.
+2022-10-18 21:34:34.392 [http-nio-8080-exec-3] INFO  com.example.demo.controller.InitController -InitController.init开始
+2022-10-18 21:34:34.392 [http-nio-8080-exec-3] INFO  com.example.demo.service.impl.InitServiceImpl -InitService.init开始
+2022-10-18 21:34:34.400 [http-nio-8080-exec-3] INFO  com.example.demo.service.impl.InitServiceImpl -userinfoSize:3
+2022-10-18 21:41:49.171 [main] INFO  com.example.demo.StudyApplication -Starting StudyApplication using Java 1.8.0_211 on DESKTOP-0KALMA1 with PID 16940 (E:\hyron\Lihongwei\study\target\classes started by Mr.li in E:\hyron\Lihongwei\study)
+2022-10-18 21:41:49.171 [main] INFO  com.example.demo.StudyApplication -The following 1 profile is active: "dev"
+2022-10-18 21:41:50.716 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer -Tomcat initialized with port(s): 8080 (http)
+2022-10-18 21:41:50.716 [main] INFO  org.apache.catalina.core.AprLifecycleListener -An older version [1.2.23] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.30]
+2022-10-18 21:41:50.716 [main] INFO  org.apache.catalina.core.AprLifecycleListener -Loaded Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
+2022-10-18 21:41:50.716 [main] INFO  org.apache.catalina.core.AprLifecycleListener -APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [false].
+2022-10-18 21:41:50.716 [main] INFO  org.apache.catalina.core.AprLifecycleListener -APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-10-18 21:41:50.716 [main] INFO  org.apache.catalina.core.AprLifecycleListener -OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
+2022-10-18 21:41:50.731 [main] INFO  org.apache.coyote.http11.Http11NioProtocol -Initializing ProtocolHandler ["http-nio-8080"]
+2022-10-18 21:41:50.731 [main] INFO  org.apache.catalina.core.StandardService -Starting service [Tomcat]
+2022-10-18 21:41:50.731 [main] INFO  org.apache.catalina.core.StandardEngine -Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-10-18 21:41:50.863 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] -Initializing Spring embedded WebApplicationContext
+2022-10-18 21:41:50.863 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext -Root WebApplicationContext: initialization completed in 1528 ms
+2022-10-18 21:41:51.609 [main] INFO  org.apache.coyote.http11.Http11NioProtocol -Starting ProtocolHandler ["http-nio-8080"]
+2022-10-18 21:41:51.641 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer -Tomcat started on port(s): 8080 (http) with context path ''
+2022-10-18 21:41:51.641 [main] INFO  com.example.demo.StudyApplication -Started StudyApplication in 3.303 seconds (JVM running for 4.815)
+2022-10-18 21:41:51.771 [http-nio-8080-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] -Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-10-18 21:41:51.771 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet -Initializing Servlet 'dispatcherServlet'
+2022-10-18 21:41:51.771 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet -Completed initialization in 0 ms
+2022-10-18 21:42:02.959 [http-nio-8080-exec-2] INFO  com.example.demo.controller.LoginController -LoginController.loginbtn开始
+2022-10-18 21:42:02.965 [http-nio-8080-exec-2] INFO  com.example.demo.service.impl.LoginServiceImpl -LoginService.loginAcntCheck开始
+2022-10-18 21:42:03.019 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource -HikariPool-1 - Starting...
+2022-10-18 21:42:03.827 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource -HikariPool-1 - Start completed.
+2022-10-18 21:42:03.902 [http-nio-8080-exec-3] INFO  com.example.demo.controller.InitController -InitController.init开始
+2022-10-18 21:42:03.902 [http-nio-8080-exec-3] INFO  com.example.demo.service.impl.InitServiceImpl -InitService.init开始
+2022-10-18 21:42:03.908 [http-nio-8080-exec-3] INFO  com.example.demo.service.impl.InitServiceImpl -userinfoSize:3
+2022-10-18 21:44:01.617 [main] INFO  com.example.demo.StudyApplication -Starting StudyApplication using Java 1.8.0_211 on DESKTOP-0KALMA1 with PID 1872 (E:\hyron\Lihongwei\study\target\classes started by Mr.li in E:\hyron\Lihongwei\study)
+2022-10-18 21:44:01.617 [main] INFO  com.example.demo.StudyApplication -The following 1 profile is active: "dev"
+2022-10-18 21:44:02.935 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer -Tomcat initialized with port(s): 8080 (http)
+2022-10-18 21:44:02.935 [main] INFO  org.apache.catalina.core.AprLifecycleListener -An older version [1.2.23] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.30]
+2022-10-18 21:44:02.935 [main] INFO  org.apache.catalina.core.AprLifecycleListener -Loaded Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
+2022-10-18 21:44:02.935 [main] INFO  org.apache.catalina.core.AprLifecycleListener -APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [false].
+2022-10-18 21:44:02.935 [main] INFO  org.apache.catalina.core.AprLifecycleListener -APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-10-18 21:44:02.951 [main] INFO  org.apache.catalina.core.AprLifecycleListener -OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
+2022-10-18 21:44:02.951 [main] INFO  org.apache.coyote.http11.Http11NioProtocol -Initializing ProtocolHandler ["http-nio-8080"]
+2022-10-18 21:44:02.951 [main] INFO  org.apache.catalina.core.StandardService -Starting service [Tomcat]
+2022-10-18 21:44:02.951 [main] INFO  org.apache.catalina.core.StandardEngine -Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-10-18 21:44:03.105 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] -Initializing Spring embedded WebApplicationContext
+2022-10-18 21:44:03.105 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext -Root WebApplicationContext: initialization completed in 1419 ms
+2022-10-18 21:44:03.822 [main] INFO  org.apache.coyote.http11.Http11NioProtocol -Starting ProtocolHandler ["http-nio-8080"]
+2022-10-18 21:44:03.838 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer -Tomcat started on port(s): 8080 (http) with context path ''
+2022-10-18 21:44:03.853 [main] INFO  com.example.demo.StudyApplication -Started StudyApplication in 3.04 seconds (JVM running for 4.616)
+2022-10-18 21:44:16.541 [http-nio-8080-exec-2] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] -Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-10-18 21:44:16.542 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet -Initializing Servlet 'dispatcherServlet'
+2022-10-18 21:44:16.544 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet -Completed initialization in 2 ms
+2022-10-18 21:44:22.668 [http-nio-8080-exec-3] INFO  com.example.demo.controller.LoginController -LoginController.loginbtn开始
+2022-10-18 21:44:22.675 [http-nio-8080-exec-3] INFO  com.example.demo.service.impl.LoginServiceImpl -LoginService.loginAcntCheck开始
+2022-10-18 21:44:22.729 [http-nio-8080-exec-3] INFO  com.zaxxer.hikari.HikariDataSource -HikariPool-1 - Starting...
+2022-10-18 21:44:23.480 [http-nio-8080-exec-3] INFO  com.zaxxer.hikari.HikariDataSource -HikariPool-1 - Start completed.
+2022-10-18 21:44:23.579 [http-nio-8080-exec-1] INFO  com.example.demo.controller.InitController -InitController.init开始
+2022-10-18 21:44:23.579 [http-nio-8080-exec-1] INFO  com.example.demo.service.impl.InitServiceImpl -InitService.init开始
+2022-10-18 21:44:23.585 [http-nio-8080-exec-1] INFO  com.example.demo.service.impl.InitServiceImpl -userinfoSize:3
