@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta http-equiv="Content-Type" content="application/json; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" media="screen" href="css/common.css">
+	<link rel="stylesheet" media="screen" href="css/login.css">
+	<title>homePage</title>
+</head>
+
+<body class="flex-center">
+<div>
+<h3><strong>Table形式で表示</strong></h3><hr/></br>
+<form method="post" action="/homePage">
+<table border="1">
+<caption>個人情報</caption>
+    <tr>
+    <th>user_id</th>
+    <th>user_name</th>
+    <th>age</th>
+    <th>sex</th>
+    <th>memo</th>
+    <th>create_datetime</th>
+    <th>upadte_datetime</th>
+    <th>pwd</th>
+    
+    </tr>
+    <tr th:each="item:${userInfoList}">
+    <td th:text="${item.userId}"></td>
+    <td th:text="${item.userName}"></td>
+    <td th:text="${item.age}"></td>
+    <td th:text="${item.sex}"></td>
+    <td th:text="${item.memo}"></td>
+    <td th:text="${item.createDatetime}"></td>
+    <td th:text="${item.upadteDatetime}"></td>
+    <td th:text="${item.pwd}"></td>
+    
+    
+    </tr>
+</table>
+</form>
+</div>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.1.min.js"></script>	
+	<script th:inline='javascript'>
+	var resultString=document.getElementById('resultString');
+	console.log(resultString);
+	var userInfoList=document.getElementById('userInfoList');
+	console.log(userInfoList);
+	</script>
+	
+</body>
+
+</html>
