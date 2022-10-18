@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta http-equiv="Content-Type" content="application/json; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" media="screen" href="css/common.css">
+	<link rel="stylesheet" media="screen" href="css/list.css">
+	<title>List</title>
+</head>
+
+<body class="flex-center">
+		<div style="color:red" th:text="${errorMsg}"></div>
+		<table class="flex-center list-border">
+			<tr>
+				<td>user_id</td>
+				<td>user_name</td>
+				<td>age</td>
+				<td>sex</td>
+				<td>memo</td>
+				<td>create_datetime</td>
+				<td>update_datetime</td>
+				<td>pwd</td>
+			</tr>
+			<tr th:each="user : ${userInfoList}">
+				<td th:text="${user.userId}">NULL</td>
+				<td th:text="${user.userName}">NULL</td>
+				<td th:text="${user.age}">NULL</td>
+				<td th:text="${user.sex}">NULL</td>
+				<td th:text="${user.memo}">NULL</td>
+				<td th:text="${user.createDatetime}">NULL</td>
+				<td th:text="${user.upadteDatetime}">NULL</td>
+				<td th:text="${user.pwd}">NULL</td>
+			</tr>
+			<tr class="insert_data_row">
+				<form action="/list-init" method="post">
+					<td></td>
+					<td><input type="text" class="input_format user_name" name="userName" placeholder="user_name" /></td>
+					<td><input type="text" class="input_format age" name="age" placeholder="age" /></td>
+					<td><input type="text" class="input_format sex" name="sex" placeholder="sex" /></td>
+					<td><input type="text" class="input_format memo" name="memo" placeholder="memo" /></td>
+					<td></td>
+					<td></td>
+					<td><input type="password" class="input_format pwd" placeholder="pwd" name="pwd" /></td>
+					<td><input type="submit" value="submit"/></td>
+				</form>
+			</tr>
+		</table>
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+	<script>
+		$(function () {
+			//alert("123");
+		});
+	</script>
+</body>
+
+</html>

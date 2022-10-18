@@ -8,10 +8,10 @@
     <context id="MySql" targetRuntime="MyBatis3">
 <!--         <plugin type="org.mybatis.generator.plugins.SerializablePlugin" /> -->
       <jdbcConnection
-              driverClass="com.mysql.jdbc.Driver"
-              connectionURL="jdbc:mysql://127.0.0.1:3306/d311_study"
+              driverClass="com.mysql.cj.jdbc.Driver"
+              connectionURL="jdbc:mysql://192.168.1.7:3306/d311_study"
               userId="root"
-              password="admin" />
+              password="Szw371517577@" />
       <!-- Entity java文件生成 -->
       <javaModelGenerator targetPackage="com.example.demo.entity" targetProject="src/main/java"></javaModelGenerator>
       <!-- Mapper XML文件生成 -->
