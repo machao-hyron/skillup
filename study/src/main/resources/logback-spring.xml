@@ -24,7 +24,7 @@
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!-- 文件名称 -->
             <fileNamePattern>
-                ${log.filePath}/debug/debug.%d{yyyy-MM-dd}.log.gz
+                ${log.filePath}/logs/debug/debug.%d{yyyy-MM-dd}.log.gz
             </fileNamePattern>
             <!-- 文件最大保存历史数量 -->
             <maxHistory>${log.maxHistory}</maxHistory>
@@ -51,7 +51,7 @@
             <!-- 文件名称 -->
             <fileNamePattern>
                 <!-- %d表示按天拆分文件，即每天新生成一个日志文件 -->
-                ${log.filePath}/info/info.%d{yyyy-MM-dd}.log.gz
+                ${log.filePath}/logs/info/info.%d{yyyy-MM-dd}.log.gz
             </fileNamePattern>
             <!-- 文件最大保存历史数量 -->
             <maxHistory>${log.maxHistory}</maxHistory>
@@ -76,7 +76,7 @@
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!-- 文件名称 -->
             <fileNamePattern>
-                ${log.filePath}/error/error.%d{yyyy-MM-dd}.log.gz
+                ${log.filePath}/logs/error/error.%d{yyyy-MM-dd}.log.gz
             </fileNamePattern>
             <!-- 文件最大保存历史数量 -->
             <maxHistory>${log.maxHistory}</maxHistory>

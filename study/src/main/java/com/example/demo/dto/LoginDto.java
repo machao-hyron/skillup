@@ -16,8 +16,8 @@ public class LoginDto implements Serializable{
 
 	/** ID */
 	private String id;
-	
+
 	/** PWD */
 	private String pwd;
-	
+
 }
