@@ -28,7 +28,7 @@ public class LoginController {
 			// ログインアカウントが認証正しい場合、次画面へ遷移
 			if (loginService.loginAcntCheck(dto)) {
 				// TODO 検索一覧画面へ遷移する
-				return "redirect:list-init";
+				return "redirect:init";
 			}
 		}
 		model.addAttribute("errorMsg", "正しいアカウントを入力してください。(ID:1  PWD:123456)");
