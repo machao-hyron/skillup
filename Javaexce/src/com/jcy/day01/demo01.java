@@ -32,6 +32,7 @@ public class demo01 {
         System.out.println("字符串1：" + str03);
         System.out.println("字符串2：" + str04);
         System.out.println("包含关系：" + containJudgment(str03,str04));
+        System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------------------------");
         //作业1.2 end
         //作业1.3 start
         Random random = new Random();
@@ -82,19 +83,13 @@ public class demo01 {
         }
         System.out.println("输入的整数为：" + number);
         String numstr = String.valueOf(number);
-        System.out.println("转化的字符串为：" + numstr);
         int length = numstr.length();
-        System.out.println("整数的长度为：" + length);
         char[] c = numstr.toCharArray();
-        System.out.println("字符串转化的字符数组为：" + Arrays.toString(c));
         int sum = 0;
         for (int i = 0; i < c.length; i++) {
             char c1 = c[i];
-            System.out.println("获取的单字符：" + c1);
             int j = Integer.parseInt(String.valueOf(c1));
-            System.out.println("转化为整数：" + j);
             sum += Math.pow(j,length);
-            System.out.println("获取的和为：" + sum);
         }
         System.out.println("获取的最终和为：" + sum);
         return sum == number;

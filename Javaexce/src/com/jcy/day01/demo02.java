@@ -15,7 +15,6 @@ public class demo02 {
         car02.speedOn(-30);
         Car car03 = new Car();
         car03.speedOn(20);
-
         System.out.println("car01:" + car01.toString());
         System.out.println("car02:" + car02.toString());
         System.out.println("car03:" + car03.toString());
