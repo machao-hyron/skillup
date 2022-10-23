@@ -4,12 +4,12 @@
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 
 <generatorConfiguration>
-    <classPathEntry location="C:\Users\cebin.li\.m2\repository\mysql\mysql-connector-java\5.1.46\mysql-connector-java-5.1.46.jar" />
+    <classPathEntry location="C:\Users\Youth\.m2\repository\mysql\mysql-connector-java\8.0.30\mysql-connector-java-8.0.30.jar" />
     <context id="MySql" targetRuntime="MyBatis3">
 <!--         <plugin type="org.mybatis.generator.plugins.SerializablePlugin" /> -->
       <jdbcConnection
               driverClass="com.mysql.jdbc.Driver"
-              connectionURL="jdbc:mysql://127.0.0.1:3306/d311_study"
+              connectionURL="jdbc:mysql://localhost:3306/d311_study"
               userId="root"
               password="admin" />
       <!-- Entity java文件生成 -->

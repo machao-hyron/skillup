@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta http-equiv="Content-Type" content="application/json; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" media="screen" href="css/common.css">
+	<link rel="stylesheet" media="screen" href="css/List_init.css">
+	<title>Login</title>
+</head>
+
+<body>
+<div>
+    <div style="min-height: 843px;">
+        <div class="top">
+			<span class="logo float_l">
+				<img th:src="@{/img/ind_03.png}">
+			</span>
+        </div>
+        
+        <table bgcolor="#8fbc8f" border="1">
+            <thead>
+                <tr>
+                    <th scope="col"> </th>
+                    <th scope="col">同事姓名</th>
+                    <th scope="col">同事性别</th>
+                    <th scope="col">年龄</th>
+                    <th scope="col">爱好</th>
+                </tr>
+            </thead>
+            
+            <tbody>
+                <tr th:each="item:${userMsgList}">
+                    <td th:text="${item.workmateName}">同事姓名</td>
+                    <td th:text="${item.sex}">同事性别</td>
+                    <td th:text="${item.age}">年龄</td>
+                    <td th:text="${item.hobby}">爱好</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!--foot-->
+    <div class="foot">
+        <span class="ft1 float_l">2010-2016(C) 2016 江苏海隆软件技术有限公司</span>
+        <span class="ft2 float_l"><a href="http://www.hyron.com/about_to_js.asp">关于江苏海隆</a> &nbsp;|&nbsp;
+
+            <!--<a href="other.asp?id=930">法律声明 </a>  &nbsp;|&nbsp; -->
+  		<a href="javascript:;">法律声明 </a>  &nbsp;|&nbsp;
+
+            <!--<a href="other.asp?id=931">使用条款  </a>  &nbsp;|&nbsp; -->
+  		<a href="javascript:;">使用条款  </a>  &nbsp;|&nbsp;
+
+            <!--<a href="other.asp?id=932">隐私保护  </a>  &nbsp;|&nbsp; -->
+  		<a href="javascript:;">隐私保护  </a>  &nbsp;|&nbsp;
+
+
+  		　<a href="https://beian.miit.gov.cn/" target="_blank">苏ICP备10221839号-3</a>　海隆软件是中国著名的软件企业</span>
+        <span class="ft3 float_r"><img th:src="@{/assets/images/ind_40.png}"></span>
+    </div>
+
+
+</div>
+
+
+</body>
+</html>

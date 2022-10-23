@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.UserMsgMapper">
+  <resultMap id="BaseResultMap" type="com.example.demo.entity.UserMsg">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="sex" jdbcType="CHAR" property="sex" />
+    <result column="workmateName" jdbcType="VARCHAR" property="workmateName" />
+    <result column="sex" jdbcType="CHAR" property="sex" />
+    <result column="age" jdbcType="INTEGER" property="age" />
+    <result column="hobby" jdbcType="VARCHAR" property="hobby" />
+  </resultMap>
+
+<select id="selectAll" resultType="com.example.demo.entity.UserMsg">
+select * from t_user_msg;
+</select>
+  
+</mapper>
