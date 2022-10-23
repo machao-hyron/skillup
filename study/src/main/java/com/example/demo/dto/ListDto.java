@@ -5,8 +5,8 @@ import java.io.Serializable;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter
-@Setter
+//@Getter
+//@Setter
 public class ListDto implements Serializable {
 	/** 名前 */
 	private String name;
