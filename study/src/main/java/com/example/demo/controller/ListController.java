@@ -7,6 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
 import com.example.demo.entity.TUserInfo;
 import com.example.demo.service.ListService;
 
@@ -15,8 +18,11 @@ import com.example.demo.service.ListService;
 public class ListController {
 
 	@Autowired//自动装配
-	private ListService listService;
-
+	private ListService listService; 
+	//@RequestMapping(value = "list-init")
+	//@PostMapping(value = "list-init")
+    //@PutMapping(value = "list-init")
+	//@DelectMapping("value = "list-init")
 	@GetMapping(value = "list-init")//@getMapping = @requestMapping(method = RequestMethod.GET)。HTTP Get 映射到 特定的处理方法上
 	public String showUserInfo(final Model model) {
 		List<TUserInfo> userInfoList = new ArrayList<TUserInfo>();
