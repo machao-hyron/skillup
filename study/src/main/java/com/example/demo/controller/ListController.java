@@ -11,13 +11,13 @@ import com.example.demo.entity.TUserInfo;
 import com.example.demo.service.ListService;
 
 
-@Controller
+@Controller//采用@Contoller注解的方式，可以使接口的定义更加简单
 public class ListController {
 
-	@Autowired
+	@Autowired//自动装配
 	private ListService listService;
 
-	@GetMapping(value = "list-init")
+	@GetMapping(value = "list-init")//@getMapping = @requestMapping(method = RequestMethod.GET)。HTTP Get 映射到 特定的处理方法上
 	public String showUserInfo(final Model model) {
 		List<TUserInfo> userInfoList = new ArrayList<TUserInfo>();
 		//ユーザ情報取得 
