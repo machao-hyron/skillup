@@ -41,9 +41,9 @@ public class ListDto implements Serializable {
 		this.telNum = telNum;
 	}
 	
-	public static long getSerialversionuid() {
+	/*public static long getSerialversionuid() {
 		return serialVersionUID;
-	}
+	}*/
 
 	/**
 	 * 

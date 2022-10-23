@@ -22,7 +22,6 @@ public class ListController {
 		List<TUserInfo> userInfoList = new ArrayList<TUserInfo>();
 		//ユーザ情報取得 
 		userInfoList = listService.getUSerInfo();
-		//そのまま画面への出力
 		model.addAttribute("userInfoList", userInfoList);
 		
 		return "list-init";
