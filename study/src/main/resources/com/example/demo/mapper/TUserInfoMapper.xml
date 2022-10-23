@@ -330,4 +330,7 @@
       pwd = #{pwd,jdbcType=VARCHAR}
     where user_id = #{userId,jdbcType=INTEGER}
   </update>
+  <select id="selectall" resultMap="BaseResultMap">
+    select * from t_user_info
+  </select>
 </mapper>
