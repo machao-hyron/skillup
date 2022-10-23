@@ -20,10 +20,10 @@ public class ListController {
 	@Autowired//自动装配
 	private ListService listService; 
 	//@RequestMapping(value = "list-init")
-	//@PostMapping(value = "list-init")
-    //@PutMapping(value = "list-init")
-	//@DelectMapping("value = "list-init")
-	@GetMapping(value = "list-init")//@getMapping = @requestMapping(method = RequestMethod.GET)。HTTP Get 映射到 特定的处理方法上
+	//@PostMapping(value = "list-init")提交
+    //@PutMapping(value = "list-init")修改
+	//@DelectMapping("value = "list-init")删除
+	@GetMapping(value = "list-init")//@getMapping = @requestMapping(method = RequestMethod.GET)。查询
 	public String showUserInfo(final Model model) {
 		List<TUserInfo> userInfoList = new ArrayList<TUserInfo>();
 		//ユーザ情報取得 
