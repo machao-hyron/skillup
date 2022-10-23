@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户信息</title>
+</head>
+<body>
+<table>
+    <tr th:each="m:${tUserInfo}">
+        <td th:text="${m.userId}"></td>
+        <td th:text="${m.userName}"></td>
+        <td th:text="${m.age}"></td>
+        <td th:text="${m.sex}"></td>
+        <td th:text="${m.pwd}"></td>
+    </tr>
+</table>
+</body>
+</html>
