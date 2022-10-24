@@ -94,5 +94,4 @@ public interface TUserInfoMapper {
      */
     int updateByPrimaryKey(TUserInfo record);
 
-    List<TUserInfo> selectall();
 }
