@@ -1,0 +1,9 @@
+
+tr th,td{
+	border:1px solid black;
+}
+
+.init{
+	border-collapse:collapse;
+}
+
