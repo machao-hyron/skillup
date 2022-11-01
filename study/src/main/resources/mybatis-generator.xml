@@ -11,7 +11,7 @@
               driverClass="com.mysql.jdbc.Driver"
               connectionURL="jdbc:mysql://127.0.0.1:3306/d311_study"
               userId="root"
-              password="admin" />
+              password="root" />
       <!-- Entity java文件生成 -->
       <javaModelGenerator targetPackage="com.example.demo.entity" targetProject="src/main/java"></javaModelGenerator>
       <!-- Mapper XML文件生成 -->

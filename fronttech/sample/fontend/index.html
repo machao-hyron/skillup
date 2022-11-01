@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Hello World</title>
+    <link rel="stylesheet" href="./css/my.css">
+
+    <script type="text/javascript" src="./js/jquery-3.6.1.min.js"></script>
+    <script type="text/javascript">
+        const getUserUrl = "http://127.0.0.1:3001/getUser";
+        const updateUrl = "http://127.0.0.1:3001/update";
+
+        $(document).ready(function(){
+            $.get(getUserUrl, function(data, status){
+                if( data.code == 0 ) {
+                    alert("获取成功 !\nuserid: " + data.userid + "\nname: " + data.name + "\nsex: " + data.sex);
+                    $("#userid").text("工号：" + data.userid);
+                    $("#name").val(data.name);
+                    $("input[name='sex']").get(data.sex).checked = true;
+                } else {
+                    alert("获取失败 !\ncode: " + data.code + "\nmsg: " + data.msg);
+                }
+            });
+
+            // JQuery
+            $("#btn2").click(function(){
+                let name = $("#name").val();
+                let sex = $("input:radio[name='sex']:checked").val();
+                let data = {name: name, sex: Number(sex)};
+                $.ajax({
+                    type: 'POST',
+                    url: updateUrl,
+                    contentType: 'application/json',
+                    data: JSON.stringify(data),
+                    success: function(data, status){
+                    if( data.code == 0 ) {
+                        alert("更新成功 !\nuserid: " + data.userid + "\nname: " + data.name + "\nsex: " + data.sex);
+                    } else {
+                        alert("更新失败 !\ncode: " + data.code + "\nmsg: " + data.msg);
+                    }
+                }
+                })
+            });
+        });
+
+        // 原始JS
+        const xhr = new XMLHttpRequest();
+        function updateJQ() {
+            let name = document.getElementById("name").value;
+            let sexlist = document.getElementsByName("sex");
+            let sex = 0;
+            for( i=0; i<sexlist.length; i++ ) {
+                if( sexlist[i].checked ) {
+                    sex = i;
+                    break;
+                }
+            }
+            let data = {name: name, sex: sex};
+
+            xhr.open("Post", updateUrl);
+            xhr.setRequestHeader('content-type', 'application/json');
+            xhr.send(JSON.stringify(data));
+            xhr.onreadystatechange = function() {
+                if( xhr.readyState == 4 ) {
+                    let res = JSON.parse(this.responseText);
+                    if( res.code == 0 ) {
+                        alert("更新成功 !\nuserid: " + res.userid + "\nname: " + res.name + "\nsex: " + res.sex);
+                    } else {
+                        let res = JSON.parse(this.responseText);
+                        alert("更新失败 !\ncode: " + res.code + "\nmsg: " + res.msg);
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>用户信息</h1>
+    <hr>
+    <div>
+        <p id="userid">工号：</p>
+        <p>姓名：<input id="name" type="text" placeholder="请输入姓名"></p>
+        <p>性别：<input id="boy" type="radio" name="sex" value="0">男 <input id="girl" type="radio" name="sex" value="1">女</p>
+        <button id="btn1" type="button" onclick="updateJQ()">更新(js)</button>
+        <button id="btn2" type="button">更新(jquery)</button>
+    </div>
+</body>
+</html>
