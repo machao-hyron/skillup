@@ -18,8 +18,7 @@ public class InitServiceImpl implements InitService {
 
 	@Override
 	public List<TUserInfo> initSelect() {
-		TUserInfoExample userInfoExample = new TUserInfoExample();
-		List<TUserInfo> tUserInfo = userInfoMapper.selectByExample(userInfoExample);
+		List<TUserInfo> tUserInfo = userInfoMapper.initSelect();
         return tUserInfo;
 	}
 

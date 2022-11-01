@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.demo.mapper.TUserInfoMapper">
+
   <resultMap id="BaseResultMap" type="com.example.demo.entity.TUserInfo">
     <!--
       WARNING - @mbg.generated
@@ -330,4 +331,8 @@
       pwd = #{pwd,jdbcType=VARCHAR}
     where user_id = #{userId,jdbcType=INTEGER}
   </update>
+  
+  <select id="initSelect" parameterType="com.example.demo.entity.TUserInfoExample" resultMap="BaseResultMap">
+    select * from t_user_info
+  </select>
 </mapper>
