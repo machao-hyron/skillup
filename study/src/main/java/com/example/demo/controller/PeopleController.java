@@ -18,8 +18,8 @@ public class PeopleController {
 
     @GetMapping("/people")
     @LogBack
-    public List<TUserInfo> findAll(){
-        List<TUserInfo> people1=peopleService.findAll();
+    public List<TUserInfo> findAll() {
+        List<TUserInfo> people1 = peopleService.findAll();
         return people1;
     }
 

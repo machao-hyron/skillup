@@ -10,15 +10,15 @@ import org.springframework.stereotype.Component;
 @Aspect
 @Component
 public class LogBackAspect {
-    private Logger logger =LoggerFactory.getLogger(LogBackAspect.class);
+    private Logger logger = LoggerFactory.getLogger(LogBackAspect.class);
 
     @Pointcut("@annotation(com.example.demo.commen.LogBack)")
-    public void myPointCut(){
+    public void myPointCut() {
         //抽取出切入点，给增强通知使用
     }
 
     @Around("myPointCut()")
-    public Object printLog(ProceedingJoinPoint proceedingJoinPoint) throws Throwable{
+    public Object printLog(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
 
         logger.info("前");
         System.out.println("目标方法被调用");

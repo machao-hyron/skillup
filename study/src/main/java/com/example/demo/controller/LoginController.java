@@ -14,27 +14,27 @@ import com.example.demo.service.LoginService;
 @Controller
 public class LoginController {
 
-	@Autowired
-	private LoginService loginService;
+    @Autowired
+    private LoginService loginService;
 
-	@GetMapping(value = "login")
-	public String login() {
-		return "login";
-	}
+    @GetMapping(value = "login")
+    public String login() {
+        return "login";
+    }
 
-	@PostMapping(value = "login")
-	public String loginbtn(LoginDto dto, final Model model) {
+    @PostMapping(value = "login")
+    public String loginbtn(LoginDto dto, final Model model) {
 
-		if (StringUtils.isNotEmpty(dto.getId()) && StringUtils.isNotBlank(dto.getPwd())) {
-			// ログインアカウントが認証正しい場合、次画面へ遷移
-			if (loginService.loginAcntCheck(dto)) {
-				// TODO 検索一覧画面へ遷移する
-				return "redirect:people";
-			}
-		}
-		model.addAttribute("errorMsg", "正しいアカウントを入力してください。");
-		// アカウントが間違う場合、エラーメッセージ表示する
-		return "login";
+        if (StringUtils.isNotEmpty(dto.getId()) && StringUtils.isNotBlank(dto.getPwd())) {
+            // ログインアカウントが認証正しい場合、次画面へ遷移
+            if (loginService.loginAcntCheck(dto)) {
+                // TODO 検索一覧画面へ遷移する
+                return "redirect:people";
+            }
+        }
+        model.addAttribute("errorMsg", "正しいアカウントを入力してください。");
+        // アカウントが間違う場合、エラーメッセージ表示する
+        return "login";
 
-	}
+    }
 }

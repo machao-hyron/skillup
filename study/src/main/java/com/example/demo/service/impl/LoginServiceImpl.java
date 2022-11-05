@@ -15,20 +15,20 @@ import com.example.demo.service.LoginService;
 
 @Service
 public class LoginServiceImpl implements LoginService {
-	
-	@Autowired
-	private TUserInfoMapper userInfoMapper;
 
-	@Override
-	public boolean loginAcntCheck(LoginDto dto) {
-		
-		TUserInfoExample example = new TUserInfoExample();
-		example.createCriteria().andUserIdEqualTo(Integer.parseInt(dto.getId())).andPwdEqualTo(dto.getPwd());
-		List<TUserInfo> userInfoList = userInfoMapper.selectByExample(example);
-		if(!CollectionUtils.isEmpty(userInfoList)) {
-			return true;
-		}
-		return false;
-	}
+    @Autowired
+    private TUserInfoMapper userInfoMapper;
+
+    @Override
+    public boolean loginAcntCheck(LoginDto dto) {
+
+        TUserInfoExample example = new TUserInfoExample();
+        example.createCriteria().andUserIdEqualTo(Integer.parseInt(dto.getId())).andPwdEqualTo(dto.getPwd());
+        List<TUserInfo> userInfoList = userInfoMapper.selectByExample(example);
+        if (!CollectionUtils.isEmpty(userInfoList)) {
+            return true;
+        }
+        return false;
+    }
 
 }

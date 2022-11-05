@@ -2,7 +2,9 @@ package com.example.demo.mapper;
 
 import com.example.demo.entity.TUserInfo;
 import com.example.demo.entity.TUserInfoExample;
+
 import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface TUserInfoMapper {

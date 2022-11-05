@@ -1,17 +1,18 @@
 package javatest.TestFour;
 
 import lombok.Data;
+
 import static java.lang.Math.abs;
 
 @Data
 public class Car {
-    static int LOCK=0;
-    static int ON=1;
-    static int START=2;
-    private int speed=0;
-    private boolean isSread=false;
-    private int status=LOCK;
-    private String color="black";
+    static int LOCK = 0;
+    static int ON = 1;
+    static int START = 2;
+    private int speed = 0;
+    private boolean isSread = false;
+    private int status = LOCK;
+    private String color = "black";
 
     public Car() {
     }
@@ -21,8 +22,9 @@ public class Car {
         this.status = status;
         this.color = color;
     }
-    public int speedOn(Car car,int i){
-        if(isSread && status==START) {
+
+    public int speedOn(Car car, int i) {
+        if (isSread && status == START) {
 
             if (speed >= 0) {
                 if (i > 0) {
@@ -35,20 +37,20 @@ public class Car {
                 }
             }
         }
-       return speed;
+        return speed;
     }
 
     @Override
     public String toString() {
-        if(speed>0){
-        return "Car{" +
-                "speed=" + speed +
-                ", isSread=" + isSread +
-                ", status=" + status +
-                ", color='" + color + '\'' +
-                '}';
-    }else {
-           return "car is stopping";
+        if (speed > 0) {
+            return "Car{" +
+                    "speed=" + speed +
+                    ", isSread=" + isSread +
+                    ", status=" + status +
+                    ", color='" + color + '\'' +
+                    '}';
+        } else {
+            return "car is stopping";
         }
     }
 }

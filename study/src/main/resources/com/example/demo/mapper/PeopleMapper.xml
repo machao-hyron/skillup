@@ -4,14 +4,14 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.demo.mapper.PeopleMapper">
     <resultMap id="BaseResultMap" type="com.example.demo.entity.TUserInfo">
-        <id column="user_id" jdbcType="INTEGER" property="userId" />
-        <result column="user_name" jdbcType="VARCHAR" property="userName" />
-        <result column="age" jdbcType="INTEGER" property="age" />
-        <result column="sex" jdbcType="CHAR" property="sex" />
-        <result column="memo" jdbcType="VARCHAR" property="memo" />
-        <result column="create_datetime" jdbcType="TIMESTAMP" property="createDatetime" />
-        <result column="upadte_datetime" jdbcType="TIMESTAMP" property="upadteDatetime" />
-        <result column="pwd" jdbcType="VARCHAR" property="pwd" />
+        <id column="user_id" jdbcType="INTEGER" property="userId"/>
+        <result column="user_name" jdbcType="VARCHAR" property="userName"/>
+        <result column="age" jdbcType="INTEGER" property="age"/>
+        <result column="sex" jdbcType="CHAR" property="sex"/>
+        <result column="memo" jdbcType="VARCHAR" property="memo"/>
+        <result column="create_datetime" jdbcType="TIMESTAMP" property="createDatetime"/>
+        <result column="upadte_datetime" jdbcType="TIMESTAMP" property="upadteDatetime"/>
+        <result column="pwd" jdbcType="VARCHAR" property="pwd"/>
     </resultMap>
 
 

@@ -2,38 +2,38 @@
 <html lang="ja" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-	<meta http-equiv="Content-Type" content="application/json; charset=UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" media="screen" href="../static/css/common.css">
-	<link rel="stylesheet" media="screen" href="../static/css/login.css">
-	<title>Login</title>
+    <meta http-equiv="Content-Type" content="application/json; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" media="screen" href="../static/css/common.css">
+    <link rel="stylesheet" media="screen" href="../static/css/login.css">
+    <title>Login</title>
 </head>
 
 <body class="flex-center">
-	<form method="post" action="/login">
-		<div style="color:#ff0000" th:text="${errorMsg}" />
+<form method="post" action="/login">
+    <div style="color:#ff0000" th:text="${errorMsg}"/>
 
-		<table class="flex-center login-border">
-			<tr>
-				<td>ID：</td>
-				<td><input type="text" name="id" /></td>
-			</tr>
-			<tr>
-				<td>PWD：</td>
-				<td><input type="password" name="pwd" /></td>
-			</tr>
-			<tr>
-				<td colspan="2" align="center"><input type="submit" value="Submit"></input></td>
-			</tr>
-		</table>
+    <table class="flex-center login-border">
+        <tr>
+            <td>ID：</td>
+            <td><input type="text" name="id"/></td>
+        </tr>
+        <tr>
+            <td>PWD：</td>
+            <td><input type="password" name="pwd"/></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center"><input type="submit" value="Submit"></input></td>
+        </tr>
+    </table>
 
-	</form>
-	<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-	<script>
-		$(function () {
-			//alert("123");
-		});
-	</script>
+</form>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+<script>
+    $(function () {
+        //alert("123");
+    });
+</script>
 </body>
 
 </html>
