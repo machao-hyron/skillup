@@ -5,7 +5,7 @@ const app = express();
 
 const otherErr = 403;
 
-let myUser = {userid: "JS00001", name: "test", sex: 0, };
+let myUser = {userid: "JS00001", name: "test", sex: 0};
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, '../fontend')));
@@ -42,6 +42,19 @@ app.post('/update', async (req, res) => {
     console.log(`update err [${e}]`);
     return res.json({code: otherErr, msg: "update err",});
   }
+});
+
+app.post('/updateage',async (req, res) => {
+    try {
+        console.log(req.body);
+        myUser.name = req.body.name;
+        myUser.sex = req.body.sex;
+        myUser["age"] = req.body.age;
+        return res.json({code: 0, msg: "", userid: myUser.userid, name: myUser.name, sex: myUser.sex,age:myUser.age});
+    } catch(e) {
+        console.log(`update err [${e}]`);
+        return res.json({code: otherErr, msg: "update err",});
+    }
 });
 
 const port = 3001;

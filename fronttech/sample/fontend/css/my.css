@@ -8,3 +8,50 @@ div {
     height: auto;
     margin: auto;
 }
+
+button{
+    width: 60px;
+    height: 28px;
+    text-align: center;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 1px 1px 1px #333;
+    border-radius: 5px;
+    margin: 0 20px 0px 14px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #64c878;
+    box-shadow: 0 1px 2px #b9ecc4 inset,0 -1px 0 #6c9f76 inset,0 -2px 3px #b9ecc4 inset;
+    background: -webkit-linear-gradient(top,#90dfa2,#84d494);
+    background: -moz-linear-gradient(top,#90dfa2,#84d494);
+    background: linear-gradient(top,#90dfa2,#84d494);
+}
+
+
+table.hovertable {
+    height: auto;
+    margin: auto;
+    font-family: verdana,arial,sans-serif;
+    font-size:11px;
+    color:#333333;
+    border-width: 1px;
+    border-color: #999999;
+    border-collapse: collapse;
+}
+table.hovertable th {
+    background-color:#c3dde0;
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    border-color: #a9c6c9;
+}
+table.hovertable tr {
+    background-color:#d4e3e5;
+}
+table.hovertable td {
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    border-color: #a9c6c9;
+}
+
