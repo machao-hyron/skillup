@@ -1,5 +1,6 @@
 package com.example.demo.model;
 
+
 import com.example.demo.entity.TUserInfo;
 import lombok.Data;
 
