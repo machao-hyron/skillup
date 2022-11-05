@@ -43,6 +43,7 @@ $(document).ready(function(){
         }else {
             $("#boy").prop("checked",'checked');
         }
+        $("#age").val('');
 
     });
     /*再取得*/
@@ -54,6 +55,9 @@ $(document).ready(function(){
                 $("#userid").text(data.userid);
                 $("#name").val(data.name);
                 $("input[name='sex']").get(data.sex).checked = true;
+                if (data.age != null){
+                    $("#age").val(data.age);
+                }
             } else {
                 alert("获取失败 !\ncode: " + data.code + "\nmsg: " + data.msg);
             }
@@ -128,6 +132,14 @@ function updateJQ() {
 function clearJS() {
     document.getElementById("name").value = '';
     document.getElementById("userid").innerText = '';
+    if (document.getElementById("boy").checked == true){
+        document.getElementById("boy").checked = false;
+        document.getElementById("girl").checked = true;
+    } else {
+        document.getElementById("boy").checked = true;
+        document.getElementById("girl").checked = false;
+    }
+    document.getElementById("age").value = '';
 }
 
 /*JS实现删除年龄*/

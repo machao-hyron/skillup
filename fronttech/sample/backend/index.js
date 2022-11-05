@@ -28,7 +28,11 @@ app.all('*', function(req, res, next) {
 
 // get myUser
 app.get('/getUser', async (req, res) => {
-    return res.json({code: 0, msg: "", userid: myUser.userid, name: myUser.name, sex: myUser.sex,});
+    if (myUser.hasOwnProperty("age")){
+        return res.json({code: 0, msg: "", userid: myUser.userid, name: myUser.name, sex: myUser.sex,age: myUser.age});
+    } else {
+        return res.json({code: 0, msg: "", userid: myUser.userid, name: myUser.name, sex: myUser.sex,});
+    }
 });
 
 // update myUser
