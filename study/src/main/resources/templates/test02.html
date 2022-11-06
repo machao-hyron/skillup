@@ -7,55 +7,41 @@
 	<meta http-equiv="Content-Type" content="application/json; charset=UTF-8">
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 	<script>
-// 	jsp
-	function delete2(){
-		let db1 = document.getElementById("deletebutton");
-		let db2 = document.getElementById("deletebutton2");
-		let add1 = document.getElementById("addbutton");
-		db1.removeAttribute("hidden");
-		db2.removeAttribute("hidden");
-		add1.setAttribute("hidden","hidden");
-		document.getElementById("addtr").setAttribute("hidden","hidden");
-		
-	}
-	
-// 	jquery
 	$(document).ready(function() {
-
     	let name = $("#name").val();
     	let sex = $("#sex").val();
     	let kougo = $("#kougo").val();
     	let age = $("#age").val();
     	
         $("#addbutton").click(function() {
-
             $("#deletebutton").removeAttr("hidden");
             $("#deletebutton2").removeAttr("hidden");
             $("#addbutton").attr("hidden","didden");
             $("#agetr").removeAttr("hidden");
         });
+//     	jquery delete       
         $("#deletebutton").click(function() {
-
             $("#addbutton").removeAttr("hidden");
             $("#deletebutton").attr("hidden","didden");
             $("#deletebutton2").attr("hidden","didden");
             $("#agetr").attr("hidden","didden");
         });
+//     	jsp delete        
         $("#deletebutton2").click(function() {
-
-            $("#addbutton").removeAttr("hidden");
-            $("#deletebutton").attr("hidden","didden");
-            $("#deletebutton2").attr("hidden","didden");
-            $("#agetr").attr("hidden","didden");
+        	document.getElementById("deletebutton").setAttribute("hidden","hidden");
+    		document.getElementById("deletebutton2").setAttribute("hidden","hidden");
+    		document.getElementById("addbutton").removeAttribute("hidden");
+    		document.getElementById("agetr").setAttribute("hidden","hidden");
         });
+        
         $("#backjquery").click(function() {
-
         	  $("#name").attr("value",name);
               $("#sex").attr("value",sex);
               $("#kougo").attr("value",kougo);
               $("#age").attr("value",age);
 
         });
+        
         $("#clearjquery").click(function() {
         	if($("#name").val()!="") {name = $("#name").val();}
         	if($("#sex").val()!=""){sex = $("#sex").val();}
@@ -101,7 +87,7 @@
 				</tr>
 				<tr align="center" >
 					<td><input id="deletebutton" type="button" hidden="hidden" value="delete(jquery)"></td>
-					<td><input id="deletebutton2" type="button" hidden="hidden" value="delete(jsp)" th:onclick="delete2()"></td>
+					<td><input id="deletebutton2" type="button" hidden="hidden" value="delete(jsp)" onclick="delete2()"></td>
 				</tr>
 				<tr align="center">
 					<td><input id="clearjquery" type="button" value="clear(jquery)" ></td>
