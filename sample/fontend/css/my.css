@@ -1,0 +1,10 @@
+h1 {
+    text-align: center;
+    font-weight: bold;
+}
+
+div {
+    width: 300px;
+    height: auto;
+    margin: auto;
+}
