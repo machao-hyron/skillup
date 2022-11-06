@@ -1,0 +1,36 @@
+h1 {
+    text-align: center;
+    font-weight: bold;
+}
+
+div {
+    width: 300px;
+    height: auto;
+    margin: auto;
+}
+#table1 {
+        width: 300px;
+        border-top-width: 1px;
+        border-right-width: 1px;
+        border-bottom-width: 1px;
+        border-left-width: 1px;
+        margin: auto;
+}
+#table2 {
+        width: 300px;
+        border-top-width: 1px;
+        border-right-width: 1px;
+        border-bottom-width: 1px;
+        border-left-width: 1px;
+        margin: auto;
+}
+#btn9,#btn8,#btn7,#btn6,#btn4,#btn3,#btn2,#btn1 {
+        width: 140px;
+        height: 25px;
+}
+#btn5 {
+        width: 290px;
+        height: 25px;
+}
+
+
