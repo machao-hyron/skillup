@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Hello World</title>
+    <link rel="stylesheet" href="./css/my.css">
+
+    <script type="text/javascript" src="./js/jquery-3.6.1.min.js"></script>
+    <script type="text/javascript" src="./js/test.js"></script>
+</head>
+<body background="./css/bg1.jpg">
+    <h1>用户信息</h1>
+    <hr>
+    <div align="center">
+        <table>
+            <tr>
+                <p id="userid" class="p_size">工号：</p>
+            </tr>
+            <tr>
+                <td>
+                    <p class="p_size">姓名：</p>
+                </td>
+                <td>
+                    <input id="name" type="text" class="inputText" placeholder="请输入姓名">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p class="p_size">性别：</p>
+                </td>
+                <td>
+                    <p style="text-align: center"><input id="boy" type="radio" name="sex" value="0" >男 &nbsp;&nbsp;&nbsp;&nbsp;<input id="girl" type="radio" name="sex" value="1">女</p>
+                </td>
+            </tr>
+            <tr id="age_text" style="display: none">
+                <td>
+                    <p class="p_size">年龄：</p>
+                </td>
+                <td>
+                    <input id="age" type="text" class="inputText" placeholder="请输入年龄">
+                </td>
+            </tr>
+        </table>
+        <button id="btn1" type="button" onclick="updateJQ()">update(JS)</button>&nbsp;
+        <button id="btn2" type="button">update(Jquery)</button><br>
+        <button id="btn3" type="button" onclick="clearJS()">clear（JS）</button>&nbsp;
+        <button id="btn4" type="button" >clear（Jquery）</button><br>
+        <button id="btn5" type="button" >date again</button><br>
+        <button id="btn9" type="button" onclick="addJS()">add(JS)</button>&nbsp;
+        <button id="btn6" type="button" >add(Jquery)</button><br>
+        <button id="btn8" type="button" onclick="delJS()">delete(JS)</button>&nbsp;
+        <button id="btn7" type="button">delete(Jquery)</button>
+    </div>
+</body>
+</html>
