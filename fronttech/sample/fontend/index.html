@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Hello World</title>
+    <link rel="stylesheet" href="./css/my.css">
+
+    <script type="text/javascript" src="./js/jquery-3.6.1.min.js"></script>
+    <script type="text/javascript">
+        const getUserUrl = "http://127.0.0.1:3001/getUser";
+        const updateUrl = "http://127.0.0.1:3001/update";
+
+        $(document).ready(function () {
+            $.get(getUserUrl, function (data, status) {
+                if (data.code == 0) {
+                    console.log(JSON.stringify(data));
+                    alert("获取成功 !\nuserid: " + data.userid + "\nname: " + data.name + "\nsex: " + data.sex);
+                    $("#userid").text("工号：" + data.userid);
+                    $("#name").val(data.name);
+                    $("input[name='sex']").get(data.sex).checked = true;
+                } else {
+                    alert("获取失败 !\ncode: " + data.code + "\nmsg: " + data.msg);
+                }
+            });
+
+            // JQuery
+            $("#btn2").click(function () {
+                let name = $("#name").val();
+                let sex = $("input:radio[name='sex']:checked").val();
+                let data = { name: name, sex: Number(sex) };
+                $.ajax({
+                    type: 'POST',
+                    url: updateUrl,
+                    contentType: 'application/json',
+                    data: JSON.stringify(data),
+                    success: function (data, status) {
+                        if (data.code == 0) {
+                            alert("更新成功 !\nuserid: " + data.userid + "\nname: " + data.name + "\nsex: " + data.sex);
+                        } else {
+                            alert("更新失败 !\ncode: " + data.code + "\nmsg: " + data.msg);
+                        }
+                    }
+                })
+            });
+
+            $("#clearJQ").on("click", function(){
+                $("#userid").text("工号：");// 清空工号
+                $("#name").val("");// 清空名字
+                $("input[name='sex']").prop("checked", false);// 清除性别的选项
+            });
+
+            $("#fetchAgain").on("click", function(){
+                $.get(getUserUrl, function (data, status) {
+                if (data.code == 0) {
+                    console.log(JSON.stringify(data));
+                    alert("获取成功 !\nuserid: " + data.userid + "\nname: " + data.name + "\nsex: " + data.sex);
+                    $("#userid").text("工号：" + data.userid);
+                    $("#name").val(data.name);
+                    $("input[name='sex']").get(data.sex).checked = true;
+                } else {
+                    alert("获取失败 !\ncode: " + data.code + "\nmsg: " + data.msg);
+                }
+            });
+            });
+            $("#addAgeJQ").on("click", function(){
+                $("#ageROw").attr("hidden", false);// 显示添加年龄行
+            });
+            $("#removeAgeJQ").on("click", function(){
+                $("#ageROw").attr("hidden", true);// 隐藏添加年龄行
+            })
+        });
+
+        // 原始JS
+        const xhr = new XMLHttpRequest();
+        function updateJQ() {
+            let name = document.getElementById("name").value;
+            let sexlist = document.getElementsByName("sex");
+            let sex = 0;
+            for (i = 0; i < sexlist.length; i++) {
+                if (sexlist[i].checked) {
+                    sex = i;
+                    break;
+                }
+            }
+            let data = { name: name, sex: sex };
+
+            xhr.open("Post", updateUrl);
+            xhr.setRequestHeader('content-type', 'application/json');
+            xhr.send(JSON.stringify(data));
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+                    let res = JSON.parse(this.responseText);
+                    if (res.code == 0) {
+                        alert("更新成功 !\nuserid: " + res.userid + "\nname: " + res.name + "\nsex: " + res.sex);
+                    } else {
+                        let res = JSON.parse(this.responseText);
+                        alert("更新失败 !\ncode: " + res.code + "\nmsg: " + res.msg);
+                    }
+                }
+            }
+        }
+        function clearJS() {
+            let userid = document.getElementById("userid");
+            let name = document.getElementById("name");
+            let sex = document.getElementsByName("sex");
+            for (var i = 0; i < sex.length; i++) { //对所有结果进行遍历，如果状态是被选中的，则将其选择取消
+                if (sex[i].checked == true) {
+                    sex[i].checked = false;
+                }
+            }
+            userid.innerText = "工号：";
+            name.value = "";// 名字置空
+        }
+
+        function addAgeJS(){
+            // let sexRow = document.getElementById("sexRow");// 新行插入在这之后//原本打算使用插入元素的方式增减行，后面打算直接修改隐藏属性，这样更为方便
+            // let ageROw = "<tr id=\"ageROw\">\
+            //     <td>\
+            //         <p>年龄：<input id=\"secx\" type=\"number\" value=\"18\" ></p>\
+            //     </td>\
+            // </tr>"
+            // sexRow.insertAdjacentHTML('afterend', ageROw);
+
+            let ageROw = document.getElementById("ageROw");
+            ageROw.removeAttribute("hidden");
+        }
+
+        function removeAgeJS(){
+            let ageROw = document.getElementById("ageROw");
+            ageROw.setAttribute("hidden",true);
+        }
+    </script>
+</head>
+
+<body>
+    <h1>用户信息</h1>
+    <hr>
+    <div>
+
+
+
+
+        <table border="1">
+            <tr>
+                <td>
+                    <p id="userid"></p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>姓名：<input id="name" type="text" placeholder="请输入姓名"></p>
+                </td>
+            </tr>
+            <tr id="sexRow">
+                <td>
+                    <p>性别：<input id="boy" type="radio" name="sex" value="0">男 <input id="girl" type="radio" name="sex"
+                            value="1">女</p>
+                </td>
+            </tr>
+            <tr id="ageROw" hidden>
+                <td>
+                    <p>年龄：<input id="secx" type="number" value="18" ></p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button id="btn1" type="button" onclick="updateJQ()">更新(js)</button>
+                    <button id="btn2" type="button">更新(jquery)</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button type="button" onclick="clearJS()">清空(js)</button>
+                    <button id="clearJQ" type="button">清空(jquery)</button>
+                </td>
+            </tr>
+            <tr>
+                <td><button id="fetchAgain">再取得</button></td>
+            </tr>
+            <tr>
+                <td>
+                    <button type="button" onclick="addAgeJS()">增加(js)</button>
+                    <button type="button" id="addAgeJQ">增加(jquery)</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button type="button" onclick="removeAgeJS()">删除(js)</button>
+                    <button type="button" id="removeAgeJQ">删除(jquery)</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>
