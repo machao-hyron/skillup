@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>study</artifactId>
+    <artifactId>fronttech</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>war</packaging>
-    <name>study</name>
+    <name>fronttech</name>
     <description>Demo project for Spring Boot</description>
     <properties>
         <java.version>8</java.version>
@@ -97,6 +97,15 @@
                 </configuration>
             </plugin>
         </plugins>
+            <resources>
+                <resource>
+                    <directory>src/main/resource(资源目录)</directory>
+                    <includes>
+                        <include>**/*.xml</include>
+                        <include>**/*.properties</include>
+                    </includes>
+                </resource>
+            </resources>
     </build>
 
 </project>

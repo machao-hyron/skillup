@@ -53,7 +53,7 @@ app.post('/update', async (req, res) => {
     }
 });
 
-const port = 8080;
+const port = 3001;
 app.get('/', (req, res) => {
     res.send('Hello World!')
 })

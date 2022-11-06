@@ -7,12 +7,14 @@
 
     <script type="text/javascript" src="js/jquery-3.6.1.min.js"></script>
     <script type="text/javascript">
-        const getUserUrl = "http://127.0.0.1:8080/getUser";
-        const updateUrl = "http://127.0.0.1:8080/update";
+        const getUserUrl = "http://127.0.0.1:3001/getUser";
+        const updateUrl = "http://127.0.0.1:3001/update";
 
         $(document).ready(function () {
-            $.get(getUserUrl, function (data, status) {
-                if (data.code == 0) {
+            //$.get(getUserUrl, function (data, status) {
+            $.get('http://localhost:8080', function (data, status) {
+               // if (data.code == 0) {
+                if (data) {
                     alert("获取成功 !\nuserid: " + data.userid + "\nname: " + data.name + "\nsex: " + data.sex);
                     $("#userid").text("工号：" + data.userid);
                     $("#name").val(data.name);
@@ -28,14 +30,17 @@
                 let name = $("#name").val();
                 let sex = $("input:radio[name='sex']:checked").val();
                 let age = $("#age").val();
-                let data = {name: name, sex: Number(sex), age: age};
+                let data = {'name': name, sex: Number(sex), age: age};
                 $.ajax({
                     type: 'POST',
-                    url: updateUrl,
-                    contentType: 'application/json',
+                    //url: updateUrl,
+                    url: 'http://localhost:8080',
+                    //contentType: 'application/json;charset=UTF-8',
                     data: JSON.stringify(data),
+                    dataType:"json",
                     success: function (data, status) {
                         if (data.code == 0) {
+                        //if(data){
                             alert("更新成功 !\nuserid: " + data.userid + "\nname: " + data.name + "\nsex: " + data.sex + "\nage: " + data.age);
                         } else {
                             alert("更新失败 !\ncode: " + data.code + "\nmsg: " + data.msg);
@@ -75,7 +80,8 @@
             }
             let data = {name: name, sex: sex, age: age};
 
-            xhr.open("Post", updateUrl);
+            //xhr.open("Post", updateUrl);
+            xhr.open("Post",'http://localhost:8080')
             xhr.setRequestHeader('content-type', 'application/json');
             xhr.send(JSON.stringify(data));
             xhr.onreadystatechange = function () {
