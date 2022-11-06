@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>test02</title>
+	 <link rel="stylesheet" href="../static/css/test02.css">
+	<meta http-equiv="Content-Type" content="application/json; charset=UTF-8">
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+	<script>
+// 	jsp
+	function delete2(){
+		let db1 = document.getElementById("deletebutton");
+		let db2 = document.getElementById("deletebutton2");
+		let add1 = document.getElementById("addbutton");
+		db1.removeAttribute("hidden");
+		db2.removeAttribute("hidden");
+		add1.setAttribute("hidden","hidden");
+		document.getElementById("addtr").setAttribute("hidden","hidden");
+		
+	}
+	
+// 	jquery
+	$(document).ready(function() {
+
+    	let name = $("#name").val();
+    	let sex = $("#sex").val();
+    	let kougo = $("#kougo").val();
+    	let age = $("#age").val();
+    	
+        $("#addbutton").click(function() {
+
+            $("#deletebutton").removeAttr("hidden");
+            $("#deletebutton2").removeAttr("hidden");
+            $("#addbutton").attr("hidden","didden");
+            $("#agetr").removeAttr("hidden");
+        });
+        $("#deletebutton").click(function() {
+
+            $("#addbutton").removeAttr("hidden");
+            $("#deletebutton").attr("hidden","didden");
+            $("#deletebutton2").attr("hidden","didden");
+            $("#agetr").attr("hidden","didden");
+        });
+        $("#deletebutton2").click(function() {
+
+            $("#addbutton").removeAttr("hidden");
+            $("#deletebutton").attr("hidden","didden");
+            $("#deletebutton2").attr("hidden","didden");
+            $("#agetr").attr("hidden","didden");
+        });
+        $("#backjquery").click(function() {
+
+        	  $("#name").attr("value",name);
+              $("#sex").attr("value",sex);
+              $("#kougo").attr("value",kougo);
+              $("#age").attr("value",age);
+
+        });
+        $("#clearjquery").click(function() {
+        	if($("#name").val()!="") {name = $("#name").val();}
+        	if($("#sex").val()!=""){sex = $("#sex").val();}
+        	if($("#kougo").val()!=""){kougo = $("#kougo").val();}
+        	if($("#age").val()!=""){age = $("#age").val();}
+        	 
+            $("#name").attr("value","");
+            $("#sex").attr("value","");
+            $("#kougo").attr("value","");
+            $("#age").attr("value","");
+        });
+//         $("#againjquery").click(function() {
+        	
+
+
+//        });
+    });
+	</script>
+
+	</head>
+<body  class="flex-center" >
+		
+		<div align="center"> <h1>用户信息</h1></div>
+		<div>
+			<table background="../static/png/body.jpg" border="1" align="center">
+				<tr id="kougoutr">
+					<td>工号:</td><td ><input id="kougo" th:value="${tUserInfo.get(0).getPwd()}"></td>
+				</tr>
+				<tr>
+		            <td>姓名:</td><td ><input id="name"  style="color:red" th:value="${tUserInfo.get(0).getUserName()}"></td>
+				</tr>
+				<tr>
+					<td>性别:</td><td ><input id="sex" th:value="${tUserInfo.get(0).getSex()}"></td>
+				</tr>
+				<tr id="agetr" hidden="hidden">
+					<td>年龄:</td><td ><input id="age" th:value="${tUserInfo.get(0).getAge()}"></td>
+				</tr>
+				
+			</table>
+			<table align="center">
+				<tr align="center">
+					<td><input  id="addbutton" type="button"  value="add_age" ></td>
+				</tr>
+				<tr align="center" >
+					<td><input id="deletebutton" type="button" hidden="hidden" value="delete(jquery)"></td>
+					<td><input id="deletebutton2" type="button" hidden="hidden" value="delete(jsp)" th:onclick="delete2()"></td>
+				</tr>
+				<tr align="center">
+					<td><input id="clearjquery" type="button" value="clear(jquery)" ></td>
+						<td><input id="backjquery" type="button" value="back(jquery)" ></td>
+				</tr>
+<!-- 				<tr align="center"> -->
+<!-- 					<td><input id="againjsp" type="button" value="again(jsp)" ></td> -->
+<!-- 					<td><input id="againjquery" type="button" value="again(jquery)" ></td> -->
+<!-- 				</tr> -->
+			</table>
+		</div>
+</body>
+
+
+</html>
