@@ -3,8 +3,41 @@ h1 {
     font-weight: bold;
 }
 
-div {
-    width: 300px;
-    height: auto;
-    margin: auto;
+table{
+    width: 100%;
+    text-align: center;
 }
+
+td{
+    height: 15px;
+    text-align: center;
+}
+
+input{
+    border: 0px;
+    height: 20px;
+    font-size: 100%;
+    background-color: darkgray;
+}
+
+button{
+    width: 100%;
+    height: 50px;
+}
+
+p#userid{
+    text-align: right;
+}
+
+p#name-text, p#sex, p#age{
+    text-align: left;
+}
+
+body{
+    height: 100%;
+}
+
+body{
+    background-color: burlywood;
+}
+

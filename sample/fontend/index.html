@@ -36,7 +36,12 @@
                     data: JSON.stringify(data),
                     success: function(data, status){
                     if( data.code == 0 ) {
-                        alert("更新成功 !\nuserid: " + data.userid + "\nname: " + data.name + "\nsex: " + data.sex + "\nage: " + data.age);
+                        if($("#age").length > 0){
+                            alert("更新成功 !\nuserid: " + data.userid + "\nname: " + data.name + "\nsex: " + data.sex + "\nage: " + data.age);
+                        } else {
+                            alert("更新成功 !\nuserid: " + data.userid + "\nname: " + data.name + "\nsex: " + data.sex);
+                        }
+
                     } else {
                         alert("更新失败 !\ncode: " + data.code + "\nmsg: " + data.msg);
                     }
@@ -67,7 +72,12 @@
                 if( xhr.readyState == 4 ) {
                     let res = JSON.parse(this.responseText);
                     if( res.code == 0 ) {
-                        alert("更新成功 !\nuserid: " + res.userid + "\nname: " + res.name + "\nsex: " + res.sex + "\nage: " + res.age);
+                        if(document.getElementById("age")) {
+                            alert("更新成功 !\nuserid: " + res.userid + "\nname: " + res.name + "\nsex: " + res.sex + "\nage: " + res.age);
+                        } else {
+                            alert("更新成功 !\nuserid: " + res.userid + "\nname: " + res.name + "\nsex: " + res.sex);
+                        }
+
                     } else {
                         let res = JSON.parse(this.responseText);
                         alert("更新失败 !\ncode: " + res.code + "\nmsg: " + res.msg);
@@ -81,17 +91,57 @@
     <h1>用户信息</h1>
     <hr>
     <div>
-        <p id="userid">工号：</p>
-        <p>姓名：<input id="name" type="text" placeholder="请输入姓名"></p>
-        <p id="sex">性别：<input id="boy" type="radio" name="sex" value="0">男 <input id="girl" type="radio" name="sex" value="1">女</p>
-        <button id="btn1" type="button" onclick="updateJQ()">更新(js)</button>
-        <button id="btn2" type="button">更新(jquery)</button>
-        <button id="btn_delete_js" type="button" onclick="deleteJS()">清空(js)</button>
-        <button id="btn_delete_jq" type="button">清空(jquery)</button>
-        <button id="btn_redisp" type="button">再取得</button>
-        <button id="btn_add" type="button" onclick="add_age()">追加</button>
-        <button id="btn_delete_age_js" type="button" onclick="deleteAge()">删除(js)</button>
-        <button id="btn_delete_age_jq" type="button">删除(jq)</button>
+        <table>
+            <tr>
+                <td colspan="2">
+                    <p id="userid">工号：</p>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <p id="name-text">姓名：<input id="name" type="text" placeholder="请输入姓名"></p>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <p id="sex">性别：<input id="boy" type="radio" name="sex" value="0">男 <input id="girl" type="radio" name="sex" value="1">女</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button id="btn1" type="button" onclick="updateJQ()">更新(js)</button>
+                </td>
+                <td>
+                    <button id="btn2" type="button">更新(jquery)</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button id="btn_delete_js" type="button" onclick="deleteJS()">清空(js)</button>
+                </td>
+                <td>
+                    <button id="btn_delete_jq" type="button">清空(jquery)</button>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button id="btn_redisp" type="button">再取得</button>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button id="btn_add" type="button" onclick="add_age()">追加</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button id="btn_delete_age_js" type="button" onclick="deleteAge()">删除(js)</button>
+                </td>
+                <td>
+                    <button id="btn_delete_age_jq" type="button">删除(jq)</button>
+                </td>
+            </tr>
+        </table>
     </div>
 </body>
 </html>
