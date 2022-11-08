@@ -3,6 +3,9 @@
 <head>
     <meta charset="utf-8">
     <title>Hello World</title>
+    <style>
+     table {margin: auto;}
+    </style>
     <link rel="stylesheet" href="./css/my.css">
 
     <script type="text/javascript" src="./js/jquery-3.6.1.min.js"></script>
@@ -72,6 +75,38 @@
                 }
             }
         }
+
+        //js 清空
+        function Reset(){
+            document.getElementById("name").value = "";
+            let sexlist = document.getElementsByName("sex");
+            sexlist[0].checked = "";
+            sexlist[1].checked = "";
+        }
+
+        //jquery 清空
+        $(function(){
+            $("#btn4").click(function(){
+                $("#name").val('');
+                $("#boy").prop("checked",false);
+                $("#girl").prop("checked",false);
+            });
+        })
+
+        //再取得
+        $(function(){
+            $("#btn5").click(function(){
+                $.get(getUserUrl,function(data,status){
+                    $("#userid").text("工号：" + data.userid);
+                    $("#name").val(data.name);
+                    $("input[name='sex']").get(data.sex).checked = true;
+                })
+            });
+        })
+        
+
+
+
     </script>
 </head>
 <body>
@@ -81,8 +116,29 @@
         <p id="userid">工号：</p>
         <p>姓名：<input id="name" type="text" placeholder="请输入姓名"></p>
         <p>性别：<input id="boy" type="radio" name="sex" value="0">男 <input id="girl" type="radio" name="sex" value="1">女</p>
-        <button id="btn1" type="button" onclick="updateJQ()">更新(js)</button>
-        <button id="btn2" type="button">更新(jquery)</button>
     </div>
+    <table>
+        <tr>
+            <td>
+                <button id="btn1" type="button" onclick="updateJQ()">更新(js)</button>
+            </td>
+            <td>
+                <button id="btn2" type="button">更新(jquery)</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button id="btn3" type="button" onclick="Reset()">清空(js)</button>
+            </td>
+            <td>
+                <button id="btn4" type="button">清空(jquery)</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button id="btn5" type="button">再取得</button>
+            </td>
+        </tr>
+    </table>
 </body>
 </html>
