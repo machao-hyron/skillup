@@ -23,8 +23,17 @@ public class UserdataServiceImpl implements UserdataService {
     public List<TUserInfo> findAll() {
         TUserInfoExample example = new TUserInfoExample();
         List<TUserInfo> temp = UserdataMapper.selectByExample(example);
-        System.out.println("***************");
+        System.out.println("***************ser");
         System.out.println(temp.get(0).getSex());
         return temp;
     }
+    @Override
+    public List<TUserInfo> update1() {
+    	 TUserInfoExample example = new TUserInfoExample();
+         List<TUserInfo> temp = UserdataMapper.selectByExample(example);
+         System.out.println("***************ser");
+         System.out.println(temp.get(0).getSex());
+         return temp;
+    }
+    
 }

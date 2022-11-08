@@ -33,15 +33,15 @@
     		document.getElementById("addbutton").removeAttribute("hidden");
     		document.getElementById("agetr").setAttribute("hidden","hidden");
         });
-        
-        $("#backjquery").click(function() {
+//      backf  
+        $("#backf").click(function() {
         	  $("#name").attr("value",name);
               $("#sex").attr("value",sex);
               $("#kougo").attr("value",kougo);
               $("#age").attr("value",age);
 
         });
-        
+//     	jquery clear       
         $("#clearjquery").click(function() {
         	if($("#name").val()!="") {name = $("#name").val();}
         	if($("#sex").val()!=""){sex = $("#sex").val();}
@@ -53,11 +53,24 @@
             $("#kougo").attr("value","");
             $("#age").attr("value","");
         });
-//         $("#againjquery").click(function() {
-        	
+        
+//      jsp clear
+        $("#clearjsp").click(function() {
+        	document.getElementById("name").setAttribute("value","");
+        	document.getElementById("sex").setAttribute("value","");
+        	document.getElementById("kougo").setAttribute("value","");
+        	document.getElementById("age").setAttribute("value","");
+         
+        });
+        
+        $("#kousinjsp").click(function() {
+        	document.getElementById("form1").submit();
+        	alert("更新成功 !工号: " + $("#kougo").val() + "\姓名: " + $("#name").val() + "\性別: " +$("#sex").val()+ "\年齢: " +$("#age").val() );
+        });
+        		
 
 
-//        });
+
     });
 	</script>
 
@@ -66,7 +79,8 @@
 		
 		<div align="center"> <h1>用户信息</h1></div>
 		<div>
-			<table background="../static/png/body.jpg" border="1" align="center">
+			<form id="form1" method="post" action="/test01">
+			<table background="../static/png/body.jpg" border="1" bordercolor="black" align="center">
 				<tr id="kougoutr">
 					<td>工号:</td><td ><input id="kougo" th:value="${tUserInfo.get(0).getPwd()}"></td>
 				</tr>
@@ -79,8 +93,16 @@
 				<tr id="agetr" hidden="hidden">
 					<td>年龄:</td><td ><input id="age" th:value="${tUserInfo.get(0).getAge()}"></td>
 				</tr>
-				
+				<tr align="center">
+					<td></td>				
+					<td>
+						<input id="kousinjsp" type="submit" value="kousin(jsp)" >
+						<input id="kousinjquery" type="submit" hidden="hidden" value="kousin(jquery)" >
+					</td>
+				</tr>
+			</form>	
 			</table>
+			<form id="form2" method="post" action="/test02">
 			<table align="center">
 				<tr align="center">
 					<td><input  id="addbutton" type="button"  value="add_age" ></td>
@@ -91,13 +113,17 @@
 				</tr>
 				<tr align="center">
 					<td><input id="clearjquery" type="button" value="clear(jquery)" ></td>
-						<td><input id="backjquery" type="button" value="back(jquery)" ></td>
+					<td><input id="clearjsp" type="button" value="clear(jsp)" ></td>
 				</tr>
-<!-- 				<tr align="center"> -->
-<!-- 					<td><input id="againjsp" type="button" value="again(jsp)" ></td> -->
-<!-- 					<td><input id="againjquery" type="button" value="again(jquery)" ></td> -->
-<!-- 				</tr> -->
+				<tr>	
+					<td><input id="backf" type="button" value="back(f)" ></td>
+					<td><input id="backb" type="submit" value="back(b)" ></td>
+				</tr>
 			</table>
+			</form >
+			
+			
+		
 		</div>
 </body>
 

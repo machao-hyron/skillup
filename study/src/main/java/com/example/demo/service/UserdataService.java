@@ -6,4 +6,5 @@ import com.example.demo.entity.TUserInfo;
 public interface UserdataService {
 
 	List<TUserInfo> findAll();
+	List<TUserInfo> update1();
 }
