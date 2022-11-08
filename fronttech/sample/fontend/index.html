@@ -13,22 +13,39 @@
         $(document).ready(function(){
             $.get(getUserUrl, function(data, status){
                 if( data.code == 0 ) {
-                    $("#userid").text("工号：" + data.userid);
+                    //$("#userid").text("工号：" + data.userid);
+                    $("#userid").val(data.userid);
                     $("#name").val(data.name);
                     $("#age").val(data.age);
                     $("input[name='sex']").get(data.sex).checked = true;
+                    let sex;
+                    for(var key in data){
+                    	if(data[key] == ''){
+                    		if(key == "sex"){
+                    			continue;
+                    		}
+                    		data[key] = "未更新"
+                    	}
+                    }
+                    if(data.sex == 0){
+                    	sex = "男";
+                    }else if(data.sex == 1){
+                    	sex = "女";
+                    }else{
+                    	sex = "未更新";
+                    }
                 	if(data.age != ''){
                 		alert(
                 				"获取成功 !\nuserid: " + data.userid + 
                 				"\nname: " + data.name + 
-                				"\nsex: " + data.sex + 
+                				"\nsex: " + sex + 
                 				"\nage: " + data.age
                 				);
                 	}else{
                 		alert(
                 				"获取成功 !\nuserid: " + data.userid + 
                 				"\nname: " + data.name + 
-                				"\nsex: " + data.sex
+                				"\nsex: " + sex
                 				);
                 	}
                     
@@ -39,6 +56,7 @@
 
             //清空(jquery) 
             $("#btn3").click(function(){
+            	$("#userid").val('');
                 $("#name").val('');
                 $("input:radio[name='sex']:checked").prop('checked',false);
                 $("#age").val('');
@@ -46,24 +64,41 @@
 
             //再取得
             $("#btn5").click(function(){
-                $.get(getUserUrl, function(data, status){
+            	$.get(getUserUrl, function(data, status){
                     if( data.code == 0 ) {
-                        $("#userid").text("工号：" + data.userid);
+                        //$("#userid").text("工号：" + data.userid);
+                        $("#userid").val(data.userid);
                         $("#name").val(data.name);
                         $("#age").val(data.age);
                         $("input[name='sex']").get(data.sex).checked = true;
+                        for(var key in data){
+                        	if(data[key] == ''){
+                        		if(key == "sex"){
+                        			continue;
+                        		}
+                        		data[key] = "未更新"
+                        	}
+                        }
+                        let sex;
+                        if(data.sex == 0){
+                        	sex = "男";
+                        }else if(data.sex == 1){
+                        	sex = "女";
+                        }else{
+                        	sex = "未更新";
+                        }
                     	if(data.age != ''){
                     		alert(
                     				"获取成功 !\nuserid: " + data.userid + 
                     				"\nname: " + data.name + 
-                    				"\nsex: " + data.sex + 
+                    				"\nsex: " + sex + 
                     				"\nage: " + data.age
                     				);
                     	}else{
                     		alert(
                     				"获取成功 !\nuserid: " + data.userid + 
                     				"\nname: " + data.name + 
-                    				"\nsex: " + data.sex
+                    				"\nsex: " + sex
                     				);
                     	}
                         
@@ -75,10 +110,11 @@
 
             // 更新JQuery
             $("#btn2").click(function(){
+            	let userid = $("#userid").val();
                 let name = $("#name").val();
                 let sex = $("input:radio[name='sex']:checked").val();
-                let data = {name: name, sex: Number(sex)};
                 let age = $("#age").val();
+                let data = {userid: userid, name: name, sex: Number(sex), age: age};
                 $.ajax({
                     type: 'POST',
                     url: updateUrl,
@@ -86,18 +122,26 @@
                     data: JSON.stringify(data),
                     success: function(data, status){
                     if( data.code == 0 ) {
+                        let sex;
+                        if(data.sex == 0){
+                        	sex = "男";
+                        }else if(data.sex == 1){
+                        	sex = "女";
+                        }else{
+                        	sex = "未更新";
+                        }
                     	if(data.age != ''){
                     		alert(
                     				"更新成功 !\nuserid: " + data.userid + 
                     				"\nname: " + data.name + 
-                    				"\nsex: " + data.sex + 
+                    				"\nsex: " + sex + 
                     				"\nage: " + data.age
                     				);
                     	}else{
                     		alert(
                     				"更新成功 !\nuserid: " + data.userid + 
                     				"\nname: " + data.name + 
-                    				"\nsex: " + data.sex
+                    				"\nsex: " + sex
                     				);
                     	}
                     } else {
@@ -120,6 +164,7 @@
 
         //清空(js)
         function clearAll() {
+        	document.getElementById("userid").value = '';
         	document.getElementById("name").value = '';
         	$("input:radio[name='sex']:checked").prop('checked',false);
         	document.getElementById("age").value = '';
@@ -127,9 +172,10 @@
         // 更新原始JS
         const xhr = new XMLHttpRequest();
         function updateJQ() {
+        	let userid = document.getElementById("userid").value;
             let name = document.getElementById("name").value;
             let sexlist = document.getElementsByName("sex");
-            let sex = 0;
+            let sex;
             let age = document.getElementById("age").value;
             for( i=0; i<sexlist.length; i++ ) {
                 if( sexlist[i].checked ) {
@@ -137,7 +183,7 @@
                     break;
                 }
             }
-            let data = {name: name, sex: sex, age: age};
+            let data = {userid: userid, name: name, sex: sex, age: age};
 
             xhr.open("Post", updateUrl);
             xhr.setRequestHeader('content-type', 'application/json');
@@ -146,10 +192,18 @@
                 if( xhr.readyState == 4 ) {
                     let res = JSON.parse(this.responseText);
                     if( res.code == 0 ) {
+                        let sex;
+                        if(res.sex == 0){
+                        	sex = "男";
+                        }else if(res.sex == 1){
+                        	sex = "女";
+                        }else{
+                        	sex = "未更新";
+                        }
                         alert(
                         		"更新成功 !\nuserid: " + res.userid + 
                         		"\nname: " + res.name + 
-                        		"\nsex: " + res.sex + 
+                        		"\nsex: " + sex + 
                         		"\nage: " + res.age
                         		);
                     } else {
@@ -166,7 +220,7 @@
     <hr>
     <div>
       	<div id = "input">
-      		<p id="userid">工号：</p>
+      		<p>工号：<input id="userid" type="text" placeholder="请输入工号"></p>
         	<p>姓名：<input id="name" type="text" placeholder="请输入姓名"></p>
        		<p>性别：
         		<input id="boy" type="radio" name="sex" value="0">男 
