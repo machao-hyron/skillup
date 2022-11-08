@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface UserMapper {
     List<User> findAll();
-    List<User> setAll();
+    List<User> setAll(User user);
 }

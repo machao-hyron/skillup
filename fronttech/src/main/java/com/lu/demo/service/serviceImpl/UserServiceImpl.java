@@ -19,7 +19,7 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public List<User> setAll() {
-        return userMapper.setAll();
+    public List<User> setAll(User user) {
+        return userMapper.setAll(user);
     }
 }

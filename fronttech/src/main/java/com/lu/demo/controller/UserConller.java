@@ -17,7 +17,7 @@ public class UserConller {
     @ResponseBody
     public String findAll(@RequestBody User user){
         log.info("1");
-        userService.setAll();
+        userService.setAll(user);
         return "success";
     }
 

@@ -15,7 +15,7 @@
             $.get('http://localhost:8080', function (data, status) {
                 if (data.code == 0) {
                     if (data) {
-                        alert("获取成功 !\nuserid: " + data.userid + "\nname: " + data.name + "\nsex: " + data.sex);
+                        alert("获取成功 !\nuserid: " + data.userid + "\nname: " + data.name + "\nsex: " + data.sex + "\nage:" + data.age);
                         $("#userid").text("工号：" + data.userid);
                         $("#name").val(data.name);
                         $("input[name='sex']").get(data.sex).checked = true;
