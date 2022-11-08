@@ -5,7 +5,7 @@ const app = express();
 
 const otherErr = 403;
 
-let myUser = {userid: "JS00001", name: "test", sex: 0, age:'',};
+let myUser = {userid: "JS1409", name: "杨郑伟", sex: 0, age:'',};
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, '../fontend')));
