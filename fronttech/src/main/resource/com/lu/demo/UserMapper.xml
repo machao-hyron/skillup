@@ -12,7 +12,7 @@
 
 
     <select id="findAll" resultMap="BaseResultMap">
-        select * from t_user
+        select * from t_user limit 1
     </select>
 
     <insert id="setAll" parameterType="com.lu.demo.user.User">
