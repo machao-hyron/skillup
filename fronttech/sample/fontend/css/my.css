@@ -1,0 +1,18 @@
+h1 {
+    text-align: center;
+    font-weight: bold;
+}
+
+div {
+    width: 300px;
+    height: auto;
+    margin: auto;
+}
+table{
+	border:1px #808080 solid;
+	width: 300px;
+}
+table tr td{
+	border: 1px solid #000040;
+	padding: 10px 10px;
+}
