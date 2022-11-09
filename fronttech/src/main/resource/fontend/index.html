@@ -2,55 +2,54 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
-    <title>nodejs后端</title>
-    <link rel="stylesheet" href="css/my.css">
+    <title>springboot后端</title>
+    <link rel="stylesheet" href="../static/css/my.css">
 
-    <script type="text/javascript" src="js/jquery-3.6.1.min.js"></script>
+    <script type="text/javascript" src="../static/js/jquery-3.6.1.min.js"></script>
     <script type="text/javascript">
-        const getUserUrl = "http://127.0.0.1:3001/getUser";
-        const updateUrl = "http://127.0.0.1:3001/update";
+         // const getUserUrl = "http://127.0.0.1:3001/getUser";
+         // const updateUrl = "http://127.0.0.1:3001/update";
 
         $(document).ready(function () {
-            $.get(getUserUrl, function (data, status) {
-                //$.get('http://localhost:8080', function (data, status) {
-                if (data.code == 0) {
-                    if (data) {
-                        alert("获取成功 !\nuserid: " + data.userid + "\nname: " + data.name + "\nsex: " + data.sex + "\nage:" + data.age);
-                        $("#userid").text("工号：" + data.userid);
-                        $("#name").val(data.name);
-                        $("input[name='sex']").get(data.sex).checked = true;
-                        $("#age").val(data.age);
-                        var data1=data;
-                    } else {
-                        alert("获取失败 !\ncode: " + data.code + "\nmsg: " + data.msg);
-                    }
+            //$.get(getUserUrl, function (data, status) {
+            $.get('http://localhost:8080', function (data, status) {
+                // if (data.code == 0) {
+                if (data) {
+                    alert("获取成功 !\nuserid: " + data.userid + "\nname: " + data.name + "\nsex: " + data.sex + "\nage:" + data.age);
+                    $("#userid").text("工号：" + data.userid);
+                    $("#name").val(data.name);
+                    $("input[name='sex']").get(data.sex).checked = true;
+                    $("#age").val(data.age);
+                } else {
+                    alert("获取失败 !\ncode: " + data.code + "\nmsg: " + data.msg);
                 }
+
             });
 
             // JQuery
             $("#btn2").click(function () {
-                let userid = $("#userid").val();
+                let userid=$("#userid").val();
                 let name = $("#name").val();
                 let sex = $("input:radio[name='sex']:checked").val();
                 let age = $("#age").val();
-                let data = {'userid': userid, 'name': name, sex: Number(sex), 'age': age};
+                let data = {'userid':userid,'name': name, sex: Number(sex), 'age': age};
                 $.ajax({
                     type: 'POST',
-                    url: updateUrl,
-                    // url: '/setUser',
+                    //url: updateUrl,
+                    url: '/setUser',
                     contentType: 'application/json;charset=UTF-8',
                     data: JSON.stringify(data),
-                    dataType: "json",
+                    dataType:"json",
                     success: function (data) {
-                        if (data.code == 0) {
-                            //if (data) {
+                        //if (data.code == 0) {
+                        if (data) {
                             alert("更新成功 !\nuserid: " + data.userid + "\nname: " + data.name + "\nsex: " + data.sex + "\nage: " + data.age);
-                        } else {
-                            alert("更新失败 !\ncode: " + data.code + "\nmsg: " + data.msg);
+                            //     } else {
+                            //         alert("更新失败 !\ncode: " + data.code + "\nmsg: " + data.msg);
+                            //     }
+                            // }
                         }
                     }
-
-
                 })
             });
             //jquery实现删除操作
@@ -67,19 +66,17 @@
                     count++;
                 }
             })
-
-            $("#btn6").click(function () {
-                $.get(getUserUrl, function(data, status){
-                    if (data.code == 0) {
-                        alert("获取成功 !\nuserid: " + data.userid + "\nname: " + data.name + "\nsex: " + data.sex + "\nage:" + data.age);
-                        $("#userid").text("工号：" + data.userid);
-                        $("#name").val(data.name);
-                        $("input[name='sex']").get(data.sex).checked = true;
-                    }
-                })
-
-            });
-
+            $(function(){
+                $("#btn6").click(function(){
+                    $.get(getUser, function(data, status){
+                        if( data.code == 0 ) {
+                            $("#userid").text("工号：" + data.userid);
+                            $("#name").val(data.name);
+                            $("input[name='sex']").get(data.sex).checked = true;
+                        }
+                    });
+                });
+            })
         });
 
         // 原始JS
@@ -98,8 +95,8 @@
             }
             let data = {name: name, sex: sex, age: age};
 
-            xhr.open("Post", updateUrl);
-            xhr.open("Post",'http://localhost:3001')
+            //xhr.open("Post", updateUrl);
+            xhr.open("Post",'http://localhost:8080/setUser')
             xhr.setRequestHeader('content-type', 'application/json');
             xhr.send(JSON.stringify(data));
             xhr.onreadystatechange = function () {
@@ -125,6 +122,9 @@
                 count--;
             }
         }
+
+
+
     </script>
 </head>
 <body>
