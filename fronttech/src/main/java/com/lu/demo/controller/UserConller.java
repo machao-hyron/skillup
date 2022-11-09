@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @Slf4j
@@ -15,9 +16,15 @@ public class UserConller {
 
     @RequestMapping(value = "/setUser",method = RequestMethod.POST)
     @ResponseBody
-    public String findAll(@RequestBody User user){
+    public String setAll(@RequestBody User user){
         log.info("1");
         userService.setAll(user);
+        return "success";
+    }
+
+    @GetMapping("/getUser")
+    public String findAll(@RequestBody User user){
+        List<User> all = userService.findAll();
         return "success";
     }
 
