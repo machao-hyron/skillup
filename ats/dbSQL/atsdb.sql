@@ -4,6 +4,7 @@
 DROP DATABASE IF EXISTS `ats_demo`;
 CREATE DATABASE IF NOT EXISTS `ats_demo`;
 USE `ats_demo`;
+
 /*
 账号情报表创建
 */
@@ -18,6 +19,7 @@ CREATE TABLE IF NOT EXISTS `t_number` (
   `update_user` VARCHAR(10) NOT NULL ,
   PRIMARY KEY (`job_no`)
 ) ENGINE=INNODB DEFAULT CHARSET=utf8mb4;
+
 /*
 员工情报表创建
 */
