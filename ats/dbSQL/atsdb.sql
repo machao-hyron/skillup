@@ -11,12 +11,12 @@ USE `ats_demo`;
 DROP TABLE IF EXISTS `t_number`;
 CREATE TABLE IF NOT EXISTS `t_number` (
   `job_no` VARCHAR(10) NOT NULL ,
-  `mail` VARCHAR(32) NOT NULL,
-  `password` VARCHAR(20) NOT NULL,
+  `mail` VARCHAR(50) NOT NULL,
+  `password` VARCHAR(255) NOT NULL,
   `login_datetime` TIMESTAMP NULL DEFAULT NULL,
-  `login_user` VARCHAR(10) NOT NULL ,
+  `login_user` VARCHAR(32) NOT NULL ,
   `update_datetime` TIMESTAMP NULL DEFAULT NULL,
-  `update_user` VARCHAR(10) NOT NULL ,
+  `update_user` VARCHAR(32) NOT NULL ,
   PRIMARY KEY (`job_no`)
 ) ENGINE=INNODB DEFAULT CHARSET=utf8mb4;
 
@@ -27,18 +27,18 @@ DROP TABLE IF EXISTS `t_emp`;
 CREATE TABLE IF NOT EXISTS `t_emp` (
   `job_no` VARCHAR(10) NOT NULL ,
   `dep_id` VARCHAR(10) NOT NULL,
-  `project_id` VARCHAR(10) NOT NULL,
-  `emp_name` VARCHAR(10) NOT NULL,
+  `project_id` VARCHAR(32) NOT NULL,
+  `emp_name` VARCHAR(32) NOT NULL,
   `sex` CHAR(1) NOT NULL,
   `birthday_datetime` TIMESTAMP NULL DEFAULT NULL,
   `join_time` TIMESTAMP NULL DEFAULT NULL,
   `on_job_flag` CHAR(1) NOT NULL,
-  `leave_time` VARCHAR(10) NOT NULL ,
+  `leave_time` TIMESTAMP NULL DEFAULT NULL,
   `emp_img` BLOB,
   `login_datetime` TIMESTAMP NULL DEFAULT NULL,
-  `login_user` VARCHAR(10) NOT NULL ,
+  `login_user` VARCHAR(32) NOT NULL ,
   `update_datetime` TIMESTAMP NULL DEFAULT NULL,
-  `update_user` VARCHAR(10) NOT NULL ,
+  `update_user` VARCHAR(32) NOT NULL ,
   PRIMARY KEY (`job_no`),
   INDEX(`emp_name`)
 ) ENGINE=INNODB DEFAULT CHARSET=utf8mb4;
