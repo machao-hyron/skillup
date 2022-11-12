@@ -6,6 +6,7 @@ import java.sql.Timestamp;
 
 @Data
 public class Number {
+
     private String jobNo;
     private String mail;
     private String password;
@@ -20,6 +21,11 @@ public class Number {
     public Number(String jobNo, String mail, String password) {
         this.jobNo = jobNo;
         this.mail = mail;
+        this.password = password;
+    }
+
+    public Number(String jobNo, String password) {
+        this.jobNo = jobNo;
         this.password = password;
     }
 

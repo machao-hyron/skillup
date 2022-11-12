@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>login</title>
-    <link rel="stylesheet" href="../static/css/my.css">
     <script type="text/javascript" src="../static/js/jquery-3.6.1.min.js"></script>
+    <link rel="stylesheet" href="../static/css/my.css">
+
     <script>
-        $('.form').form({
+        $('#myform').form({
             fields : {
-                username : {
-                    identifier: 'username',
+                jobNo : {
+                    identifier: 'jobNo',
                     rules: [{
                         type : 'empty',
-                        prompt: '请输入用户名'
+                        prompt: '请输入工号'
                     }]
                 },
                 password : {
@@ -36,22 +37,22 @@
                         考勤管理
                     </div>
                 </h2>
-                <form class=" large form" method="post" action="#" th:action="@{/login}">
+                <form id="myform" class=" large form" method="post" action="#" th:action="@{/success}">
                         <div class="field">
                             <div class=" left icon input">
-                                <i class="user icon"></i>
-                                <input type="text" name="username" placeholder="用户名">
+                                <i class="jobNo icon"></i>
+                                <input type="text"  name="jobNo" placeholder="工号">
                             </div>
                         </div>
                         <div class="field">
                             <div class=" left icon input">
                                 <i class="lock icon"></i>
-                                <input type="password" name="password" placeholder="密码">
+                                <input type="password"  name="password" placeholder="密码">
                             </div>
                         </div>
                         <button class="ui fluid large teal submit button">登   录</button>
                     <div class="error mini message"></div>
-                    <div class="mini negative message" th:unless="${#strings.isEmpty(message)}" th:text="${message}">用户名和密码错误</div>
+                    <div class="mini negative message" th:unless="${#strings.isEmpty(message)}" th:text="${message}">工号和密码错误</div>
 
                 </form>
             </div>

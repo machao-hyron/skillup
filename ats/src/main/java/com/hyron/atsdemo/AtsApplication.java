@@ -6,7 +6,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan("com.hyron.atsdemo.service")
 @MapperScan("com.hyron.atsdemo.mapper")
 public class AtsApplication {
     public static void main(String[] args) {

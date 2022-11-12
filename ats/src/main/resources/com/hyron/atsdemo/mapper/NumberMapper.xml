@@ -4,20 +4,29 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.hyron.atsdemo.mapper.NumberMapper">
 
+    <resultMap id="BaseResultMap" type="com.hyron.atsdemo.pojo.Number">
+        <id column="job_no" jdbcType="VARCHAR" property="jobNo"/>
+        <result column="mail" jdbcType="VARCHAR" property="mail"/>
+        <result column="password" jdbcType="VARCHAR" property="password"/>
+        <result column="login_user" jdbcType="VARCHAR" property="loginUser"/>
+        <result column="login_datetime" jdbcType="TIMESTAMP" property="loginDateime"/>
+        <result column="update_datetime" jdbcType="TIMESTAMP" property="updateDateime"/>
+        <result column="update_user" jdbcType="VARCHAR" property="updateUser"/>
+    </resultMap>
     <sql id="Base_List">
-        job_no, avatar, create_time, email, nickname, password,update_time, username
+        job_no,mail,login_dateime, login_user, update_dateime, update_user,password
     </sql>
 
-    <select id="findByJobNoAndPassword" parameterType="com.hyron.atsdemo.pojo.Number" resultType="com.hyron.atsdemo.pojo.Number">
+    <select id="findByJobNoAndPassword" parameterType="com.hyron.atsdemo.pojo.Number" resultMap="BaseResultMap">
         select <include refid="Base_List" />
         from t_number
         where job_no = #{job_no,jdbcType=VARCHAR}
         and password = #{password,jdbcType=VARCHAR}
     </select>
 
-    <select id="findByJobNo" parameterType="java.lang.String" resultType="com.hyron.atsdemo.pojo.Number">
+    <select id="findByJobNo" parameterType="java.lang.String" resultMap="BaseResultMap">
         select <include refid="Base_List" />
         from t_number
-        where job_no = #{job_no,jdbcType=VARCHAR}
+        where job_no = #{job_no}
     </select>
 </mapper>
