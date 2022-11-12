@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+    <link rel="stylesheet" href="../static/css/my.css">
+    <script type="text/javascript" src="../static/js/jquery-3.6.1.min.js"></script>
+    <script>
+        $('.form').form({
+            fields : {
+                username : {
+                    identifier: 'username',
+                    rules: [{
+                        type : 'empty',
+                        prompt: '请输入用户名'
+                    }]
+                },
+                password : {
+                    identifier: 'password',
+                    rules: [{
+                        type : 'empty',
+                        prompt: '请输入密码'
+                    }]
+                }
+            }
+        });
+    </script>
+</head>
+<body>
+<div class="m-container-small m-padded-tb-massive" style="max-width: 30em !important;">
+    <div class="ur container">
+        <div class=" middle aligned center aligned grid">
+            <div class="column">
+                <h2 class=" teal image header">
+                    <div class="content">
+                        考勤管理
+                    </div>
+                </h2>
+                <form class=" large form" method="post" action="#" th:action="@{/login}">
+                        <div class="field">
+                            <div class=" left icon input">
+                                <i class="user icon"></i>
+                                <input type="text" name="username" placeholder="用户名">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class=" left icon input">
+                                <i class="lock icon"></i>
+                                <input type="password" name="password" placeholder="密码">
+                            </div>
+                        </div>
+                        <button class="ui fluid large teal submit button">登   录</button>
+                    <div class="error mini message"></div>
+                    <div class="mini negative message" th:unless="${#strings.isEmpty(message)}" th:text="${message}">用户名和密码错误</div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
