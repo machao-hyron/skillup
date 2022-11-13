@@ -21,14 +21,14 @@ CREATE TABLE IF NOT EXISTS `t_dep` (
 */
 DROP TABLE IF EXISTS `t_number`;
 CREATE TABLE IF NOT EXISTS `t_number` (
-  `job_no` VARCHAR(32) NOT NULL ,
+  `job_id` VARCHAR(32) NOT NULL ,
   `mail` VARCHAR(50) NOT NULL,
   `password` VARCHAR(255) NOT NULL,
   `login_datetime` TIMESTAMP NULL DEFAULT NULL,
   `login_user` VARCHAR(32) NOT NULL ,
   `update_datetime` TIMESTAMP NULL DEFAULT NULL,
   `update_user` VARCHAR(32) NOT NULL ,
-  PRIMARY KEY (`job_no`)
+  PRIMARY KEY (`job_id`)
 ) ENGINE=INNODB DEFAULT CHARSET=utf8mb4;
 /*
 项目信息表创建
@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS `t_project` (
 */
 DROP TABLE IF EXISTS `t_emp`;
 CREATE TABLE IF NOT EXISTS `t_emp` (
-  `job_no` VARCHAR(32) NOT NULL ,
+  `job_id` VARCHAR(32) NOT NULL ,
   `dep_id` VARCHAR(32) NOT NULL,
   `project_id` VARCHAR(32) NOT NULL,
   `emp_name` VARCHAR(32) NOT NULL,
@@ -70,7 +70,7 @@ CREATE TABLE IF NOT EXISTS `t_emp` (
   `login_user` VARCHAR(32) NOT NULL ,
   `update_datetime` TIMESTAMP NULL DEFAULT NULL,
   `update_user` VARCHAR(32) NOT NULL ,
-  PRIMARY KEY (`job_no`),
+  PRIMARY KEY (`job_id`),
   INDEX(`emp_name`)
 ) ENGINE=INNODB DEFAULT CHARSET=utf8mb4;
 
@@ -80,7 +80,7 @@ CREATE TABLE IF NOT EXISTS `t_emp` (
 DROP TABLE IF EXISTS `t_record`;
 CREATE TABLE IF NOT EXISTS `t_record` (
   `no` INT(32) NOT NULL AUTO_INCREMENT,
-  `job_no`VARCHAR(32) NOT NULL,
+  `job_id`VARCHAR(32) NOT NULL,
   `from_time` DATE NULL DEFAULT NULL,
   `to_time`   DATE NULL DEFAULT NULL,
   `company_name` VARCHAR(32) NOT NULL ,
@@ -90,14 +90,14 @@ CREATE TABLE IF NOT EXISTS `t_record` (
   `update_datetime` TIMESTAMP NULL DEFAULT NULL,
   `update_user` VARCHAR(32) NOT NULL ,
   PRIMARY KEY (`no`),
-  FOREIGN KEY(`job_no`) REFERENCES t_emp(`job_no`)
+  FOREIGN KEY(`job_id`) REFERENCES t_emp(`job_id`)
 ) ENGINE=INNODB DEFAULT CHARSET=utf8mb4;
 /*
 技能信息表创建
 */
 DROP TABLE IF EXISTS `t_skill`;
 CREATE TABLE IF NOT EXISTS `t_skill` (
-  `job_no` VARCHAR(32) NOT NULL ,
+  `job_id` VARCHAR(32) NOT NULL ,
   `java` CHAR(1) NOT NULL,
   `c#` CHAR(1) NOT NULL,
   `ios` CHAR(1) NOT NULL,
@@ -119,7 +119,7 @@ CREATE TABLE IF NOT EXISTS `t_skill` (
   `login_user` VARCHAR(32) NOT NULL ,
   `update_datetime` TIMESTAMP NULL DEFAULT NULL,
   `update_user` VARCHAR(32) NOT NULL ,
-  PRIMARY KEY (`job_no`)
+  PRIMARY KEY (`job_id`)
 ) ENGINE=INNODB DEFAULT CHARSET=utf8mb4;
 
 /*
