@@ -5,5 +5,6 @@ import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface NumberMapper {
+
     Number findByJobNoAndPassword(Number number);
 }

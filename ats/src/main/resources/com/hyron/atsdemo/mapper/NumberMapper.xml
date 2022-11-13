@@ -5,28 +5,28 @@
 <mapper namespace="com.hyron.atsdemo.mapper.NumberMapper">
 
     <resultMap id="BaseResultMap" type="com.hyron.atsdemo.pojo.Number">
-        <id column="job_no" jdbcType="VARCHAR" property="jobNo"/>
+        <id column="job_id" jdbcType="VARCHAR" property="jobId"/>
         <result column="mail" jdbcType="VARCHAR" property="mail"/>
         <result column="password" jdbcType="VARCHAR" property="password"/>
         <result column="login_user" jdbcType="VARCHAR" property="loginUser"/>
-        <result column="login_datetime" jdbcType="TIMESTAMP" property="loginDateime"/>
-        <result column="update_datetime" jdbcType="TIMESTAMP" property="updateDateime"/>
+        <result column="login_datetime" jdbcType="TIMESTAMP" property="loginDatetime"/>
+        <result column="update_datetime" jdbcType="TIMESTAMP" property="updateDatetime"/>
         <result column="update_user" jdbcType="VARCHAR" property="updateUser"/>
     </resultMap>
     <sql id="Base_List">
-        job_no,mail,login_dateime, login_user, update_dateime, update_user,password
+        job_id,mail,login_datetime,login_user,update_datetime,update_user,password
     </sql>
 
     <select id="findByJobNoAndPassword" parameterType="com.hyron.atsdemo.pojo.Number" resultMap="BaseResultMap">
         select <include refid="Base_List" />
         from t_number
-        where job_no = #{job_no,jdbcType=VARCHAR}
+        where job_id = #{jobId,jdbcType=VARCHAR}
         and password = #{password,jdbcType=VARCHAR}
     </select>
 
-    <select id="findByJobNo" parameterType="java.lang.String" resultMap="BaseResultMap">
-        select <include refid="Base_List" />
-        from t_number
-        where job_no = #{job_no}
-    </select>
+<!--    <select id="findByJobNo" parameterType="java.lang.String" resultMap="BaseResultMap">-->
+<!--        select <include refid="Base_List" />-->
+<!--        from t_number-->
+<!--        where job_id = #{job_id}-->
+<!--    </select>-->
 </mapper>

@@ -5,59 +5,30 @@
     <title>login</title>
     <script type="text/javascript" src="../static/js/jquery-3.6.1.min.js"></script>
     <link rel="stylesheet" href="../static/css/my.css">
-
-    <script>
-        $('#myform').form({
-            fields : {
-                jobNo : {
-                    identifier: 'jobNo',
-                    rules: [{
-                        type : 'empty',
-                        prompt: '请输入工号'
-                    }]
-                },
-                password : {
-                    identifier: 'password',
-                    rules: [{
-                        type : 'empty',
-                        prompt: '请输入密码'
-                    }]
-                }
-            }
-        });
-    </script>
 </head>
 <body>
-<div class="m-container-small m-padded-tb-massive" style="max-width: 30em !important;">
-    <div class="ur container">
-        <div class=" middle aligned center aligned grid">
-            <div class="column">
-                <h2 class=" teal image header">
-                    <div class="content">
-                        考勤管理
-                    </div>
-                </h2>
-                <form id="myform" class=" large form" method="post" action="#" th:action="@{/success}">
-                        <div class="field">
-                            <div class=" left icon input">
-                                <i class="jobNo icon"></i>
-                                <input type="text"  name="jobNo" placeholder="工号">
-                            </div>
-                        </div>
-                        <div class="field">
-                            <div class=" left icon input">
-                                <i class="lock icon"></i>
-                                <input type="password"  name="password" placeholder="密码">
-                            </div>
-                        </div>
-                        <button class="ui fluid large teal submit button">登   录</button>
-                    <div class="error mini message"></div>
-                    <div class="mini negative message" th:unless="${#strings.isEmpty(message)}" th:text="${message}">工号和密码错误</div>
-
-                </form>
+<section>
+    <div>
+        <div>管理员登录</div>
+        <form action="" th:action="@{/login}" autocomplete="off" method="post">
+            <div>
+                <label for="jobId">工号</label>
+                <div>
+                    <input type="text" name="jobId" id="jobId" placeholder="请输入您的工号">
+                </div>
             </div>
-        </div>
+
+            <div>
+                <label for="password" >密码</label>
+                <div>
+                    <input type="password" name="password" id="password" placeholder="请输入您的密码">
+                </div>
+            </div>
+            <div>
+                <button type="submit" value="提交">登录</button>
+            </div>
+        </form>
     </div>
-</div>
+</section>
 </body>
 </html>
