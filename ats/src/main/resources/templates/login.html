@@ -7,19 +7,18 @@
     <link rel="stylesheet" href="../static/css/my.css">
 </head>
 <body>
-<section>
     <div>
-        <div>管理员登录</div>
+        <div>考勤管理</div>
         <form action="" th:action="@{/login}" autocomplete="off" method="post">
             <div>
-                <label for="jobId">工号</label>
+                <label for="jobId">工号：</label>
                 <div>
                     <input type="text" name="jobId" id="jobId" placeholder="请输入您的工号">
                 </div>
             </div>
 
             <div>
-                <label for="password" >密码</label>
+                <label for="password" >密码：</label>
                 <div>
                     <input type="password" name="password" id="password" placeholder="请输入您的密码">
                 </div>
@@ -29,6 +28,5 @@
             </div>
         </form>
     </div>
-</section>
 </body>
 </html>
