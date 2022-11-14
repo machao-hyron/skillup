@@ -3,11 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>index</title>
+    <script type="text/javascript" src="../static/js/jquery-3.6.1.min.js"></script>
+    <script>
+        @document.ready(function () {
+            $("#excelInput").click(function () {
+                alert("导入成功");
+            })
+        })
+
+    </script>
 </head>
 <body>
 <p>首页</p>
 <div>
-    <button type="submit" value="数据导入">数据导入</button>
+    <input id="excelInput" type="button"  th:action="#{/excelInput}" value="数据导入">数据导入</input>
 </div>
 </body>
 </html>
