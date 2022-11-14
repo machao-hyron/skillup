@@ -24,9 +24,9 @@ public class LoginController {
         return "login";
     }
 
-    @GetMapping("success")
-    public String success(){
-        return "success";
+    @GetMapping("empall")
+    public String empall(){
+        return "empall";
     }
 
     @RequestMapping(value = "login",method = RequestMethod.POST)
@@ -40,7 +40,7 @@ public class LoginController {
         if (loginUser != null){
                 loginUser.setPassword(null);
                 session.setAttribute("number", loginUser);
-                return "redirect:success";
+                return "redirect:empall";
             } else {
                 attributes.addFlashAttribute("message", "用户名或密码错误");
                 return "redirect:login";
