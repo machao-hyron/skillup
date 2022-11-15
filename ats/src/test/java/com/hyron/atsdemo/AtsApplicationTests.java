@@ -28,6 +28,7 @@ class AtsApplicationTests {
             long start = new Date().getTime();
             List<WorkTime> list = ExcelImportUtil.importExcel(
                     fileInputStream, WorkTime.class, params);
+            System.out.println(list.get(0));
             System.out.println(new Date().getTime() - start);
             System.out.println(list.size());
             System.out.println(ReflectionToStringBuilder.toString(list.get(0)));

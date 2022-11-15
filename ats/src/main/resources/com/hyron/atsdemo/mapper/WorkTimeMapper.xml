@@ -23,7 +23,7 @@
     </sql>
 
 <insert id="setDataFromExcel">
-    insert into t_work_time
-     value
+    insert into t_work_time(dep_id,job_id,emp_name,,work_datetime,am_time,pm_time)
+     values(), ()
 </insert>
 </mapper>
