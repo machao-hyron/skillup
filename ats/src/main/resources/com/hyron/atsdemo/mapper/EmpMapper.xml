@@ -22,15 +22,17 @@
         <result column="update_datetime" jdbcType="TIMESTAMP" property="updateDatetime"/>
         <result column="update_user" jdbcType="VARCHAR" property="updateUser"/>
     </resultMap>
-
+<sql id="Base">
+    job_id,dep_id,project_id,emp_name,sex,birthday_datetime,leave_school_time,school,join_time,on_job_flag,leave_time,emp_img
+</sql>
 
     <select id="findAll" resultMap="BaseResultMap" >
-        select * from t_emp
+        select <include refid="Base"></include> from t_emp
     </select>
 
-<insert id="setDataFromExcel" parameterType="com.hyron.atsdemo.pojo.Emp">
+<insert id="setDataFromExcel" parameterType="com.hyron.atsdemo.pojo.Emp" useGeneratedKeys="true" keyProperty="jobId">
     insert into t_emp
-    (dep_id,job_id,emp_name,,work_datetime,am_time,pm_time,login_datetime,update_datetime)
+    (<include refid="Base"></include>)
      values (
         #{jobId},#{depId},#{projectId},#{empName},#{sex},#{birthdayDatetime},#{leaveSchoolTime},
     #{school},#{joinTime},#{onJobFlag},#{leaveTime},#{empImg}

@@ -28,13 +28,13 @@ public class Emp implements Serializable {
     private String empName;
     @Excel(name = "性别",replace = {"男_1","女_0"})
     private Integer sex;
-    @Excel(name = "生日",format = "yyyy年MM月dd日")
+    @Excel(name = "生日",format = "yyyy/MM/dd")
     private Timestamp birthdayDatetime;
-    @Excel(name = "毕业时间",format = "yyyy年MM月dd日")
+    @Excel(name = "毕业时间",format = "yyyy/MM/dd")
     private Date leaveSchoolTime;
     @Excel(name = "毕业学校")
     private String school;
-    @Excel(name = "入职时间",format = "yyyy年MM月dd日")
+    @Excel(name = "入职时间",format = "yyyy/MM/dd")
     private Timestamp joinTime;
     @Excel(name = "在职标志",replace = {"是_1","否_0"})
     private Integer onJobFlag;

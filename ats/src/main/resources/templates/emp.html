@@ -13,7 +13,7 @@
         <div class="row">
             <div class="" >
                 <h1>选择文件</h1>
-                <form th:action="@{/empall/import}" method="post" enctype="multipart/form-data" class="form-inline" >
+                <form th:action="@{/emp/import}" method="post" enctype="multipart/form-data" class="form-inline" >
                     <div class="form-group">
                         <input class="form-control" type="file" name="excelFile" style="border: 1px chartreuse">
                         <input type="submit" class="btn1" value="导入">
@@ -37,17 +37,18 @@
                         <th>离职时间</th>
                         <th>照片</th>
                     </tr>
-                    <tr th:each="emp : ${empAll}">
+                    <tr th:each="emp : ${emps}">
                         <td th:text="${emp.jobId}">js1703</td>
                         <td th:text="${emp.depId}">D311</td>
+                        <td th:text="${emp.projectId}">D311</td>
                         <td th:text="${emp.name}">鲁</td>
                         <td th:text="${emp.sex}">男</td>
-                        <td th:text="${#dates.format(emp.birthdayDatetime,'yyyy-MM-dd')}">xxxx-xx-xx</td>
-                        <td th:text="${#dates.format(emp.leaveSchoolTime,'yyyy-MM-dd')}">xxxx-xx-xx</td>
+                        <td th:text="${#dates.format(emp.birthdayDatetime,'yyyy/MM/dd')}">xxxx-xx-xx</td>
+                        <td th:text="${#dates.format(emp.leaveSchoolTime,'yyyy/MM/dd')}">xxxx-xx-xx</td>
                         <td th:text="${emp.school}">xx学校</td>
+                        <td th:text="${#dates.format(emp.joinTime,'yyyy/MM/dd')}">xxxx-xx-xx</td>
                         <td th:text="${emp.onJobFlag}">是</td>
-                        <td th:text="${emp.joinTime}">xxxx-xx-xx</td>
-                        <td th:text="${#dates.format(emp.leaveTime,'yyyy-MM-dd')}">-</td>
+                        <td th:text="${#dates.format(emp.leaveTime,'yyyy/MM/dd')}">-</td>
                         <td th:text="${emp.empImg}"><img th:src="${'/'+ emp.empImg}" width="20" height="40" alt=""></td>
                     </tr>
                     <tr>

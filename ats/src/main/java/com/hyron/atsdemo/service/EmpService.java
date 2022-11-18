@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface EmpService {
     List<Emp> findAll();
-    void setDataFromExcel(List<Emp> emp);
+    void setDataFromExcel(List<Emp> emps);
 }
