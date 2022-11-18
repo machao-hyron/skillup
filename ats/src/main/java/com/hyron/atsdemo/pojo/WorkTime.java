@@ -16,7 +16,7 @@ import java.sql.Timestamp;
 public class WorkTime {
     @ExcelIgnore
     private Integer no;
-//    @Excel(name = "部门")
+    //    @Excel(name = "部门")
 //    private String depId;
 //    @Excel(name = "工号")
 //    private String jobId;
@@ -27,17 +27,17 @@ public class WorkTime {
 //    @Excel(name = "上午上班",format="HH:mm:ss")
 //    private Timestamp amTime;
 //    @Excel(name = "下午下班",format="HH:mm:ss")
-    @Excel(name = "部门",fixedIndex=-1)
+    @Excel(name = "部门", fixedIndex = -1)
     private String depId;
-    @Excel(name = "工号",fixedIndex=-1)
+    @Excel(name = "工号", fixedIndex = -1)
     private String jobId;
-    @Excel(name = "姓名",fixedIndex=-1)
+    @Excel(name = "姓名", fixedIndex = -1)
     private String empName;
-    @Excel(name = "日期",format="yyyy-MM-dd",fixedIndex=-1)
+    @Excel(name = "日期", format = "yyyy-MM-dd", fixedIndex = -1)
     private Date workDatetime;
-    @Excel(name = "上午上班",format="HH:mm:ss",fixedIndex=-1)
+    @Excel(name = "上午上班", format = "HH:mm:ss", fixedIndex = -1)
     private Timestamp amTime;
-    @Excel(name = "下午下班",format="HH:mm:ss",fixedIndex=-1)
+    @Excel(name = "下午下班", format = "HH:mm:ss", fixedIndex = -1)
     private Timestamp pmTime;
     @ExcelIgnore
     private Integer overtime;
@@ -49,4 +49,5 @@ public class WorkTime {
     private Timestamp updateDatetime;
     @ExcelIgnore
     private String updateUser;
+
 }

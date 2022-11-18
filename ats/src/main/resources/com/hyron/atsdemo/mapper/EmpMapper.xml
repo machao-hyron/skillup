@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hyron.atsdemo.mapper.EmpMapper">
+
+    <resultMap id="BaseResultMap" type="com.hyron.atsdemo.pojo.Emp">
+        <id  column="job_id" jdbcType="VARCHAR" property="jobId"/>
+        <result column="dep_id" jdbcType="VARCHAR" property="depId"/>
+        <result column="project_id" jdbcType="VARCHAR" property="projectId"/>
+        <result column="emp_name" jdbcType="VARCHAR" property="empName"/>
+        <result column="sex" jdbcType="INTEGER" property="sex"/>
+        <result column="birthday_datetime" jdbcType="TIMESTAMP" property="birthdayDatetime"/>
+        <result column="leave_school_time" jdbcType="INTEGER" property="leaveSchoolTime"/>
+        <result column="school" jdbcType="VARCHAR" property="school"/>
+        <result column="join_time" jdbcType="TIMESTAMP" property="joinTime"/>
+        <result column="on_job_flag" jdbcType="INTEGER" property="onJobFlag"/>
+        <result column="emp_img" jdbcType="VARCHAR" property="empImg"/>
+        <result column="leave_time" jdbcType="TIMESTAMP" property="leaveTime"/>
+        <result column="login_user" jdbcType="VARCHAR" property="loginUser"/>
+        <result column="login_datetime" jdbcType="TIMESTAMP" property="loginDatetime"/>
+        <result column="update_datetime" jdbcType="TIMESTAMP" property="updateDatetime"/>
+        <result column="update_user" jdbcType="VARCHAR" property="updateUser"/>
+    </resultMap>
+
+
+    <select id="findAll" resultMap="BaseResultMap" >
+        select * from t_emp
+    </select>
+
+<insert id="setDataFromExcel" parameterType="com.hyron.atsdemo.pojo.Emp">
+    insert into t_emp
+    (dep_id,job_id,emp_name,,work_datetime,am_time,pm_time,login_datetime,update_datetime)
+     values (
+        #{jobId},#{depId},#{projectId},#{empName},#{sex},#{birthdayDatetime},#{leaveSchoolTime},
+    #{school},#{joinTime},#{onJobFlag},#{leaveTime},#{empImg}
+    )
+    </insert>
+
+</mapper>

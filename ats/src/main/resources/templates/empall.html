@@ -4,19 +4,59 @@
     <meta charset="UTF-8">
     <title>index</title>
     <script type="text/javascript" src="../static/js/jquery-3.6.1.min.js"></script>
-    <script>
-        @document.ready(function () {
-            $("#excelInput").click(function () {
-                alert("导入成功");
-            })
-        })
-
-    </script>
+    <script type="text/css" src="../static/css/my.css"></script>
 </head>
 <body>
 <p>首页</p>
-<div>
-    <input id="excelInput" type="button"  th:action="#{/excelInput}" value="数据导入">数据导入</input>
+<div >
+    <div class="container-fluid">
+        <div class="row">
+            <div class="" >
+                <h1>选择文件</h1>
+                <form th:action="@{/empall/import}" method="post" enctype="multipart/form-data" class="form-inline" >
+                    <div class="form-group">
+                        <input class="form-control" type="file" name="excelFile" style="border: 1px chartreuse">
+                        <input type="submit" class="btn1" value="导入">
+                    </div>
+                </form>
+            </div>
+            <div class="file2">
+                <h1>显示数据列表</h1>
+                <table class="table" border="1" >
+                    <tr>
+                        <th>工号</th>
+                        <th>部门</th>
+                        <th>项目</th>
+                        <th>姓名</th>
+                        <th>性别</th>
+                        <th>生日</th>
+                        <th>毕业时间</th>
+                        <th>毕业学校</th>
+                        <th>入职时间</th>
+                        <th>是否在职</th>
+                        <th>离职时间</th>
+                        <th>照片</th>
+                    </tr>
+                    <tr th:each="emp : ${empAll}">
+                        <td th:text="${emp.jobId}">js1703</td>
+                        <td th:text="${emp.depId}">D311</td>
+                        <td th:text="${emp.name}">鲁</td>
+                        <td th:text="${emp.sex}">男</td>
+                        <td th:text="${#dates.format(emp.birthdayDatetime,'yyyy-MM-dd')}">xxxx-xx-xx</td>
+                        <td th:text="${#dates.format(emp.leaveSchoolTime,'yyyy-MM-dd')}">xxxx-xx-xx</td>
+                        <td th:text="${emp.school}">xx学校</td>
+                        <td th:text="${emp.onJobFlag}">是</td>
+                        <td th:text="${emp.joinTime}">xxxx-xx-xx</td>
+                        <td th:text="${#dates.format(emp.leaveTime,'yyyy-MM-dd')}">-</td>
+                        <td th:text="${emp.empImg}"><img th:src="${'/'+ emp.empImg}" width="20" height="40" alt=""></td>
+                    </tr>
+                    <tr>
+                        <input type="button" class="btn2" value="导出excel">
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
 </body>
 </html>

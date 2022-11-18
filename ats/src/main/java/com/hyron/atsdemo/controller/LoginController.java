@@ -24,8 +24,8 @@ public class LoginController {
         return "login";
     }
 
-    @GetMapping("empall")
-    public String empall(){
+    @GetMapping("/empall")
+    public String empAll(){
         return "empall";
     }
 
