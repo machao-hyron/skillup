@@ -15,8 +15,8 @@
         <result column="school" jdbcType="VARCHAR" property="school"/>
         <result column="join_time" jdbcType="TIMESTAMP" property="joinTime"/>
         <result column="on_job_flag" jdbcType="INTEGER" property="onJobFlag"/>
-        <result column="emp_img" jdbcType="VARCHAR" property="empImg"/>
         <result column="leave_time" jdbcType="TIMESTAMP" property="leaveTime"/>
+        <result column="emp_img" jdbcType="VARCHAR" property="empImg"/>
         <result column="login_user" jdbcType="VARCHAR" property="loginUser"/>
         <result column="login_datetime" jdbcType="TIMESTAMP" property="loginDatetime"/>
         <result column="update_datetime" jdbcType="TIMESTAMP" property="updateDatetime"/>
@@ -30,7 +30,7 @@
         select <include refid="Base"></include> from t_emp
     </select>
 
-<insert id="setDataFromExcel" parameterType="com.hyron.atsdemo.pojo.Emp" useGeneratedKeys="true" keyProperty="jobId">
+<insert id="setDataFromExcel"  parameterType="com.hyron.atsdemo.pojo.Emp">
     insert into t_emp
     (<include refid="Base"></include>)
      values (

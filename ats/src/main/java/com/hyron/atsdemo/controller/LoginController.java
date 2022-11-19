@@ -41,7 +41,7 @@ public class LoginController {
         if (loginUser != null){
                 loginUser.setPassword(null);
                 session.setAttribute("number", loginUser);
-                return "redirect:emp";
+                return "redirect:emp/findAll";
             } else {
                 attributes.addFlashAttribute("message", "用户名或密码错误");
                 return "redirect:login";

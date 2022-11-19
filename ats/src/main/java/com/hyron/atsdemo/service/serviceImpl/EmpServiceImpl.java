@@ -16,7 +16,6 @@ public class EmpServiceImpl implements EmpService {
     EmpMapper empMapper;
 
     @Override
-    @Transactional(propagation = Propagation.SUPPORTS)
     public List<Emp> findAll() {
         return empMapper.findAll();
     }
@@ -24,8 +23,6 @@ public class EmpServiceImpl implements EmpService {
     @Override
     public void setDataFromExcel(List<Emp> emps) {
         emps.forEach(emp -> {
-            String filename = emp.getEmpImg().substring(emp.getEmpImg().lastIndexOf("/") + 1);//去除路径，保留文件名
-            emp.setEmpImg(filename);
             empMapper.setDataFromExcel(emp);
         });
     }
