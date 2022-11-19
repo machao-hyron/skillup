@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
@@ -22,7 +23,7 @@ public class EmpController {
     @Autowired
     private EmpService empService;
 
-    @RequestMapping("/findAll")
+    @RequestMapping(value = "/findAll",method = RequestMethod.GET)
     public String findAll(HttpServletRequest request){
         List<Emp> emps = empService.findAll();
         request.setAttribute("emps",emps);

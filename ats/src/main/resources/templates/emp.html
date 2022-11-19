@@ -38,18 +38,32 @@
                         <th>照片</th>
                     </tr>
                     <tr th:each="emp : ${emps}">
-                        <td th:text="${emp.jobId}">js1703</td>
-                        <td th:text="${emp.depId}">D311</td>
-                        <td th:text="${emp.projectId}">D311</td>
-                        <td th:text="${emp.name}">鲁</td>
-                        <td th:text="${emp.sex}">男</td>
-                        <td th:text="${#dates.format(emp.birthdayDatetime,'yyyy/MM/dd')}">xxxx-xx-xx</td>
-                        <td th:text="${#dates.format(emp.leaveSchoolTime,'yyyy/MM/dd')}">xxxx-xx-xx</td>
-                        <td th:text="${emp.school}">xx学校</td>
-                        <td th:text="${#dates.format(emp.joinTime,'yyyy/MM/dd')}">xxxx-xx-xx</td>
-                        <td th:text="${emp.onJobFlag}">是</td>
-                        <td th:text="${#dates.format(emp.leaveTime,'yyyy/MM/dd')}">-</td>
-                        <td th:text="${emp.empImg}"><img th:src="${'/'+ emp.empImg}" width="20" height="40" alt=""></td>
+<!--                        <td th:text="${emp.jobId}">js1703</td>-->
+<!--                        <td th:text="${emp.depId}">D311</td>-->
+<!--                        <td th:text="${emp.projectId}">D311</td>-->
+<!--                        <td th:text="${emp.name}">鲁</td>-->
+<!--                        <td th:text="${emp.sex}">男</td>-->
+<!--                        <td th:text="${#dates.format(emp.birthdayDatetime,'yyyy/MM/dd')}">xxxx-xx-xx</td>-->
+<!--                        <td th:text="${#dates.format(emp.leaveSchoolTime,'yyyy/MM/dd')}">xxxx-xx-xx</td>-->
+<!--                        <td th:text="${emp.school}">xx学校</td>-->
+<!--                        <td th:text="${#dates.format(emp.joinTime,'yyyy/MM/dd')}">xxxx-xx-xx</td>-->
+<!--                        <td th:text="${emp.onJobFlag}">是</td>-->
+<!--                        <td th:text="${#dates.format(emp.leaveTime,'yyyy/MM/dd')}">-</td>-->
+<!--                        <td th:text="${emp.empImg}"><img th:src="${'/'+ emp.empImg}" width="20" height="40" alt=""></td>-->
+<!--                    </tr>-->
+                    <tr >
+                        <td >js1703</td>
+                        <td >D311</td>
+                        <td >D311</td>
+                        <td >鲁</td>
+                        <td >男</td>
+                        <td >xxxx-xx-xx</td>
+                        <td >xxxx-xx-xx</td>
+                        <td>xx学校</td>
+                        <td >xxxx-xx-xx</td>
+                        <td> 是</td>
+                        <td >-</td>
+                        <td ><img src="" width="20" height="40" alt=""></td>
                     </tr>
                     <tr>
                         <input type="button" class="btn2" value="导出excel">
