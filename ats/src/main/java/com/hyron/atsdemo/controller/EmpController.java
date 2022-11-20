@@ -41,7 +41,7 @@ public class EmpController {
     
     //导入excel
     @RequestMapping("/import")
-    public String importExcel(MultipartFile excelFile) throws Exception{
+    public String importExcel(MultipartFile excelFile) throws Exception{//MultipartFile实现文件上传
       log.info("文件名：[{}]",excelFile.getOriginalFilename());
         //进行excel导入
         ImportParams params = new ImportParams();
