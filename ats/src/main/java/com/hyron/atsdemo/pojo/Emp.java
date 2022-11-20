@@ -19,15 +19,6 @@ import java.sql.Timestamp;
 @ExcelTarget("emp")
 public class Emp implements Serializable {
 
-
-
-
-
-
-
-
-
-
     @Excel(name = "工号")
     private String jobId;
     @Excel(name = "部门")

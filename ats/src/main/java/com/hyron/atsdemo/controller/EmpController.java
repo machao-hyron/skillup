@@ -61,7 +61,7 @@ public class EmpController {
 //            emp.setEmpImg(realPath+"/"+emp.getEmpImg());
 //        });
         log.info("导出Excel");
-        Workbook workbook = ExcelExportUtil.exportExcel(new ExportParams("员工信息一揽", "员工信息"), Emp.class, emps);
+        Workbook workbook = ExcelExportUtil.exportExcel(new ExportParams("员工信息一揽", "员工信息"), Emp.class, emps);//直接看效果，效果图在文档里
         response.setHeader("content-disposition","attachment;fileName"+ URLEncoder.encode("用户列表.xls","UTF-8"));//对响应头转码，防止中午乱码
         ServletOutputStream outputStream = response.getOutputStream();//输出流
         workbook.write(outputStream);//将流写入
