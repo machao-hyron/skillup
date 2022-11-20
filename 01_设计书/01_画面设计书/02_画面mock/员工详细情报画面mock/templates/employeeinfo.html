@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta http-equiv="Content-Type" content="application/json; charset=UTF-8">
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+<!-- 	<link rel="stylesheet" media="screen" href="css/login.css"> -->
+	<title>员工详细情报</title>
+	
+	<script>
+	$(document).ready(function() {
+		
+// 	数据初始化显示	
+		 $("#nameinput").attr("hidden","hidden");
+		 $("#nametext").removeAttr("hidden","hidden");
+		
+		
+		
+// 	保存图片变换	
+        $("#saveimgbutton").mouseover(function() {
+            $("#saveimgbutton").attr("src","../static/png/saveon.png");
+         
+        });
+        $("#saveimgbutton").mouseleave(function() {
+            $("#saveimgbutton").attr("src","../static/png/save.png");
+//  保存click操作      
+        });
+        $("#saveimgbutton").click(function() {
+        	let nameinput=$("#nameinput").val();
+            $("input").attr("hidden","hidden");
+            $("textarea").attr("hidden","hidden");
+            $("#editimgbutton").removeAttr("hidden","hidden");
+            $("#saveimgbutton").attr("hidden","hidden");
+            $("#nametext").text(nameinput);
+            $("#nametext").removeAttr("hidden","hidden");
+            $("#employeetoptext").text("员工详细情报-保存成功");
+        });
+//   编辑图片变化    
+        $("#editimgbutton").mouseover(function() {
+            $("#editimgbutton").attr("src","../static/png/editon.png");
+         
+        });
+        $("#editimgbutton").mouseleave(function() {
+            $("#editimgbutton").attr("src","../static/png/edit.png");
+         
+        });
+//   编辑click操作  
+        $("#editimgbutton").click(function() {
+            $("input").removeAttr("hidden","hidden");
+            $("textarea").removeAttr("hidden","hidden");
+            $("#editimgbutton").attr("hidden","hidden");
+            $("#saveimgbutton").removeAttr("hidden","hidden");
+            $("#nametext").attr("hidden","hidden");
+            $("#employeetoptext").text("员工详细情报-编辑中");
+           
+        });
+	});    
+    </script>    
+</head>
+
+<body id="employeeinfobody">
+
+
+<!--top      -->
+	<div id="top"  style="float:left;width:100%;height:80px;background-image:url('../static/png/top.jpg')">
+		
+		<div style="float:left;width:40%;height:100%;">
+			<div style="float:left;width:100%;height:20%;" ></div>
+			<div style="float:left;width:100%;height:80%;" ><b style="color:rgb(255,255,255);margin-left:80px;font-size:25px"><a href="http://www.baidu.com">>></a><text id="employeetoptext">员工详细情报</text></b></div>
+		</div>
+		<div style="float:right;width:30%;height:100%">
+			<img id="yuki" src="../static/png/yuki.png" style="width:56px;height:56px;border:0px solid gray ;margin-top:12px;margin-bottom:20px;margin-left:21px;">
+			<img id="yuki" src="../static/png/yuki.png" style="width:56px;height:56px;border:0px solid gray ;margin-top:12px;margin-bottom:20px;margin-left:21px;">
+			<img id="yuki" src="../static/png/yuki.png" style="width:56px;height:56px;border:0px solid gray ;margin-top:12px;margin-bottom:20px;margin-left:21px;">
+			<img id="yuki" src="../static/png/yuki.png" style="width:56px;height:56px;border:0px solid gray ;margin-top:12px;margin-bottom:20px;margin-left:21px;">
+		</div>
+	</div>
+<!-- mid	 -->
+	<div id="mid" style="float:left;width:100%;height:1012px;background:url('../static/png/midbg4.jpg');display:flex;justify-content: center; align-items:center;">
+<!-- 		<div id="midleft" style="float:left;width:19%;height:1012px"></div>  -->
+		
+		<div id="midmid"  style="float:left;width:720px;height:1012px;border:1px solid gray">
+			<div id="midmidright1" style="float:left;width:100%;height:20px;background-image:url('../static/png/midtop.jpg')"></div>
+			<div id="midmidleffimgtop1" style="float:left;width:100%;height:2px;background-color:rgb(253,79,75)"></div>
+			<div id="midmidleffimgtop2" style="float:left;width:100%;height:2px;background-color:rgb(245,254,80)"></div>
+			<div id="midmidleffimgtop3" style="float:left;width:100%;height:2px;background-color:rgb(80,242,254)"></div>
+			
+			<div id="midmidleft" style="float:left;width:30%;height:960px;">
+				
+				<div id="midmidlefttop" style="float:left;width:100%;height:280px;background:rgb(255,252,214)">
+					<img id="employeeimg" src="../static/png/body.jpg" style="width:171px;height:238px;border:1px solid gray ;margin-top:20px;margin-bottom:20px;margin-left:21px;">
+				</div>
+				<div id="midmidleffimgbottom1" style="float:left;width:100%;height:2px;background-color:rgb(253,79,75)"></div>
+				<div id="midmidleffimgbottom2" style="float:left;width:100%;height:2px;background-color:rgb(245,254,80)"></div>
+				<div id="midmidleffimgbottom3" style="float:left;width:100%;height:2px;background-color:rgb(80,242,254)"></div>
+				
+				<div id="midmidleftmid1" style="float:left;width:100%;height:364px;background-color:rgb(253,230,205)">
+					<table style="width:95%;height:30%;margin-left:10px;margin-top:10px">
+						<tr >
+							<td style="width:50px;font-size:8px;align:left"><b>姓名：</b>
+							<input id="nameinput" type="text" value="圣代" style="width:55px;height:15px">
+							<text id="nametext" hidden="hidden" >圣代</text>
+							<b>性别：</b>
+							<input type="text" value="女" style="width:30px;height:15px"></td>
+						</tr>
+						<tr style="height:5px"></tr>
+						<tr >
+							<td style="width:50px;font-size:8px;align:left"><b>工号：</b>
+							<input type="text" value="JS0000" style="width:55px;height:15px">
+							<b>部门：</b>
+							<input type="text" value="D311" style="width:30px;height:15px"></td>
+						</tr>
+						<tr style="height:10px"></tr>
+						<tr  >
+							<td style="font-size:8px;align:left"><b>出生日期：</b></td>
+						</tr>
+						<tr>	
+							<td style="width:50px;font-size:8px;align:left">
+							<input type="text" value="2021" style="width:40px;height:15px">年
+							<input type="text" value="12" style="width:20px;height:15px">月
+							<input type="text" value="25" style="width:20px;height:15px">日
+							</td>
+						</tr>
+						<tr >
+							<td style="font-size:8px;align:left"><b>毕业院校：</b></td>
+						</tr>
+						<tr>	
+							<td ><input type="text" value="毕业院校毕业院校毕业院校" style="width:180px;height:15px"></td>
+						</tr>
+						<tr >
+							<td style="font-size:8px;align:left"><b>毕业日期：</b></td>
+						</tr>
+						<tr>	
+							<td style="width:50px;font-size:8px;align:left">
+								<input type="text" value="2222" style="width:40px;height:15px">年
+								<input type="text" value="22" style="width:20px;height:15px">月
+								<input type="text" value="22" style="width:20px;height:15px">日
+							</td>
+						</tr>
+						<tr >
+							<td style="font-size:8px;align:left"><b>入职日期：</b></td>
+						</tr>
+						<tr>	
+							<td style="width:50px;font-size:8px;align:left" >
+								<input type="text" value="2222" style="width:40px;height:15px">年
+								<input type="text" value="22" style="width:20px;height:15px">月
+								<input type="text" value="22" style="width:20px;height:15px">日
+							</td>
+						</tr>
+						<tr >
+							<td style="font-size:8px;align:left"><b>在职状况：</b><input type="text" value="在职中" style="width:45px;height:15px"></td>
+						</tr>
+							
+						<tr >
+							<td style="font-size:8px;align:left"><b>所属项目：</b></td>
+						</tr>
+						<tr >	
+							<td ><input type="text" value="项目项目项目项目" style="width:180px;height:15px;" readonly="readonly"></td>
+						</tr>
+						<tr hidden="hidden">
+							<td style="font-size:8px;align:left"><b>退职日期：</b></td>
+						</tr>
+						<tr hidden="hidden">	
+							<td style="width:50px;font-size:8px;align:left">
+								<input type="text" value="2222" style="width:40px;height:15px">年
+								<input type="text" value="22" style="width:20px;height:15px">月
+								<input type="text" value="22" style="width:20px;height:15px">日
+							</td>
+						</tr>
+					</table>	
+					
+				</div>
+				<div id="midmidleffkinotop1" style="float:left;width:100%;height:2px;background-color:rgb(253,79,75)"></div>
+				<div id="midmidleffkinotop2" style="float:left;width:100%;height:2px;background-color:rgb(245,254,80)"></div>
+				<div id="midmidleffkinotop3" style="float:left;width:100%;height:2px;background-color:rgb(80,242,254)"></div>
+				<div id="midmidleftmid2" style="float:left;width:100%;height:240px;background-color:rgb(253,206,176)">
+					<table style="height:95%;margin-left:20px;border-spacing:0px;border-collapse:collapse">
+						<tr>
+							<td style="width:80px"><b >掌握技能：</b></td>
+						<tr>
+						<tr style="height:8px">
+							<td style="font-size:4px;align:left;border:1px solid gray">Java</td>
+							<td style="font-size:4px;align:left;border:1px solid gray">1</td>
+							<td style="width:5px"></td>
+							<td style="font-size:4px;align:left;border:1px solid gray">C#</td>
+							<td style="font-size:4px;align:left;border:1px solid gray">2</td>
+						</tr>
+						<tr style="height:8px">
+							<td style="font-size:4px;align:left;border:1px solid gray">Android</td>
+							<td style="font-size:4px;align:left;border:1px solid gray">1</td>
+							<td style="width:5px"></td>
+							<td style="font-size:4px;align:left;border:1px solid gray">IOS</td>
+							<td style="font-size:4px;align:left;border:1px solid gray">1</td>
+						</tr>
+						<tr style="height:8px">
+							<td style="font-size:4px;align:left;border:1px solid gray">C++</td>
+							<td style="font-size:4px;align:left;border:1px solid gray">1</td>
+							<td style="width:5px"></td>
+							<td style="font-size:4px;align:left;border:1px solid gray">.Net</td>
+							<td style="font-size:4px;align:left;border:1px solid gray">1</td>
+						</tr>
+						<tr style="height:8px">
+							<td style="font-size:4px;align:left;border:1px solid gray">Spring</td>
+							<td style="font-size:4px;align:left;border:1px solid gray">1</td>
+							<td style="width:5px"></td>
+							<td style="font-size:4px;align:left;border:1px solid gray">Oracle</td>
+							<td style="font-size:4px;align:left;border:1px solid gray">1</td>
+						</tr>
+						<tr style="height:8px">
+							<td style="font-size:4px;align:left;border:1px solid gray">Mysql</td>
+							<td style="font-size:4px;align:left;border:1px solid gray">1</td>
+							<td style="width:5px"></td>
+							<td style="font-size:4px;align:left;border:1px solid gray">SqlServer</td>
+							<td style="font-size:4px;align:left;border:1px solid gray">1</td>
+						</tr>
+						<tr style="height:8px">
+							<td style="font-size:4px;align:left;border:1px solid gray">JSP</td>
+							<td style="font-size:4px;align:left;border:1px solid gray">1</td>
+							<td style="width:5px"></td>
+							<td style="font-size:4px;align:left;border:1px solid gray">Jquery</td>
+							<td style="font-size:4px;align:left;border:1px solid gray">1</td>
+						</tr>
+						<tr style="height:8px">
+							<td style="font-size:4px;align:left;border:1px solid gray">CSS</td>
+							<td style="font-size:4px;align:left;border:1px solid gray">1</td>
+							<td style="width:5px"></td>
+							<td style="font-size:4px;align:left;border:1px solid gray">HTML</td>
+							<td style="font-size:4px;align:left;border:1px solid gray">1</td>
+						</tr>
+						<tr style="height:8px">
+							<td style="font-size:4px;align:left;border:1px solid gray">Thymeleaf</td>
+							<td style="font-size:4px;align:left;border:1px solid gray">1</td>
+							<td style="width:5px"></td>
+							<td style="font-size:4px;align:left;border:1px solid gray">Angular</td>
+							<td style="font-size:4px;align:left;border:1px solid gray">1</td>
+						</tr>
+						<tr style="height:8px">
+							<td style="font-size:4px;align:left;border:1px solid gray">VUE</td>
+							<td style="font-size:4px;align:left;border:1px solid gray">1</td>
+							<td style="width:5px"></td>
+							<td style="font-size:4px;align:left;border:1px solid gray">React</td>
+							<td style="font-size:4px;align:left;border:1px solid gray">1</td>
+						</tr>
+					</table>
+					
+					
+				</div>
+				<div id="midmidleffkinotop1" style="float:left;width:100%;height:2px;background-color:rgb(253,79,75)"></div>
+				<div id="midmidleffkinotop2" style="float:left;width:100%;height:2px;background-color:rgb(245,254,80)"></div>
+				<div id="midmidleffkinotop3" style="float:left;width:100%;height:2px;background-color:rgb(80,242,254)"></div>
+				<div id="midmidleftbottom" style="float:left;width:100%;height:58px;background-color:rgb(255,255,235)">
+				
+					<img id="saveimgbutton" src="../static/png/save.png" hidden="hidden" style="width:124px;height:50px;border:0px solid gray ;margin-top:4px;margin-left:50px;">
+					<img id="editimgbutton" src="../static/png/edit.png" style="width:124px;height:50px;border:0px solid gray ;margin-top:4px;margin-left:50px;">
+					
+				</div>
+				
+			</div>
+		
+			<div id="midmidright" style="float:left;border-left:1px solid gray;width:503px;height:960px">
+				
+				<div id="midmidright2" style="float:left;width:100%;height:240px;background:rgb(255,240,255)">
+					<table class="worktable" style="width:90%;height:90%;margin-left:30px;margin-top:10px">
+						<tr class="workkaishanametr"style="width:99%;height:15%;">
+							<td style="">会社名称：<input id="kaishanameinput" type="text" value="会社11111" style="width:100px;height:19px"></td>
+						</tr>
+						<tr class="workshokumutr"style="width:99%;height:15%;">
+							<td style="">担任职位：<input id="shokumuinput" type="text" value="职务22222" style="width:100px;height:19px"></td>
+						</tr>
+						<tr class="worktimetr"style="width:99%;height:15%;">
+							<td style="">
+								工作时间：
+								<input id="worktimeinputfromyear" type="text" value="0222" style="width:35px;height:19px">
+								年
+								<input id="worktimeinputfrommouth" type="text" value="22" style="width:20px;height:19px">
+								月~
+								<input id="worktimeinputtoyear" type="text" value="0222" style="width:35px;height:19px">
+								年
+								<input id="worktimeinputtomouth" type="text" value="22" style="width:20px;height:19px">
+								月
+							</td>
+						</tr>
+						<tr class="koumokuinfotr"style="width:99%;height:55%;">
+							<td><textarea class="koumokuinfo" style="resize:none;width:90%;height:90%;margin-top:5%;margin-left:5%">经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历</textarea></td>
+						</tr>
+						
+					</table>
+				</div>
+				
+				<div id="midmidright3" style="float:left;width:100%;height:240px;background:rgb(240,255,255)">
+					<table class="worktable" style="width:90%;height:90%;margin-left:30px;margin-top:10px">
+							<tr class="workkaishanametr"style="width:99%;height:15%;">
+								<td style="">会社名称：<input id="kaishanameinput" type="text" value="会社11111" style="width:100px;height:19px"></td>
+							</tr>
+							<tr class="workshokumutr"style="width:99%;height:15%;">
+								<td style="">担任职位：<input id="shokumuinput" type="text" value="职务22222" style="width:100px;height:19px"></td>
+							</tr>
+							<tr class="worktimetr"style="width:99%;height:15%;">
+								<td style="">
+									工作时间：
+									<input id="worktimeinputfromyear" type="text" value="0222" style="width:35px;height:19px">
+									年
+									<input id="worktimeinputfrommouth" type="text" value="22" style="width:20px;height:19px">
+									月~
+									<input id="worktimeinputtoyear" type="text" value="0222" style="width:35px;height:19px">
+									年
+									<input id="worktimeinputtomouth" type="text" value="22" style="width:20px;height:19px">
+									月
+								</td>
+							</tr>
+							<tr class="koumokuinfotr"style="width:99%;height:55%;">
+								<td><textarea class="koumokuinfo" style="resize:none;width:90%;height:90%;margin-top:5%;margin-left:5%">经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历</textarea></td>
+							</tr>
+							
+						</table>
+				</div>
+				<div id="midmidright4" style="float:left;width:100%;height:240px;background-color:rgb(255,240,255)">
+					<table class="worktable" style="width:90%;height:90%;margin-left:30px;margin-top:10px">
+						<tr class="workkaishanametr"style="width:99%;height:15%;">
+							<td style="">会社名称：<input id="kaishanameinput" type="text" value="会社11111" style="width:100px;height:19px"></td>
+						</tr>
+						<tr class="workshokumutr"style="width:99%;height:15%;">
+							<td style="">担任职位：<input id="shokumuinput" type="text" value="职务22222" style="width:100px;height:19px"></td>
+						</tr>
+						<tr class="worktimetr"style="width:99%;height:15%;">
+							<td style="">
+								工作时间：
+								<input id="worktimeinputfromyear" type="text" value="0222" style="width:35px;height:19px">
+								年
+								<input id="worktimeinputfrommouth" type="text" value="22" style="width:20px;height:19px">
+								月~
+								<input id="worktimeinputtoyear" type="text" value="0222" style="width:35px;height:19px">
+								年
+								<input id="worktimeinputtomouth" type="text" value="22" style="width:20px;height:19px">
+								月
+							</td>
+						</tr>
+						<tr class="koumokuinfotr"style="width:99%;height:55%;">
+							<td><textarea class="koumokuinfo" style="resize:none;width:90%;height:90%;margin-top:5%;margin-left:5%">经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历</textarea></td>
+						</tr>
+						
+					</table>
+				</div>
+				<div id="midmidright5" style="float:left;width:100%;height:240px;background-color:rgb(240,255,255)">
+					<table class="worktable" style="width:90%;height:90%;margin-left:30px;margin-top:10px">
+						<tr class="workkaishanametr"style="width:99%;height:15%;">
+							<td style="">会社名称：<input id="kaishanameinput" type="text" value="会社11111" style="width:100px;height:19px"></td>
+						</tr>
+						<tr class="workshokumutr"style="width:99%;height:15%;">
+							<td style="">担任职位：<input id="shokumuinput" type="text" value="职务22222" style="width:100px;height:19px"></td>
+						</tr>
+						<tr class="worktimetr"style="width:99%;height:15%;">
+							<td style="">
+								工作时间：
+								<input id="worktimeinputfromyear" type="text" value="0222" style="width:35px;height:19px">
+								年
+								<input id="worktimeinputfrommouth" type="text" value="22" style="width:20px;height:19px">
+								月~
+								<input id="worktimeinputtoyear" type="text" value="0222" style="width:35px;height:19px">
+								年
+								<input id="worktimeinputtomouth" type="text" value="22" style="width:20px;height:19px">
+								月
+							</td>
+						</tr>
+						<tr class="koumokuinfotr"style="width:99%;height:55%;">
+							<td><textarea class="koumokuinfo" style="resize:none;width:90%;height:90%;margin-top:5%;margin-left:5%">经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历</textarea></td>
+						</tr>
+						
+					</table>
+				</div>
+				
+			</div>
+			<div id="midmidleffimgtop1" style="float:left;width:100%;height:2px;background-color:rgb(253,79,75)"></div>
+			<div id="midmidleffimgtop2" style="float:left;width:100%;height:2px;background-color:rgb(245,254,80)"></div>
+			<div id="midmidleffimgtop3" style="float:left;width:100%;height:2px;background-color:rgb(80,242,254)"></div>
+			<div id="midmidright6" style="float:left;width:100%;height:20px;background-image:url('../static/png/midbottom.jpg')"></div>
+		</div>
+<!-- 		<div id="midright"  style="float:left;width:19%;height:100%;background-image:url('../static/png/right2.jpg')"></div> -->
+	</div>
+<!-- bottom	 -->
+	<div id=bottom style="float:left;width:100%;height:100px;background-image:url('../static/png/bottom.jpg')">
+	<br/>
+	<b style="color:rgb(255,255,255);margin-left:300px">buttombuttombuttombuttombuttombuttombuttombuttombuttombuttom</b>
+	</div>
+
+
+</body>
+
+</html>
