@@ -29,8 +29,6 @@ import java.util.List;
 public class EmpController {
     @Autowired
     private EmpService empService;
-//    @Value("${upload.dir}")
-//    private String realPath;
 
     @RequestMapping(value = "/findAll",method = RequestMethod.GET)
     public String findAll(HttpServletRequest request){
