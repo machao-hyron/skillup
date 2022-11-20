@@ -3,10 +3,59 @@
 
 <head>
 	<meta http-equiv="Content-Type" content="application/json; charset=UTF-8">
-<!-- 	<meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-<!-- 	<link rel="stylesheet" media="screen" href="css/common.css"> -->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 <!-- 	<link rel="stylesheet" media="screen" href="css/login.css"> -->
-	<title>employeeinfo</title>
+	<title>员工详细情报</title>
+	
+	<script>
+	$(document).ready(function() {
+		
+// 	数据初始化显示	
+		 $("#nameinput").attr("hidden","hidden");
+		 $("#nametext").removeAttr("hidden","hidden");
+		
+		
+		
+// 	保存图片变换	
+        $("#saveimgbutton").mouseover(function() {
+            $("#saveimgbutton").attr("src","../static/png/saveon.png");
+         
+        });
+        $("#saveimgbutton").mouseleave(function() {
+            $("#saveimgbutton").attr("src","../static/png/save.png");
+//  保存click操作      
+        });
+        $("#saveimgbutton").click(function() {
+        	let nameinput=$("#nameinput").val();
+            $("input").attr("hidden","hidden");
+            $("textarea").attr("hidden","hidden");
+            $("#editimgbutton").removeAttr("hidden","hidden");
+            $("#saveimgbutton").attr("hidden","hidden");
+            $("#nametext").text(nameinput);
+            $("#nametext").removeAttr("hidden","hidden");
+            $("#employeetoptext").text("员工详细情报-保存成功");
+        });
+//   编辑图片变化    
+        $("#editimgbutton").mouseover(function() {
+            $("#editimgbutton").attr("src","../static/png/editon.png");
+         
+        });
+        $("#editimgbutton").mouseleave(function() {
+            $("#editimgbutton").attr("src","../static/png/edit.png");
+         
+        });
+//   编辑click操作  
+        $("#editimgbutton").click(function() {
+            $("input").removeAttr("hidden","hidden");
+            $("textarea").removeAttr("hidden","hidden");
+            $("#editimgbutton").attr("hidden","hidden");
+            $("#saveimgbutton").removeAttr("hidden","hidden");
+            $("#nametext").attr("hidden","hidden");
+            $("#employeetoptext").text("员工详细情报-编辑中");
+           
+        });
+	});    
+    </script>    
 </head>
 
 <body id="employeeinfobody">
@@ -14,17 +63,23 @@
 
 <!--top      -->
 	<div id="top"  style="float:left;width:100%;height:80px;background-image:url('../static/png/top.jpg')">
-		<div><br/><b style="color:rgb(255,255,255);margin-left:80px;font-size:25px"><a>>></a>员工详细情报</b>
+		
+		<div style="float:left;width:40%;height:100%;">
+			<div style="float:left;width:100%;height:20%;" ></div>
+			<div style="float:left;width:100%;height:80%;" ><b style="color:rgb(255,255,255);margin-left:80px;font-size:25px"><a href="http://www.baidu.com">>></a><text id="employeetoptext">员工详细情报</text></b></div>
 		</div>
-		<div>
-			
+		<div style="float:right;width:30%;height:100%">
+			<img id="yuki" src="../static/png/yuki.png" style="width:56px;height:56px;border:0px solid gray ;margin-top:12px;margin-bottom:20px;margin-left:21px;">
+			<img id="yuki" src="../static/png/yuki.png" style="width:56px;height:56px;border:0px solid gray ;margin-top:12px;margin-bottom:20px;margin-left:21px;">
+			<img id="yuki" src="../static/png/yuki.png" style="width:56px;height:56px;border:0px solid gray ;margin-top:12px;margin-bottom:20px;margin-left:21px;">
+			<img id="yuki" src="../static/png/yuki.png" style="width:56px;height:56px;border:0px solid gray ;margin-top:12px;margin-bottom:20px;margin-left:21px;">
 		</div>
 	</div>
 <!-- mid	 -->
-	<div id="mid" style="float:left;width:1200px;height:1012px;background:rgb(255,252,214)">
-		<div id="midleft" style="float:left;width:20%;height:1012px;background-image:url('../static/png/right.jpg')"></div>
+	<div id="mid" style="float:left;width:100%;height:1012px;background:url('../static/png/midbg4.jpg');display:flex;justify-content: center; align-items:center;">
+<!-- 		<div id="midleft" style="float:left;width:19%;height:1012px"></div>  -->
 		
-		<div id="midmid"  style="float:left;width:60%;height:1012px;border:1px solid gray">
+		<div id="midmid"  style="float:left;width:720px;height:1012px;border:1px solid gray">
 			<div id="midmidright1" style="float:left;width:100%;height:20px;background-image:url('../static/png/midtop.jpg')"></div>
 			<div id="midmidleffimgtop1" style="float:left;width:100%;height:2px;background-color:rgb(253,79,75)"></div>
 			<div id="midmidleffimgtop2" style="float:left;width:100%;height:2px;background-color:rgb(245,254,80)"></div>
@@ -43,9 +98,10 @@
 					<table style="width:95%;height:30%;margin-left:10px;margin-top:10px">
 						<tr >
 							<td style="width:50px;font-size:8px;align:left"><b>姓名：</b>
-							<input type="text" value="小橘" style="width:55px;height:15px">
+							<input id="nameinput" type="text" value="圣代" style="width:55px;height:15px">
+							<text id="nametext" hidden="hidden" >圣代</text>
 							<b>性别：</b>
-							<input type="text" value="男" style="width:30px;height:15px"></td>
+							<input type="text" value="女" style="width:30px;height:15px"></td>
 						</tr>
 						<tr style="height:5px"></tr>
 						<tr >
@@ -60,9 +116,9 @@
 						</tr>
 						<tr>	
 							<td style="width:50px;font-size:8px;align:left">
-							<input type="text" value="2222" style="width:40px;height:15px">年
-							<input type="text" value="22" style="width:20px;height:15px">月
-							<input type="text" value="22" style="width:20px;height:15px">日
+							<input type="text" value="2021" style="width:40px;height:15px">年
+							<input type="text" value="12" style="width:20px;height:15px">月
+							<input type="text" value="25" style="width:20px;height:15px">日
 							</td>
 						</tr>
 						<tr >
@@ -99,7 +155,7 @@
 							<td style="font-size:8px;align:left"><b>所属项目：</b></td>
 						</tr>
 						<tr >	
-							<td ><input type="text" value="项目项目项目项目" style="width:180px;height:15px"></td>
+							<td ><input type="text" value="项目项目项目项目" style="width:180px;height:15px;" readonly="readonly"></td>
 						</tr>
 						<tr hidden="hidden">
 							<td style="font-size:8px;align:left"><b>退职日期：</b></td>
@@ -117,52 +173,87 @@
 				<div id="midmidleffkinotop1" style="float:left;width:100%;height:2px;background-color:rgb(253,79,75)"></div>
 				<div id="midmidleffkinotop2" style="float:left;width:100%;height:2px;background-color:rgb(245,254,80)"></div>
 				<div id="midmidleffkinotop3" style="float:left;width:100%;height:2px;background-color:rgb(80,242,254)"></div>
-				<div id="midmidleftmid2" style="float:left;width:100%;height:304px;background-color:rgb(253,206,176)">
-					<table style="height:80%;margin-left:10px;border-spacing:0px;border-collapse:collapse">
+				<div id="midmidleftmid2" style="float:left;width:100%;height:240px;background-color:rgb(253,206,176)">
+					<table style="height:95%;margin-left:20px;border-spacing:0px;border-collapse:collapse">
 						<tr>
 							<td style="width:80px"><b >掌握技能：</b></td>
 						<tr>
 						<tr style="height:8px">
-							<td style="font-size:4px;align:left;border:1px solid gray">java</td>
-							<td style="font-size:4px;align:left;border:1px solid gray">c#</td>
+							<td style="font-size:4px;align:left;border:1px solid gray">Java</td>
+							<td style="font-size:4px;align:left;border:1px solid gray">1</td>
+							<td style="width:5px"></td>
+							<td style="font-size:4px;align:left;border:1px solid gray">C#</td>
+							<td style="font-size:4px;align:left;border:1px solid gray">2</td>
 						</tr>
 						<tr style="height:8px">
 							<td style="font-size:4px;align:left;border:1px solid gray">Android</td>
+							<td style="font-size:4px;align:left;border:1px solid gray">1</td>
+							<td style="width:5px"></td>
 							<td style="font-size:4px;align:left;border:1px solid gray">IOS</td>
+							<td style="font-size:4px;align:left;border:1px solid gray">1</td>
 						</tr>
 						<tr style="height:8px">
 							<td style="font-size:4px;align:left;border:1px solid gray">C++</td>
+							<td style="font-size:4px;align:left;border:1px solid gray">1</td>
+							<td style="width:5px"></td>
 							<td style="font-size:4px;align:left;border:1px solid gray">.Net</td>
+							<td style="font-size:4px;align:left;border:1px solid gray">1</td>
 						</tr>
 						<tr style="height:8px">
 							<td style="font-size:4px;align:left;border:1px solid gray">Spring</td>
+							<td style="font-size:4px;align:left;border:1px solid gray">1</td>
+							<td style="width:5px"></td>
 							<td style="font-size:4px;align:left;border:1px solid gray">Oracle</td>
+							<td style="font-size:4px;align:left;border:1px solid gray">1</td>
 						</tr>
 						<tr style="height:8px">
 							<td style="font-size:4px;align:left;border:1px solid gray">Mysql</td>
+							<td style="font-size:4px;align:left;border:1px solid gray">1</td>
+							<td style="width:5px"></td>
 							<td style="font-size:4px;align:left;border:1px solid gray">SqlServer</td>
+							<td style="font-size:4px;align:left;border:1px solid gray">1</td>
 						</tr>
 						<tr style="height:8px">
 							<td style="font-size:4px;align:left;border:1px solid gray">JSP</td>
+							<td style="font-size:4px;align:left;border:1px solid gray">1</td>
+							<td style="width:5px"></td>
 							<td style="font-size:4px;align:left;border:1px solid gray">Jquery</td>
+							<td style="font-size:4px;align:left;border:1px solid gray">1</td>
 						</tr>
 						<tr style="height:8px">
 							<td style="font-size:4px;align:left;border:1px solid gray">CSS</td>
+							<td style="font-size:4px;align:left;border:1px solid gray">1</td>
+							<td style="width:5px"></td>
 							<td style="font-size:4px;align:left;border:1px solid gray">HTML</td>
+							<td style="font-size:4px;align:left;border:1px solid gray">1</td>
 						</tr>
 						<tr style="height:8px">
 							<td style="font-size:4px;align:left;border:1px solid gray">Thymeleaf</td>
+							<td style="font-size:4px;align:left;border:1px solid gray">1</td>
+							<td style="width:5px"></td>
 							<td style="font-size:4px;align:left;border:1px solid gray">Angular</td>
+							<td style="font-size:4px;align:left;border:1px solid gray">1</td>
 						</tr>
 						<tr style="height:8px">
 							<td style="font-size:4px;align:left;border:1px solid gray">VUE</td>
+							<td style="font-size:4px;align:left;border:1px solid gray">1</td>
+							<td style="width:5px"></td>
 							<td style="font-size:4px;align:left;border:1px solid gray">React</td>
+							<td style="font-size:4px;align:left;border:1px solid gray">1</td>
 						</tr>
 					</table>
 					
 					
 				</div>
+				<div id="midmidleffkinotop1" style="float:left;width:100%;height:2px;background-color:rgb(253,79,75)"></div>
+				<div id="midmidleffkinotop2" style="float:left;width:100%;height:2px;background-color:rgb(245,254,80)"></div>
+				<div id="midmidleffkinotop3" style="float:left;width:100%;height:2px;background-color:rgb(80,242,254)"></div>
+				<div id="midmidleftbottom" style="float:left;width:100%;height:58px;background-color:rgb(255,255,235)">
 				
+					<img id="saveimgbutton" src="../static/png/save.png" hidden="hidden" style="width:124px;height:50px;border:0px solid gray ;margin-top:4px;margin-left:50px;">
+					<img id="editimgbutton" src="../static/png/edit.png" style="width:124px;height:50px;border:0px solid gray ;margin-top:4px;margin-left:50px;">
+					
+				</div>
 				
 			</div>
 		
@@ -284,7 +375,7 @@
 			<div id="midmidleffimgtop3" style="float:left;width:100%;height:2px;background-color:rgb(80,242,254)"></div>
 			<div id="midmidright6" style="float:left;width:100%;height:20px;background-image:url('../static/png/midbottom.jpg')"></div>
 		</div>
-		<div id="midright"  style="float:left;width:238px;height:100%;background-image:url('../static/png/right2.jpg')"></div>
+<!-- 		<div id="midright"  style="float:left;width:19%;height:100%;background-image:url('../static/png/right2.jpg')"></div> -->
 	</div>
 <!-- bottom	 -->
 	<div id=bottom style="float:left;width:100%;height:100px;background-image:url('../static/png/bottom.jpg')">
