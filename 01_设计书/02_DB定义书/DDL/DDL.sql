@@ -74,3 +74,57 @@ CREATE TABLE IF NOT EXISTS `t_skill_info` (
   `update_user_id` char(7) NULL DEFAULT NULL,
   PRIMARY KEY (`employee_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+
+
+
+-- 考勤表 
+CREATE TABLE IF NOT EXISTS `t_work_time` (
+  `department_id` char(4) NOT NULL,
+  `employee_id` char(7) NOT NULL,
+  `employee_name` varchar(10) NOT NULL,
+  `work_date` date NOT NULL,
+  `arrive_time` time DEFAULT NULL,
+  `leave_time` time DEFAULT NULL,
+  `extra_work_time` tinyint(4) DEFAULT 0,
+  `insert_time` datetime NOT NULL,
+  `insert_person_id` char(7) NOT NULL,
+  `update_time` datetime NOT NULL,
+  `update_person_id` char(7) NOT NULL,
+  PRIMARY KEY (`employee_id`,`work_date`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- 加班时间集计结果表 
+CREATE TABLE IF NOT EXISTS `t_work_time_total` (
+  `operator_id` char(7) NOT NULL,
+  `employee_id` char(7) NOT NULL,
+  `employee_name` varchar(10) NOT NULL,
+  `department_id` char(4) NOT NULL,
+  `project_id` varchar(17) NOT NULL,
+  `year` tinyint(4) NOT NULL,
+  `month` tinyint(4) NOT NULL,
+  `extra_work_time` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- 项目情报表 
+CREATE TABLE IF NOT EXISTS `t_project_information` (
+  `department_id` char(4) NOT NULL,
+  `project_id` varchar(7) NOT NULL,
+  `project_name` varchar(15) NOT NULL,
+  `project_leader_id` char(7) NOT NULL,
+  `project_general_id` varchar(7) NOT NULL,
+  `insert_time` datetime NOT NULL,
+  `insert_person_id` char(7) NOT NULL,
+  `update_time` datetime NOT NULL,
+  `update_person_id` char(7) NOT NULL,
+  PRIMARY KEY (`department_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+-- 部门MST表 
+CREATE TABLE IF NOT EXISTS `t_department_MST` (
+  `department_id` char(4) NOT NULL,
+  `department_name` varchar(15) NOT NULL,
+  PRIMARY KEY (`department_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
