@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Hello World</title>
+    <link rel="stylesheet" href="./css/my.css">
+
+    <script type="text/javascript" src="./js/jquery-3.6.1.min.js"></script>
+    <script type="text/javascript" src="./js/test.js"></script>
+</head>
+<body background="./css/bg1.jpg">
+    <h1>员工情报一括导入</h1>
+    <hr>
+    <div>
+        <p>请输入查询信息：</p>
+        <p >工号：<input id="id" type="text"  placeholder="请输入工号">&nbsp;
+        部门：<input id="username" type="text"  placeholder="请输入部门编号">&nbsp;
+        考勤日：<input id="date1" type="text"  placeholder="请输入开始日期">--<input id="date2" type="text"  placeholder="请输入截止日期">&nbsp;
+        迟到：<select><option>yes</option><option>no</option></select>&nbsp;
+        早退：<select><option>yes</option><option>no</option></select>&nbsp;
+        <button id="btn1" type="button" >查询</button>&nbsp;
+        <button id="btn3" type="button" >导入</button>&nbsp;
+        <button id="btn9" type="button" >导出</button></p>
+        <table class=table1_1 align="center">
+            <tr>
+                <th width="100px">工号</th>
+                <th width="100px">部门</th>
+                <th width="100px">姓名</th>
+                <th width="100px">考情日</th>
+                <th width="100px">出勤时间</th>
+                <th width="100px">退勤时间</th>
+                <th width="100px">是否迟到</th>
+                <th width="100px">是否早退</th>
+                <th width="100px">备注</th>
+            </tr>
+            <tr>
+                <td width="100px">000001</td>
+                <td width="100px">01部</td>
+                <td width="100px">壹号</td>
+                <td width="100px">2022/10/08</td>
+                <td width="100px">08:39</td>
+                <td width="100px">18:40</td>
+                <td width="100px">no</td>
+                <td width="100px">no</td>
+                <td width="100px"></td>
+            </tr>
+            <tr>
+                <td width="100px">000001</td>
+                <td width="100px">01部</td>
+                <td width="100px">壹号</td>
+                <td width="100px">2022/10/08</td>
+                <td width="100px">08:39</td>
+                <td width="100px">18:40</td>
+                <td width="100px">no</td>
+                <td width="100px">no</td>
+                <td width="100px"></td>
+            </tr>
+            <tr>
+                <td width="100px">000002</td>
+                <td width="100px">02部</td>
+                <td width="100px">贰号</td>
+                <td width="100px">2022/10/08</td>
+                <td width="100px">09:31</td>
+                <td width="100px">18:40</td>
+                <td width="100px">yes</td>
+                <td width="100px">no</td>
+                <td width="100px"></td>
+            </tr>
+            <tr>
+                <td width="100px">000001</td>
+                <td width="100px">01部</td>
+                <td width="100px">叁号</td>
+                <td width="100px">2022/10/08</td>
+                <td width="100px">09:39</td>
+                <td width="100px">18:40</td>
+                <td width="100px">yes</td>
+                <td width="100px">yes</td>
+                <td width="100px"></td>
+            </tr>
+            <tr>
+                <td width="100px">000001</td>
+                <td width="100px">01部</td>
+                <td width="100px">叁号</td>
+                <td width="100px">2022/10/08</td>
+                <td width="100px">09:39</td>
+                <td width="100px">18:40</td>
+                <td width="100px">yes</td>
+                <td width="100px">yes</td>
+                <td width="100px"></td>
+            </tr>
+            <tr>
+                <td width="100px">000001</td>
+                <td width="100px">01部</td>
+                <td width="100px">叁号</td>
+                <td width="100px">2022/10/08</td>
+                <td width="100px">09:39</td>
+                <td width="100px">18:40</td>
+                <td width="100px">yes</td>
+                <td width="100px">yes</td>
+                <td width="100px"></td>
+            </tr>
+            <tr>
+                <td width="100px">000001</td>
+                <td width="100px">01部</td>
+                <td width="100px">叁号</td>
+                <td width="100px">2022/10/08</td>
+                <td width="100px">09:39</td>
+                <td width="100px">18:40</td>
+                <td width="100px">yes</td>
+                <td width="100px">yes</td>
+                <td width="100px"></td>
+            </tr>
+            <tr>
+                <td width="100px">000001</td>
+                <td width="100px">01部</td>
+                <td width="100px">叁号</td>
+                <td width="100px">2022/10/08</td>
+                <td width="100px">09:39</td>
+                <td width="100px">18:40</td>
+                <td width="100px">yes</td>
+                <td width="100px">yes</td>
+                <td width="100px"></td>
+            </tr>
+            <tr>
+                <td width="100px">000001</td>
+                <td width="100px">01部</td>
+                <td width="100px">叁号</td>
+                <td width="100px">2022/10/08</td>
+                <td width="100px">09:39</td>
+                <td width="100px">18:40</td>
+                <td width="100px">yes</td>
+                <td width="100px">yes</td>
+                <td width="100px"></td>
+            </tr>
+            <tr>
+                <td width="100px">000001</td>
+                <td width="100px">01部</td>
+                <td width="100px">叁号</td>
+                <td width="100px">2022/10/08</td>
+                <td width="100px">09:39</td>
+                <td width="100px">18:40</td>
+                <td width="100px">yes</td>
+                <td width="100px">yes</td>
+                <td width="100px"></td>
+            </tr>
+            <tr>
+                <td width="100px">000001</td>
+                <td width="100px">01部</td>
+                <td width="100px">叁号</td>
+                <td width="100px">2022/10/08</td>
+                <td width="100px">09:39</td>
+                <td width="100px">18:40</td>
+                <td width="100px">yes</td>
+                <td width="100px">yes</td>
+                <td width="100px"></td>
+            </tr>
+            <tr>
+                <td width="100px">000001</td>
+                <td width="100px">01部</td>
+                <td width="100px">叁号</td>
+                <td width="100px">2022/10/08</td>
+                <td width="100px">09:39</td>
+                <td width="100px">18:40</td>
+                <td width="100px">yes</td>
+                <td width="100px">yes</td>
+                <td width="100px"></td>
+            </tr>
+            <tr>
+                <td width="100px">000001</td>
+                <td width="100px">01部</td>
+                <td width="100px">叁号</td>
+                <td width="100px">2022/10/08</td>
+                <td width="100px">09:39</td>
+                <td width="100px">18:40</td>
+                <td width="100px">yes</td>
+                <td width="100px">yes</td>
+                <td width="100px"></td>
+            </tr>
+            <tr>
+                <td width="100px">000001</td>
+                <td width="100px">01部</td>
+                <td width="100px">叁号</td>
+                <td width="100px">2022/10/08</td>
+                <td width="100px">09:39</td>
+                <td width="100px">18:40</td>
+                <td width="100px">yes</td>
+                <td width="100px">yes</td>
+                <td width="100px"></td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
