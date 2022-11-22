@@ -3,1730 +3,69 @@
 
 <head>
 	<meta http-equiv="Content-Type" content="application/json; charset=UTF-8">
-	<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-<!-- 	<link rel="stylesheet" media="screen" href="css/login.css"> -->
+	<script type="text/javascript" src="../static/jsp/jquery-3.6.1.min.js"></script>
+	<script type="text/javascript" src="../static/jsp/employeeinfo.js"></script>
+	<link rel="stylesheet" href="../static/css/employeeinfo.css">
 	<title>员工详细情报</title>
-	
-	<script>
-	$(document).ready(function() {
-		$("input").attr("hidden","hidden");
-        $("textarea").attr("hidden","hidden");
-        $("text").attr("hidden","hidden");
-// 变量定义		 
-		let nameinput= $("#nameinput").val();
-     	let sexinput=$("#sexinput").val();
-     	let kougoinput=$("#kougoinput").val();
-	    let bumeninput=$("#bumeninput").val();
-    	let bornyearinput=$("#bornyearinput").val();
-     	let bornmouthinput=$("#bornmouthinput").val();
-     	let borndayinput=$("#borndayinput").val();
-     	let schoolinput=$("#schoolinput").val();
-     	let leaveschoolyearinput=$("#leaveschoolyearinput").val();
-     	let leaveschoolmouthinput=$("#leaveschoolmouthinput").val();
-     	let leaveschooldayinput=$("#leaveschooldayinput").val();
-    	let workyearinput=$("#workyearinput").val();
-    	let workmouthinput=$("#workmouthinput").val();
-    	let workdayinput=$("#workdayinput").val();
-    	let koumokuininput=$("#koumokuininput").val();
-    	let leaveworkyearinput=$("#leaveworkyearinput").val();
-    	let leaveworkmouthinput=$("#leaveworkmouthinput").val();
-    	let leaveworkdayinput=$("#leaveworkdayinput").val();
-    	
-//	skillvalue初始化	    	
-    	let VUEskillvalue=3;
-		let Javaskillvalue=3;
-		let Angularskillvalue=3;
-		let Androidskillvalue=3;
-		let JSPskillvalue=3;
-		let Thymeleafskillvalue=3;
-		let SqlServerskillvalue=3;
-		let Jqueryskillvalue=3;
-		let Reactskillvalue=3;
-		let HTMLskillvalue=3;
-		
-		let CSSskillvalue=3;
-		let tenNetskillvalue=3;
-		let IOSskillvalue=3;
-		let Mysqlskillvalue=3;
-		let Oracleskillvalue=3;
-		let Cupupskillvalue=3;
-		let CXskillvalue=3;
-		let Springskillvalue=3;
-// 	数据初始化显示
-		 let workstatus=1;
-		 $("#nameinput").attr("hidden","hidden");
-		 $("#sexinput").attr("hidden","hidden");
-		 $("#kougoinput").attr("hidden","hidden");
-		 $("#bumeninput").attr("hidden","hidden");
-		 $("#bornyearinput").attr("hidden","hidden");
-		 $("#bornmouthinput").attr("hidden","hidden");
-		 $("#borndayinput").attr("hidden","hidden");
-		 $("#schoolinput").attr("hidden","hidden");
-		 $("#leaveschoolyearinput").attr("hidden","hidden");
-		 $("#leaveschoolmouthinput").attr("hidden","hidden");
-		 $("#leaveschooldayinput").attr("hidden","hidden");
-		 $("#workyearinput").attr("hidden","hidden");
-		 $("#workmouthinput").attr("hidden","hidden");
-		 $("#workdayinput").attr("hidden","hidden");
-		 $("#koumokuininput").attr("hidden","hidden");
-		 $("#leaveworkyearinput").attr("hidden","hidden");
-		 $("#leaveworkmouthinput").attr("hidden","hidden");
-		 $("#leaveworkdayinput").attr("hidden","hidden");
-		 if(workstatus==1){
-         	$("#workstatus1").attr("hidden","hidden");
-         	$("#workstatus2").attr("hidden","hidden");
-         	$("#workstatus3").removeAttr("hidden","hidden");
-         	$("#workstatus4").attr("hidden","hidden");
-         	$("#koumokuin1").removeAttr("hidden","hidden");
-         	$("#koumokuin2").removeAttr("hidden","hidden");
-         	$("#koumokuout1").attr("hidden","hidden");
-         	$("#koumokuout2").attr("hidden","hidden");
-         	$("#koumokuintext").removeAttr("hidden","hidden");
-         }else{
-         	$("#workstatus1").attr("hidden","hidden");
-         	$("#workstatus2").attr("hidden","hidden");
-         	$("#workstatus3").attr("hidden","hidden");
-         	$("#workstatus4").removeAttr("hidden","hidden");
-         	$("#koumokuin1").attr("hidden","hidden");
-         	$("#koumokuin2").attr("hidden","hidden");
-         	$("#koumokuout1").removeAttr("hidden","hidden");
-         	$("#koumokuout2").removeAttr("hidden","hidden");
-         	$("#leaveworkyeartext").removeAttr("hidden","hidden");
-    		$("#leaveworkmouthtext").removeAttr("hidden","hidden"); 
-    		$("#leaveworkdaytext").removeAttr("hidden","hidden");
-         }
-		 $("#nametext").removeAttr("hidden","hidden");
-		 $("#sextext").removeAttr("hidden","hidden");
-		 $("#kougotext").removeAttr("hidden","hidden");
-		 $("#bumentext").removeAttr("hidden","hidden");
-		 $("#bornyeartext").removeAttr("hidden","hidden");
-		 $("#bornmouthtext").removeAttr("hidden","hidden");
-		 $("#borndaytext").removeAttr("hidden","hidden");
-		 $("#schooltext").removeAttr("hidden","hidden");
-		 $("#leaveschoolyeartext").removeAttr("hidden","hidden");
-		 $("#leaveschoolmouthtext").removeAttr("hidden","hidden"); 
-		 $("#leaveschooldaytext").removeAttr("hidden","hidden");
-		 $("#workyeartext").removeAttr("hidden","hidden");
-		 $("#workmouthtext").removeAttr("hidden","hidden"); 
-		 $("#workdaytext").removeAttr("hidden","hidden");
-	        
-//	skillshow
-		 switch(CXskillvalue){
-	 		case 5:{$('#CXskill').attr("src","../static/png/skilla.png");	break;}
-	 		case 4:{$('#CXskill').attr("src","../static/png/skillb.png");	break;}
-	 		case 3:{$('#CXskill').attr("src","../static/png/skillc.png");	break;}
-	 		case 2:{$('#CXskill').attr("src","../static/png/skilld.png");	break;}
-	 		case 1:{$('#CXskill').attr("src","../static/png/skille.png");	break;}
-		}
-		switch(VUEskillvalue){
-	 		case 5:{$('#VUEskill').attr("src","../static/png/skilla.png");	break;}
-	 		case 4:{$('#VUEskill').attr("src","../static/png/skillb.png");	break;}
-	 		case 3:{$('#VUEskill').attr("src","../static/png/skillc.png");	break;}
-	 		case 2:{$('#VUEskill').attr("src","../static/png/skilld.png");	break;}
-	 		case 1:{$('#VUEskill').attr("src","../static/png/skille.png");	break;}
-		}
-		switch(Javaskillvalue){
-	 		case 5:{$('#Javaskill').attr("src","../static/png/skilla.png");	break;}
-	 		case 4:{$('#Javaskill').attr("src","../static/png/skillb.png");	break;}
-	 		case 3:{$('#Javaskill').attr("src","../static/png/skillc.png");	break;}
-	 		case 2:{$('#Javaskill').attr("src","../static/png/skilld.png");	break;}
-	 		case 1:{$('#Javaskill').attr("src","../static/png/skille.png");	break;}
-		}
-		switch(Angularskillvalue){
-	 		case 5:{$('#Angularskill').attr("src","../static/png/skilla.png");	break;}
-	 		case 4:{$('#Angularskill').attr("src","../static/png/skillb.png");	break;}
-	 		case 3:{$('#Angularskill').attr("src","../static/png/skillc.png");	break;}
-	 		case 2:{$('#Angularskill').attr("src","../static/png/skilld.png");	break;}
-	 		case 1:{$('#Angularskill').attr("src","../static/png/skille.png");	break;}
-		}
-		switch(Androidskillvalue){
-	 		case 5:{$('#Androidskill').attr("src","../static/png/skilla.png");	break;}
-	 		case 4:{$('#Androidskill').attr("src","../static/png/skillb.png");	break;}
-	 		case 3:{$('#Androidskill').attr("src","../static/png/skillc.png");	break;}
-	 		case 2:{$('#Androidskill').attr("src","../static/png/skilld.png");	break;}
-	 		case 1:{$('#Androidskill').attr("src","../static/png/skille.png");	break;}
-		}
-		switch(JSPskillvalue){
-	 		case 5:{$('#JSPskill').attr("src","../static/png/skilla.png");	break;}
-	 		case 4:{$('#JSPskill').attr("src","../static/png/skillb.png");	break;}
-	 		case 3:{$('#JSPskill').attr("src","../static/png/skillc.png");	break;}
-	 		case 2:{$('#JSPskill').attr("src","../static/png/skilld.png");	break;}
-	 		case 1:{$('#JSPskill').attr("src","../static/png/skille.png");	break;}
-		}
-		switch(Thymeleafskillvalue){
-	 		case 5:{$('#Thymeleafskill').attr("src","../static/png/skilla.png");	break;}
-	 		case 4:{$('#Thymeleafskill').attr("src","../static/png/skillb.png");	break;}
-	 		case 3:{$('#Thymeleafskill').attr("src","../static/png/skillc.png");	break;}
-	 		case 2:{$('#Thymeleafskill').attr("src","../static/png/skilld.png");	break;}
-	 		case 1:{$('#Thymeleafskill').attr("src","../static/png/skille.png");	break;}
-		}
-		switch(SqlServerskillvalue){
-	 		case 5:{$('#SqlServerskill').attr("src","../static/png/skilla.png");	break;}
-	 		case 4:{$('#SqlServerskill').attr("src","../static/png/skillb.png");	break;}
-	 		case 3:{$('#SqlServerskill').attr("src","../static/png/skillc.png");	break;}
-	 		case 2:{$('#SqlServerskill').attr("src","../static/png/skilld.png");	break;}
-	 		case 1:{$('#SqlServerskill').attr("src","../static/png/skille.png");	break;}
-		}
-		switch(Jqueryskillvalue){
-	 		case 5:{$('#Jqueryskill').attr("src","../static/png/skilla.png");	break;}
-	 		case 4:{$('#Jqueryskill').attr("src","../static/png/skillb.png");	break;}
-	 		case 3:{$('#Jqueryskill').attr("src","../static/png/skillc.png");	break;}
-	 		case 2:{$('#Jqueryskill').attr("src","../static/png/skilld.png");	break;}
-	 		case 1:{$('#Jqueryskill').attr("src","../static/png/skille.png");	break;}
-		}
-		switch(Reactskillvalue){
-	 		case 5:{$('#Reactskill').attr("src","../static/png/skilla.png");	break;}
-	 		case 4:{$('#Reactskill').attr("src","../static/png/skillb.png");	break;}
-	 		case 3:{$('#Reactskill').attr("src","../static/png/skillc.png");	break;}
-	 		case 2:{$('#Reactskill').attr("src","../static/png/skilld.png");	break;}
-	 		case 1:{$('#Reactskill').attr("src","../static/png/skille.png");	break;}
-		}
-		switch(HTMLskillvalue){
-	 		case 5:{$('#HTMLskill').attr("src","../static/png/skilla.png");	break;}
-	 		case 4:{$('#HTMLskill').attr("src","../static/png/skillb.png");	break;}
-	 		case 3:{$('#HTMLskill').attr("src","../static/png/skillc.png");	break;}
-	 		case 2:{$('#HTMLskill').attr("src","../static/png/skilld.png");	break;}
-	 		case 1:{$('#HTMLskill').attr("src","../static/png/skille.png");	break;}
-		}
-		switch(CSSskillvalue){
-	 		case 5:{$('#CSSskill').attr("src","../static/png/skilla.png");	break;}
-	 		case 4:{$('#CSSskill').attr("src","../static/png/skillb.png");	break;}
-	 		case 3:{$('#CSSskill').attr("src","../static/png/skillc.png");	break;}
-	 		case 2:{$('#CSSskill').attr("src","../static/png/skilld.png");	break;}
-	 		case 1:{$('#CSSskill').attr("src","../static/png/skille.png");	break;}
-		}
-		switch(tenNetskillvalue){
-	 		case 5:{$('#tenNetskill').attr("src","../static/png/skilla.png");	break;}
-	 		case 4:{$('#tenNetskill').attr("src","../static/png/skillb.png");	break;}
-	 		case 3:{$('#tenNetskill').attr("src","../static/png/skillc.png");	break;}
-	 		case 2:{$('#tenNetskill').attr("src","../static/png/skilld.png");	break;}
-	 		case 1:{$('#tenNetskill').attr("src","../static/png/skille.png");	break;}
-		}
-		switch(IOSskillvalue){
-	 		case 5:{$('#IOSskill').attr("src","../static/png/skilla.png");	break;}
-	 		case 4:{$('#IOSskill').attr("src","../static/png/skillb.png");	break;}
-	 		case 3:{$('#IOSskill').attr("src","../static/png/skillc.png");	break;}
-	 		case 2:{$('#IOSskill').attr("src","../static/png/skilld.png");	break;}
-	 		case 1:{$('#IOSskill').attr("src","../static/png/skille.png");	break;}
-		}
-		switch(Mysqlskillvalue){
-	 		case 5:{$('#Mysqlskill').attr("src","../static/png/skilla.png");	break;}
-	 		case 4:{$('#Mysqlskill').attr("src","../static/png/skillb.png");	break;}
-	 		case 3:{$('#Mysqlskill').attr("src","../static/png/skillc.png");	break;}
-	 		case 2:{$('#Mysqlskill').attr("src","../static/png/skilld.png");	break;}
-	 		case 1:{$('#Mysqlskill').attr("src","../static/png/skille.png");	break;}
-		}
-		switch(Oracleskillvalue){
-	 		case 5:{$('#Oracleskill').attr("src","../static/png/skilla.png");	break;}
-	 		case 4:{$('#Oracleskill').attr("src","../static/png/skillb.png");	break;}
-	 		case 3:{$('#Oracleskill').attr("src","../static/png/skillc.png");	break;}
-	 		case 2:{$('#Oracleskill').attr("src","../static/png/skilld.png");	break;}
-	 		case 1:{$('#Oracleskill').attr("src","../static/png/skille.png");	break;}
-		}
-		switch(Cupupskillvalue){
-	 		case 5:{$('#Cupupskill').attr("src","../static/png/skilla.png");	break;}
-	 		case 4:{$('#Cupupskill').attr("src","../static/png/skillb.png");	break;}
-	 		case 3:{$('#Cupupskill').attr("src","../static/png/skillc.png");	break;}
-	 		case 2:{$('#Cupupskill').attr("src","../static/png/skilld.png");	break;}
-	 		case 1:{$('#Cupupskill').attr("src","../static/png/skille.png");	break;}
-		}
-		switch(Springskillvalue){
-	 		case 5:{$('#Springskill').attr("src","../static/png/skilla.png");	break;}
-	 		case 4:{$('#Springskill').attr("src","../static/png/skillb.png");	break;}
-	 		case 3:{$('#Springskill').attr("src","../static/png/skillc.png");	break;}
-	 		case 2:{$('#Springskill').attr("src","../static/png/skilld.png");	break;}
-	 		case 1:{$('#Springskill').attr("src","../static/png/skille.png");	break;}
-		}
-		 	
-						 
-//  skill初始化显示		 
-		switch(CXskillvalue){
-	 		case 5:{$('#CXskill2').attr("src","../static/png/skilla.png");	break;}
-	 		case 4:{$('#CXskill2').attr("src","../static/png/skillb.png");	break;}
-	 		case 3:{$('#CXskill2').attr("src","../static/png/skillc.png");	break;}
-	 		case 2:{$('#CXskill2').attr("src","../static/png/skilld.png");	break;}
-	 		case 1:{$('#CXskill2').attr("src","../static/png/skille.png");	break;}
- 		}
-		switch(VUEskillvalue){
-	 		case 5:{$('#VUEskill2').attr("src","../static/png/skilla.png");	break;}
-	 		case 4:{$('#VUEskill2').attr("src","../static/png/skillb.png");	break;}
-	 		case 3:{$('#VUEskill2').attr("src","../static/png/skillc.png");	break;}
-	 		case 2:{$('#VUEskill2').attr("src","../static/png/skilld.png");	break;}
-	 		case 1:{$('#VUEskill2').attr("src","../static/png/skille.png");	break;}
-		}
-		switch(Javaskillvalue){
-	 		case 5:{$('#Javaskill2').attr("src","../static/png/skilla.png");	break;}
-	 		case 4:{$('#Javaskill2').attr("src","../static/png/skillb.png");	break;}
-	 		case 3:{$('#Javaskill2').attr("src","../static/png/skillc.png");	break;}
-	 		case 2:{$('#Javaskill2').attr("src","../static/png/skilld.png");	break;}
-	 		case 1:{$('#Javaskill2').attr("src","../static/png/skille.png");	break;}
-		}
-		switch(Angularskillvalue){
-	 		case 5:{$('#Angularskill2').attr("src","../static/png/skilla.png");	break;}
-	 		case 4:{$('#Angularskill2').attr("src","../static/png/skillb.png");	break;}
-	 		case 3:{$('#Angularskill2').attr("src","../static/png/skillc.png");	break;}
-	 		case 2:{$('#Angularskill2').attr("src","../static/png/skilld.png");	break;}
-	 		case 1:{$('#Angularskill2').attr("src","../static/png/skille.png");	break;}
-		}
-		switch(Androidskillvalue){
-	 		case 5:{$('#Androidskill2').attr("src","../static/png/skilla.png");	break;}
-	 		case 4:{$('#Androidskill2').attr("src","../static/png/skillb.png");	break;}
-	 		case 3:{$('#Androidskill2').attr("src","../static/png/skillc.png");	break;}
-	 		case 2:{$('#Androidskill2').attr("src","../static/png/skilld.png");	break;}
-	 		case 1:{$('#Androidskill2').attr("src","../static/png/skille.png");	break;}
-		}
-		switch(JSPskillvalue){
-	 		case 5:{$('#JSPskill2').attr("src","../static/png/skilla.png");	break;}
-	 		case 4:{$('#JSPskill2').attr("src","../static/png/skillb.png");	break;}
-	 		case 3:{$('#JSPskill2').attr("src","../static/png/skillc.png");	break;}
-	 		case 2:{$('#JSPskill2').attr("src","../static/png/skilld.png");	break;}
-	 		case 1:{$('#JSPskill2').attr("src","../static/png/skille.png");	break;}
-		}
-		switch(Thymeleafskillvalue){
-	 		case 5:{$('#Thymeleafskill2').attr("src","../static/png/skilla.png");	break;}
-	 		case 4:{$('#Thymeleafskill2').attr("src","../static/png/skillb.png");	break;}
-	 		case 3:{$('#Thymeleafskill2').attr("src","../static/png/skillc.png");	break;}
-	 		case 2:{$('#Thymeleafskill2').attr("src","../static/png/skilld.png");	break;}
-	 		case 1:{$('#Thymeleafskill2').attr("src","../static/png/skille.png");	break;}
-		}
-		switch(SqlServerskillvalue){
-	 		case 5:{$('#SqlServerskill2').attr("src","../static/png/skilla.png");	break;}
-	 		case 4:{$('#SqlServerskill2').attr("src","../static/png/skillb.png");	break;}
-	 		case 3:{$('#SqlServerskill2').attr("src","../static/png/skillc.png");	break;}
-	 		case 2:{$('#SqlServerskill2').attr("src","../static/png/skilld.png");	break;}
-	 		case 1:{$('#SqlServerskill2').attr("src","../static/png/skille.png");	break;}
-		}
-		switch(Jqueryskillvalue){
-	 		case 5:{$('#Jqueryskill2').attr("src","../static/png/skilla.png");	break;}
-	 		case 4:{$('#Jqueryskill2').attr("src","../static/png/skillb.png");	break;}
-	 		case 3:{$('#Jqueryskill2').attr("src","../static/png/skillc.png");	break;}
-	 		case 2:{$('#Jqueryskill2').attr("src","../static/png/skilld.png");	break;}
-	 		case 1:{$('#Jqueryskill2').attr("src","../static/png/skille.png");	break;}
-		}
-		switch(Reactskillvalue){
-	 		case 5:{$('#Reactskill2').attr("src","../static/png/skilla.png");	break;}
-	 		case 4:{$('#Reactskill2').attr("src","../static/png/skillb.png");	break;}
-	 		case 3:{$('#Reactskill2').attr("src","../static/png/skillc.png");	break;}
-	 		case 2:{$('#Reactskill2').attr("src","../static/png/skilld.png");	break;}
-	 		case 1:{$('#Reactskill2').attr("src","../static/png/skille.png");	break;}
-		}
-		switch(HTMLskillvalue){
-	 		case 5:{$('#HTMLskill2').attr("src","../static/png/skilla.png");	break;}
-	 		case 4:{$('#HTMLskill2').attr("src","../static/png/skillb.png");	break;}
-	 		case 3:{$('#HTMLskill2').attr("src","../static/png/skillc.png");	break;}
-	 		case 2:{$('#HTMLskill2').attr("src","../static/png/skilld.png");	break;}
-	 		case 1:{$('#HTMLskill2').attr("src","../static/png/skille.png");	break;}
-		}
-		switch(CSSskillvalue){
-	 		case 5:{$('#CSSskill2').attr("src","../static/png/skilla.png");	break;}
-	 		case 4:{$('#CSSskill2').attr("src","../static/png/skillb.png");	break;}
-	 		case 3:{$('#CSSskill2').attr("src","../static/png/skillc.png");	break;}
-	 		case 2:{$('#CSSskill2').attr("src","../static/png/skilld.png");	break;}
-	 		case 1:{$('#CSSskill2').attr("src","../static/png/skille.png");	break;}
-		}
-		switch(tenNetskillvalue){
-	 		case 5:{$('#tenNetskill2').attr("src","../static/png/skilla.png");	break;}
-	 		case 4:{$('#tenNetskill2').attr("src","../static/png/skillb.png");	break;}
-	 		case 3:{$('#tenNetskill2').attr("src","../static/png/skillc.png");	break;}
-	 		case 2:{$('#tenNetskill2').attr("src","../static/png/skilld.png");	break;}
-	 		case 1:{$('#tenNetskill2').attr("src","../static/png/skille.png");	break;}
-		}
-		switch(IOSskillvalue){
-	 		case 5:{$('#IOSskill2').attr("src","../static/png/skilla.png");	break;}
-	 		case 4:{$('#IOSskill2').attr("src","../static/png/skillb.png");	break;}
-	 		case 3:{$('#IOSskill2').attr("src","../static/png/skillc.png");	break;}
-	 		case 2:{$('#IOSskill2').attr("src","../static/png/skilld.png");	break;}
-	 		case 1:{$('#IOSskill2').attr("src","../static/png/skille.png");	break;}
-		}
-		switch(Mysqlskillvalue){
-	 		case 5:{$('#Mysqlskill2').attr("src","../static/png/skilla.png");	break;}
-	 		case 4:{$('#Mysqlskill2').attr("src","../static/png/skillb.png");	break;}
-	 		case 3:{$('#Mysqlskill2').attr("src","../static/png/skillc.png");	break;}
-	 		case 2:{$('#Mysqlskill2').attr("src","../static/png/skilld.png");	break;}
-	 		case 1:{$('#Mysqlskill2').attr("src","../static/png/skille.png");	break;}
-		}
-		switch(Oracleskillvalue){
-	 		case 5:{$('#Oracleskill2').attr("src","../static/png/skilla.png");	break;}
-	 		case 4:{$('#Oracleskill2').attr("src","../static/png/skillb.png");	break;}
-	 		case 3:{$('#Oracleskill2').attr("src","../static/png/skillc.png");	break;}
-	 		case 2:{$('#Oracleskill2').attr("src","../static/png/skilld.png");	break;}
-	 		case 1:{$('#Oracleskill2').attr("src","../static/png/skille.png");	break;}
-		}
-		switch(Cupupskillvalue){
-	 		case 5:{$('#Cupupskill2').attr("src","../static/png/skilla.png");	break;}
-	 		case 4:{$('#Cupupskill2').attr("src","../static/png/skillb.png");	break;}
-	 		case 3:{$('#Cupupskill2').attr("src","../static/png/skillc.png");	break;}
-	 		case 2:{$('#Cupupskill2').attr("src","../static/png/skilld.png");	break;}
-	 		case 1:{$('#Cupupskill2').attr("src","../static/png/skille.png");	break;}
-		}
-		switch(Springskillvalue){
-	 		case 5:{$('#Springskill2').attr("src","../static/png/skilla.png");	break;}
-	 		case 4:{$('#Springskill2').attr("src","../static/png/skillb.png");	break;}
-	 		case 3:{$('#Springskill2').attr("src","../static/png/skillc.png");	break;}
-	 		case 2:{$('#Springskill2').attr("src","../static/png/skilld.png");	break;}
-	 		case 1:{$('#Springskill2').attr("src","../static/png/skille.png");	break;}
-		}
-		 
-// 	保存图片变换	
-        $("#saveimgbutton").mouseover(function() {
-            $("#saveimgbutton").attr("src","../static/png/saveon.png");
-         
-        });
-        $("#saveimgbutton").mouseleave(function() {
-            $("#saveimgbutton").attr("src","../static/png/save.png");
-        });    
-//  保存click操作      
-        $("#saveimgbutton").click(function() {
-//     获取input输入参数    	
-			nameinput= $("#nameinput").val();
-     		sexinput=$("#sexinput").val();
-     		kougoinput=$("#kougoinput").val();
-	  	    bumeninput=$("#bumeninput").val();
-    		bornyearinput=$("#bornyearinput").val();
-     		bornmouthinput=$("#bornmouthinput").val();
-     		borndayinput=$("#borndayinput").val();
-     		schoolinput=$("#schoolinput").val();
-     		leaveschoolyearinput=$("#leaveschoolyearinput").val();
-     	 	leaveschoolmouthinput=$("#leaveschoolmouthinput").val();
-    	 	leaveschooldayinput=$("#leaveschooldayinput").val();
-    		workyearinput=$("#workyearinput").val();
-    		workmouthinput=$("#workmouthinput").val();
-    		workdayinput=$("#workdayinput").val();
-    		koumokuininput=$("#koumokuininput").val();
-    		leaveworkyearinput=$("#leaveworkyearinput").val();
-    		leaveworkmouthinput=$("#leaveworkmouthinput").val();
-    		leaveworkdayinput=$("#leaveworkdayinput").val();
-        	
-//     设置text参数    	
-            $("#nametext").text(nameinput);
- 	   		$("#sextext").text(sexinput);
- 	   		$("#kougotext").text(kougoinput);
- 	   		$("#bumentext").text(bumeninput);
-	   		$("#bornyeartext").text(bornyearinput);
-	   		$("#bornmouthtext").text(bornmouthinput);
-	   		$("#borndaytext").text(borndayinput);
-	  	 	$("#schooltext").text(schoolinput);
- 	   		$("#leaveschoolyeartext").text(leaveschoolyearinput);
- 	   		$("#leaveschoolmouthtext").text(leaveschoolmouthinput);
- 	 	  	$("#leaveschooldaytext").text(leaveschooldayinput);
- 	   		$("#workyeartext").text(workyearinput);
- 	   		$("#workmouthtext").text(workmouthinput);
- 	   		$("#workdaytext").text(workdayinput);
- 	   		$("#koumokuintext").text(koumokuininput);
- 	   		$("#leaveworkyeartext").text(leaveworkyearinput);
-	   		$("#leaveworkmouthtext").text(leaveworkmouthinput);
-	   		$("#leaveworkdaytext").text(leaveworkdayinput);
-// 		在职状态 	   	
-            if(workstatus==1){
-            	$("#workstatus1").attr("hidden","hidden");
-            	$("#workstatus2").attr("hidden","hidden");
-            	$("#workstatus3").removeAttr("hidden","hidden");
-            	$("#workstatus4").attr("hidden","hidden");
-            	$("#koumokuin1").removeAttr("hidden","hidden");
-            	$("#koumokuin2").removeAttr("hidden","hidden");
-            	$("#koumokuout1").attr("hidden","hidden");
-            	$("#koumokuout2").attr("hidden","hidden");
-            }else if(workstatus==2){
-            	$("#workstatus1").attr("hidden","hidden");
-            	$("#workstatus2").attr("hidden","hidden");
-            	$("#workstatus3").attr("hidden","hidden");
-            	$("#workstatus4").removeAttr("hidden","hidden");
-            	$("#koumokuin1").attr("hidden","hidden");
-            	$("#koumokuin2").attr("hidden","hidden");
-            	$("#koumokuout1").removeAttr("hidden","hidden");
-            	$("#koumokuout2").removeAttr("hidden","hidden");
-            }else{}
-	  		$("input").attr("hidden","hidden");
-	        $("textarea").attr("hidden","hidden");
-	        $("#editimgbutton").removeAttr("hidden","hidden");
-	        $("#saveimgbutton").attr("hidden","hidden");
-	            
-	        $("text").removeAttr("hidden","hidden");
-	        
-	        
-	        
-//  	skill图片保存 skill>>skillshow
-			switch(CXskillvalue){
-		 		case 5:{$('#CXskill2').attr("src","../static/png/skilla.png");	break;}
-		 		case 4:{$('#CXskill2').attr("src","../static/png/skillb.png");	break;}
-		 		case 3:{$('#CXskill2').attr("src","../static/png/skillc.png");	break;}
-		 		case 2:{$('#CXskill2').attr("src","../static/png/skilld.png");	break;}
-		 		case 1:{$('#CXskill2').attr("src","../static/png/skille.png");	break;}
-	 		}
-			switch(VUEskillvalue){
-		 		case 5:{$('#VUEskill2').attr("src","../static/png/skilla.png");	break;}
-		 		case 4:{$('#VUEskill2').attr("src","../static/png/skillb.png");	break;}
-		 		case 3:{$('#VUEskill2').attr("src","../static/png/skillc.png");	break;}
-		 		case 2:{$('#VUEskill2').attr("src","../static/png/skilld.png");	break;}
-		 		case 1:{$('#VUEskill2').attr("src","../static/png/skille.png");	break;}
-			}
-			switch(Javaskillvalue){
-		 		case 5:{$('#Javaskill2').attr("src","../static/png/skilla.png");	break;}
-		 		case 4:{$('#Javaskill2').attr("src","../static/png/skillb.png");	break;}
-		 		case 3:{$('#Javaskill2').attr("src","../static/png/skillc.png");	break;}
-		 		case 2:{$('#Javaskill2').attr("src","../static/png/skilld.png");	break;}
-		 		case 1:{$('#Javaskill2').attr("src","../static/png/skille.png");	break;}
-			}
-			switch(Angularskillvalue){
-		 		case 5:{$('#Angularskill2').attr("src","../static/png/skilla.png");	break;}
-		 		case 4:{$('#Angularskill2').attr("src","../static/png/skillb.png");	break;}
-		 		case 3:{$('#Angularskill2').attr("src","../static/png/skillc.png");	break;}
-		 		case 2:{$('#Angularskill2').attr("src","../static/png/skilld.png");	break;}
-		 		case 1:{$('#Angularskill2').attr("src","../static/png/skille.png");	break;}
-			}
-			switch(Androidskillvalue){
-		 		case 5:{$('#Androidskill2').attr("src","../static/png/skilla.png");	break;}
-		 		case 4:{$('#Androidskill2').attr("src","../static/png/skillb.png");	break;}
-		 		case 3:{$('#Androidskill2').attr("src","../static/png/skillc.png");	break;}
-		 		case 2:{$('#Androidskill2').attr("src","../static/png/skilld.png");	break;}
-		 		case 1:{$('#Androidskill2').attr("src","../static/png/skille.png");	break;}
-			}
-			switch(JSPskillvalue){
-		 		case 5:{$('#JSPskill2').attr("src","../static/png/skilla.png");	break;}
-		 		case 4:{$('#JSPskill2').attr("src","../static/png/skillb.png");	break;}
-		 		case 3:{$('#JSPskill2').attr("src","../static/png/skillc.png");	break;}
-		 		case 2:{$('#JSPskill2').attr("src","../static/png/skilld.png");	break;}
-		 		case 1:{$('#JSPskill2').attr("src","../static/png/skille.png");	break;}
-			}
-			switch(Thymeleafskillvalue){
-		 		case 5:{$('#Thymeleafskill2').attr("src","../static/png/skilla.png");	break;}
-		 		case 4:{$('#Thymeleafskill2').attr("src","../static/png/skillb.png");	break;}
-		 		case 3:{$('#Thymeleafskill2').attr("src","../static/png/skillc.png");	break;}
-		 		case 2:{$('#Thymeleafskill2').attr("src","../static/png/skilld.png");	break;}
-		 		case 1:{$('#Thymeleafskill2').attr("src","../static/png/skille.png");	break;}
-			}
-			switch(SqlServerskillvalue){
-		 		case 5:{$('#SqlServerskill2').attr("src","../static/png/skilla.png");	break;}
-		 		case 4:{$('#SqlServerskill2').attr("src","../static/png/skillb.png");	break;}
-		 		case 3:{$('#SqlServerskill2').attr("src","../static/png/skillc.png");	break;}
-		 		case 2:{$('#SqlServerskill2').attr("src","../static/png/skilld.png");	break;}
-		 		case 1:{$('#SqlServerskill2').attr("src","../static/png/skille.png");	break;}
-			}
-			switch(Jqueryskillvalue){
-		 		case 5:{$('#Jqueryskill2').attr("src","../static/png/skilla.png");	break;}
-		 		case 4:{$('#Jqueryskill2').attr("src","../static/png/skillb.png");	break;}
-		 		case 3:{$('#Jqueryskill2').attr("src","../static/png/skillc.png");	break;}
-		 		case 2:{$('#Jqueryskill2').attr("src","../static/png/skilld.png");	break;}
-		 		case 1:{$('#Jqueryskill2').attr("src","../static/png/skille.png");	break;}
-			}
-			switch(Reactskillvalue){
-		 		case 5:{$('#Reactskill2').attr("src","../static/png/skilla.png");	break;}
-		 		case 4:{$('#Reactskill2').attr("src","../static/png/skillb.png");	break;}
-		 		case 3:{$('#Reactskill2').attr("src","../static/png/skillc.png");	break;}
-		 		case 2:{$('#Reactskill2').attr("src","../static/png/skilld.png");	break;}
-		 		case 1:{$('#Reactskill2').attr("src","../static/png/skille.png");	break;}
-			}
-			switch(HTMLskillvalue){
-		 		case 5:{$('#HTMLskill2').attr("src","../static/png/skilla.png");	break;}
-		 		case 4:{$('#HTMLskill2').attr("src","../static/png/skillb.png");	break;}
-		 		case 3:{$('#HTMLskill2').attr("src","../static/png/skillc.png");	break;}
-		 		case 2:{$('#HTMLskill2').attr("src","../static/png/skilld.png");	break;}
-		 		case 1:{$('#HTMLskill2').attr("src","../static/png/skille.png");	break;}
-			}
-			switch(CSSskillvalue){
-		 		case 5:{$('#CSSskill2').attr("src","../static/png/skilla.png");	break;}
-		 		case 4:{$('#CSSskill2').attr("src","../static/png/skillb.png");	break;}
-		 		case 3:{$('#CSSskill2').attr("src","../static/png/skillc.png");	break;}
-		 		case 2:{$('#CSSskill2').attr("src","../static/png/skilld.png");	break;}
-		 		case 1:{$('#CSSskill2').attr("src","../static/png/skille.png");	break;}
-			}
-			switch(tenNetskillvalue){
-		 		case 5:{$('#tenNetskill2').attr("src","../static/png/skilla.png");	break;}
-		 		case 4:{$('#tenNetskill2').attr("src","../static/png/skillb.png");	break;}
-		 		case 3:{$('#tenNetskill2').attr("src","../static/png/skillc.png");	break;}
-		 		case 2:{$('#tenNetskill2').attr("src","../static/png/skilld.png");	break;}
-		 		case 1:{$('#tenNetskill2').attr("src","../static/png/skille.png");	break;}
-			}
-			switch(IOSskillvalue){
-		 		case 5:{$('#IOSskill2').attr("src","../static/png/skilla.png");	break;}
-		 		case 4:{$('#IOSskill2').attr("src","../static/png/skillb.png");	break;}
-		 		case 3:{$('#IOSskill2').attr("src","../static/png/skillc.png");	break;}
-		 		case 2:{$('#IOSskill2').attr("src","../static/png/skilld.png");	break;}
-		 		case 1:{$('#IOSskill2').attr("src","../static/png/skille.png");	break;}
-			}
-			switch(Mysqlskillvalue){
-		 		case 5:{$('#Mysqlskill2').attr("src","../static/png/skilla.png");	break;}
-		 		case 4:{$('#Mysqlskill2').attr("src","../static/png/skillb.png");	break;}
-		 		case 3:{$('#Mysqlskill2').attr("src","../static/png/skillc.png");	break;}
-		 		case 2:{$('#Mysqlskill2').attr("src","../static/png/skilld.png");	break;}
-		 		case 1:{$('#Mysqlskill2').attr("src","../static/png/skille.png");	break;}
-			}
-			switch(Oracleskillvalue){
-		 		case 5:{$('#Oracleskill2').attr("src","../static/png/skilla.png");	break;}
-		 		case 4:{$('#Oracleskill2').attr("src","../static/png/skillb.png");	break;}
-		 		case 3:{$('#Oracleskill2').attr("src","../static/png/skillc.png");	break;}
-		 		case 2:{$('#Oracleskill2').attr("src","../static/png/skilld.png");	break;}
-		 		case 1:{$('#Oracleskill2').attr("src","../static/png/skille.png");	break;}
-			}
-			switch(Cupupskillvalue){
-		 		case 5:{$('#Cupupskill2').attr("src","../static/png/skilla.png");	break;}
-		 		case 4:{$('#Cupupskill2').attr("src","../static/png/skillb.png");	break;}
-		 		case 3:{$('#Cupupskill2').attr("src","../static/png/skillc.png");	break;}
-		 		case 2:{$('#Cupupskill2').attr("src","../static/png/skilld.png");	break;}
-		 		case 1:{$('#Cupupskill2').attr("src","../static/png/skille.png");	break;}
-			}
-			switch(Springskillvalue){
-		 		case 5:{$('#Springskill2').attr("src","../static/png/skilla.png");	break;}
-		 		case 4:{$('#Springskill2').attr("src","../static/png/skillb.png");	break;}
-		 		case 3:{$('#Springskill2').attr("src","../static/png/skillc.png");	break;}
-		 		case 2:{$('#Springskill2').attr("src","../static/png/skilld.png");	break;}
-		 		case 1:{$('#Springskill2').attr("src","../static/png/skille.png");	break;}
-			}
-			 
-			
-//		skill图片展示 skill>>skillshow         
-            $(".skillshow").removeAttr("hidden","hidden");
-            $(".skill").attr("hidden","hidden");
-//  	top变换           
-      		$("#employeetoptext").text("员工详细情报-保存成功");
-            
-        });
-//   编辑图片变化    
-        $("#editimgbutton").mouseover(function() {
-            $("#editimgbutton").attr("src","../static/png/editon.png");
-         
-        });
-        $("#editimgbutton").mouseleave(function() {
-            $("#editimgbutton").attr("src","../static/png/edit.png");
-         
-        });
-//   编辑click操作  
-        $("#editimgbutton").click(function() {
-//  	input清空     
-			$("input").attr("value","");
-			
-//      input导入text参数     
-			nameinput= $("#nametext").text();
-         	sexinput=$("#sextext").text();
-         	kougoinput=$("#kougotext").text();
-  	     	bumeninput=$("#bumentext").text();
-        	bornyearinput=$("#bornyeartext").text();
-         	bornmouthinput=$("#bornmouthtext").text();
-         	borndayinput=$("#borndaytext").text();
-         	schoolinput=$("#schooltext").text();
-         	leaveschoolyearinput=$("#leaveschoolyeartext").text();
-         	leaveschoolmouthinput=$("#leaveschoolmouthtext").text();
-         	leaveschooldayinput=$("#leaveschooldaytext").text();
-        	workyearinput=$("#workyeartext").text();
-        	workmouthinput=$("#workmouthtext").text();
-        	workdayinput=$("#workdaytext").text();
-        	koumokuininput=$("#koumokuintext").text();
-        	leaveworkyearinput=$("#leaveworkyeartext").text();
-        	leaveworkmouthinput=$("#leaveworkmouthtext").text();
-        	leaveworkdayinput=$("#leaveworkdaytext").text();
-        	
-
-            $("#nameinput").attr("value",nameinput);
- 	   		$("#sexinput").attr("value",sexinput);
- 	   		$("#kougoinput").attr("value",kougoinput);
- 	   		$("#bumeninput").attr("value",bumeninput);
-	   		$("#bornyearinput").attr("value",bornyearinput);
-	   		$("#bornmouthinput").attr("value",bornmouthinput);
-	   		$("#borndayinput").attr("value",borndayinput);
-	  	 	$("#schoolinput").attr("value",schoolinput);
- 	   		$("#leaveschoolyearinput").attr("value",leaveschoolyearinput);
- 	   		$("#leaveschoolmouthinput").attr("value",leaveschoolmouthinput);
- 	 	  	$("#leaveschooldayinput").attr("value",leaveschooldayinput);
- 	   		$("#workyearinput").attr("value",workyearinput);
- 	   		$("#workmouthinput").attr("value",workmouthinput);
- 	   		$("#workdayinput").attr("value",workdayinput);
- 	   		$("#koumokuininput").attr("value",koumokuininput);
- 	   		$("#leaveworkyearinput").attr("value",leaveworkyearinput);
-	   		$("#leaveworkmouthinput").attr("value",leaveworkmouthinput);
-	   		$("#leaveworkdayinput").attr("value",leaveworkdayinput);
-//	   	input显示        	
-            $("input").removeAttr("hidden","hidden");
-            $("textarea").removeAttr("hidden","hidden");
-
-//  	textarea清空
-            $("textarea").text("");
-//      图片变化             
-            $("#editimgbutton").attr("hidden","hidden");
-            $("#saveimgbutton").removeAttr("hidden","hidden");
-//      在职选择徒添显示            
-            $("#workstatus1").removeAttr("hidden","hidden");
-        	$("#workstatus2").removeAttr("hidden","hidden");
-        	$("#workstatus3").attr("hidden","hidden");
-        	$("#workstatus4").attr("hidden","hidden");
-        	$("#koumokuin1").attr("hidden","hidden");
-         	$("#koumokuin2").attr("hidden","hidden");
-         	$("#koumokuout1").attr("hidden","hidden");
-         	$("#koumokuout2").attr("hidden","hidden");
-//      text隐藏             
-            $("text").attr("hidden","hidden");
-//		skill图片展示 skillshow>>skill           
-            $(".skillshow").attr("hidden","hidden");
-            $(".skill").removeAttr("hidden","hidden");
-            
-//		top变换          
-            $("#employeetoptext").text("员工详细情报-编辑中");
-            $("#employeetoptext").removeAttr("hidden","hidden");
-           
-        });
-// 工作状态图片变换        
-        $("#workstatus1").mouseover(function() {
-            $("#workstatus1").attr("src","../static/png/working.png");
-         
-        });
-        $("#workstatus1").mouseleave(function() {
-            $("#workstatus1").attr("src","../static/png/workunchoose.png");
-         
-        });  
-        
-        $("#workstatus2").mouseover(function() {
-            $("#workstatus2").attr("src","../static/png/workout.png");
-         
-        });
-        $("#workstatus2").mouseleave(function() {
-            $("#workstatus2").attr("src","../static/png/workoutunchoose.png");
-         
-        }); 
-// 工作状态 在职中click       
-        $("#workstatus1").click(function() {
-        	workstatus=1;
-            $("#workstatus1").attr("hidden","hidden");
-            $("#workstatus4").attr("hidden","hidden");
-            $("#workstatus3").removeAttr("hidden","hidden");
-            $("#workstatus2").removeAttr("hidden","hidden");
-            $("#workstatus2").attr("src","../static/png/workoutunchoose.png");
-            $("#koumokuin1").removeAttr("hidden","hidden");
-         	$("#koumokuin2").removeAttr("hidden","hidden");
-         	$("#koumokuout1").attr("hidden","hidden");
-         	$("#koumokuout2").attr("hidden","hidden");
-        });
-// 工作状态 已离职click           
-        $("#workstatus2").click(function() {
-        	workstatus=2;
-        	$("#workstatus2").attr("hidden","hidden");
-            $("#workstatus4").removeAttr("hidden","hidden");
-            $("#workstatus3").attr("hidden","hidden");
-            $("#workstatus1").removeAttr("hidden","hidden");
-            $("#workstatus1").attr("src","../static/png/workunchoose.png");
-            $("#koumokuin1").attr("hidden","hidden");
-         	$("#koumokuin2").attr("hidden","hidden");
-         	$("#koumokuout1").removeAttr("hidden","hidden");
-         	$("#koumokuout2").removeAttr("hidden","hidden");
-        });
-        
-// VUEskill图片变换        
-		
-        $('#VUEskill').mouseover(function(){
-        	$('#VUEskill').attr("hidden","hidden");	
-        	$('#VUEskillup').removeAttr("hidden","hidden");	
-        	$('#VUEskilldown').removeAttr("hidden","hidden");	
-        
-        
-        });
-        $('#VUEskill').mouseleave(function(){
-        	$('#VUEskill').removeAttr("hidden","hidden");	
-        	$('#VUEskillup').attr("hidden","hidden");	
-        	$('#VUEskilldown').attr("hidden","hidden");	
-        
-        
-        });
-        $('#VUEskill').mouseleave(function(){
-        	$('#VUEskill').removeAttr("hidden","hidden");	
-        	$('#VUEskillup').attr("hidden","hidden");	
-        	$('#VUEskilldown').attr("hidden","hidden");	
-        
-        
-        });
-        $('#VUEskillup').click(function(){
-        	if(VUEskillvalue<5){
-        		VUEskillvalue=VUEskillvalue+1;
-        	}else{
-        		VUEskillvalue=5;
-        	}
-        	switch(VUEskillvalue){
-        		case 5:{$('#VUEskill').attr("src","../static/png/skilla.png");	break;}
-        		case 4:{$('#VUEskill').attr("src","../static/png/skillb.png");	break;}
-        		case 3:{$('#VUEskill').attr("src","../static/png/skillc.png");	break;}
-        		case 2:{$('#VUEskill').attr("src","../static/png/skilld.png");	break;}
-        		case 1:{$('#VUEskill').attr("src","../static/png/skille.png");	break;}
-        	}
-        });
-        $('#VUEskilldown').click(function(){
-        	if(VUEskillvalue>1){
-        		VUEskillvalue=VUEskillvalue-1;
-        	}else{
-        		VUEskillvalue=1;
-        	}
-        	switch(VUEskillvalue){
-        		case 5:{$('#VUEskill').attr("src","../static/png/skilla.png");	break;}
-        		case 4:{$('#VUEskill').attr("src","../static/png/skillb.png");	break;}
-        		case 3:{$('#VUEskill').attr("src","../static/png/skillc.png");	break;}
-        		case 2:{$('#VUEskill').attr("src","../static/png/skilld.png");	break;}
-        		case 1:{$('#VUEskill').attr("src","../static/png/skille.png");	break;}
-        	}
-        });
-        
-// Javaskill图片变换   
-	
-        $('#Javaskill').mouseover(function(){
-        	$('#Javaskill').attr("hidden","hidden");	
-        	$('#Javaskillup').removeAttr("hidden","hidden");	
-        	$('#Javaskilldown').removeAttr("hidden","hidden");	
-        
-        
-        });
-        $('#Javaskill').mouseleave(function(){
-        	$('#Javaskill').removeAttr("hidden","hidden");	
-        	$('#Javaskillup').attr("hidden","hidden");	
-        	$('#Javaskilldown').attr("hidden","hidden");	
-        
-        
-        });
-        $('#Javaskill').mouseleave(function(){
-        	$('#Javaskill').removeAttr("hidden","hidden");	
-        	$('#Javaskillup').attr("hidden","hidden");	
-        	$('#Javaskilldown').attr("hidden","hidden");	
-        
-        
-        });
-        $('#Javaskillup').click(function(){
-        	if(Javaskillvalue<5){
-        		Javaskillvalue=Javaskillvalue+1;
-        	}else{
-        		Javaskillvalue=5;
-        	}
-        	switch(Javaskillvalue){
-        		case 5:{$('#Javaskill').attr("src","../static/png/skilla.png");	break;}
-        		case 4:{$('#Javaskill').attr("src","../static/png/skillb.png");	break;}
-        		case 3:{$('#Javaskill').attr("src","../static/png/skillc.png");	break;}
-        		case 2:{$('#Javaskill').attr("src","../static/png/skilld.png");	break;}
-        		case 1:{$('#Javaskill').attr("src","../static/png/skille.png");	break;}
-        	}
-        });
-        $('#Javaskilldown').click(function(){
-        	if(Javaskillvalue>1){
-        		Javaskillvalue=Javaskillvalue-1;
-        	}else{
-        		Javaskillvalue=1;
-        	}
-        	switch(Javaskillvalue){
-        		case 5:{$('#Javaskill').attr("src","../static/png/skilla.png");	break;}
-        		case 4:{$('#Javaskill').attr("src","../static/png/skillb.png");	break;}
-        		case 3:{$('#Javaskill').attr("src","../static/png/skillc.png");	break;}
-        		case 2:{$('#Javaskill').attr("src","../static/png/skilld.png");	break;}
-        		case 1:{$('#Javaskill').attr("src","../static/png/skille.png");	break;}
-        	}
-        });        
-        
-// Angularskill图片变换   
-		
-        $('#Angularskill').mouseover(function(){
-        	$('#Angularskill').attr("hidden","hidden");	
-        	$('#Angularskillup').removeAttr("hidden","hidden");	
-        	$('#Angularskilldown').removeAttr("hidden","hidden");	
-        
-        
-        });
-        $('#Angularskill').mouseleave(function(){
-        	$('#Angularskill').removeAttr("hidden","hidden");	
-        	$('#Angularskillup').attr("hidden","hidden");	
-        	$('#Angularskilldown').attr("hidden","hidden");	
-        
-        
-        });
-        $('#Angularskill').mouseleave(function(){
-        	$('#Angularskill').removeAttr("hidden","hidden");	
-        	$('#Angularskillup').attr("hidden","hidden");	
-        	$('#Angularskilldown').attr("hidden","hidden");	
-        
-        
-        });
-        $('#Angularskillup').click(function(){
-        	if(Angularskillvalue<5){
-        		Angularskillvalue=Angularskillvalue+1;
-        	}else{
-        		Angularskillvalue=5;
-        	}
-        	switch(Angularskillvalue){
-        		case 5:{$('#Angularskill').attr("src","../static/png/skilla.png");	break;}
-        		case 4:{$('#Angularskill').attr("src","../static/png/skillb.png");	break;}
-        		case 3:{$('#Angularskill').attr("src","../static/png/skillc.png");	break;}
-        		case 2:{$('#Angularskill').attr("src","../static/png/skilld.png");	break;}
-        		case 1:{$('#Angularskill').attr("src","../static/png/skille.png");	break;}
-        	}
-        });
-        $('#Angularskilldown').click(function(){
-        	if(Angularskillvalue>1){
-        		Angularskillvalue=Angularskillvalue-1;
-        	}else{
-        		Angularskillvalue=1;
-        	}
-        	switch(Angularskillvalue){
-        		case 5:{$('#Angularskill').attr("src","../static/png/skilla.png");	break;}
-        		case 4:{$('#Angularskill').attr("src","../static/png/skillb.png");	break;}
-        		case 3:{$('#Angularskill').attr("src","../static/png/skillc.png");	break;}
-        		case 2:{$('#Angularskill').attr("src","../static/png/skilld.png");	break;}
-        		case 1:{$('#Angularskill').attr("src","../static/png/skille.png");	break;}
-        	}
-        });        
-        
-// Androidskill图片变换   
-		
-        $('#Androidskill').mouseover(function(){
-        	$('#Androidskill').attr("hidden","hidden");	
-        	$('#Androidskillup').removeAttr("hidden","hidden");	
-        	$('#Androidskilldown').removeAttr("hidden","hidden");	
-        
-        
-        });
-        $('#Androidskill').mouseleave(function(){
-        	$('#Androidskill').removeAttr("hidden","hidden");	
-        	$('#Androidskillup').attr("hidden","hidden");	
-        	$('#Androidskilldown').attr("hidden","hidden");	
-        
-        
-        });
-        $('#Androidskill').mouseleave(function(){
-        	$('#Androidskill').removeAttr("hidden","hidden");	
-        	$('#Androidskillup').attr("hidden","hidden");	
-        	$('#Androidskilldown').attr("hidden","hidden");	
-        
-        
-        });
-        $('#Androidskillup').click(function(){
-        	if(Androidskillvalue<5){
-        		Androidskillvalue=Androidskillvalue+1;
-        	}else{
-        		Androidskillvalue=5;
-        	}
-        	switch(Androidskillvalue){
-        		case 5:{$('#Androidskill').attr("src","../static/png/skilla.png");	break;}
-        		case 4:{$('#Androidskill').attr("src","../static/png/skillb.png");	break;}
-        		case 3:{$('#Androidskill').attr("src","../static/png/skillc.png");	break;}
-        		case 2:{$('#Androidskill').attr("src","../static/png/skilld.png");	break;}
-        		case 1:{$('#Androidskill').attr("src","../static/png/skille.png");	break;}
-        	}
-        });
-        $('#Androidskilldown').click(function(){
-        	if(Androidskillvalue>1){
-        		Androidskillvalue=Androidskillvalue-1;
-        	}else{
-        		Androidskillvalue=1;
-        	}
-        	switch(Androidskillvalue){
-        		case 5:{$('#Androidskill').attr("src","../static/png/skilla.png");	break;}
-        		case 4:{$('#Androidskill').attr("src","../static/png/skillb.png");	break;}
-        		case 3:{$('#Androidskill').attr("src","../static/png/skillc.png");	break;}
-        		case 2:{$('#Androidskill').attr("src","../static/png/skilld.png");	break;}
-        		case 1:{$('#Androidskill').attr("src","../static/png/skille.png");	break;}
-        	}
-        });        
-        
-// JSPskill图片变换   
-		
-        $('#JSPskill').mouseover(function(){
-        	$('#JSPskill').attr("hidden","hidden");	
-        	$('#JSPskillup').removeAttr("hidden","hidden");	
-        	$('#JSPskilldown').removeAttr("hidden","hidden");	
-        
-        
-        });
-        $('#JSPskill').mouseleave(function(){
-        	$('#JSPskill').removeAttr("hidden","hidden");	
-        	$('#JSPskillup').attr("hidden","hidden");	
-        	$('#JSPskilldown').attr("hidden","hidden");	
-        
-        
-        });
-        $('#JSPskill').mouseleave(function(){
-        	$('#JSPskill').removeAttr("hidden","hidden");	
-        	$('#JSPskillup').attr("hidden","hidden");	
-        	$('#JSPskilldown').attr("hidden","hidden");	
-        
-        
-        });
-        $('#JSPskillup').click(function(){
-        	if(JSPskillvalue<5){
-        		JSPskillvalue=JSPskillvalue+1;
-        	}else{
-        		JSPskillvalue=5;
-        	}
-        	switch(JSPskillvalue){
-        		case 5:{$('#JSPskill').attr("src","../static/png/skilla.png");	break;}
-        		case 4:{$('#JSPskill').attr("src","../static/png/skillb.png");	break;}
-        		case 3:{$('#JSPskill').attr("src","../static/png/skillc.png");	break;}
-        		case 2:{$('#JSPskill').attr("src","../static/png/skilld.png");	break;}
-        		case 1:{$('#JSPskill').attr("src","../static/png/skille.png");	break;}
-        	}
-        });
-        $('#JSPskilldown').click(function(){
-        	if(JSPskillvalue>1){
-        		JSPskillvalue=JSPskillvalue-1;
-        	}else{
-        		JSPskillvalue=1;
-        	}
-        	switch(JSPskillvalue){
-        		case 5:{$('#JSPskill').attr("src","../static/png/skilla.png");	break;}
-        		case 4:{$('#JSPskill').attr("src","../static/png/skillb.png");	break;}
-        		case 3:{$('#JSPskill').attr("src","../static/png/skillc.png");	break;}
-        		case 2:{$('#JSPskill').attr("src","../static/png/skilld.png");	break;}
-        		case 1:{$('#JSPskill').attr("src","../static/png/skille.png");	break;}
-        	}
-        });        
-        
-// Thymeleafskill图片变换   
-		
-        $('#Thymeleafskill').mouseover(function(){
-        	$('#Thymeleafskill').attr("hidden","hidden");	
-        	$('#Thymeleafskillup').removeAttr("hidden","hidden");	
-        	$('#Thymeleafskilldown').removeAttr("hidden","hidden");	
-        
-        
-        });
-        $('#Thymeleafskill').mouseleave(function(){
-        	$('#Thymeleafskill').removeAttr("hidden","hidden");	
-        	$('#Thymeleafskillup').attr("hidden","hidden");	
-        	$('#Thymeleafskilldown').attr("hidden","hidden");	
-        
-        
-        });
-        $('#Thymeleafskill').mouseleave(function(){
-        	$('#Thymeleafskill').removeAttr("hidden","hidden");	
-        	$('#Thymeleafskillup').attr("hidden","hidden");	
-        	$('#Thymeleafskilldown').attr("hidden","hidden");	
-        
-        
-        });
-        $('#Thymeleafskillup').click(function(){
-        	if(Thymeleafskillvalue<5){
-        		Thymeleafskillvalue=Thymeleafskillvalue+1;
-        	}else{
-        		Thymeleafskillvalue=5;
-        	}
-        	switch(Thymeleafskillvalue){
-        		case 5:{$('#Thymeleafskill').attr("src","../static/png/skilla.png");	break;}
-        		case 4:{$('#Thymeleafskill').attr("src","../static/png/skillb.png");	break;}
-        		case 3:{$('#Thymeleafskill').attr("src","../static/png/skillc.png");	break;}
-        		case 2:{$('#Thymeleafskill').attr("src","../static/png/skilld.png");	break;}
-        		case 1:{$('#Thymeleafskill').attr("src","../static/png/skille.png");	break;}
-        	}
-        });
-        $('#Thymeleafskilldown').click(function(){
-        	if(Thymeleafskillvalue>1){
-        		Thymeleafskillvalue=Thymeleafskillvalue-1;
-        	}else{
-        		Thymeleafskillvalue=1;
-        	}
-        	switch(Thymeleafskillvalue){
-        		case 5:{$('#Thymeleafskill').attr("src","../static/png/skilla.png");	break;}
-        		case 4:{$('#Thymeleafskill').attr("src","../static/png/skillb.png");	break;}
-        		case 3:{$('#Thymeleafskill').attr("src","../static/png/skillc.png");	break;}
-        		case 2:{$('#Thymeleafskill').attr("src","../static/png/skilld.png");	break;}
-        		case 1:{$('#Thymeleafskill').attr("src","../static/png/skille.png");	break;}
-        	}
-        });        
-        
-// SqlServerskill图片变换   
-		
-        $('#SqlServerskill').mouseover(function(){
-        	$('#SqlServerskill').attr("hidden","hidden");	
-        	$('#SqlServerskillup').removeAttr("hidden","hidden");	
-        	$('#SqlServerskilldown').removeAttr("hidden","hidden");	
-        
-        
-        });
-        $('#SqlServerskill').mouseleave(function(){
-        	$('#SqlServerskill').removeAttr("hidden","hidden");	
-        	$('#SqlServerskillup').attr("hidden","hidden");	
-        	$('#SqlServerskilldown').attr("hidden","hidden");	
-        
-        
-        });
-        $('#SqlServerskill').mouseleave(function(){
-        	$('#SqlServerskill').removeAttr("hidden","hidden");	
-        	$('#SqlServerskillup').attr("hidden","hidden");	
-        	$('#SqlServerskilldown').attr("hidden","hidden");	
-        
-        
-        });
-        $('#SqlServerskillup').click(function(){
-        	if(SqlServerskillvalue<5){
-        		SqlServerskillvalue=SqlServerskillvalue+1;
-        	}else{
-        		SqlServerskillvalue=5;
-        	}
-        	switch(SqlServerskillvalue){
-        		case 5:{$('#SqlServerskill').attr("src","../static/png/skilla.png");	break;}
-        		case 4:{$('#SqlServerskill').attr("src","../static/png/skillb.png");	break;}
-        		case 3:{$('#SqlServerskill').attr("src","../static/png/skillc.png");	break;}
-        		case 2:{$('#SqlServerskill').attr("src","../static/png/skilld.png");	break;}
-        		case 1:{$('#SqlServerskill').attr("src","../static/png/skille.png");	break;}
-        	}
-        });
-        $('#SqlServerskilldown').click(function(){
-        	if(SqlServerskillvalue>1){
-        		SqlServerskillvalue=SqlServerskillvalue-1;
-        	}else{
-        		SqlServerskillvalue=1;
-        	}
-        	switch(SqlServerskillvalue){
-        		case 5:{$('#SqlServerskill').attr("src","../static/png/skilla.png");	break;}
-        		case 4:{$('#SqlServerskill').attr("src","../static/png/skillb.png");	break;}
-        		case 3:{$('#SqlServerskill').attr("src","../static/png/skillc.png");	break;}
-        		case 2:{$('#SqlServerskill').attr("src","../static/png/skilld.png");	break;}
-        		case 1:{$('#SqlServerskill').attr("src","../static/png/skille.png");	break;}
-        	}
-        });        
-        
-// Jqueryskill图片变换   
-		
-        $('#Jqueryskill').mouseover(function(){
-        	$('#Jqueryskill').attr("hidden","hidden");	
-        	$('#Jqueryskillup').removeAttr("hidden","hidden");	
-        	$('#Jqueryskilldown').removeAttr("hidden","hidden");	
-        
-        
-        });
-        $('#Jqueryskill').mouseleave(function(){
-        	$('#Jqueryskill').removeAttr("hidden","hidden");	
-        	$('#Jqueryskillup').attr("hidden","hidden");	
-        	$('#Jqueryskilldown').attr("hidden","hidden");	
-        
-        
-        });
-        $('#Jqueryskill').mouseleave(function(){
-        	$('#Jqueryskill').removeAttr("hidden","hidden");	
-        	$('#Jqueryskillup').attr("hidden","hidden");	
-        	$('#Jqueryskilldown').attr("hidden","hidden");	
-        
-        
-        });
-        $('#Jqueryskillup').click(function(){
-        	if(Jqueryskillvalue<5){
-        		Jqueryskillvalue=Jqueryskillvalue+1;
-        	}else{
-        		Jqueryskillvalue=5;
-        	}
-        	switch(Jqueryskillvalue){
-        		case 5:{$('#Jqueryskill').attr("src","../static/png/skilla.png");	break;}
-        		case 4:{$('#Jqueryskill').attr("src","../static/png/skillb.png");	break;}
-        		case 3:{$('#Jqueryskill').attr("src","../static/png/skillc.png");	break;}
-        		case 2:{$('#Jqueryskill').attr("src","../static/png/skilld.png");	break;}
-        		case 1:{$('#Jqueryskill').attr("src","../static/png/skille.png");	break;}
-        	}
-        });
-        $('#Jqueryskilldown').click(function(){
-        	if(Jqueryskillvalue>1){
-        		Jqueryskillvalue=Jqueryskillvalue-1;
-        	}else{
-        		Jqueryskillvalue=1;
-        	}
-        	switch(Jqueryskillvalue){
-        		case 5:{$('#Jqueryskill').attr("src","../static/png/skilla.png");	break;}
-        		case 4:{$('#Jqueryskill').attr("src","../static/png/skillb.png");	break;}
-        		case 3:{$('#Jqueryskill').attr("src","../static/png/skillc.png");	break;}
-        		case 2:{$('#Jqueryskill').attr("src","../static/png/skilld.png");	break;}
-        		case 1:{$('#Jqueryskill').attr("src","../static/png/skille.png");	break;}
-        	}
-        });        
-        
-// Reactskill图片变换   
-		
-        $('#Reactskill').mouseover(function(){
-        	$('#Reactskill').attr("hidden","hidden");	
-        	$('#Reactskillup').removeAttr("hidden","hidden");	
-        	$('#Reactskilldown').removeAttr("hidden","hidden");	
-        
-        
-        });
-        $('#Reactskill').mouseleave(function(){
-        	$('#Reactskill').removeAttr("hidden","hidden");	
-        	$('#Reactskillup').attr("hidden","hidden");	
-        	$('#Reactskilldown').attr("hidden","hidden");	
-        
-        
-        });
-        $('#Reactskill').mouseleave(function(){
-        	$('#Reactskill').removeAttr("hidden","hidden");	
-        	$('#Reactskillup').attr("hidden","hidden");	
-        	$('#Reactskilldown').attr("hidden","hidden");	
-        
-        
-        });
-        $('#Reactskillup').click(function(){
-        	if(Reactskillvalue<5){
-        		Reactskillvalue=Reactskillvalue+1;
-        	}else{
-        		Reactskillvalue=5;
-        	}
-        	switch(Reactskillvalue){
-        		case 5:{$('#Reactskill').attr("src","../static/png/skilla.png");	break;}
-        		case 4:{$('#Reactskill').attr("src","../static/png/skillb.png");	break;}
-        		case 3:{$('#Reactskill').attr("src","../static/png/skillc.png");	break;}
-        		case 2:{$('#Reactskill').attr("src","../static/png/skilld.png");	break;}
-        		case 1:{$('#Reactskill').attr("src","../static/png/skille.png");	break;}
-        	}
-        });
-        $('#Reactskilldown').click(function(){
-        	if(Reactskillvalue>1){
-        		Reactskillvalue=Reactskillvalue-1;
-        	}else{
-        		Reactskillvalue=1;
-        	}
-        	switch(Reactskillvalue){
-        		case 5:{$('#Reactskill').attr("src","../static/png/skilla.png");	break;}
-        		case 4:{$('#Reactskill').attr("src","../static/png/skillb.png");	break;}
-        		case 3:{$('#Reactskill').attr("src","../static/png/skillc.png");	break;}
-        		case 2:{$('#Reactskill').attr("src","../static/png/skilld.png");	break;}
-        		case 1:{$('#Reactskill').attr("src","../static/png/skille.png");	break;}
-        	}
-        });        
-        
-// HTMLskill图片变换   
-		
-        $('#HTMLskill').mouseover(function(){
-        	$('#HTMLskill').attr("hidden","hidden");	
-        	$('#HTMLskillup').removeAttr("hidden","hidden");	
-        	$('#HTMLskilldown').removeAttr("hidden","hidden");	
-        
-        
-        });
-        $('#HTMLskill').mouseleave(function(){
-        	$('#HTMLskill').removeAttr("hidden","hidden");	
-        	$('#HTMLskillup').attr("hidden","hidden");	
-        	$('#HTMLskilldown').attr("hidden","hidden");	
-        
-        
-        });
-        $('#HTMLskill').mouseleave(function(){
-        	$('#HTMLskill').removeAttr("hidden","hidden");	
-        	$('#HTMLskillup').attr("hidden","hidden");	
-        	$('#HTMLskilldown').attr("hidden","hidden");	
-        
-        
-        });
-        $('#HTMLskillup').click(function(){
-        	if(HTMLskillvalue<5){
-        		HTMLskillvalue=HTMLskillvalue+1;
-        	}else{
-        		HTMLskillvalue=5;
-        	}
-        	switch(HTMLskillvalue){
-        		case 5:{$('#HTMLskill').attr("src","../static/png/skilla.png");	break;}
-        		case 4:{$('#HTMLskill').attr("src","../static/png/skillb.png");	break;}
-        		case 3:{$('#HTMLskill').attr("src","../static/png/skillc.png");	break;}
-        		case 2:{$('#HTMLskill').attr("src","../static/png/skilld.png");	break;}
-        		case 1:{$('#HTMLskill').attr("src","../static/png/skille.png");	break;}
-        	}
-        });
-        $('#HTMLskilldown').click(function(){
-        	if(HTMLskillvalue>1){
-        		HTMLskillvalue=HTMLskillvalue-1;
-        	}else{
-        		HTMLskillvalue=1;
-        	}
-        	switch(HTMLskillvalue){
-        		case 5:{$('#HTMLskill').attr("src","../static/png/skilla.png");	break;}
-        		case 4:{$('#HTMLskill').attr("src","../static/png/skillb.png");	break;}
-        		case 3:{$('#HTMLskill').attr("src","../static/png/skillc.png");	break;}
-        		case 2:{$('#HTMLskill').attr("src","../static/png/skilld.png");	break;}
-        		case 1:{$('#HTMLskill').attr("src","../static/png/skille.png");	break;}
-        	}
-        });        
-        
-// CSSskill图片变换   
-		
-        $('#CSSskill').mouseover(function(){
-        	$('#CSSskill').attr("hidden","hidden");	
-        	$('#CSSskillup').removeAttr("hidden","hidden");	
-        	$('#CSSskilldown').removeAttr("hidden","hidden");	
-        
-        
-        });
-        $('#CSSskill').mouseleave(function(){
-        	$('#CSSskill').removeAttr("hidden","hidden");	
-        	$('#CSSskillup').attr("hidden","hidden");	
-        	$('#CSSskilldown').attr("hidden","hidden");	
-        
-        
-        });
-        $('#CSSskill').mouseleave(function(){
-        	$('#CSSskill').removeAttr("hidden","hidden");	
-        	$('#CSSskillup').attr("hidden","hidden");	
-        	$('#CSSskilldown').attr("hidden","hidden");	
-        
-        
-        });
-        $('#CSSskillup').click(function(){
-        	if(CSSskillvalue<5){
-        		CSSskillvalue=CSSskillvalue+1;
-        	}else{
-        		CSSskillvalue=5;
-        	}
-        	switch(CSSskillvalue){
-        		case 5:{$('#CSSskill').attr("src","../static/png/skilla.png");	break;}
-        		case 4:{$('#CSSskill').attr("src","../static/png/skillb.png");	break;}
-        		case 3:{$('#CSSskill').attr("src","../static/png/skillc.png");	break;}
-        		case 2:{$('#CSSskill').attr("src","../static/png/skilld.png");	break;}
-        		case 1:{$('#CSSskill').attr("src","../static/png/skille.png");	break;}
-        	}
-        });
-        $('#CSSskilldown').click(function(){
-        	if(CSSskillvalue>1){
-        		CSSskillvalue=CSSskillvalue-1;
-        	}else{
-        		CSSskillvalue=1;
-        	}
-        	switch(CSSskillvalue){
-        		case 5:{$('#CSSskill').attr("src","../static/png/skilla.png");	break;}
-        		case 4:{$('#CSSskill').attr("src","../static/png/skillb.png");	break;}
-        		case 3:{$('#CSSskill').attr("src","../static/png/skillc.png");	break;}
-        		case 2:{$('#CSSskill').attr("src","../static/png/skilld.png");	break;}
-        		case 1:{$('#CSSskill').attr("src","../static/png/skille.png");	break;}
-        	}
-        });        
- // tenNetskill图片变换   
-		
-        $('#tenNetskill').mouseover(function(){
-        	$('#tenNetskill').attr("hidden","hidden");	
-        	$('#tenNetskillup').removeAttr("hidden","hidden");	
-        	$('#tenNetskilldown').removeAttr("hidden","hidden");	
-        
-        
-        });
-        $('#tenNetskill').mouseleave(function(){
-        	$('#tenNetskill').removeAttr("hidden","hidden");	
-        	$('#tenNetskillup').attr("hidden","hidden");	
-        	$('#tenNetskilldown').attr("hidden","hidden");	
-        
-        
-        });
-        $('#tenNetskill').mouseleave(function(){
-        	$('#tenNetskill').removeAttr("hidden","hidden");	
-        	$('#tenNetskillup').attr("hidden","hidden");	
-        	$('#tenNetskilldown').attr("hidden","hidden");	
-        
-        
-        });
-        $('#tenNetskillup').click(function(){
-        	if(tenNetskillvalue<5){
-        		tenNetskillvalue=tenNetskillvalue+1;
-        	}else{
-        		tenNetskillvalue=5;
-        	}
-        	switch(tenNetskillvalue){
-        		case 5:{$('#tenNetskill').attr("src","../static/png/skilla.png");	break;}
-        		case 4:{$('#tenNetskill').attr("src","../static/png/skillb.png");	break;}
-        		case 3:{$('#tenNetskill').attr("src","../static/png/skillc.png");	break;}
-        		case 2:{$('#tenNetskill').attr("src","../static/png/skilld.png");	break;}
-        		case 1:{$('#tenNetskill').attr("src","../static/png/skille.png");	break;}
-        	}
-        });
-        $('#tenNetskilldown').click(function(){
-        	if(tenNetskillvalue>1){
-        		tenNetskillvalue=tenNetskillvalue-1;
-        	}else{
-        		tenNetskillvalue=1;
-        	}
-        	switch(tenNetskillvalue){
-        		case 5:{$('#tenNetskill').attr("src","../static/png/skilla.png");	break;}
-        		case 4:{$('#tenNetskill').attr("src","../static/png/skillb.png");	break;}
-        		case 3:{$('#tenNetskill').attr("src","../static/png/skillc.png");	break;}
-        		case 2:{$('#tenNetskill').attr("src","../static/png/skilld.png");	break;}
-        		case 1:{$('#tenNetskill').attr("src","../static/png/skille.png");	break;}
-        	}
-        });        
-        
-// IOSskill图片变换   
-		
-        $('#IOSskill').mouseover(function(){
-        	$('#IOSskill').attr("hidden","hidden");	
-        	$('#IOSskillup').removeAttr("hidden","hidden");	
-        	$('#IOSskilldown').removeAttr("hidden","hidden");	
-        
-        
-        });
-        $('#IOSskill').mouseleave(function(){
-        	$('#IOSskill').removeAttr("hidden","hidden");	
-        	$('#IOSskillup').attr("hidden","hidden");	
-        	$('#IOSskilldown').attr("hidden","hidden");	
-        
-        
-        });
-        $('#IOSskill').mouseleave(function(){
-        	$('#IOSskill').removeAttr("hidden","hidden");	
-        	$('#IOSskillup').attr("hidden","hidden");	
-        	$('#IOSskilldown').attr("hidden","hidden");	
-        
-        
-        });
-        $('#IOSskillup').click(function(){
-        	if(IOSskillvalue<5){
-        		IOSskillvalue=IOSskillvalue+1;
-        	}else{
-        		IOSskillvalue=5;
-        	}
-        	switch(IOSskillvalue){
-        		case 5:{$('#IOSskill').attr("src","../static/png/skilla.png");	break;}
-        		case 4:{$('#IOSskill').attr("src","../static/png/skillb.png");	break;}
-        		case 3:{$('#IOSskill').attr("src","../static/png/skillc.png");	break;}
-        		case 2:{$('#IOSskill').attr("src","../static/png/skilld.png");	break;}
-        		case 1:{$('#IOSskill').attr("src","../static/png/skille.png");	break;}
-        	}
-        });
-        $('#IOSskilldown').click(function(){
-        	if(IOSskillvalue>1){
-        		IOSskillvalue=IOSskillvalue-1;
-        	}else{
-        		IOSskillvalue=1;
-        	}
-        	switch(IOSskillvalue){
-        		case 5:{$('#IOSskill').attr("src","../static/png/skilla.png");	break;}
-        		case 4:{$('#IOSskill').attr("src","../static/png/skillb.png");	break;}
-        		case 3:{$('#IOSskill').attr("src","../static/png/skillc.png");	break;}
-        		case 2:{$('#IOSskill').attr("src","../static/png/skilld.png");	break;}
-        		case 1:{$('#IOSskill').attr("src","../static/png/skille.png");	break;}
-        	}
-        });        
-        
-     // Mysqlskill图片变换   
-		
-        $('#Mysqlskill').mouseover(function(){
-        	$('#Mysqlskill').attr("hidden","hidden");	
-        	$('#Mysqlskillup').removeAttr("hidden","hidden");	
-        	$('#Mysqlskilldown').removeAttr("hidden","hidden");	
-        
-        
-        });
-        $('#Mysqlskill').mouseleave(function(){
-        	$('#Mysqlskill').removeAttr("hidden","hidden");	
-        	$('#Mysqlskillup').attr("hidden","hidden");	
-        	$('#Mysqlskilldown').attr("hidden","hidden");	
-        
-        
-        });
-        $('#Mysqlskill').mouseleave(function(){
-        	$('#Mysqlskill').removeAttr("hidden","hidden");	
-        	$('#Mysqlskillup').attr("hidden","hidden");	
-        	$('#Mysqlskilldown').attr("hidden","hidden");	
-        
-        
-        });
-        $('#Mysqlskillup').click(function(){
-        	if(Mysqlskillvalue<5){
-        		Mysqlskillvalue=Mysqlskillvalue+1;
-        	}else{
-        		Mysqlskillvalue=5;
-        	}
-        	switch(Mysqlskillvalue){
-        		case 5:{$('#Mysqlskill').attr("src","../static/png/skilla.png");	break;}
-        		case 4:{$('#Mysqlskill').attr("src","../static/png/skillb.png");	break;}
-        		case 3:{$('#Mysqlskill').attr("src","../static/png/skillc.png");	break;}
-        		case 2:{$('#Mysqlskill').attr("src","../static/png/skilld.png");	break;}
-        		case 1:{$('#Mysqlskill').attr("src","../static/png/skille.png");	break;}
-        	}
-        });
-        $('#Mysqlskilldown').click(function(){
-        	if(Mysqlskillvalue>1){
-        		Mysqlskillvalue=Mysqlskillvalue-1;
-        	}else{
-        		Mysqlskillvalue=1;
-        	}
-        	switch(Mysqlskillvalue){
-        		case 5:{$('#Mysqlskill').attr("src","../static/png/skilla.png");	break;}
-        		case 4:{$('#Mysqlskill').attr("src","../static/png/skillb.png");	break;}
-        		case 3:{$('#Mysqlskill').attr("src","../static/png/skillc.png");	break;}
-        		case 2:{$('#Mysqlskill').attr("src","../static/png/skilld.png");	break;}
-        		case 1:{$('#Mysqlskill').attr("src","../static/png/skille.png");	break;}
-        	}
-        });        
-        
-// Oracleskill图片变换   
-		
-        $('#Oracleskill').mouseover(function(){
-        	$('#Oracleskill').attr("hidden","hidden");	
-        	$('#Oracleskillup').removeAttr("hidden","hidden");	
-        	$('#Oracleskilldown').removeAttr("hidden","hidden");	
-        
-        
-        });
-        $('#Oracleskill').mouseleave(function(){
-        	$('#Oracleskill').removeAttr("hidden","hidden");	
-        	$('#Oracleskillup').attr("hidden","hidden");	
-        	$('#Oracleskilldown').attr("hidden","hidden");	
-        
-        
-        });
-        $('#Oracleskill').mouseleave(function(){
-        	$('#Oracleskill').removeAttr("hidden","hidden");	
-        	$('#Oracleskillup').attr("hidden","hidden");	
-        	$('#Oracleskilldown').attr("hidden","hidden");	
-        
-        
-        });
-        $('#Oracleskillup').click(function(){
-        	if(Oracleskillvalue<5){
-        		Oracleskillvalue=Oracleskillvalue+1;
-        	}else{
-        		Oracleskillvalue=5;
-        	}
-        	switch(Oracleskillvalue){
-        		case 5:{$('#Oracleskill').attr("src","../static/png/skilla.png");	break;}
-        		case 4:{$('#Oracleskill').attr("src","../static/png/skillb.png");	break;}
-        		case 3:{$('#Oracleskill').attr("src","../static/png/skillc.png");	break;}
-        		case 2:{$('#Oracleskill').attr("src","../static/png/skilld.png");	break;}
-        		case 1:{$('#Oracleskill').attr("src","../static/png/skille.png");	break;}
-        	}
-        });
-        $('#Oracleskilldown').click(function(){
-        	if(Oracleskillvalue>1){
-        		Oracleskillvalue=Oracleskillvalue-1;
-        	}else{
-        		Oracleskillvalue=1;
-        	}
-        	switch(Oracleskillvalue){
-        		case 5:{$('#Oracleskill').attr("src","../static/png/skilla.png");	break;}
-        		case 4:{$('#Oracleskill').attr("src","../static/png/skillb.png");	break;}
-        		case 3:{$('#Oracleskill').attr("src","../static/png/skillc.png");	break;}
-        		case 2:{$('#Oracleskill').attr("src","../static/png/skilld.png");	break;}
-        		case 1:{$('#Oracleskill').attr("src","../static/png/skille.png");	break;}
-        	}
-        });        
-        
-// Cupupskill图片变换   
-		
-        $('#Cupupskill').mouseover(function(){
-        	$('#Cupupskill').attr("hidden","hidden");	
-        	$('#Cupupskillup').removeAttr("hidden","hidden");	
-        	$('#Cupupskilldown').removeAttr("hidden","hidden");	
-        
-        
-        });
-        $('#Cupupskill').mouseleave(function(){
-        	$('#Cupupskill').removeAttr("hidden","hidden");	
-        	$('#Cupupskillup').attr("hidden","hidden");	
-        	$('#Cupupskilldown').attr("hidden","hidden");	
-        
-        
-        });
-        $('#Cupupskill').mouseleave(function(){
-        	$('#Cupupskill').removeAttr("hidden","hidden");	
-        	$('#Cupupskillup').attr("hidden","hidden");	
-        	$('#Cupupskilldown').attr("hidden","hidden");	
-        
-        
-        });
-        $('#Cupupskillup').click(function(){
-        	if(Cupupskillvalue<5){
-        		Cupupskillvalue=Cupupskillvalue+1;
-        	}else{
-        		Cupupskillvalue=5;
-        	}
-        	switch(Cupupskillvalue){
-        		case 5:{$('#Cupupskill').attr("src","../static/png/skilla.png");	break;}
-        		case 4:{$('#Cupupskill').attr("src","../static/png/skillb.png");	break;}
-        		case 3:{$('#Cupupskill').attr("src","../static/png/skillc.png");	break;}
-        		case 2:{$('#Cupupskill').attr("src","../static/png/skilld.png");	break;}
-        		case 1:{$('#Cupupskill').attr("src","../static/png/skille.png");	break;}
-        	}
-        });
-        $('#Cupupskilldown').click(function(){
-        	if(Cupupskillvalue>1){
-        		Cupupskillvalue=Cupupskillvalue-1;
-        	}else{
-        		Cupupskillvalue=1;
-        	}
-        	switch(Cupupskillvalue){
-        		case 5:{$('#Cupupskill').attr("src","../static/png/skilla.png");	break;}
-        		case 4:{$('#Cupupskill').attr("src","../static/png/skillb.png");	break;}
-        		case 3:{$('#Cupupskill').attr("src","../static/png/skillc.png");	break;}
-        		case 2:{$('#Cupupskill').attr("src","../static/png/skilld.png");	break;}
-        		case 1:{$('#Cupupskill').attr("src","../static/png/skille.png");	break;}
-        	}
-        });        
-        
-// CXskill图片变换   
-		
-        $('#CXskill').mouseover(function(){
-        	$('#CXskill').attr("hidden","hidden");	
-        	$('#CXskillup').removeAttr("hidden","hidden");	
-        	$('#CXskilldown').removeAttr("hidden","hidden");	
-        
-        
-        });
-        $('#CXskill').mouseleave(function(){
-        	$('#CXskill').removeAttr("hidden","hidden");	
-        	$('#CXskillup').attr("hidden","hidden");	
-        	$('#CXskilldown').attr("hidden","hidden");	
-        
-        
-        });
-        $('#CXskill').mouseleave(function(){
-        	$('#CXskill').removeAttr("hidden","hidden");	
-        	$('#CXskillup').attr("hidden","hidden");	
-        	$('#CXskilldown').attr("hidden","hidden");	
-        
-        
-        });
-        $('#CXskillup').click(function(){
-        	if(CXskillvalue<5){
-        		CXskillvalue=CXskillvalue+1;
-        	}else{
-        		CXskillvalue=5;
-        	}
-        	switch(CXskillvalue){
-        		case 5:{$('#CXskill').attr("src","../static/png/skilla.png");	break;}
-        		case 4:{$('#CXskill').attr("src","../static/png/skillb.png");	break;}
-        		case 3:{$('#CXskill').attr("src","../static/png/skillc.png");	break;}
-        		case 2:{$('#CXskill').attr("src","../static/png/skilld.png");	break;}
-        		case 1:{$('#CXskill').attr("src","../static/png/skille.png");	break;}
-        	}
-        });
-        $('#CXskilldown').click(function(){
-        	if(CXskillvalue>1){
-        		CXskillvalue=CXskillvalue-1;
-        	}else{
-        		CXskillvalue=1;
-        	}
-        	switch(CXskillvalue){
-        		case 5:{$('#CXskill').attr("src","../static/png/skilla.png");	break;}
-        		case 4:{$('#CXskill').attr("src","../static/png/skillb.png");	break;}
-        		case 3:{$('#CXskill').attr("src","../static/png/skillc.png");	break;}
-        		case 2:{$('#CXskill').attr("src","../static/png/skilld.png");	break;}
-        		case 1:{$('#CXskill').attr("src","../static/png/skille.png");	break;}
-        	}
-        });        
-        
-// Springskill图片变换   
-
-        $('#Springskill').mouseover(function(){
-        	$('#Springskill').attr("hidden","hidden");	
-        	$('#Springskillup').removeAttr("hidden","hidden");	
-        	$('#Springskilldown').removeAttr("hidden","hidden");	
-        
-        
-        });
-        $('#Springskill').mouseleave(function(){
-        	$('#Springskill').removeAttr("hidden","hidden");	
-        	$('#Springskillup').attr("hidden","hidden");	
-        	$('#Springskilldown').attr("hidden","hidden");	
-        
-        
-        });
-        $('#Springskill').mouseleave(function(){
-        	$('#Springskill').removeAttr("hidden","hidden");	
-        	$('#Springskillup').attr("hidden","hidden");	
-        	$('#Springskilldown').attr("hidden","hidden");	
-        
-        
-        });
-        $('#Springskillup').click(function(){
-        	if(Springskillvalue<5){
-        		Springskillvalue=Springskillvalue+1;
-        	}else{
-        		Springskillvalue=5;
-        	}
-        	switch(Springskillvalue){
-        		case 5:{$('#Springskill').attr("src","../static/png/skilla.png");	break;}
-        		case 4:{$('#Springskill').attr("src","../static/png/skillb.png");	break;}
-        		case 3:{$('#Springskill').attr("src","../static/png/skillc.png");	break;}
-        		case 2:{$('#Springskill').attr("src","../static/png/skilld.png");	break;}
-        		case 1:{$('#Springskill').attr("src","../static/png/skille.png");	break;}
-        	}
-        });
-        $('#Springskilldown').click(function(){
-        	if(Springskillvalue>1){
-        		Springskillvalue=Springskillvalue-1;
-        	}else{
-        		Springskillvalue=1;
-        	}
-        	switch(Springskillvalue){
-        		case 5:{$('#Springskill').attr("src","../static/png/skilla.png");	break;}
-        		case 4:{$('#Springskill').attr("src","../static/png/skillb.png");	break;}
-        		case 3:{$('#Springskill').attr("src","../static/png/skillc.png");	break;}
-        		case 2:{$('#Springskill').attr("src","../static/png/skilld.png");	break;}
-        		case 1:{$('#Springskill').attr("src","../static/png/skille.png");	break;}
-        	}
-        });        
-        
-//  outimg变换        
-        $('#out').mouseover(function(){
-        	$('#out').attr("src","../static/png/outon.png");
-        });
-        $('#out').mouseleave(function(){
-        	$('#out').attr("src","../static/png/out.png");
-        });
-//  userinfoimg变换        
-        $('#userinfo').mouseover(function(){
-        	$('#userinfo').attr("src","../static/png/userinfoon.png");
-        });
-        $('#userinfo').mouseleave(function(){
-        	$('#userinfo').attr("src","../static/png/userinfo.png");
-        });
-//  setimg变换        
-        $('#set').mouseover(function(){
-        	$('#set').attr("src","../static/png/seton.png");
-        });
-        $('#set').mouseleave(function(){
-        	$('#set').attr("src","../static/png/set.png");
-        });        
-// tittle显示        
-        $("#employeetoptext").removeAttr("hidden","hidden");
-	});    
-    </script>    
 </head>
 
 <body id="employeeinfobody">
 
 
 <!--top      -->
-	<div id="top"  style="float:left;min-width:1200px;width:100%;height:80px;background-image:url('../static/png/top.jpg')">
+	<div id="top"  style="background-image:url('../static/png/top.jpg')">
 		
 		<div style="float:left;width:40%;height:100%;">
 			<div style="float:left;width:100%;height:20%;" ></div>
-			<div style="float:left;width:100%;height:80%;" ><b style="color:rgb(255,255,255);margin-left:80px;font-size:25px"><a href="http://www.baidu.com">>></a><text id="employeetoptext">员工详细情报</text></b></div>
+			<div style="float:left;width:100%;height:80%;" ><b id="toptittletext" >>><text id="employeetoptext">员工详细情报</text></b></div>
 		</div>
 		<div style="float:left;width:30%;height:100%;"></div>
 		<div style="float:left;width:30%;height:100%;">
-			<img id="out" src="../static/png/out.png" style="float:right;width:36px;height:36px;border:0px solid gray ;margin-top:24px;margin-bottom:20px;margin-right:30px">
-			<img id="set" src="../static/png/set.png" style="float:right;width:36px;height:36px;border:0px solid gray ;margin-top:24px;margin-bottom:20px;margin-right:0px">
-			<img id="userinfo" src="../static/png/userinfo.png" style="float:right;width:36px;height:36px;border:0px solid gray ;margin-top:24px;margin-bottom:20px;margin-right:0px">
-			<img id="user" src="../static/png/user.png" style="float:right;width:50px;height:50px;border:0px solid gray ;margin-top:15px;margin-bottom:28px;margin-right:10px;">
+			<img id="out" src="../static/png/out.png" >
+			<img id="set" src="../static/png/set.png" >
+			<img id="userinfo" src="../static/png/userinfo.png" >
+			<img id="user" src="../static/png/user.png" >
 		</div>
 	</div>
 <!-- mid	 -->
-	<div id="mid" style="float:left;min-width:1200px;width:100%;height:1012px;background:url('../static/png/midbg4.jpg');display:flex;justify-content: center; align-items:center;">
+	<div id="mid" style="background:url('../static/png/midbg4.jpg');">
 <!-- 		<div id="midleft" style="float:left;width:19%;height:1012px"></div>  -->
 		
-		<div id="midmid"  style="float:left;width:720px;height:1012px;border:1px solid gray">
-			<div id="midmidright1" style="float:left;width:100%;height:20px;background-image:url('../static/png/midtop.jpg')"></div>
-			<div id="midmidleffimgtop1" style="float:left;width:100%;height:2px;background-color:rgb(253,79,75)"></div>
-			<div id="midmidleffimgtop2" style="float:left;width:100%;height:2px;background-color:rgb(245,254,80)"></div>
-			<div id="midmidleffimgtop3" style="float:left;width:100%;height:2px;background-color:rgb(80,242,254)"></div>
+		<div id="midmid"  >
+			<div id="midtopimg" style="background-image:url('../static/png/midtop.jpg')"></div>
+			<div class="border1" ></div>
+			<div class="border2" ></div>
+			<div class="border3" ></div>
 			
-			<div id="midmidleft" style="float:left;width:30%;height:960px;">
+			<div id="midmidleft" >
 				
-				<div id="midmidlefttop" style="float:left;width:100%;height:280px;background:rgb(255,252,214)">
-					<img id="employeeimg" src="../static/png/body.jpg" style="width:171px;height:238px;border:1px solid gray ;margin-top:20px;margin-bottom:20px;margin-left:21px;">
+				<div id="midmidlefttop" >
+					<img id="employeeimg" src="../static/png/body.jpg" >
 				</div>
-				<div id="midmidleffimgbottom1" style="float:left;width:100%;height:2px;background-color:rgb(253,79,75)"></div>
-				<div id="midmidleffimgbottom2" style="float:left;width:100%;height:2px;background-color:rgb(245,254,80)"></div>
-				<div id="midmidleffimgbottom3" style="float:left;width:100%;height:2px;background-color:rgb(80,242,254)"></div>
+				<div class="border1" id="midmidleffimgbottom1" ></div>
+				<div class="border2" id="midmidleffimgbottom2" ></div>
+				<div class="border3" id="midmidleffimgbottom3" ></div>
 				
-				<div id="midmidleftmid1" style="float:left;width:100%;height:330px;background-color:rgb(253,230,205)">
+				<div id="midmidleftmid1" >
 					<table style="width:95%;height:30%;margin-left:10px;margin-top:10px">
 						<tr >
 							<td style="width:50px;font-size:10px;align:left"><b>姓名：</b>
-							<input id="nameinput" type="text" value="圣代" style="width:55px;height:15px">
-							<text id="nametext" hidden="hidden" style="width:55px;height:15px" >圣代</text>
+							<input id="nameinput" type="text" value="圣代" >
+							<text id="nametext" hidden="hidden"  >圣代</text>
 							<b>性别：</b>
-							<input id="sexinput" type="text" value="nan" style="width:30px;height:15px">
-							<text id="sextext" hidden="hidden" style="width:30px;height:15px" >女</text>
+							<input id="sexinput" type="text" value="男" >
+							<text id="sextext" hidden="hidden"  >女</text>
 							</td>
 							
 						</tr>
 						<tr style="height:5px"></tr>
 						<tr >
 							<td style="font-size:10px;align:left"><b>工号：</b>
-							<input id="kougoinput" type="text" value="JS0000" style="width:55px;height:15px">
-							<text id="kougotext" hidden="hidden" style="width:55px;height:15px" >JS1231</text>
+							<input id="kougoinput" type="text" value="JS0000" >
+							<text id="kougotext" hidden="hidden"  >JS1231</text>
 							<b>部门：</b>
-							<input id="bumeninput" type="text" value="D311" style="width:30px;height:15px">
-							<text id="bumentext" hidden="hidden" style="width:30px;height:15px">D312</text>
+							<input id="bumeninput" type="text" value="D311" >
+							<text id="bumentext" hidden="hidden" >D312</text>
 							</td>
 						</tr>
 						<tr  >
@@ -1734,13 +73,13 @@
 						</tr>
 						<tr>	
 							<td style="width:50px;font-size:10px;align:left">
-							<input id="bornyearinput" type="text" value="2021" style="width:40px;height:15px">
+							<input id="bornyearinput" type="text" value="2021" >
 							<text id="bornyeartext" hidden="hidden" >2232</text>
 							年
-							<input id="bornmouthinput" type="text" value="12" style="width:20px;height:15px">
+							<input id="bornmouthinput" type="text" value="12" >
 							<text id="bornmouthtext" hidden="hidden" >11</text>
 							月
-							<input id="borndayinput" type="text" value="25" style="width:20px;height:15px">
+							<input id="borndayinput" type="text" value="25" >
 							<text id="borndaytext" hidden="hidden" >03</text>
 							日
 							</td>
@@ -1750,7 +89,7 @@
 						</tr>
 						<tr>	
 							<td style="font-size:10px;align:left">
-								<input id="schoolinput" type="text" value="毕业院校毕业院校毕业院校" style="width:180px;height:15px">
+								<input id="schoolinput" type="text" value="毕业院校毕业院校毕业院校" >
 								<text id="schooltext" hidden="hidden" >哈哈哈哈哈哈哈哈哈</text>
 							</td>
 						</tr>
@@ -1759,13 +98,13 @@
 						</tr>
 						<tr>	
 							<td style="width:50px;font-size:10px;align:left">
-								<input id="leaveschoolyearinput" type="text" value="2222" style="width:40px;height:15px">
+								<input id="leaveschoolyearinput" type="text" value="2222" >
 								<text id="leaveschoolyeartext" hidden="hidden" >1234</text>
 								年
-								<input id="leaveschoolmouthinput" type="text" value="22" style="width:20px;height:15px">
+								<input id="leaveschoolmouthinput" type="text" value="22" >
 								<text id="leaveschoolmouthtext" hidden="hidden" >12</text>
 								月
-								<input id="leaveschooldayinput" type="text" value="22" style="width:20px;height:15px">
+								<input id="leaveschooldayinput" type="text" value="22" >
 								<text id="leaveschooldaytext" hidden="hidden" >23</text>
 								日
 							</td>
@@ -1775,24 +114,24 @@
 						</tr>
 						<tr>	
 							<td style="width:50px;font-size:10px;align:left" >
-								<input id="workyearinput" type="text" value="2222" style="width:40px;height:15px">
+								<input id="workyearinput" type="text" value="2222" >
 								<text id="workyeartext" hidden="hidden" >1212</text>
 								年
-								<input id="workmouthinput" type="text" value="22" style="width:20px;height:15px">
+								<input id="workmouthinput" type="text" value="22" >
 								<text id="workmouthtext" hidden="hidden" >12</text>
 								月
-								<input id="workdayinput" type="text" value="22" style="width:20px;height:15px">
+								<input id="workdayinput" type="text" value="22" >
 								<text id="workdaytext" hidden="hidden" >12</text>
 								日
 							</td>
 						</tr>
 						<tr>
 							<td style="font-size:10px;height:22px"><b >在职状况：</b>
-								<img id="workstatus1" src="../static/png/workunchoose.png" style="width:50px;height:20px;vertical-align:middle">
-								<img id="workstatus3" src="../static/png/workING.png" style="width:50px;height:20px;vertical-align:middle" hidden="hidden">
+								<img id="workstatus1" src="../static/png/workunchoose.png" >
+								<img id="workstatus3" src="../static/png/workING.png"  hidden="hidden">
 								
-								<img id="workstatus2" src="../static/png/workoutunchoose.png" style="width:50px;height:20px;vertical-align:middle">
-								<img id="workstatus4" src="../static/png/workout.png" style="width:50px;height:20px;vertical-align:middle" hidden="hidden">
+								<img id="workstatus2" src="../static/png/workoutunchoose.png" >
+								<img id="workstatus4" src="../static/png/workout.png"  hidden="hidden">
 								
 							</td>
 						</tr>
@@ -1802,7 +141,7 @@
 						</tr>
 						<tr id=koumokuin2 >	
 							<td style="font-size:10px;align:left">
-								<input id="koumokuininput" type="text"  style="width:180px;height:15px;">
+								<input id="koumokuininput" type="text"  >
 								<text id="koumokuintext" hidden="hidden" >嗒嗒嗒4123</text>
 							</td>
 						</tr>
@@ -1811,13 +150,13 @@
 						</tr>
 						<tr id="koumokuout2" hidden="hidden">	
 							<td style="width:50px;font-size:10px;align:left">
-								<input id="leaveworkyearinput" type="text"  style="width:40px;height:15px">
+								<input id="leaveworkyearinput" type="text"  >
 								<text id="leaveworkyeartext" hidden="hidden" >03</text>
 								年
-								<input id="leaveworkmouthinput" type="text"  style="width:20px;height:15px">
+								<input id="leaveworkmouthinput" type="text"  >
 								<text id="leaveworkmouthtext" hidden="hidden" >03</text>
 								月
-								<input id="leaveworkdayinput" type="text"  style="width:20px;height:15px">
+								<input id="leaveworkdayinput" type="text"  >
 								<text id="leaveworkdaytext" hidden="hidden" >03</text>
 								日
 							</td>
@@ -1825,313 +164,339 @@
 					</table>	
 					
 				</div>
-				<div id="midmidleffkinotop1" style="float:left;width:100%;height:2px;background-color:rgb(253,79,75)"></div>
-				<div id="midmidleffkinotop2" style="float:left;width:100%;height:2px;background-color:rgb(245,254,80)"></div>
-				<div id="midmidleffkinotop3" style="float:left;width:100%;height:2px;background-color:rgb(80,242,254)"></div>
-				<div id="midmidleftmid2" style="float:left;width:100%;height:274px;background-color:rgb(253,206,176)">
+				<div class="border1" id="midmidleffkinotop1" ></div>
+				<div class="border2" id="midmidleffkinotop2" ></div>
+				<div class="border3" id="midmidleffkinotop3" ></div>
+				<div id="midmidleftmid2" >
 					
 					<b> 掌握技能：</b>
 					<table style="height:90%;margin-left:10px;border-spacing:0px;border-collapse:collapse">
 						<tr>
 							<th style="height:22px;width:70px" hidden="hidden"></th>
 							<th style="height:22px;width:22px" hidden="hidden"></th>
-							<th style="height:22px;width:2px"  hidden="hidden"></th>
+							<th style="height:22px;width:5px"  hidden="hidden"></th>
 							<th style="height:22px;width:70px" hidden="hidden"></th>
 							<th style="height:22px;width:22px" hidden="hidden"></th>
 						<tr>
 						<tr >
-							<td style="height:22px;font-size:8px;align:left;border:1px solid gray">Java</td>
-							<td style="height:22px;width:22px;align:left;border:1px solid gray">
-								<img class="skill" src="../static/png/skilla.png" id="Javaskill" hidden="hidden" style="width:17px">
-								<img class="skillshow" src="../static/png/skillb.png" id="Javaskill2"  style="width:17px">
-								<img class="skillup" src="../static/png/skillup.png" id="Javaskillup" hidden="hidden" style="width:7px">
-								<img class="skilldown" src="../static/png/skilldown.png" id="Javaskilldown" hidden="hidden" style="width:7px">
+							<td class="skilltd1">Java</td>
+							<td class="skilltd2">
+								<img class="skill" src="../static/png/skilla.png" id="Javaskill" hidden="hidden" >
+								<img class="skillshow" src="../static/png/skillb.png" id="Javaskill2"  >
+								<img class="skillup" src="../static/png/skillup.png" id="Javaskillup" hidden="hidden" >
+								<img class="skilldown" src="../static/png/skilldown.png" id="Javaskilldown" hidden="hidden" >
 								</td>
-							<td style="height:22px;width:2px"></td>
-							<td style="height:22px;font-size:8px;align:left;border:1px solid gray">C#</td>
-							<td style="height:22px;width:22px;align:left;border:1px solid gray">
-								<img class="skill" src="../static/png/skillb.png" id="CXskill" hidden="hidden" style="width:17px">
-								<img class="skillshow" src="../static/png/skillb.png" id="CXskill2"  style="width:17px">
-								<img class="skillup" src="../static/png/skillup.png" id="CXskillup" hidden="hidden" style="width:7px">
-								<img class="skilldown" src="../static/png/skilldown.png" id="CXskilldown" hidden="hidden" style="width:7px">
-								</td>
-						</tr>
-						<tr >
-							<td style="height:22px;font-size:8px;align:left;border:1px solid gray">Android</td>
-							<td style="height:22px;width:22px;align:left;border:1px solid gray">
-								<img class="skill" src="../static/png/skillb.png" id="Androidskill" hidden="hidden" style="width:17px">
-								<img class="skillshow" src="../static/png/skillb.png" id="Androidskill2"  style="width:17px">
-								<img class="skillup" src="../static/png/skillup.png" id="Androidskillup" hidden="hidden" style="width:7px">
-								<img class="skilldown" src="../static/png/skilldown.png" id="Androidskilldown" hidden="hidden" style="width:7px">
-								</td>
-							<td style="height:22px;width:5px"></td>
-							<td style="height:22px;font-size:8px;align:left;border:1px solid gray">IOS</td>
-							<td style="height:22px;width:22px;align:left;border:1px solid gray">
-								<img class="skill" src="../static/png/skillb.png" id="IOSskill" hidden="hidden" style="width:17px">
-								<img class="skillshow" src="../static/png/skillb.png" id="IOSskill2"  style="width:17px">
-								<img class="skillup" src="../static/png/skillup.png" id="IOSskillup" hidden="hidden" style="width:7px">
-								<img class="skilldown" src="../static/png/skilldown.png" id="IOSskilldown" hidden="hidden" style="width:7px">
+							<td class="skilltd3"></td>
+							<td class="skilltd1" >C#</td>
+							<td class="skilltd2">
+								<img class="skill" src="../static/png/skillb.png" id="CXskill" hidden="hidden" >
+								<img class="skillshow" src="../static/png/skillb.png" id="CXskill2"  >
+								<img class="skillup" src="../static/png/skillup.png" id="CXskillup" hidden="hidden" >
+								<img class="skilldown" src="../static/png/skilldown.png" id="CXskilldown" hidden="hidden" >
 								</td>
 						</tr>
 						<tr >
-							<td style="height:22px;font-size:8px;align:left;border:1px solid gray">C++</td>
-							<td style="height:22px;width:22px;align:left;border:1px solid gray">
-								<img class="skill" src="../static/png/skillc.png" id="Cupupskill" hidden="hidden" style="width:17px">
-								<img class="skillshow" src="../static/png/skillb.png" id="Cupupskill2"  style="width:17px">
-								<img class="skillup" src="../static/png/skillup.png" id="Cupupskillup" hidden="hidden" style="width:7px">
-								<img class="skilldown" src="../static/png/skilldown.png" id="Cupupskilldown" hidden="hidden" style="width:7px">
+							<td class="skilltd1" >Android</td>
+							<td class="skilltd2">
+								<img class="skill" src="../static/png/skillb.png" id="Androidskill" hidden="hidden" >
+								<img class="skillshow" src="../static/png/skillb.png" id="Androidskill2"  >
+								<img class="skillup" src="../static/png/skillup.png" id="Androidskillup" hidden="hidden" >
+								<img class="skilldown" src="../static/png/skilldown.png" id="Androidskilldown" hidden="hidden" >
 								</td>
-							<td style="height:22px;width:5px"></td>
-							<td style="height:22px;font-size:8px;align:left;border:1px solid gray">.Net</td>
-							<td style="height:22px;width:22px;align:left;border:1px solid gray">
-								<img class="skill" src="../static/png/skillb.png" id="tenNetskill" hidden="hidden" style="width:17px">
-								<img class="skillshow" src="../static/png/skillb.png" id="tenNetskill2"  style="width:17px">
-								<img class="skillup" src="../static/png/skillup.png" id="tenNetskillup" hidden="hidden" style="width:7px">
-								<img class="skilldown" src="../static/png/skilldown.png" id="tenNetskilldown" hidden="hidden" style="width:7px">
-								</td>
-						</tr>
-						<tr >
-							<td style="height:22px;font-size:8px;align:left;border:1px solid gray">Spring</td>
-							<td style="height:22px;width:22px;align:left;border:1px solid gray">
-								<img class="skill" src="../static/png/skilld.png" id="Springskill" hidden="hidden" style="width:17px">
-								<img class="skillshow" src="../static/png/skillb.png" id="Springskill2"  style="width:17px">
-								<img class="skillup" src="../static/png/skillup.png" id="Springskillup" hidden="hidden" style="width:7px">
-								<img class="skilldown" src="../static/png/skilldown.png" id="Springskilldown" hidden="hidden" style="width:7px">
-								</td>
-							<td style="height:22px;width:5px"></td>
-							<td style="height:22px;font-size:8px;align:left;border:1px solid gray">Oracle</td>
-							<td style="height:22px;width:22px;align:left;border:1px solid gray">
-								<img class="skill" src="../static/png/skillb.png" id="Oracleskill" hidden="hidden" style="width:17px">
-								<img class="skillshow" src="../static/png/skillb.png" id="Oracleskill2"  style="width:17px">	
-								<img class="skillup" src="../static/png/skillup.png" id="Oracleskillup" hidden="hidden" style="width:7px">
-								<img class="skilldown" src="../static/png/skilldown.png" id="Oracleskilldown" hidden="hidden" style="width:7px">
+							<td class="skilltd3"></td>
+							<td class="skilltd1" >IOS</td>
+							<td class="skilltd2">
+								<img class="skill" src="../static/png/skillb.png" id="IOSskill" hidden="hidden" >
+								<img class="skillshow" src="../static/png/skillb.png" id="IOSskill2"  >
+								<img class="skillup" src="../static/png/skillup.png" id="IOSskillup" hidden="hidden" >
+								<img class="skilldown" src="../static/png/skilldown.png" id="IOSskilldown" hidden="hidden" >
 								</td>
 						</tr>
 						<tr >
-							<td style="height:22px;font-size:8px;align:left;border:1px solid gray">Mysql</td>
-							<td style="height:22px;width:22px;align:left;border:1px solid gray">
-								<img class="skill" src="../static/png/skille.png" id="Mysqlskill" hidden="hidden" style="width:17px">
-								<img class="skillshow" src="../static/png/skillb.png" id="Mysqlskill2"  style="width:17px">
-								<img class="skillup" src="../static/png/skillup.png" id="Mysqlskillup" hidden="hidden" style="width:7px">
-								<img class="skilldown" src="../static/png/skilldown.png" id="Mysqlskilldown" hidden="hidden" style="width:7px">
+							<td class="skilltd1" >C++</td>
+							<td class="skilltd2">
+								<img class="skill" src="../static/png/skillc.png" id="Cupupskill" hidden="hidden" >
+								<img class="skillshow" src="../static/png/skillb.png" id="Cupupskill2"  >
+								<img class="skillup" src="../static/png/skillup.png" id="Cupupskillup" hidden="hidden" >
+								<img class="skilldown" src="../static/png/skilldown.png" id="Cupupskilldown" hidden="hidden" >
 								</td>
-							<td style="height:22px;width:5px"></td>
-							<td style="height:22px;font-size:8px;align:left;border:1px solid gray">SqlServer</td>
-							<td style="height:22px;width:22px;align:left;border:1px solid gray">
-								<img class="skill" src="../static/png/skillb.png" id="SqlServerskill" hidden="hidden" style="width:17px">
-								<img class="skillshow" src="../static/png/skillb.png" id="SqlServerskill2"  style="width:17px">
-								<img class="skillup" src="../static/png/skillup.png" id="SqlServerskillup" hidden="hidden" style="width:7px">
-								<img class="skilldown" src="../static/png/skilldown.png" id="SqlServerskilldown" hidden="hidden" style="width:7px">
-								</td>
-						</tr>
-						<tr >
-							<td style="height:22px;font-size:8px;align:left;border:1px solid gray">JSP</td>
-							<td style="height:22px;width:22px;align:left;border:1px solid gray">
-								<img class="skill" src="../static/png/skillb.png" id="JSPskill" hidden="hidden" style="width:17px">
-								<img class="skillshow" src="../static/png/skillb.png" id="JSPskill2"  style="width:17px">
-								<img class="skillup" src="../static/png/skillup.png" id="JSPskillup" hidden="hidden" style="width:7px">
-								<img class="skilldown" src="../static/png/skilldown.png" id="JSPskilldown" hidden="hidden" style="width:7px">
-								</td>
-							<td style="height:22px;width:5px"></td>
-							<td style="height:22px;font-size:8px;align:left;border:1px solid gray">Jquery</td>
-							<td style="height:22px;width:22px;align:left;border:1px solid gray">
-								<img class="skill" src="../static/png/skillb.png" id="Jqueryskill" hidden="hidden" style="width:17px">
-								<img class="skillshow" src="../static/png/skillb.png" id="Jqueryskill2"  style="width:17px">
-								<img class="skillup" src="../static/png/skillup.png" id="Jqueryskillup" hidden="hidden" style="width:7px">
-								<img class="skilldown" src="../static/png/skilldown.png" id="Jqueryskilldown" hidden="hidden" style="width:7px">
+							<td class="skilltd3"></td>
+							<td class="skilltd1" >.Net</td>
+							<td class="skilltd2">
+								<img class="skill" src="../static/png/skillb.png" id="tenNetskill" hidden="hidden" >
+								<img class="skillshow" src="../static/png/skillb.png" id="tenNetskill2"  >
+								<img class="skillup" src="../static/png/skillup.png" id="tenNetskillup" hidden="hidden" >
+								<img class="skilldown" src="../static/png/skilldown.png" id="tenNetskilldown" hidden="hidden" >
 								</td>
 						</tr>
 						<tr >
-							<td style="height:22px;font-size:8px;align:left;border:1px solid gray">CSS</td>
-							<td style="height:22px;width:22px;align:left;border:1px solid gray">
-								<img class="skill" src="../static/png/skillb.png" id="CSSskill" hidden="hidden" style="width:17px">
-								<img class="skillshow" src="../static/png/skillb.png" id="CSSskill2"  style="width:17px">
-								<img class="skillup" src="../static/png/skillup.png" id="CSSskillup" hidden="hidden" style="width:7px">
-								<img class="skilldown" src="../static/png/skilldown.png" id="CSSskilldown" hidden="hidden" style="width:7px">
+							<td class="skilltd1" >Spring</td>
+							<td class="skilltd2">
+								<img class="skill" src="../static/png/skilld.png" id="Springskill" hidden="hidden" >
+								<img class="skillshow" src="../static/png/skillb.png" id="Springskill2"  >
+								<img class="skillup" src="../static/png/skillup.png" id="Springskillup" hidden="hidden" >
+								<img class="skilldown" src="../static/png/skilldown.png" id="Springskilldown" hidden="hidden" >
 								</td>
-							<td style="height:22px;width:5px"></td>
-							<td style="height:22px;font-size:8px;align:left;border:1px solid gray">HTML</td>
-							<td style="height:22px;width:22px;align:left;border:1px solid gray">
-								<img class="skill" src="../static/png/skillb.png" id="HTMLskill" hidden="hidden" style="width:17px">
-								<img class="skillshow" src="../static/png/skillb.png" id="HTMLskill2"  style="width:17px">
-								<img class="skillup" src="../static/png/skillup.png" id="HTMLskillup" hidden="hidden" style="width:7px">
-								<img class="skilldown" src="../static/png/skilldown.png" id="HTMLskilldown" hidden="hidden" style="width:7px">
-								</td>
-						</tr>
-						<tr >
-							<td style="height:22px;font-size:8px;align:left;border:1px solid gray">Thymeleaf</td>
-							<td style="height:22px;width:22px;align:left;border:1px solid gray">
-								<img class="skill" src="../static/png/skillb.png" id="Thymeleafskill" hidden="hidden" style="width:17px">
-								<img class="skillshow" src="../static/png/skillb.png" id="Thymeleafskill2"  style="width:17px">
-								<img class="skillup" src="../static/png/skillup.png" id="Thymeleafskillup" hidden="hidden" style="width:7px">
-								<img class="skilldown" src="../static/png/skilldown.png" id="Thymeleafskilldown" hidden="hidden" style="width:7px">
-								</td>
-							<td style="height:22px;width:5px"></td>
-							<td style="height:22px;font-size:8px;align:left;border:1px solid gray">Angular</td>
-							<td style="height:22px;width:22px;align:left;border:1px solid gray">
-								<img class="skill" src="../static/png/skillb.png" id="Angularskill" hidden="hidden" style="width:17px">
-								<img class="skillshow" src="../static/png/skillb.png" id="Angularskill2"  style="width:17px">
-								<img class="skillup" src="../static/png/skillup.png" id="Angularskillup" hidden="hidden" style="width:7px">
-								<img class="skilldown" src="../static/png/skilldown.png" id="Angularskilldown" hidden="hidden" style="width:7px">
+							<td class="skilltd3"></td>
+							<td class="skilltd1" >Oracle</td>
+							<td class="skilltd2">
+								<img class="skill" src="../static/png/skillb.png" id="Oracleskill" hidden="hidden" >
+								<img class="skillshow" src="../static/png/skillb.png" id="Oracleskill2"  >	
+								<img class="skillup" src="../static/png/skillup.png" id="Oracleskillup" hidden="hidden" >
+								<img class="skilldown" src="../static/png/skilldown.png" id="Oracleskilldown" hidden="hidden" >
 								</td>
 						</tr>
 						<tr >
-							<td style="height:22px;font-size:8px;align:left;border:1px solid gray">VUE</td>
-							<td style="height:22px;width:22px;align:left;border:1px solid gray">
+							<td class="skilltd1" >Mysql</td>
+							<td class="skilltd2">
+								<img class="skill" src="../static/png/skille.png" id="Mysqlskill" hidden="hidden" >
+								<img class="skillshow" src="../static/png/skillb.png" id="Mysqlskill2"  >
+								<img class="skillup" src="../static/png/skillup.png" id="Mysqlskillup" hidden="hidden" >
+								<img class="skilldown" src="../static/png/skilldown.png" id="Mysqlskilldown" hidden="hidden" >
+								</td>
+							<td class="skilltd3"></td>
+							<td class="skilltd1" >SqlServer</td>
+							<td class="skilltd2">
+								<img class="skill" src="../static/png/skillb.png" id="SqlServerskill" hidden="hidden" >
+								<img class="skillshow" src="../static/png/skillb.png" id="SqlServerskill2"  >
+								<img class="skillup" src="../static/png/skillup.png" id="SqlServerskillup" hidden="hidden" >
+								<img class="skilldown" src="../static/png/skilldown.png" id="SqlServerskilldown" hidden="hidden" >
+								</td>
+						</tr>
+						<tr >
+							<td class="skilltd1" >JSP</td>
+							<td class="skilltd2">
+								<img class="skill" src="../static/png/skillb.png" id="JSPskill" hidden="hidden" >
+								<img class="skillshow" src="../static/png/skillb.png" id="JSPskill2"  >
+								<img class="skillup" src="../static/png/skillup.png" id="JSPskillup" hidden="hidden" >
+								<img class="skilldown" src="../static/png/skilldown.png" id="JSPskilldown" hidden="hidden" >
+								</td>
+							<td class="skilltd3"></td>
+							<td class="skilltd1" >Jquery</td>
+							<td class="skilltd2">
+								<img class="skill" src="../static/png/skillb.png" id="Jqueryskill" hidden="hidden" >
+								<img class="skillshow" src="../static/png/skillb.png" id="Jqueryskill2"  >
+								<img class="skillup" src="../static/png/skillup.png" id="Jqueryskillup" hidden="hidden" >
+								<img class="skilldown" src="../static/png/skilldown.png" id="Jqueryskilldown" hidden="hidden" >
+								</td>
+						</tr>
+						<tr >
+							<td class="skilltd1" >CSS</td>
+							<td class="skilltd2">
+								<img class="skill" src="../static/png/skillb.png" id="CSSskill" hidden="hidden" >
+								<img class="skillshow" src="../static/png/skillb.png" id="CSSskill2"  >
+								<img class="skillup" src="../static/png/skillup.png" id="CSSskillup" hidden="hidden" >
+								<img class="skilldown" src="../static/png/skilldown.png" id="CSSskilldown" hidden="hidden" >
+								</td>
+							<td class="skilltd3"></td>
+							<td class="skilltd1" >HTML</td>
+							<td class="skilltd2">
+								<img class="skill" src="../static/png/skillb.png" id="HTMLskill" hidden="hidden" >
+								<img class="skillshow" src="../static/png/skillb.png" id="HTMLskill2"  >
+								<img class="skillup" src="../static/png/skillup.png" id="HTMLskillup" hidden="hidden" >
+								<img class="skilldown" src="../static/png/skilldown.png" id="HTMLskilldown" hidden="hidden" >
+								</td>
+						</tr>
+						<tr >
+							<td class="skilltd1" >Thymeleaf</td>
+							<td class="skilltd2">
+								<img class="skill" src="../static/png/skillb.png" id="Thymeleafskill" hidden="hidden" >
+								<img class="skillshow" src="../static/png/skillb.png" id="Thymeleafskill2"  >
+								<img class="skillup" src="../static/png/skillup.png" id="Thymeleafskillup" hidden="hidden" >
+								<img class="skilldown" src="../static/png/skilldown.png" id="Thymeleafskilldown" hidden="hidden" >
+								</td>
+							<td class="skilltd3"></td>
+							<td class="skilltd1" >Angular</td>
+							<td class="skilltd2">
+								<img class="skill" src="../static/png/skillb.png" id="Angularskill" hidden="hidden" >
+								<img class="skillshow" src="../static/png/skillb.png" id="Angularskill2"  >
+								<img class="skillup" src="../static/png/skillup.png" id="Angularskillup" hidden="hidden" >
+								<img class="skilldown" src="../static/png/skilldown.png" id="Angularskilldown" hidden="hidden" >
+								</td>
+						</tr>
+						<tr >
+							<td class="skilltd1" >VUE</td>
+							<td class="skilltd2">
 								<div>
-								<img class="skill" src="../static/png/skillb.png" id="VUEskill" hidden="hidden" style="width:17px">
-								<img class="skillshow" src="../static/png/skillb.png" id="VUEskill2"  style="width:17px">
+								<img class="skill" src="../static/png/skillb.png" id="VUEskill" hidden="hidden" >
+								<img class="skillshow" src="../static/png/skillb.png" id="VUEskill2"  >
 								<img class="skillup" src="../static/png/skillup.png" id="VUEskillup" hidden="hidden" style="width:7px;align:left;margin-right:0">
 								<img class="skilldown" src="../static/png/skilldown.png" id="VUEskilldown" hidden="hidden" style="width:7px;align:right;margin-left:0">
 								</div>
 								</td>
-							<td style="height:22px;width:5px"></td>
-							<td style="height:22px;font-size:8px;align:left;border:1px solid gray">React</td>
-							<td style="height:22px;width:22px;align:left;border:1px solid gray">
-								<img class="skill" src="../static/png/skillb.png" id="Reactskill" hidden="hidden" hidden="hidden" style="width:17px">
-								<img class="skillshow" src="../static/png/skillb.png" id="Reactskill2"  style="width:17px">
-								<img class="skillup" src="../static/png/skillup.png" id="Reactskillup" hidden="hidden" style="width:7px">
-								<img class="skilldown" src="../static/png/skilldown.png" id="Reactskilldown" hidden="hidden" style="width:7px">
+							<td class="skilltd3"></td>
+							<td class="skilltd1" >React</td>
+							<td class="skilltd2" >
+								<img class="skill" src="../static/png/skillb.png" id="Reactskill" hidden="hidden" hidden="hidden" >
+								<img class="skillshow" src="../static/png/skillb.png" id="Reactskill2"  >
+								<img class="skillup" src="../static/png/skillup.png" id="Reactskillup" hidden="hidden" >
+								<img class="skilldown" src="../static/png/skilldown.png" id="Reactskilldown" hidden="hidden" >
 								</td>
 						</tr>
 					</table>
 					
 					
 				</div>
-				<div id="midmidleffkinotop1" style="float:left;width:100%;height:2px;background-color:rgb(253,79,75)"></div>
-				<div id="midmidleffkinotop2" style="float:left;width:100%;height:2px;background-color:rgb(245,254,80)"></div>
-				<div id="midmidleffkinotop3" style="float:left;width:100%;height:2px;background-color:rgb(80,242,254)"></div>
-				<div id="midmidleftbottom" style="float:left;width:100%;height:58px;background-color:rgb(255,255,235)">
+				<div class="border1" id="midmidleffkinotop1" ></div>
+				<div class="border2" id="midmidleffkinotop2" ></div>
+				<div class="border3" id="midmidleffkinotop3" ></div>
+				<div id="midmidleftbottom" >
 				
-					<img id="saveimgbutton" src="../static/png/save.png" hidden="hidden" style="width:124px;height:50px;border:0px solid gray ;margin-top:4px;margin-left:50px;">
-					<img id="editimgbutton" src="../static/png/edit.png" style="width:124px;height:50px;border:0px solid gray ;margin-top:4px;margin-left:50px;">
+					<img id="saveimgbutton" src="../static/png/save.png" hidden="hidden" >
+					<img id="editimgbutton" src="../static/png/edit.png" >
 					
 				</div>
 				
 			</div>
 		
-			<div id="midmidright" style="float:left;border-left:1px solid gray;width:503px;height:960px">
+			<div id="midmidright" >
 				
-				<div id="midmidright1" style="float:left;width:100%;height:240px;background:rgb(255,240,255)">
-					<table class="worktable" style="width:90%;height:90%;margin-left:30px;margin-top:10px;border:2px solid rgb(155,155,155)">
-						<tr class="workkaishanametr"style="width:99%;height:15%;">
-							<td style=""><b>会社名称：</b><input id="kaishanameinput1" type="text" value="会社11111" style="width:100px;height:19px"></td>
+				<div id="midmidright1" >
+					<table class="worktable" >
+						<tr class="workkaishanametr" >
+							<td ><b>会社名称：</b><input class="kaishanameinput" id="kaishanameinput1" type="text" value="会社11111" ><text id="kaishanametext1" hidden="hidden"></text></td>
 						</tr>
-						<tr class="workshokumutr"style="width:99%;height:15%;">
-							<td style="border-top:2px solid rgb(155,155,155)"><b>担任职位：</b><input id="shokumuinput1" type="text" value="职务22222" style="width:100px;height:19px"></td>
+						<tr class="workshokumutr" >
+							<td class="workexptdborder" ><b>担任职位：</b><input class="shokumuinput" id="shokumuinput1" type="text" value="职务22222" ><text id="shokumutext1" hidden="hidden"></text></td>
 						</tr>
-						<tr class="worktimetr"style="width:99%;height:15%;">
-							<td style="border-top:2px solid rgb(155,155,155)">
+						<tr class="worktimetr" >
+							<td class="workexptdborder" >
 								<b>工作时间：</b>
-								<input id="worktimeinputfromyear1" type="text" value="0222" style="width:35px;height:19px">
+								<input class="worktimeinputfromyear" id="worktimeinputfromyear1" type="text" value="0222" >
+								<text id="worktimetextfromyear1" hidden="hidden"></text>
 								<b>年</b>
-								<input id="worktimeinputfrommouth1" type="text" value="22" style="width:20px;height:19px">
+								<input class="worktimeinputfrommouth" id="worktimeinputfrommouth1" type="text" value="22" >
+								<text id="worktimetextfrommouth1" hidden="hidden"></text>
 								<b>月~</b>
-								<input id="worktimeinputtoyear1" type="text" value="0222" style="width:35px;height:19px">
+								<input class="worktimeinputtoyear"  id="worktimeinputtoyear1" type="text" value="0222" >
+								<text id="worktimetexttoyear1" hidden="hidden"></text>
 								<b>年</b>
-								<input id="worktimeinputtomouth1" type="text" value="22" style="width:20px;height:19px">
+								<input class="worktimeinputtomouth" id="worktimeinputtomouth1" type="text" value="22" >
+								<text id="worktimetexttomouth1" hidden="hidden"></text>
 								<b>月</b>
 							</td>
 						</tr>
-						<tr class="koumokuinfotr"style="width:99%;height:55%">
-							<td style="border-top:2px solid rgb(155,155,155)"><textarea class="koumokuinfo" style="resize:none;width:90%;height:80%;margin-top:3%;margin-left:5%">经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历</textarea></td>
+						<tr class="koumokuinfotr" >
+							<td class="koumokuinfotd"   valign="top"><textarea class="koumokuinfo" id="koumokuinfotextarea1" >经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历</textarea>
+							<text id="koumokuinfotext1" hidden="hidden"></text>
+							</td>
 						</tr>
 						
 					</table>
 				</div>
 				
-				<div id="midmidright2" style="float:left;width:100%;height:240px;background:rgb(255,255,240)">
-					<table class="worktable" style="width:90%;height:90%;margin-left:30px;margin-top:10px;border:2px solid rgb(155,155,155)">
-						<tr class="workkaishanametr"style="width:99%;height:15%;">
-							<td style=""><b>会社名称：</b><input id="kaishanameinput2" type="text" value="会社11111" style="width:100px;height:19px"></td>
+				<div id="midmidright2" >
+					<table class="worktable" >
+						<tr class="workkaishanametr" >
+							<td ><b>会社名称：</b><input class="kaishanameinput" id="kaishanameinput2" type="text" value="会社11111" ><text id="kaishanametext2" hidden="hidden"></text></td>
 						</tr>
-						<tr class="workshokumutr"style="width:99%;height:15%;">
-							<td style="border-top:2px solid rgb(155,155,155)"><b>担任职位：</b><input id="shokumuinput2" type="text" value="职务22222" style="width:100px;height:19px"></td>
+						<tr class="workshokumutr" >
+							<td class="workexptdborder" ><b>担任职位：</b><input class="shokumuinput" id="shokumuinput2" type="text" value="职务22222" ><text id="shokumutext2" hidden="hidden"></text></td>
 						</tr>
-						<tr class="worktimetr"style="width:99%;height:15%;">
-							<td style="border-top:2px solid rgb(155,155,155)">
+						<tr class="worktimetr" >
+							<td class="workexptdborder" >
 								<b>工作时间：</b>
-								<input id="worktimeinputfromyear2" type="text" value="0222" style="width:35px;height:19px">
+								<input class="worktimeinputfromyear" id="worktimeinputfromyear2" type="text" value="0222" >
+								<text id="worktimetextfromyear2" hidden="hidden"></text>
 								<b>年</b>
-								<input id="worktimeinputfrommouth2" type="text" value="22" style="width:20px;height:19px">
+								<input class="worktimeinputfrommouth" id="worktimeinputfrommouth2" type="text" value="22" >
+								<text id="worktimetextfrommouth2" hidden="hidden"></text>
 								<b>月~</b>
-								<input id="worktimeinputtoyear2" type="text" value="0222" style="width:35px;height:19px">
+								<input class="worktimeinputtoyear" id="worktimeinputtoyear2" type="text" value="0222" >
+								<text id="worktimetexttoyear2" hidden="hidden"></text>
 								<b>年</b>
-								<input id="worktimeinputtomouth2" type="text" value="22" style="width:20px;height:19px">
+								<input class="worktimeinputtomouth" id="worktimeinputtomouth2" type="text" value="22" >
+								<text id="worktimetexttomouth2" hidden="hidden"></text>
 								<b>月</b>
 							</td>
 						</tr>
-						<tr class="koumokuinfotr"style="width:99%;height:55%;">
-							<td style="border-top:2px solid rgb(155,155,155)"><textarea class="koumokuinfo" style="resize:none;width:90%;height:80%;margin-top:3%;margin-left:5%">经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历</textarea></td>
+						<tr class="koumokuinfotr" >
+							<td class="koumokuinfotd"  valign="top"><textarea class="koumokuinfo" id="koumokuinfotextarea2" >经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历</textarea>
+							<text id="koumokuinfotext2" hidden="hidden"></text>
+							</td>
 						</tr>
 						
 					</table>
 				</div>
-				<div id="midmidright3" style="float:left;width:100%;height:240px;background:rgb(255,240,255)">
-					<table class="worktable" style="width:90%;height:90%;margin-left:30px;margin-top:10px;border:2px solid rgb(155,155,155)">
-						<tr class="workkaishanametr"style="width:99%;height:15%;">
-							<td style=""><b>会社名称：</b><input id="kaishanameinput3" type="text" value="会社11111" style="width:100px;height:19px"></td>
+				
+				<div id="midmidright3" >
+					<table class="worktable" >
+						<tr class="workkaishanametr" >
+							<td ><b>会社名称：</b><input class="kaishanameinput" id="kaishanameinput3" type="text" value="会社11111" ><text id="kaishanametext3" hidden="hidden"></text></td>
 						</tr>
-						<tr class="workshokumutr"style="width:99%;height:15%;">
-							<td style="border-top:2px solid rgb(155,155,155)"><b>担任职位：</b><input id="shokumuinput3" type="text" value="职务22222" style="width:100px;height:19px"></td>
+						<tr class="workshokumutr" >
+							<td class="workexptdborder" ><b>担任职位：</b><input class="shokumuinput" id="shokumuinput3" type="text" value="职务22222" ><text id="shokumutext3" hidden="hidden"></text></td>
 						</tr>
-						<tr class="worktimetr"style="width:99%;height:15%;">
-							<td style="border-top:2px solid rgb(155,155,155)">
+						<tr class="worktimetr" >
+							<td class="workexptdborder" >
 								<b>工作时间：</b>
-								<input id="worktimeinputfromyear3" type="text" value="0222" style="width:35px;height:19px">
+								<input class="worktimeinputfromyear" id="worktimeinputfromyear3" type="text" value="0222" >
+								<text id="worktimetextfromyear3" hidden="hidden"></text>
 								<b>年</b>
-								<input id="worktimeinputfrommouth3" type="text" value="22" style="width:20px;height:19px">
+								<input class="worktimeinputfrommouth" id="worktimeinputfrommouth3" type="text" value="22" >
+								<text id="worktimetextfrommouth3" hidden="hidden"></text>
 								<b>月~</b>
-								<input id="worktimeinputtoyear3" type="text" value="0222" style="width:35px;height:19px">
+								<input class="worktimeinputtoyear" id="worktimeinputtoyear3" type="text" value="0222" >
+								<text id="worktimetexttoyear3" hidden="hidden"></text>
 								<b>年</b>
-								<input id="worktimeinputtomouth3" type="text" value="22" style="width:20px;height:19px">
+								<input class="worktimeinputtomouth" id="worktimeinputtomouth3" type="text" value="22" >
+								<text id="worktimetexttomouth3" hidden="hidden"></text>
 								<b>月</b>
 							</td>
 						</tr>
-						<tr class="koumokuinfotr"style="width:99%;height:55%;">
-							<td style="border-top:2px solid rgb(155,155,155)"><textarea class="koumokuinfo" style="resize:none;width:90%;height:80%;margin-top:3%;margin-left:5%">经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历</textarea></td>
+						<tr class="koumokuinfotr" >
+							<td class="koumokuinfotd"  valign="top"><textarea class="koumokuinfo" id="koumokuinfotextarea3" >经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历</textarea>
+							<text id="koumokuinfotext3" hidden="hidden"></text>
+							</td>
 						</tr>
 						
 					</table>
 				</div>
-				<div id="midmidright4" style="float:left;width:100%;height:240px;background:rgb(255,255,240)">
-					<table class="worktable" style="width:90%;height:90%;margin-left:30px;margin-top:10px;border:2px solid rgb(155,155,155)">
-						<tr class="workkaishanametr"style="width:99%;height:15%;">
-							<td style=""><b>会社名称：</b><input id="kaishanameinput4" type="text" value="会社11111" style="width:100px;height:19px"></td>
+				
+				<div id="midmidright4" >
+					<table class="worktable" >
+						<tr class="workkaishanametr">
+							<td ><b>会社名称：</b><input class="kaishanameinput" id="kaishanameinput4" type="text" value="会社11111" ><text id="kaishanametext4" hidden="hidden"></text></td>
 						</tr>
-						<tr class="workshokumutr"style="width:99%;height:15%;">
-							<td style="border-top:2px solid rgb(155,155,155)"><b>担任职位：</b><input id="shokumuinput4" type="text" value="职务22222" style="width:100px;height:19px"></td>
+						<tr class="workshokumutr" >
+							<td class="workexptdborder" ><b>担任职位：</b><input class="shokumuinput" id="shokumuinput4" type="text" value="职务22222" ><text id="shokumutext4" hidden="hidden"></text></td>
 						</tr>
-						<tr class="worktimetr-top"style="width:99%;height:15%;">
-							<td style="border-top:2px solid rgb(155,155,155)">
+						<tr class="worktimetr" >
+							<td class="workexptdborder">
 								<b>工作时间：</b>
-								<input id="worktimeinputfromyear4" type="text" value="0222" style="width:35px;height:19px">
+								<input class="worktimeinputfromyear" id="worktimeinputfromyear4" type="text" value="0222" >
+								<text id="worktimetextfromyear4" hidden="hidden"></text>
 								<b>年</b>
-								<input id="worktimeinputfrommouth4" type="text" value="22" style="width:20px;height:19px">
+								<input class="worktimeinputfrommouth" id="worktimeinputfrommouth4" type="text" value="22" >
+								<text id="worktimetextfrommouth4" hidden="hidden"></text>
 								<b>月~</b>
-								<input id="worktimeinputtoyear4" type="text" value="0222" style="width:35px;height:19px">
+								<input class="worktimeinputtoyear" id="worktimeinputtoyear4" type="text" value="0222" >
+								<text id="worktimetexttoyear4" hidden="hidden"></text>
 								<b>年</b>
-								<input id="worktimeinputtomouth4" type="text" value="22" style="width:20px;height:19px">
+								<input class="worktimeinputtomouth" id="worktimeinputtomouth4" type="text" value="22" >
+								<text id="worktimetexttomouth4" hidden="hidden"></text>
 								<b>月</b>
 							</td>
 						</tr>
-						<tr class="koumokuinfotr"style="width:99%;height:55%;">
-							<td style="border-top:2px solid rgb(155,155,155)"><textarea class="koumokuinfo" style="resize:none;width:90%;height:80%;margin-top:3%;margin-left:5%">经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历</textarea></td>
+						<tr class="koumokuinfotr"  >
+							<td class="koumokuinfotd"  valign="top"><textarea class="koumokuinfo" id="koumokuinfotextarea4" >经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历</textarea>
+							<text id="koumokuinfotext4" hidden="hidden" ></text>
+							</td>
 						</tr>
 						
 					</table>
 				</div>
 				
 			</div>
-			<div id="midmidleffimgtop1" style="float:left;width:100%;height:2px;background-color:rgb(253,79,75)"></div>
-			<div id="midmidleffimgtop2" style="float:left;width:100%;height:2px;background-color:rgb(245,254,80)"></div>
-			<div id="midmidleffimgtop3" style="float:left;width:100%;height:2px;background-color:rgb(80,242,254)"></div>
-			<div id="midmidright6" style="float:left;width:100%;height:20px;background-image:url('../static/png/midbottom.jpg')"></div>
+			<div class="border1" id="midmidleffimgtop1" ></div>
+			<div class="border2" id="midmidleffimgtop2" ></div>
+			<div class="border3" id="midmidleffimgtop3" ></div>
+			<div id="midmidright6" style="background-image:url('../static/png/midbottom.jpg')"></div>
 		</div>
 <!-- 		<div id="midright"  style="float:left;width:19%;height:100%;background-image:url('../static/png/right2.jpg')"></div> -->
 	</div>
 <!-- bottom	 -->
-	<div id=bottom style="float:left;min-width:1200px;width:100%;height:100px;background-image:url('../static/png/bottom.jpg')">
+	<div id="bottom" style="background-image:url('../static/png/bottom.jpg')">
 	<br/>
 		<div align="center" >
 			<b style="color:rgb(255,255,255);">江苏海隆软件技术有限公司</b></br>
