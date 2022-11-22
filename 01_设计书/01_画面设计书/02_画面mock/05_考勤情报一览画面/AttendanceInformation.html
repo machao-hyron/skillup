@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+  <style>
+	  .examination{display: block;height: 45px;line-height: 40px;}
+	  .el-input,input.el-input__inner {width: 160px;}
+	  .ma-l{margin-left: 20px;}
+	  .el-pagination{text-align: center;margin-top: 10px;}
+	  .divider{margin-top: 10px;height: 80vh;border: 1px solid #e7e7e7;}
+  </style>
+</head>
+<body>
+  <div id="app">
+	<el-tag class="examination">
+		<el-button type="primary" size="small">考勤导入</el-button>
+		<el-button type="success" plain size="small">模板参照</el-button>
+	</el-tag>
+	
+	<div class="divider">
+		<el-tag class="examination">
+			<span class="">部门：</span>
+			<el-input v-model="name" placeholder="请输入部门" size="small"></el-input>
+			<span class="ma-l">姓名：</span> 
+			<el-input v-model="name" placeholder="请输入姓名" size="small"></el-input>
+			<span class="ma-l">工号：</span> 
+			<el-input v-model="jobNo" placeholder="请输入工号" size="small"></el-input>
+			<span class="ma-l">时间：</span> 
+			<el-date-picker v-model="timeArr"  type="date" placeholder="选择日期" size="small"></el-date-picker>
+		</el-tag>
+		<el-table
+			border
+			ref="multipleTable"
+			:data="tableData"
+			tooltip-effect="dark"
+			:toolbar-config="tableToolbar"
+			style="width: 100%"
+			@selection-change="handleSelectionChange">
+			<el-table-column align="center" type="selection" width="55"></el-table-column>
+			<el-table-column v-for="(Menu,item) in List" :key="item" align="center" :prop=Menu.ids :label=Menu.name :width=Menu.width></el-table-column>
+		</el-table>
+	</div>
+	<el-pagination background layout="prev, pager, next" :total="288"></el-pagination>
+	
+  </div>
+</body>
+  <script src="https://unpkg.com/vue@2/dist/vue.js"></script>
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data: function() {
+        return { 
+			name:'',
+			jobNo:'',
+			timeArr:'',
+			List:[
+				{id:1,ids:'department',name:'部门',width:''},
+				{id:2,ids:'jobNo',name:'工号',width:''},
+				{id:3,ids:'name',name:'姓名',width:''},
+				{id:4,ids:'time',name:'日期',width:'200px'},
+				{id:5,ids:'work',name:'上午上班',width:''},
+				{id:6,ids:'workS',name:'下午下班',width:''},
+				{id:7,ids:'workOvertime',name:'加班时长(小时单位)',width:''},
+				{id:8,ids:'loginTime',name:'登录时间',width:''},
+				{id:9,ids:'loginName',name:'登录者',width:''},
+				{id:10,ids:'upTime',name:'更新时间',width:''},
+				{id:11,ids:'upName',name:'更新者',width:''},	
+			],
+			tableData: [
+				{department:'D311',jobNo:'JS0XXX',name:'张三',time:'2022-10-20 星期四',work:'08:22:05',workS:'18:36:01',workOvertime:'3',loginTime:'2022-10-20',loginName:'马主任',upTime:'2022-10-20',upName:'马主任'},
+				{department:'D311',jobNo:'JS0XXX',name:'王大幅',time:'2022-10-21 星期四',work:'08:38:05',workS:'18:36:31',workOvertime:'1',loginTime:'2022-10-20',loginName:'马主任',upTime:'2022-10-20',upName:'马主任'},
+				{department:'D311',jobNo:'JS0XXX',name:'胡烈',time:'2022-10-20 星期四',work:'08:35:05',workS:'18:35:01',workOvertime:'2',loginTime:'2022-10-20',loginName:'马主任',upTime:'2022-10-20',upName:'马主任'},
+				{department:'D311',jobNo:'JS0XXX',name:'韩式',time:'2022-10-20 星期四',work:'08:34:05',workS:'18:16:01',workOvertime:'2',loginTime:'2022-10-20',loginName:'马主任',upTime:'2022-10-20',upName:'马主任'},
+				{department:'D311',jobNo:'JS0XXX',name:'柳河',time:'2022-10-20 星期四',work:'08:32:05',workS:'18:32:01',workOvertime:'1',loginTime:'2022-10-20',loginName:'马主任',upTime:'2022-10-20',upName:'马主任'},
+				{department:'D311',jobNo:'JS0XXX',name:'胡楠',time:'2022-10-20 星期四',work:'08:22:05',workS:'18:32:01',workOvertime:'0',loginTime:'2022-10-20',loginName:'马主任',upTime:'2022-10-20',upName:'马主任'},
+				{department:'D311',jobNo:'JS0XXX',name:'达尔',time:'2022-10-20 星期四',work:'08:12:05',workS:'18:06:01',workOvertime:'3',loginTime:'2022-10-20',loginName:'马主任',upTime:'2022-10-20',upName:'马主任'},
+				{department:'D311',jobNo:'JS0XXX',name:'挽歌',time:'2022-10-20 星期四',work:'08:32:05',workS:'18:56:01',workOvertime:'0',loginTime:'2022-10-20',loginName:'马主任',upTime:'2022-10-20',upName:'马主任'},
+				{department:'D311',jobNo:'JS0XXX',name:'张思',time:'2022-10-20 星期四',work:'08:42:05',workS:'18:16:01',workOvertime:'1',loginTime:'2022-10-20',loginName:'马主任',upTime:'2022-10-20',upName:'马主任'},
+				{department:'D311',jobNo:'JS0XXX',name:'策流',time:'2022-10-20 星期四',work:'08:12:05',workS:'18:36:05',workOvertime:'3',loginTime:'2022-10-20',loginName:'马主任',upTime:'2022-10-20',upName:'马主任'},
+				
+			],
+
+		}
+      },
+	  created() {
+	  	
+	  },
+	  methods: {
+		handleSelectionChange(val) {
+			
+		}
+	  },
+	  
+    })
+  </script>
+</html>

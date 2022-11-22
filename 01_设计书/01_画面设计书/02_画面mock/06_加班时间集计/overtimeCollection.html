@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+  <style>
+	  .examination{display: block;height: 45px;line-height: 40px;}
+	  .el-input,input.el-input__inner {width: 160px;}
+	  .ma-l{margin-left: 20px;}
+	  .el-pagination{text-align: center;margin-top: 10px;}
+	  .divider{margin-top: 10px;height: 85vh;border: 1px solid #e7e7e7;}
+  </style>
+</head>
+<body>
+  <div id="app">
+	<div class="divider">
+		<el-tag class="examination">
+			<span class="">集计对象：</span>
+			<el-select v-model="select1" placeholder="请选择" size="small">
+				<el-option label="人别" value="人别">人别</el-option>
+				<el-option label="项目别" value="项目别">项目别</el-option>
+				<el-option label="部门别" value="部门别">部门别</el-option>
+			</el-select>
+			<span class="ma-l">集计期间：</span> 
+			<el-select v-model="select2" placeholder="请选择" size="small">
+				<el-option label="月" value="月">月</el-option>
+				<el-option label="年" value="年">年</el-option>
+				<el-option label="手入力期间" value="手入力期间">手入力期间</el-option>
+			</el-select>
+			<el-button type="primary" size="small" class="ma-l">集计按钮</el-button>
+			
+			<span class="ma-l">加班时间：</span>
+			<el-select v-model="select3" placeholder="请选择" size="small">
+				<el-option label="加班时间超过50" value="加班时间超过50">加班时间超过50</el-option>
+				<el-option label="周末加班时间多余平时" value="周末加班时间多余平时">周末加班时间多余平时</el-option>
+			</el-select>
+			<el-button type="primary" size="small" class="ma-l">检索按钮</el-button>
+			<el-button type="primary" size="small" class="ma-l">Excel出力按钮</el-button>
+			<el-button type="primary" size="small" class="ma-l">mail通知按钮</el-button>
+		</el-tag>
+		<el-table
+			border
+			ref="multipleTable"
+			:data="tableData"
+			tooltip-effect="dark"
+			:toolbar-config="tableToolbar"
+			style="width: 100%"
+			@selection-change="handleSelectionChange">
+			<el-table-column align="center" type="selection" width="55"></el-table-column>
+			<el-table-column v-for="(Menu,item) in List" :key="item" align="center" :prop=Menu.ids :label=Menu.name :width=Menu.width></el-table-column>
+		</el-table>
+	</div>
+	<el-pagination background layout="prev, pager, next" :total="288"></el-pagination>
+	
+  </div>
+</body>
+  <script src="https://unpkg.com/vue@2/dist/vue.js"></script>
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data: function() {
+        return { 
+			select1:'',
+			select2:'',
+			select3:'',
+			
+			List:[
+				{id:1,ids:'department',name:'部门',width:''},
+				{id:2,ids:'jobNo',name:'工号',width:''},
+				{id:3,ids:'name',name:'姓名',width:''},
+				{id:7,ids:'workOvertime',name:'累计加班时长(小时单位)',width:''},
+			],
+			tableData: [
+				{department:'D311',jobNo:'JS0XXX',name:'张三',time:'2022-10-20 星期四',work:'08:22:05',workS:'18:36:01',workOvertime:'3',loginTime:'2022-10-20',loginName:'马主任',upTime:'2022-10-20',upName:'马主任'},
+				{department:'D311',jobNo:'JS0XXX',name:'王大幅',time:'2022-10-21 星期四',work:'08:38:05',workS:'18:36:31',workOvertime:'1',loginTime:'2022-10-20',loginName:'马主任',upTime:'2022-10-20',upName:'马主任'},
+				{department:'D311',jobNo:'JS0XXX',name:'胡烈',time:'2022-10-20 星期四',work:'08:35:05',workS:'18:35:01',workOvertime:'2',loginTime:'2022-10-20',loginName:'马主任',upTime:'2022-10-20',upName:'马主任'},
+				{department:'D311',jobNo:'JS0XXX',name:'韩式',time:'2022-10-20 星期四',work:'08:34:05',workS:'18:16:01',workOvertime:'2',loginTime:'2022-10-20',loginName:'马主任',upTime:'2022-10-20',upName:'马主任'},
+				{department:'D311',jobNo:'JS0XXX',name:'柳河',time:'2022-10-20 星期四',work:'08:32:05',workS:'18:32:01',workOvertime:'1',loginTime:'2022-10-20',loginName:'马主任',upTime:'2022-10-20',upName:'马主任'},
+				{department:'D311',jobNo:'JS0XXX',name:'胡楠',time:'2022-10-20 星期四',work:'08:22:05',workS:'18:32:01',workOvertime:'0',loginTime:'2022-10-20',loginName:'马主任',upTime:'2022-10-20',upName:'马主任'},
+				{department:'D311',jobNo:'JS0XXX',name:'达尔',time:'2022-10-20 星期四',work:'08:12:05',workS:'18:06:01',workOvertime:'3',loginTime:'2022-10-20',loginName:'马主任',upTime:'2022-10-20',upName:'马主任'},
+				{department:'D311',jobNo:'JS0XXX',name:'挽歌',time:'2022-10-20 星期四',work:'08:32:05',workS:'18:56:01',workOvertime:'0',loginTime:'2022-10-20',loginName:'马主任',upTime:'2022-10-20',upName:'马主任'},
+				{department:'D311',jobNo:'JS0XXX',name:'张思',time:'2022-10-20 星期四',work:'08:42:05',workS:'18:16:01',workOvertime:'1',loginTime:'2022-10-20',loginName:'马主任',upTime:'2022-10-20',upName:'马主任'},
+				{department:'D311',jobNo:'JS0XXX',name:'策流',time:'2022-10-20 星期四',work:'08:12:05',workS:'18:36:05',workOvertime:'3',loginTime:'2022-10-20',loginName:'马主任',upTime:'2022-10-20',upName:'马主任'},
+				
+			],
+
+		}
+      },
+	  created() {
+	  	
+	  },
+	  methods: {
+		handleSelectionChange(val) {
+			
+		}
+	  },
+	  
+    })
+  </script>
+</html>
