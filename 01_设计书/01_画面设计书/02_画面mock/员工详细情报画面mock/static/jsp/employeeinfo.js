@@ -81,6 +81,10 @@
 		let CXskillvalue=3;
 		let Springskillvalue=3;    	
 
+        let employeeimg ="../static/png/employeesimgfile/body.jpg";
+        let employeeimgtemp ="../static/png/employeesimgfile/body.jpg";
+//员工图片初始化显示        
+        $("#employeeimg").attr("src",employeeimgtemp);
 //   界面初始参数设置  	
 	   	$("#nametext").text(nameinput);
 	   	$("#sextext").text(sexinput);
@@ -448,7 +452,25 @@
 	 		case 2:{$('#Springskill2').attr("src","../static/png/skilld.png");	break;}
 	 		case 1:{$('#Springskill2').attr("src","../static/png/skille.png");	break;}
 		}
-		 
+// 	employeeimg图片变换	
+        $("#employeeimg").mouseover(function() {
+			if($("#editimgbutton").attr("hidden")=="hidden"){ $("#employeeimg").attr("src","../static/png/employeeupload.png");}
+           
+         
+        });
+        $("#employeeimg").mouseleave(function() {
+            $("#employeeimg").attr("src",employeeimgtemp);
+        });  
+        //
+        let a="../static/png/employeesimgfile/";
+         $("#employeeimg").click(function() {
+			if($("#editimgbutton").attr("hidden")=="hidden"){
+				employeeimgtemp=a+prompt("请将文件保存到png目录下！并输入图片名称！例：ju.jpg");
+				$("#employeeimg").attr("src",employeeimgtemp);
+				}
+           
+         
+        });  	 
 // 	保存图片变换	
         $("#saveimgbutton").mouseover(function() {
             $("#saveimgbutton").attr("src","../static/png/saveon.png");
@@ -459,275 +481,282 @@
         });    
 //  保存click操作      
         $("#saveimgbutton").click(function() {
-//     获取input输入参数    	
-			nameinput= $("#nameinput").val();
-     		sexinput=$("#sexinput").val();
-     		kougoinput=$("#kougoinput").val();
-	  	    bumeninput=$("#bumeninput").val();
-    		bornyearinput=$("#bornyearinput").val();
-     		bornmouthinput=$("#bornmouthinput").val();
-     		borndayinput=$("#borndayinput").val();
-     		schoolinput=$("#schoolinput").val();
-     		leaveschoolyearinput=$("#leaveschoolyearinput").val();
-     	 	leaveschoolmouthinput=$("#leaveschoolmouthinput").val();
-    	 	leaveschooldayinput=$("#leaveschooldayinput").val();
-    		workyearinput=$("#workyearinput").val();
-    		workmouthinput=$("#workmouthinput").val();
-    		workdayinput=$("#workdayinput").val();
-    		koumokuininput=$("#koumokuininput").val();
-    		leaveworkyearinput=$("#leaveworkyearinput").val();
-    		leaveworkmouthinput=$("#leaveworkmouthinput").val();
-    		leaveworkdayinput=$("#leaveworkdayinput").val();
-    		
-    		kaishanameinput1=$("#kaishanameinput1").val();
-        	shokumuinput1=$("#shokumuinput1").val();
-        	worktimeinputfromyear1=$("#worktimetinputfromyear1").val();
-        	worktimeinputfrommouth1=$("#worktimeinputfrommouth1").val();
-        	worktimeinputtoyear1=$("#worktimeinputtoyear1").val();
-        	worktimeinputtomouth1=$("#worktimeinputtomouth1").val();
-        	koumokuinfotextarea1=$("#koumokuinfotextarea1").val();
-        	
-        	kaishanameinput2=$("#kaishanameinput2").val();
-        	shokumuinput2=$("#shokumuinput2").val();
-        	worktimeinputfromyear2=$("#worktimeinputfromyear2").val();
-        	worktimeinputfrommouth2=$("#worktimeinputfrommouth2").val();
-        	worktimeinputtoyear2=$("#worktimeinputtoyear2").val();
-        	worktimeinputtomouth2=$("#worktimeinputtomouth2").val();
-        	koumokuinfotextarea2=$("#koumokuinfotextarea2").val();
-        	
-        	kaishanameinput3=$("#kaishanameinput3").val();
-        	shokumuinput3=$("#shokumuinput3").val();
-        	worktimeinputfromyear3=$("#worktimeinputfromyear3").val();
-        	worktimeinputfrommouth3=$("#worktimeinputfrommouth3").val();
-        	worktimeinputtoyear3=$("#worktimeinputtoyear3").val();
-        	worktimeinputtomouth3=$("#worktimeinputtomouth3").val();
-        	koumokuinfotextarea3=$("#koumokuinfotextarea3").val();
-        	
-        	kaishanameinput4=$("#kaishanameinput4").val();
-        	shokumuinput4=$("#shokumuinput4").val();
-        	worktimeinputfromyear4=$("#worktimeinputfromyear4").val();
-        	worktimeinputfrommouth4=$("#worktimeinputfrommouth4").val();
-        	worktimeinputtoyear4=$("#worktimeinputtoyear4").val();
-        	worktimeinputtomouth4=$("#worktimeinputtomouth4").val();
-        	koumokuinfotextarea4=$("#koumokuinfotextarea4").val();
-        	
-//     设置text参数    	
-            $("#nametext").text(nameinput);
- 	   		$("#sextext").text(sexinput);
- 	   		$("#kougotext").text(kougoinput);
- 	   		$("#bumentext").text(bumeninput);
-	   		$("#bornyeartext").text(bornyearinput);
-	   		$("#bornmouthtext").text(bornmouthinput);
-	   		$("#borndaytext").text(borndayinput);
-	  	 	$("#schooltext").text(schoolinput);
- 	   		$("#leaveschoolyeartext").text(leaveschoolyearinput);
- 	   		$("#leaveschoolmouthtext").text(leaveschoolmouthinput);
- 	 	  	$("#leaveschooldaytext").text(leaveschooldayinput);
- 	   		$("#workyeartext").text(workyearinput);
- 	   		$("#workmouthtext").text(workmouthinput);
- 	   		$("#workdaytext").text(workdayinput);
- 	   		$("#koumokuintext").text(koumokuininput);
- 	   		$("#leaveworkyeartext").text(leaveworkyearinput);
-	   		$("#leaveworkmouthtext").text(leaveworkmouthinput);
-	   		$("#leaveworkdaytext").text(leaveworkdayinput);
-// 		在职状态 	   	
-            if(workstatus==1){
-            	$("#workstatus1").attr("hidden","hidden");
-            	$("#workstatus2").attr("hidden","hidden");
-            	$("#workstatus3").removeAttr("hidden","hidden");
-            	$("#workstatus4").attr("hidden","hidden");
-            	$("#koumokuin1").removeAttr("hidden","hidden");
-            	$("#koumokuin2").removeAttr("hidden","hidden");
-            	$("#koumokuout1").attr("hidden","hidden");
-            	$("#koumokuout2").attr("hidden","hidden");
-            }else if(workstatus==2){
-            	$("#workstatus1").attr("hidden","hidden");
-            	$("#workstatus2").attr("hidden","hidden");
-            	$("#workstatus3").attr("hidden","hidden");
-            	$("#workstatus4").removeAttr("hidden","hidden");
-            	$("#koumokuin1").attr("hidden","hidden");
-            	$("#koumokuin2").attr("hidden","hidden");
-            	$("#koumokuout1").removeAttr("hidden","hidden");
-            	$("#koumokuout2").removeAttr("hidden","hidden");
-            }else{}
-
-	        
-	        
-	        
-//  	skill图片保存 skill>>skillshow
-			switch(CXskillvalue){
-		 		case 5:{$('#CXskill2').attr("src","../static/png/skilla.png");	break;}
-		 		case 4:{$('#CXskill2').attr("src","../static/png/skillb.png");	break;}
-		 		case 3:{$('#CXskill2').attr("src","../static/png/skillc.png");	break;}
-		 		case 2:{$('#CXskill2').attr("src","../static/png/skilld.png");	break;}
-		 		case 1:{$('#CXskill2').attr("src","../static/png/skille.png");	break;}
-	 		}
-			switch(VUEskillvalue){
-		 		case 5:{$('#VUEskill2').attr("src","../static/png/skilla.png");	break;}
-		 		case 4:{$('#VUEskill2').attr("src","../static/png/skillb.png");	break;}
-		 		case 3:{$('#VUEskill2').attr("src","../static/png/skillc.png");	break;}
-		 		case 2:{$('#VUEskill2').attr("src","../static/png/skilld.png");	break;}
-		 		case 1:{$('#VUEskill2').attr("src","../static/png/skille.png");	break;}
-			}
-			switch(Javaskillvalue){
-		 		case 5:{$('#Javaskill2').attr("src","../static/png/skilla.png");	break;}
-		 		case 4:{$('#Javaskill2').attr("src","../static/png/skillb.png");	break;}
-		 		case 3:{$('#Javaskill2').attr("src","../static/png/skillc.png");	break;}
-		 		case 2:{$('#Javaskill2').attr("src","../static/png/skilld.png");	break;}
-		 		case 1:{$('#Javaskill2').attr("src","../static/png/skille.png");	break;}
-			}
-			switch(Angularskillvalue){
-		 		case 5:{$('#Angularskill2').attr("src","../static/png/skilla.png");	break;}
-		 		case 4:{$('#Angularskill2').attr("src","../static/png/skillb.png");	break;}
-		 		case 3:{$('#Angularskill2').attr("src","../static/png/skillc.png");	break;}
-		 		case 2:{$('#Angularskill2').attr("src","../static/png/skilld.png");	break;}
-		 		case 1:{$('#Angularskill2').attr("src","../static/png/skille.png");	break;}
-			}
-			switch(Androidskillvalue){
-		 		case 5:{$('#Androidskill2').attr("src","../static/png/skilla.png");	break;}
-		 		case 4:{$('#Androidskill2').attr("src","../static/png/skillb.png");	break;}
-		 		case 3:{$('#Androidskill2').attr("src","../static/png/skillc.png");	break;}
-		 		case 2:{$('#Androidskill2').attr("src","../static/png/skilld.png");	break;}
-		 		case 1:{$('#Androidskill2').attr("src","../static/png/skille.png");	break;}
-			}
-			switch(JSPskillvalue){
-		 		case 5:{$('#JSPskill2').attr("src","../static/png/skilla.png");	break;}
-		 		case 4:{$('#JSPskill2').attr("src","../static/png/skillb.png");	break;}
-		 		case 3:{$('#JSPskill2').attr("src","../static/png/skillc.png");	break;}
-		 		case 2:{$('#JSPskill2').attr("src","../static/png/skilld.png");	break;}
-		 		case 1:{$('#JSPskill2').attr("src","../static/png/skille.png");	break;}
-			}
-			switch(Thymeleafskillvalue){
-		 		case 5:{$('#Thymeleafskill2').attr("src","../static/png/skilla.png");	break;}
-		 		case 4:{$('#Thymeleafskill2').attr("src","../static/png/skillb.png");	break;}
-		 		case 3:{$('#Thymeleafskill2').attr("src","../static/png/skillc.png");	break;}
-		 		case 2:{$('#Thymeleafskill2').attr("src","../static/png/skilld.png");	break;}
-		 		case 1:{$('#Thymeleafskill2').attr("src","../static/png/skille.png");	break;}
-			}
-			switch(SqlServerskillvalue){
-		 		case 5:{$('#SqlServerskill2').attr("src","../static/png/skilla.png");	break;}
-		 		case 4:{$('#SqlServerskill2').attr("src","../static/png/skillb.png");	break;}
-		 		case 3:{$('#SqlServerskill2').attr("src","../static/png/skillc.png");	break;}
-		 		case 2:{$('#SqlServerskill2').attr("src","../static/png/skilld.png");	break;}
-		 		case 1:{$('#SqlServerskill2').attr("src","../static/png/skille.png");	break;}
-			}
-			switch(Jqueryskillvalue){
-		 		case 5:{$('#Jqueryskill2').attr("src","../static/png/skilla.png");	break;}
-		 		case 4:{$('#Jqueryskill2').attr("src","../static/png/skillb.png");	break;}
-		 		case 3:{$('#Jqueryskill2').attr("src","../static/png/skillc.png");	break;}
-		 		case 2:{$('#Jqueryskill2').attr("src","../static/png/skilld.png");	break;}
-		 		case 1:{$('#Jqueryskill2').attr("src","../static/png/skille.png");	break;}
-			}
-			switch(Reactskillvalue){
-		 		case 5:{$('#Reactskill2').attr("src","../static/png/skilla.png");	break;}
-		 		case 4:{$('#Reactskill2').attr("src","../static/png/skillb.png");	break;}
-		 		case 3:{$('#Reactskill2').attr("src","../static/png/skillc.png");	break;}
-		 		case 2:{$('#Reactskill2').attr("src","../static/png/skilld.png");	break;}
-		 		case 1:{$('#Reactskill2').attr("src","../static/png/skille.png");	break;}
-			}
-			switch(HTMLskillvalue){
-		 		case 5:{$('#HTMLskill2').attr("src","../static/png/skilla.png");	break;}
-		 		case 4:{$('#HTMLskill2').attr("src","../static/png/skillb.png");	break;}
-		 		case 3:{$('#HTMLskill2').attr("src","../static/png/skillc.png");	break;}
-		 		case 2:{$('#HTMLskill2').attr("src","../static/png/skilld.png");	break;}
-		 		case 1:{$('#HTMLskill2').attr("src","../static/png/skille.png");	break;}
-			}
-			switch(CSSskillvalue){
-		 		case 5:{$('#CSSskill2').attr("src","../static/png/skilla.png");	break;}
-		 		case 4:{$('#CSSskill2').attr("src","../static/png/skillb.png");	break;}
-		 		case 3:{$('#CSSskill2').attr("src","../static/png/skillc.png");	break;}
-		 		case 2:{$('#CSSskill2').attr("src","../static/png/skilld.png");	break;}
-		 		case 1:{$('#CSSskill2').attr("src","../static/png/skille.png");	break;}
-			}
-			switch(tenNetskillvalue){
-		 		case 5:{$('#tenNetskill2').attr("src","../static/png/skilla.png");	break;}
-		 		case 4:{$('#tenNetskill2').attr("src","../static/png/skillb.png");	break;}
-		 		case 3:{$('#tenNetskill2').attr("src","../static/png/skillc.png");	break;}
-		 		case 2:{$('#tenNetskill2').attr("src","../static/png/skilld.png");	break;}
-		 		case 1:{$('#tenNetskill2').attr("src","../static/png/skille.png");	break;}
-			}
-			switch(IOSskillvalue){
-		 		case 5:{$('#IOSskill2').attr("src","../static/png/skilla.png");	break;}
-		 		case 4:{$('#IOSskill2').attr("src","../static/png/skillb.png");	break;}
-		 		case 3:{$('#IOSskill2').attr("src","../static/png/skillc.png");	break;}
-		 		case 2:{$('#IOSskill2').attr("src","../static/png/skilld.png");	break;}
-		 		case 1:{$('#IOSskill2').attr("src","../static/png/skille.png");	break;}
-			}
-			switch(Mysqlskillvalue){
-		 		case 5:{$('#Mysqlskill2').attr("src","../static/png/skilla.png");	break;}
-		 		case 4:{$('#Mysqlskill2').attr("src","../static/png/skillb.png");	break;}
-		 		case 3:{$('#Mysqlskill2').attr("src","../static/png/skillc.png");	break;}
-		 		case 2:{$('#Mysqlskill2').attr("src","../static/png/skilld.png");	break;}
-		 		case 1:{$('#Mysqlskill2').attr("src","../static/png/skille.png");	break;}
-			}
-			switch(Oracleskillvalue){
-		 		case 5:{$('#Oracleskill2').attr("src","../static/png/skilla.png");	break;}
-		 		case 4:{$('#Oracleskill2').attr("src","../static/png/skillb.png");	break;}
-		 		case 3:{$('#Oracleskill2').attr("src","../static/png/skillc.png");	break;}
-		 		case 2:{$('#Oracleskill2').attr("src","../static/png/skilld.png");	break;}
-		 		case 1:{$('#Oracleskill2').attr("src","../static/png/skille.png");	break;}
-			}
-			switch(Cupupskillvalue){
-		 		case 5:{$('#Cupupskill2').attr("src","../static/png/skilla.png");	break;}
-		 		case 4:{$('#Cupupskill2').attr("src","../static/png/skillb.png");	break;}
-		 		case 3:{$('#Cupupskill2').attr("src","../static/png/skillc.png");	break;}
-		 		case 2:{$('#Cupupskill2').attr("src","../static/png/skilld.png");	break;}
-		 		case 1:{$('#Cupupskill2').attr("src","../static/png/skille.png");	break;}
-			}
-			switch(Springskillvalue){
-		 		case 5:{$('#Springskill2').attr("src","../static/png/skilla.png");	break;}
-		 		case 4:{$('#Springskill2').attr("src","../static/png/skillb.png");	break;}
-		 		case 3:{$('#Springskill2').attr("src","../static/png/skillc.png");	break;}
-		 		case 2:{$('#Springskill2').attr("src","../static/png/skilld.png");	break;}
-		 		case 1:{$('#Springskill2').attr("src","../static/png/skille.png");	break;}
-			}
-//		工作履历保存			 
-		$("#kaishanametext1").text(kaishanameinput1);
-    	$("#shokumutext1").text(shokumuinput1);
-    	$("#worktimetextfromyear1").text(worktimeinputfromyear1);
-    	$("#worktimetextfrommouth1").text(worktimeinputfrommouth1);
-    	$("#worktimetexttoyear1").text(worktimeinputtoyear1);
-    	$("#worktimetexttomouth1").text(worktimeinputtomouth1);
-    	$("#koumokuinfotext1").text(koumokuinfotextarea1);
-   		
-   		$("#kaishanametext2").text(kaishanameinput2);
-    	$("#shokumutext2").text(shokumuinput2);
-    	$("#worktimetextfromyear2").text(worktimeinputfromyear2);
-    	$("#worktimetextfrommouth2").text(worktimeinputfrommouth2);
-    	$("#worktimetexttoyear2").text(worktimeinputtoyear2);
-    	$("#worktimetexttomouth2").text(worktimeinputtomouth2);
-    	$("#koumokuinfotext2").text(koumokuinfotextarea2);
-   		
-   		$("#kaishanametext3").text(kaishanameinput3);
-    	$("#shokumutext3").text(shokumuinput3);
-    	$("#worktimetextfromyear3").text(worktimeinputfromyear3);
-    	$("#worktimetextfrommouth3").text(worktimeinputfrommouth3);
-    	$("#worktimetexttoyear3").text(worktimeinputtoyear3);
-    	$("#worktimetexttomouth3").text(worktimeinputtomouth3);
-    	$("#koumokuinfotext3").text(koumokuinfotextarea3);
-   		
-   		$("#kaishanametext4").text(kaishanameinput4);
-    	$("#shokumutext4").text(shokumuinput4);
-    	$("#worktimetextfromyear4").text(worktimeinputfromyear4);
-    	$("#worktimetextfrommouth4").text(worktimeinputfrommouth4);
-    	$("#worktimetexttoyear4").text(worktimeinputtoyear4);
-    	$("#worktimetexttomouth4").text(worktimeinputtomouth4);
-    	$("#koumokuinfotext4").text(koumokuinfotextarea4);
-		
+//     获取input输入参数
+			if(confirm("确认保存？")){    	
+				nameinput= $("#nameinput").val();
+	     		sexinput=$("#sexinput").val();
+	     		kougoinput=$("#kougoinput").val();
+		  	    bumeninput=$("#bumeninput").val();
+	    		bornyearinput=$("#bornyearinput").val();
+	     		bornmouthinput=$("#bornmouthinput").val();
+	     		borndayinput=$("#borndayinput").val();
+	     		schoolinput=$("#schoolinput").val();
+	     		leaveschoolyearinput=$("#leaveschoolyearinput").val();
+	     	 	leaveschoolmouthinput=$("#leaveschoolmouthinput").val();
+	    	 	leaveschooldayinput=$("#leaveschooldayinput").val();
+	    		workyearinput=$("#workyearinput").val();
+	    		workmouthinput=$("#workmouthinput").val();
+	    		workdayinput=$("#workdayinput").val();
+	    		koumokuininput=$("#koumokuininput").val();
+	    		leaveworkyearinput=$("#leaveworkyearinput").val();
+	    		leaveworkmouthinput=$("#leaveworkmouthinput").val();
+	    		leaveworkdayinput=$("#leaveworkdayinput").val();
+	    		
+	    		kaishanameinput1=$("#kaishanameinput1").val();
+	        	shokumuinput1=$("#shokumuinput1").val();
+	        	worktimeinputfromyear1=$("#worktimetinputfromyear1").val();
+	        	worktimeinputfrommouth1=$("#worktimeinputfrommouth1").val();
+	        	worktimeinputtoyear1=$("#worktimeinputtoyear1").val();
+	        	worktimeinputtomouth1=$("#worktimeinputtomouth1").val();
+	        	koumokuinfotextarea1=$("#koumokuinfotextarea1").val();
+	        	
+	        	kaishanameinput2=$("#kaishanameinput2").val();
+	        	shokumuinput2=$("#shokumuinput2").val();
+	        	worktimeinputfromyear2=$("#worktimeinputfromyear2").val();
+	        	worktimeinputfrommouth2=$("#worktimeinputfrommouth2").val();
+	        	worktimeinputtoyear2=$("#worktimeinputtoyear2").val();
+	        	worktimeinputtomouth2=$("#worktimeinputtomouth2").val();
+	        	koumokuinfotextarea2=$("#koumokuinfotextarea2").val();
+	        	
+	        	kaishanameinput3=$("#kaishanameinput3").val();
+	        	shokumuinput3=$("#shokumuinput3").val();
+	        	worktimeinputfromyear3=$("#worktimeinputfromyear3").val();
+	        	worktimeinputfrommouth3=$("#worktimeinputfrommouth3").val();
+	        	worktimeinputtoyear3=$("#worktimeinputtoyear3").val();
+	        	worktimeinputtomouth3=$("#worktimeinputtomouth3").val();
+	        	koumokuinfotextarea3=$("#koumokuinfotextarea3").val();
+	        	
+	        	kaishanameinput4=$("#kaishanameinput4").val();
+	        	shokumuinput4=$("#shokumuinput4").val();
+	        	worktimeinputfromyear4=$("#worktimeinputfromyear4").val();
+	        	worktimeinputfrommouth4=$("#worktimeinputfrommouth4").val();
+	        	worktimeinputtoyear4=$("#worktimeinputtoyear4").val();
+	        	worktimeinputtomouth4=$("#worktimeinputtomouth4").val();
+	        	koumokuinfotextarea4=$("#koumokuinfotextarea4").val();
+	 //		保存新员工图片       	
+	        	
+				employeeimg=employeeimgtemp;
+				$("#employeeimg").attr("src",employeeimg);
+				
+	//     设置text参数    	
+	            $("#nametext").text(nameinput);
+	 	   		$("#sextext").text(sexinput);
+	 	   		$("#kougotext").text(kougoinput);
+	 	   		$("#bumentext").text(bumeninput);
+		   		$("#bornyeartext").text(bornyearinput);
+		   		$("#bornmouthtext").text(bornmouthinput);
+		   		$("#borndaytext").text(borndayinput);
+		  	 	$("#schooltext").text(schoolinput);
+	 	   		$("#leaveschoolyeartext").text(leaveschoolyearinput);
+	 	   		$("#leaveschoolmouthtext").text(leaveschoolmouthinput);
+	 	 	  	$("#leaveschooldaytext").text(leaveschooldayinput);
+	 	   		$("#workyeartext").text(workyearinput);
+	 	   		$("#workmouthtext").text(workmouthinput);
+	 	   		$("#workdaytext").text(workdayinput);
+	 	   		$("#koumokuintext").text(koumokuininput);
+	 	   		$("#leaveworkyeartext").text(leaveworkyearinput);
+		   		$("#leaveworkmouthtext").text(leaveworkmouthinput);
+		   		$("#leaveworkdaytext").text(leaveworkdayinput);
+	// 		在职状态 	   	
+	            if(workstatus==1){
+	            	$("#workstatus1").attr("hidden","hidden");
+	            	$("#workstatus2").attr("hidden","hidden");
+	            	$("#workstatus3").removeAttr("hidden","hidden");
+	            	$("#workstatus4").attr("hidden","hidden");
+	            	$("#koumokuin1").removeAttr("hidden","hidden");
+	            	$("#koumokuin2").removeAttr("hidden","hidden");
+	            	$("#koumokuout1").attr("hidden","hidden");
+	            	$("#koumokuout2").attr("hidden","hidden");
+	            }else if(workstatus==2){
+	            	$("#workstatus1").attr("hidden","hidden");
+	            	$("#workstatus2").attr("hidden","hidden");
+	            	$("#workstatus3").attr("hidden","hidden");
+	            	$("#workstatus4").removeAttr("hidden","hidden");
+	            	$("#koumokuin1").attr("hidden","hidden");
+	            	$("#koumokuin2").attr("hidden","hidden");
+	            	$("#koumokuout1").removeAttr("hidden","hidden");
+	            	$("#koumokuout2").removeAttr("hidden","hidden");
+	            }else{}
+	
+		        
+		        
+		        
+	//  	skill图片保存 skill>>skillshow
+				switch(CXskillvalue){
+			 		case 5:{$('#CXskill2').attr("src","../static/png/skilla.png");	break;}
+			 		case 4:{$('#CXskill2').attr("src","../static/png/skillb.png");	break;}
+			 		case 3:{$('#CXskill2').attr("src","../static/png/skillc.png");	break;}
+			 		case 2:{$('#CXskill2').attr("src","../static/png/skilld.png");	break;}
+			 		case 1:{$('#CXskill2').attr("src","../static/png/skille.png");	break;}
+		 		}
+				switch(VUEskillvalue){
+			 		case 5:{$('#VUEskill2').attr("src","../static/png/skilla.png");	break;}
+			 		case 4:{$('#VUEskill2').attr("src","../static/png/skillb.png");	break;}
+			 		case 3:{$('#VUEskill2').attr("src","../static/png/skillc.png");	break;}
+			 		case 2:{$('#VUEskill2').attr("src","../static/png/skilld.png");	break;}
+			 		case 1:{$('#VUEskill2').attr("src","../static/png/skille.png");	break;}
+				}
+				switch(Javaskillvalue){
+			 		case 5:{$('#Javaskill2').attr("src","../static/png/skilla.png");	break;}
+			 		case 4:{$('#Javaskill2').attr("src","../static/png/skillb.png");	break;}
+			 		case 3:{$('#Javaskill2').attr("src","../static/png/skillc.png");	break;}
+			 		case 2:{$('#Javaskill2').attr("src","../static/png/skilld.png");	break;}
+			 		case 1:{$('#Javaskill2').attr("src","../static/png/skille.png");	break;}
+				}
+				switch(Angularskillvalue){
+			 		case 5:{$('#Angularskill2').attr("src","../static/png/skilla.png");	break;}
+			 		case 4:{$('#Angularskill2').attr("src","../static/png/skillb.png");	break;}
+			 		case 3:{$('#Angularskill2').attr("src","../static/png/skillc.png");	break;}
+			 		case 2:{$('#Angularskill2').attr("src","../static/png/skilld.png");	break;}
+			 		case 1:{$('#Angularskill2').attr("src","../static/png/skille.png");	break;}
+				}
+				switch(Androidskillvalue){
+			 		case 5:{$('#Androidskill2').attr("src","../static/png/skilla.png");	break;}
+			 		case 4:{$('#Androidskill2').attr("src","../static/png/skillb.png");	break;}
+			 		case 3:{$('#Androidskill2').attr("src","../static/png/skillc.png");	break;}
+			 		case 2:{$('#Androidskill2').attr("src","../static/png/skilld.png");	break;}
+			 		case 1:{$('#Androidskill2').attr("src","../static/png/skille.png");	break;}
+				}
+				switch(JSPskillvalue){
+			 		case 5:{$('#JSPskill2').attr("src","../static/png/skilla.png");	break;}
+			 		case 4:{$('#JSPskill2').attr("src","../static/png/skillb.png");	break;}
+			 		case 3:{$('#JSPskill2').attr("src","../static/png/skillc.png");	break;}
+			 		case 2:{$('#JSPskill2').attr("src","../static/png/skilld.png");	break;}
+			 		case 1:{$('#JSPskill2').attr("src","../static/png/skille.png");	break;}
+				}
+				switch(Thymeleafskillvalue){
+			 		case 5:{$('#Thymeleafskill2').attr("src","../static/png/skilla.png");	break;}
+			 		case 4:{$('#Thymeleafskill2').attr("src","../static/png/skillb.png");	break;}
+			 		case 3:{$('#Thymeleafskill2').attr("src","../static/png/skillc.png");	break;}
+			 		case 2:{$('#Thymeleafskill2').attr("src","../static/png/skilld.png");	break;}
+			 		case 1:{$('#Thymeleafskill2').attr("src","../static/png/skille.png");	break;}
+				}
+				switch(SqlServerskillvalue){
+			 		case 5:{$('#SqlServerskill2').attr("src","../static/png/skilla.png");	break;}
+			 		case 4:{$('#SqlServerskill2').attr("src","../static/png/skillb.png");	break;}
+			 		case 3:{$('#SqlServerskill2').attr("src","../static/png/skillc.png");	break;}
+			 		case 2:{$('#SqlServerskill2').attr("src","../static/png/skilld.png");	break;}
+			 		case 1:{$('#SqlServerskill2').attr("src","../static/png/skille.png");	break;}
+				}
+				switch(Jqueryskillvalue){
+			 		case 5:{$('#Jqueryskill2').attr("src","../static/png/skilla.png");	break;}
+			 		case 4:{$('#Jqueryskill2').attr("src","../static/png/skillb.png");	break;}
+			 		case 3:{$('#Jqueryskill2').attr("src","../static/png/skillc.png");	break;}
+			 		case 2:{$('#Jqueryskill2').attr("src","../static/png/skilld.png");	break;}
+			 		case 1:{$('#Jqueryskill2').attr("src","../static/png/skille.png");	break;}
+				}
+				switch(Reactskillvalue){
+			 		case 5:{$('#Reactskill2').attr("src","../static/png/skilla.png");	break;}
+			 		case 4:{$('#Reactskill2').attr("src","../static/png/skillb.png");	break;}
+			 		case 3:{$('#Reactskill2').attr("src","../static/png/skillc.png");	break;}
+			 		case 2:{$('#Reactskill2').attr("src","../static/png/skilld.png");	break;}
+			 		case 1:{$('#Reactskill2').attr("src","../static/png/skille.png");	break;}
+				}
+				switch(HTMLskillvalue){
+			 		case 5:{$('#HTMLskill2').attr("src","../static/png/skilla.png");	break;}
+			 		case 4:{$('#HTMLskill2').attr("src","../static/png/skillb.png");	break;}
+			 		case 3:{$('#HTMLskill2').attr("src","../static/png/skillc.png");	break;}
+			 		case 2:{$('#HTMLskill2').attr("src","../static/png/skilld.png");	break;}
+			 		case 1:{$('#HTMLskill2').attr("src","../static/png/skille.png");	break;}
+				}
+				switch(CSSskillvalue){
+			 		case 5:{$('#CSSskill2').attr("src","../static/png/skilla.png");	break;}
+			 		case 4:{$('#CSSskill2').attr("src","../static/png/skillb.png");	break;}
+			 		case 3:{$('#CSSskill2').attr("src","../static/png/skillc.png");	break;}
+			 		case 2:{$('#CSSskill2').attr("src","../static/png/skilld.png");	break;}
+			 		case 1:{$('#CSSskill2').attr("src","../static/png/skille.png");	break;}
+				}
+				switch(tenNetskillvalue){
+			 		case 5:{$('#tenNetskill2').attr("src","../static/png/skilla.png");	break;}
+			 		case 4:{$('#tenNetskill2').attr("src","../static/png/skillb.png");	break;}
+			 		case 3:{$('#tenNetskill2').attr("src","../static/png/skillc.png");	break;}
+			 		case 2:{$('#tenNetskill2').attr("src","../static/png/skilld.png");	break;}
+			 		case 1:{$('#tenNetskill2').attr("src","../static/png/skille.png");	break;}
+				}
+				switch(IOSskillvalue){
+			 		case 5:{$('#IOSskill2').attr("src","../static/png/skilla.png");	break;}
+			 		case 4:{$('#IOSskill2').attr("src","../static/png/skillb.png");	break;}
+			 		case 3:{$('#IOSskill2').attr("src","../static/png/skillc.png");	break;}
+			 		case 2:{$('#IOSskill2').attr("src","../static/png/skilld.png");	break;}
+			 		case 1:{$('#IOSskill2').attr("src","../static/png/skille.png");	break;}
+				}
+				switch(Mysqlskillvalue){
+			 		case 5:{$('#Mysqlskill2').attr("src","../static/png/skilla.png");	break;}
+			 		case 4:{$('#Mysqlskill2').attr("src","../static/png/skillb.png");	break;}
+			 		case 3:{$('#Mysqlskill2').attr("src","../static/png/skillc.png");	break;}
+			 		case 2:{$('#Mysqlskill2').attr("src","../static/png/skilld.png");	break;}
+			 		case 1:{$('#Mysqlskill2').attr("src","../static/png/skille.png");	break;}
+				}
+				switch(Oracleskillvalue){
+			 		case 5:{$('#Oracleskill2').attr("src","../static/png/skilla.png");	break;}
+			 		case 4:{$('#Oracleskill2').attr("src","../static/png/skillb.png");	break;}
+			 		case 3:{$('#Oracleskill2').attr("src","../static/png/skillc.png");	break;}
+			 		case 2:{$('#Oracleskill2').attr("src","../static/png/skilld.png");	break;}
+			 		case 1:{$('#Oracleskill2').attr("src","../static/png/skille.png");	break;}
+				}
+				switch(Cupupskillvalue){
+			 		case 5:{$('#Cupupskill2').attr("src","../static/png/skilla.png");	break;}
+			 		case 4:{$('#Cupupskill2').attr("src","../static/png/skillb.png");	break;}
+			 		case 3:{$('#Cupupskill2').attr("src","../static/png/skillc.png");	break;}
+			 		case 2:{$('#Cupupskill2').attr("src","../static/png/skilld.png");	break;}
+			 		case 1:{$('#Cupupskill2').attr("src","../static/png/skille.png");	break;}
+				}
+				switch(Springskillvalue){
+			 		case 5:{$('#Springskill2').attr("src","../static/png/skilla.png");	break;}
+			 		case 4:{$('#Springskill2').attr("src","../static/png/skillb.png");	break;}
+			 		case 3:{$('#Springskill2').attr("src","../static/png/skillc.png");	break;}
+			 		case 2:{$('#Springskill2').attr("src","../static/png/skilld.png");	break;}
+			 		case 1:{$('#Springskill2').attr("src","../static/png/skille.png");	break;}
+				}
+	//		工作履历保存			 
+				$("#kaishanametext1").text(kaishanameinput1);
+		    	$("#shokumutext1").text(shokumuinput1);
+		    	$("#worktimetextfromyear1").text(worktimeinputfromyear1);
+		    	$("#worktimetextfrommouth1").text(worktimeinputfrommouth1);
+		    	$("#worktimetexttoyear1").text(worktimeinputtoyear1);
+		    	$("#worktimetexttomouth1").text(worktimeinputtomouth1);
+		    	$("#koumokuinfotext1").text(koumokuinfotextarea1);
+		   		
+		   		$("#kaishanametext2").text(kaishanameinput2);
+		    	$("#shokumutext2").text(shokumuinput2);
+		    	$("#worktimetextfromyear2").text(worktimeinputfromyear2);
+		    	$("#worktimetextfrommouth2").text(worktimeinputfrommouth2);
+		    	$("#worktimetexttoyear2").text(worktimeinputtoyear2);
+		    	$("#worktimetexttomouth2").text(worktimeinputtomouth2);
+		    	$("#koumokuinfotext2").text(koumokuinfotextarea2);
+		   		
+		   		$("#kaishanametext3").text(kaishanameinput3);
+		    	$("#shokumutext3").text(shokumuinput3);
+		    	$("#worktimetextfromyear3").text(worktimeinputfromyear3);
+		    	$("#worktimetextfrommouth3").text(worktimeinputfrommouth3);
+		    	$("#worktimetexttoyear3").text(worktimeinputtoyear3);
+		    	$("#worktimetexttomouth3").text(worktimeinputtomouth3);
+		    	$("#koumokuinfotext3").text(koumokuinfotextarea3);
+		   		
+		   		$("#kaishanametext4").text(kaishanameinput4);
+		    	$("#shokumutext4").text(shokumuinput4);
+		    	$("#worktimetextfromyear4").text(worktimeinputfromyear4);
+		    	$("#worktimetextfrommouth4").text(worktimeinputfrommouth4);
+		    	$("#worktimetexttoyear4").text(worktimeinputtoyear4);
+		    	$("#worktimetexttomouth4").text(worktimeinputtomouth4);
+		    	$("#koumokuinfotext4").text(koumokuinfotextarea4);
 			
-//	    input隐藏   
-	  		$("input").attr("hidden","hidden");
-	        $("textarea").attr("hidden","hidden");
-	        $("#editimgbutton").removeAttr("hidden","hidden");
-	        $("#saveimgbutton").attr("hidden","hidden");
-//	    text显示       
-	        $("text").removeAttr("hidden","hidden");
-//		skill图片展示 skill>>skillshow         
-            $(".skillshow").removeAttr("hidden","hidden");
-            $(".skill").attr("hidden","hidden");
-//  	top变换           
-      		$("#employeetoptext").text("员工详细情报-保存成功");
-            
+				
+	//	    input隐藏   
+		  		$("input").attr("hidden","hidden");
+		        $("textarea").attr("hidden","hidden");
+		        $("#editimgbutton").removeAttr("hidden","hidden");
+		        $("#saveimgbutton").attr("hidden","hidden");
+	//	    text显示       
+		        $("text").removeAttr("hidden","hidden");
+	//		skill图片展示 skill>>skillshow         
+	            $(".skillshow").removeAttr("hidden","hidden");
+	            $(".skill").attr("hidden","hidden");
+	//  	top变换           
+	      		$("#employeetoptext").text("员工详细情报-保存成功");
+	     }else{
+			 
+		 }
         });
 //   编辑图片变化    
         $("#editimgbutton").mouseover(function() {
