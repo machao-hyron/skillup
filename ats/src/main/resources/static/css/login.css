@@ -1,0 +1,73 @@
+h1{
+	font-family:宋体;
+	font-size:40px;
+    text-align: center;
+    font-weight: bold;
+}
+
+h2{
+	font-family:宋体;
+	font-size:30px;
+    text-align: center;
+    font-weight: bold;
+}
+fieldset{
+	font-family:宋体;
+	font-size:20px;
+    margin:30px auto;
+    width:500px;
+    height:260px;
+    padding:20px auto;
+    font-weight: bold;
+    text-align:center;
+}
+  label{
+    display: inline-block;
+	width: 80px;
+    text-align: justify;
+    text-align-last: justify;
+    margin-right: 10px;
+}
+#id {
+	width: 250px;
+}
+#pwd {
+	width: 250px;
+}
+div {
+    width: 170px;
+    height: auto;
+    margin: auto;
+}
+div.btn1{
+	margin-left: 110px;
+	display:inline-block;
+}
+div.btn2{
+	margin-right: 10px;
+	display:inline-block;
+}
+span {
+	font-family:宋体;
+	font-size:20px;
+	color: red;
+	width: auto;
+	height: auto;
+    align: center;
+}
+button{
+    width: 80px;
+    height: 25px;
+    font-family:宋体;
+	font-size:20px;
+    text-align: center;
+    font-weight: bold;
+}
+#submit{
+    width: 80px;
+    height: 25px;
+    font-family:宋体;
+	font-size:20px;
+    text-align: center;
+    font-weight: bold;
+}

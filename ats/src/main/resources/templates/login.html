@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta http-equiv="Content-Type" content="application/json; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" media="screen" href="./css/login.css">
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+	<title>登录</title>
+
+</head>
+
+    <body background="./img/bg1.jpg">
+    	<br>
+    	<h1>江苏海隆软件技术有限公司</h1>
+		<h2>考勤管理系统</h2>
+        <form method="post" action="login" >
+            <fieldset>
+                <br><br>
+                <label>用户名:</label>
+                <input type="text" name="id" id="id" required pattern="^[A-Za-z0-9]{1,6}$"  ><br><br><br>
+                <label>密&nbsp;码:</label>
+                <input type="password" name="pwd" id="pwd" required pattern="^[A-Za-z0-9]{4,15}$" ><br><br><br>
+                <div class="btn1">
+                	<input type="submit" id="submit" value="登录"></input>
+                </div>
+                <div class="btn2">
+                	<button id="clear" type="button" >清空</button>
+                </div>
+                <br><br>
+           		<span name="errorMsg" id="errorMsg" th:text="${errorMsg}" />
+            </fieldset>
+        </form>
+    </body>
+
+</html>
+<script type="text/javascript">
+	$('form').click(function() {
+		password();
+		name();
+	})
+	$('button').click(function() {
+		clear();
+	})
+
+	function password() {
+		var pw = document.getElementById('pwd');
+		if (pw.validity.valueMissing) {
+			pw.setCustomValidity('请输入密码。');
+		} else if (pw.validity.patternMismatch) {
+			pw.setCustomValidity('请输入4~15位的密码。');
+		} else {
+			pw.setCustomValidity('');
+		} 
+	}
+
+	function name() {
+		var name = document.getElementById('id');
+		if (name.validity.valueMissing) {
+			name.setCustomValidity('请输入用户名。');
+		} else if (name.validity.patternMismatch) {
+			name.setCustomValidity('请输入6位以下的用户名。');
+		} else {
+			name.setCustomValidity('');
+		}
+	}
+    function clear() {
+        document.getElementById("id").value = "";
+        document.getElementById("pwd").value = "";
+    }
+</script>

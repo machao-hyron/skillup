@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <title>员工情报一览画面</title>
+    <link rel="stylesheet" media="screen" href="./css/employeeSearch.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+</head>
+<body background="./img/bg1.jpg">
+
+    <h1>员工情报一览</h1>
+    <hr>
+    <div>
+    <p style="margin-left: 220px">请输入查询信息：</p>
+    </div>
+    <div align="center">
+        <p>
+        姓名：<input id="username" type="text"  placeholder="请输入姓名">&nbsp;
+        工号：<input id="id" type="text"  placeholder="请输入工号">&nbsp;
+        部门：<input id="department" type="text"  placeholder="请输入部门编号">&nbsp;
+        技术特长：<select id="d1" style="width:100px"><option></option><option>java</option><option>C#</option><option>HTML</option></select>&nbsp;
+        <button id="btn1" type="button" >检索</button>&nbsp;
+        </p>
+      </div>
+</body>
+</html>
