@@ -1,0 +1,51 @@
+h1 {
+    text-align: center;
+    font-weight: bold;
+}
+
+div {
+    width: 1400px;
+    height: auto;
+    margin: auto;
+}
+
+
+
+.inputText{
+    width: 300px;
+    height: 40px;
+    line-height: 10px;
+    font-size: 15px;
+    padding-left: 30px;
+    border-radius: 50px;
+    background-color: gainsboro;
+    border: none;
+}
+.inputText:focus{
+    outline: none;/*设置所有的轮廓属性为none*/
+background-color: lightblue;
+}
+
+
+.table1_1 table {
+    width:auto;
+    margin:15px 0
+}
+.table1_1 th {
+    background-color:#93DAFF;
+    color:#000000
+}
+.table1_1,.table1_1 th,.table1_1 td
+{
+    font-size:0.95em;
+    text-align:center;
+    padding:4px;
+    border:1px solid #dddddd;
+    border-collapse:collapse
+}
+.table1_1 tr:nth-child(odd){
+    background-color:#dbf2fe;
+}
+.table1_1 tr:nth-child(even){
+    background-color:#fdfdfd;
+}

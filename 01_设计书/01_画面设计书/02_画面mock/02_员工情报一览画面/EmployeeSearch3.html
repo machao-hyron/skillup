@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Hello World</title>
+    <link rel="stylesheet" href="./css/my.css">
+
+    <script type="text/javascript" src="./js/jquery-3.6.1.min.js"></script>
+    <script type="text/javascript" src="./js/test.js"></script>
+</head>
+<body background="./css/bg1.jpg">
+    <h1>员工情报一览</h1>
+    <hr>
+    <div>
+    <p style="margin-left: 220px">请输入查询信息：</p>
+    </div>
+    <div align="center">
+        <p >
+        姓名：<input id="username" type="text"  placeholder="请输入姓名">&nbsp;
+        工号：<input id="id" type="text"  placeholder="请输入工号">&nbsp;
+        部门：<input id="department" type="text"  placeholder="请输入部门编号">&nbsp;
+        技术特长：<select id="d1" style="width:100px"><option>java</option><option>C#</option><option>HTML</option></select>&nbsp;
+        <button id="btn1" type="button" >检索</button>&nbsp;
+        </p>
+      </div>
+      <div>
+        <table class=table1_1 align="center">
+            <tr>
+                <th width="100px">部门ID</th>
+                <th width="100px">工号</th>
+                <th width="100px">姓名</th>
+                <th width="200px">项目组名</th>
+                <th width="100px">项目统括姓名</th>
+                <th width="200px">技术特长</th>
+                <th width="100px">编辑・新规</th>
+            </tr>
+            <tr>
+                <td>D311</td>
+                <td>JS1404</td>
+                <td>王涛</td>
+                <td>新VA</td>
+                <td>刘涛</td>
+                <td>java,HTML</td>
+                <td><button id="btn2" type="button" >编辑・新规</button></td>
+            </tr>
+            <tr>
+                <td>D311</td>
+                <td>JS1405</td>
+                <td>王涛</td>
+                <td>新VA_simulation</td>
+                <td>刘涛</td>
+                <td>java,C#</td>
+                <td><button id="btn2" type="button" >编辑・新规</button></td>
+            </tr>
+            <tr>
+                <td>D311</td>
+                <td>JS1406</td>
+                <td>张三</td>
+                <td>保守</td>
+                <td>孙海涛</td>
+                <td>java,mysql</td>
+                <td><button id="btn2" type="button" >编辑・新规</button></td>
+            </tr>
+            <tr>
+                <td>D311</td>
+                <td>JS1407</td>
+                <td>李四</td>
+                <td>slim</td>
+                <td>李建龙</td>
+                <td>java,mysql,C#,CSS,C++</td>
+                <td><button id="btn2" type="button" >编辑・新规</button></td>
+            </tr>
+        </table>
+        <br />
+        <div align="center">
+          <button id="btn3" type="button" >员工情报一括导入</button>&nbsp;&nbsp;&nbsp;
+          <button id="btn4" type="button" >考勤情报一览</button>
+        </div>
+    </div>
+</body>
+</html>
