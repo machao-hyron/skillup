@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Hello World</title>
+    <link rel="stylesheet" href="../static/css/EmployeeImportAndExport.css">
+
+    <script type="text/javascript" src="../static/js/jquery-3.6.1.min.js"></script>
+<!--    <script type="text/javascript" src="../static/js/EmployeeImportAndExport.js"></script>-->
+    <script type="text/javascript" src="../static/js/test.js"></script>
+</head>
+<body background="../static/img/bg1.jpg">
+<h1>员工情报一括导入</h1>
+<hr>
+<div>
+
+    <!--        <button id="btn3" type="button" >导入</button>&nbsp;-->
+    <!--        <button id="btn9" type="button" >导出</button></p>-->
+    <form th:action="@{/EmployeeImportAndExport/import}" method="post" enctype="multipart/form-data" class="form-inline" >
+        <div class="form-group">
+            <p>请输入查询信息：</p>
+            <p style="display: inline">工号：<input id="id" type="text"  placeholder="请输入工号">&nbsp;
+                部门：<input id="username" type="text"  placeholder="请输入部门编号">&nbsp;
+                <button id="btn1" type="button" >查询</button>&nbsp;</p>
+            <input class="form-control" type="file" name="excelFile" style="border: 1px #3e4c2f">
+            <input id="btn3" type="submit" class="btn3" value="导入">
+            <a th:href="@{/EmployeeImportAndExport/export}" id="btn9" class="btn9" >excel导出</a>
+        </div>
+    </form>
+
+
+    <table class=table1_1 align="center">
+        <tr>
+            <th>工号</th>
+            <th>部门</th>
+            <th>所属项目</th>
+            <th>姓名</th>
+            <th>性别</th>
+            <th>生日</th>
+            <th>毕业时间</th>
+            <th>毕业学校</th>
+            <th>入职时间</th>
+            <th>是否在职</th>
+            <th>离职时间</th>
+            <th>照片</th>
+        </tr>
+        <tr th:each="employee :${employees}" th:action="@{/findAll}">
+            <th th:text="${employee.employeeId}" width="100px">工号</th>
+            <th th:text="${employee.departmentId}" width="100px">部门</th>
+            <th th:text="${employee.projectId}" width="100px">所属项目</th>
+            <th th:text="${employee.employeeName}" width="100px">姓名</th>
+            <th th:text="${employee.employeeSex}" width="100px">性别</th>
+            <th th:text="${employee.employeeBirth}" width="100px">生日</th>
+            <th th:text="${employee.graduationYear}" width="100px">毕业时间</th>
+            <th th:text="${employee.graduationUniversity}" width="100px">毕业学校</th>
+            <th th:text="${employee.inductionDate}" width="100px">入职时间</th>
+            <th th:text="${employee.onJobFlg}" width="100px">是否在职</th>
+            <th th:text="${employee.resignationDate}" width="100px">离职时间</th>
+            <th th:text="${employee.employeeImg}" width="100px">照片</th>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

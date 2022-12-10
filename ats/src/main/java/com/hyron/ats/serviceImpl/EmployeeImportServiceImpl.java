@@ -1,5 +1,6 @@
 package com.hyron.ats.serviceImpl;
 
+import com.hyron.ats.mapper.EmployeeImportMapper;
 import com.hyron.ats.pojo.Employee;
 import com.hyron.ats.service.EmployeeImportService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,15 +12,15 @@ import java.util.List;
 public class EmployeeImportServiceImpl implements EmployeeImportService {
 
     @Autowired
-    EmployeeMapper employeeMapper;
+    private EmployeeImportMapper employeeImportMapper;
 
     @Override
     public List<Employee> findAll() {
-        return employeeMapper.findAll();
+        return employeeImportMapper.findAll();
     }
 
     @Override
     public void setDataFromExcel(List<Employee> employees) {
-        employeeMapper.setDataFromExcel(employees);
+        employeeImportMapper.setDataFromExcel(employees);
     }
 }

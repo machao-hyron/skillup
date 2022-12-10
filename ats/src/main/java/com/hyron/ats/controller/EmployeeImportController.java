@@ -5,7 +5,7 @@ import cn.afterturn.easypoi.excel.ExcelImportUtil;
 import cn.afterturn.easypoi.excel.entity.ExportParams;
 import cn.afterturn.easypoi.excel.entity.ImportParams;
 import com.hyron.ats.pojo.Employee;
-import com.hyron.ats.service.EmployeeService;
+import com.hyron.ats.service.EmployeeImportService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,23 +14,22 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
-
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.net.URLEncoder;
 import java.util.List;
 
-    @Controller
-    @Slf4j
-    public class EmployeeImportController {
+@Controller
+@Slf4j
+public class EmployeeImportController {
         @Autowired
-        private EmployeeService employeeService;
+        private EmployeeImportService employeeImportService;
 
 
         @RequestMapping(value = "/findAll",method = RequestMethod.GET)
         public String findAll(HttpServletRequest request){
-            List<Employee> employees = employeeService.findAll();
+            List<Employee> employees = employeeImportService.findAll();
             request.setAttribute("employees",employees);
             return "EmployeeImportAndExport/findAll";
         }
@@ -47,12 +46,12 @@ import java.util.List;
             //params.setImportFields(new String[]{"工号","部门"});
             List<Employee> employees = ExcelImportUtil.importExcel(excelFile.getInputStream(), Employee.class, params);//实现文件导入
             // emps.forEach(System.out::println);
-            employeeService.setDataFromExcel(employees);//存入数据库
+            employeeImportService.setDataFromExcel(employees);//存入数据库
             return "redirect:EmployeeImportAndExport/findAll";//上传完成后跳转到查询的路径
         }
         @RequestMapping("/export")
         public String exportExcel(HttpServletResponse response) throws Exception{
-            List<Employee> employees = employeeService.findAll();
+            List<Employee> employees = employeeImportService.findAll();
 //        emps.forEach(emp -> {
 //            emp.setEmpImg(realPath+"/"+emp.getEmpImg());
 //        });
@@ -66,6 +65,6 @@ import java.util.List;
             workbook.close();
             return "redirect:EmployeeImportAndExport/findAll";//上传完成后跳转到查询的路径
         }
-    }
-
 }
+
+

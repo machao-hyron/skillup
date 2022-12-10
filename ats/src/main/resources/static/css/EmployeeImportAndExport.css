@@ -1,0 +1,68 @@
+h1 {
+    text-align: center;
+    font-weight: bold;
+}
+
+div {
+    width: 1400px;
+    height: auto;
+    margin: auto;
+}
+
+button{
+    width: 80px;
+    /* height: 30px; */
+    text-transform: uppercase;
+    border: 3px solid #FFFFFF; /* 设置按钮的边界粗细和颜色 */
+    margin-top: 5px;
+    text-align: center;
+    font-size: 20px; /* 修改按钮文字的大小 */
+    /* 设置按钮里面字体颜色 */
+    color: #FFFFFF;
+    line-height: 20px;
+    border-radius: 30px; /* 将按钮的左右边框设置为圆弧 */
+    cursor: pointer;
+    /* 圆角弧度24px */
+    transition:0.2s;
+    /* 设置按钮背景为透明 */
+    background:rgba(0,0,0,0);
+}
+
+.inputText{
+    width: 300px;
+    height: 40px;
+    line-height: 10px;
+    font-size: 15px;
+    padding-left: 30px;
+    border-radius: 50px;
+    background-color: gainsboro;
+    border: none;
+}
+.inputText:focus{
+    outline: none;//设置所有的轮廓属性为none
+background-color: lightblue;
+}
+
+
+.table1_1 table {
+    width:auto;
+    margin:15px 0
+}
+.table1_1 th {
+    background-color:#93DAFF;
+    color:#000000
+}
+.table1_1,.table1_1 th,.table1_1 td
+{
+    font-size:0.95em;
+    text-align:center;
+    padding:4px;
+    border:1px solid #dddddd;
+    border-collapse:collapse
+}
+.table1_1 tr:nth-child(odd){
+    background-color:#dbf2fe;
+}
+.table1_1 tr:nth-child(even){
+    background-color:#fdfdfd;
+}
