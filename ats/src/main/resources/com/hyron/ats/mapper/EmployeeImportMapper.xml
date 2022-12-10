@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hyron.ats.mapper.EmployeeImportMapper">
+
+    <resultMap id="BaseResultMap" type="com.hyron.ats.pojo.Employee">
+        <id  column="employee_id" jdbcType="CHAR" property="employeeId"/>
+        <result column="department_id" jdbcType="CHAR" property="departmentId"/>
+        <result column="project_id" jdbcType="VARCHAR" property="projectId"/>
+        <result column="employee_name" jdbcType="VARCHAR" property="employeeName"/>
+        <result column="employee_sex" jdbcType="CHAR" property="employeeSex"/>
+        <result column="employee_birth" jdbcType="TIMESTAMP" property="employeeBirth"/>
+        <result column="graduation_year" jdbcType="DATE" property="graduationYear"/>
+        <result column="graduation_university" jdbcType="VARCHAR" property="graduationUniversity"/>
+        <result column="induction_date" jdbcType="Date" property="inductionDate"/>
+        <result column="on_job_flg" jdbcType="TINYINT" property="onJobFlg"/>
+        <result column="resignation_date" jdbcType="DATE" property="resignationDate"/>
+        <result column="employee_img" jdbcType="VARCHAR" property="employeeImg"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="create_user_id" jdbcType="CHAR" property="createUserId"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+        <result column="update_user_id" jdbcType="CHAR" property="updateUserId"/>
+    </resultMap>
+    <sql id="Base">
+        employee_id,department_id,project_id,employee_name,employee_sex,employee_birth,graduation_year,graduation_university,induction_date,on_job_flg,resignation_date,employee_img
+        </sql>
+
+    <select id="findAll" resultMap="BaseResultMap" >
+        select <include refid="Base"></include> from t_employee_info
+    </select>
+
+    <insert id="setDataFromExcel"  parameterType="com.hyron.ats.pojo.Employee">
+        insert into t_employee_info
+        (<include refid="Base"></include>)
+        values
+        <foreach collection="list" item="employee" index="index" separator=",">
+            (
+            #{employee.employeeId},
+            #{employee.departmentId},
+            #{employee.projectId},
+            #{employee.employeeName},
+            #{employee.employeeSex},
+            #{employee.employeeBirth},
+            #{employee.graduationYear},
+            #{employee.graduationUniversity},
+            #{employee.inductionDate},
+            #{employee.onJobFlg},
+            #{employee.resignationDate},
+            #{employee.employeeImg}
+            )
+        </foreach>
+    </insert>
+
+</mapper>
