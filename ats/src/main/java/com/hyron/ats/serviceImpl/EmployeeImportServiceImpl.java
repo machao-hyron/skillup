@@ -23,4 +23,9 @@ public class EmployeeImportServiceImpl implements EmployeeImportService {
     public void setDataFromExcel(List<Employee> employees) {
         employeeImportMapper.setDataFromExcel(employees);
     }
+
+    @Override
+    public List<Employee> findByIdAndName(String employeeId, String departmentId, String name) {
+        return employeeImportMapper.findByIdAndName(employeeId,departmentId,name);
+    }
 }

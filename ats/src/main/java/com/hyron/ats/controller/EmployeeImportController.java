@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
@@ -32,6 +33,15 @@ public class EmployeeImportController {
             List<Employee> employees = employeeImportService.findAll();
             request.setAttribute("employees",employees);
             return "EmployeeImportAndExport/findAll";
+        }
+        @RequestMapping(value = "/findByIdAndName",method = RequestMethod.GET)
+        public String findByIdAndName(@RequestParam String employeeId,
+                                      @RequestParam String departmentId,
+                                      @RequestParam String employeeName,
+                                      HttpServletRequest request){
+            List<Employee> employees = employeeImportService.findByIdAndName(employeeId,departmentId,employeeName);
+            return "EmployeeImportAndExport/findByIdAndName";
+
         }
 
         //导入excel

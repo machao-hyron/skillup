@@ -29,6 +29,23 @@
     <select id="findAll" resultMap="BaseResultMap" >
         select <include refid="Base"></include> from t_employee_info
     </select>
+    <select id="findByIdAndName" resultType="com.hyron.ats.pojo.Employee">
+        select <include refid="Base"></include> from t_employee_info
+        <where>
+            <choose>
+                <when test=" employee_id !='' and  employee_id !=null">
+                    employee_id=#{employeeId}
+                </when>
+                <when test=" department_id !='' and  department_id !=null">
+                    department_id=#{departmentId}
+                </when>
+                <when test=" employee_name !='' and  employee_name !=null">
+                    employee_name=#{employeeName}
+                </when>
+            </choose>
+        </where>
+    </select>
+
 
     <insert id="setDataFromExcel"  parameterType="com.hyron.ats.pojo.Employee">
         insert into t_employee_info
