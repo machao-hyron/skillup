@@ -40,9 +40,9 @@ public class EmployeeSearchController {
     			|| StringUtils.isNotEmpty(inDto.getEmployeeId())
     			|| StringUtils.isNotEmpty(inDto.getEmployeeName())
     			|| StringUtils.isNotEmpty(inDto.getSkill())) {
-    		List<EmployeeSearchOutDto> employeeSearchOutDto = employeeSearchServiceImpl.getEmployeeSearchInfo(inDto);
+    		List<EmployeeSearchOutDto> employeeSearchOutDto = employeeSearchServiceImpl.getEmployeeSearchInfoList(inDto);
     		model.addAttribute("employeeSearchOutDto",employeeSearchOutDto);
-    		return "redirect:employeeSearch";
+    		return "employeeSearch";
 		} else {
 			model.addAttribute("errorMsg", "没有检索到该对象的数据。");
 			return "employeeSearch";

@@ -10,10 +10,8 @@ import com.hyron.ats.dto.EmployeeSearchInDto;
 import com.hyron.ats.dto.EmployeeSearchOutDto;
 import com.hyron.ats.mapper.TEmployeeInfoMapper;
 import com.hyron.ats.mapper.TProjectInformationMapper;
-import com.hyron.ats.mapper.TSkillInfoMapper;
-import com.hyron.ats.pojo.TEmployeeInfo;
-import com.hyron.ats.pojo.TProjectInformation;
-import com.hyron.ats.pojo.TSkillInfo;
+import com.hyron.ats.pojo.EmployeeSearchInfo;
+
 import com.hyron.ats.service.EmployeeSearchService;
 /**
  * 
@@ -25,28 +23,23 @@ import com.hyron.ats.service.EmployeeSearchService;
 public class EmployeeSearchServiceImpl implements EmployeeSearchService{
 
 	@Autowired
-	private TSkillInfoMapper tSkillInfoMapper;
-	@Autowired
 	private TEmployeeInfoMapper tEmployeeInfoMapper;
 	@Autowired
 	private TProjectInformationMapper tProjectInformationMapper;
-
+	
 	@Override
-	public List<EmployeeSearchOutDto> getEmployeeSearchInfo(EmployeeSearchInDto inDto) {
+	public List<EmployeeSearchOutDto> getEmployeeSearchInfoList(EmployeeSearchInDto inDto) {
 		List<EmployeeSearchOutDto> outDtoList = new ArrayList<>();
-		List<TEmployeeInfo> tEmployeeInfoList = tEmployeeInfoMapper.selectAll(inDto);
-		List<TProjectInformation> tProjectInformationList = new ArrayList<>();
-		List<String> skillList = getSkill(inDto);
-		if (tEmployeeInfoList.size() != 0) {
-			for (int i = 0; i < tEmployeeInfoList.size(); i++) {
+		List<EmployeeSearchInfo> EmployeeSearchInfoList = tEmployeeInfoMapper.selectjoin(inDto);
+		List<String> skillList = getSkill(EmployeeSearchInfoList);
+		if (EmployeeSearchInfoList.size() != 0) {
+			for (int i = 0; i < EmployeeSearchInfoList.size(); i++) {
 				EmployeeSearchOutDto outDto = new EmployeeSearchOutDto();
-				tProjectInformationList = tProjectInformationMapper.selectAll(tEmployeeInfoList.get(i).getDepartmentId());
-				outDto.setDepartmentId(tEmployeeInfoList.get(i).getDepartmentId());
-				outDto.setEmployeeName(tEmployeeInfoList.get(i).getEmployeeName());
-				outDto.setEmployeeId(tEmployeeInfoList.get(i).getEmployeeId());
-				outDto.setProjectId(tEmployeeInfoList.get(i).getProjectId());
-				outDto.setProjectName(tProjectInformationList.get(i).getProjectName());
-				outDto.setRojectLeaderId(tProjectInformationList.get(i).getProjectLeaderId());
+				outDto.setDepartmentId(EmployeeSearchInfoList.get(i).getDepartmentId());
+				outDto.setEmployeeName(EmployeeSearchInfoList.get(i).getEmployeeName());
+				outDto.setEmployeeId(EmployeeSearchInfoList.get(i).getEmployeeId());
+				outDto.setProjectName(EmployeeSearchInfoList.get(i).getProjectName());
+				outDto.setRojectLeaderId(EmployeeSearchInfoList.get(i).getProjectLeaderId());
 				outDto.setSkill(skillList.get(i));
 				outDtoList.add(outDto);
 			}
@@ -54,24 +47,25 @@ public class EmployeeSearchServiceImpl implements EmployeeSearchService{
 		} else {
 			return outDtoList;
 		}
+		
 	}
 
 	@Override
-	public List<String> getSkill(EmployeeSearchInDto inDto) {
-		List<TSkillInfo> tSkillInfo = tSkillInfoMapper.selectAll(inDto);
+	public List<String> getSkill(List<EmployeeSearchInfo> EmployeeSearchInfoList) {
 		List<String> skillList = new ArrayList<>();
 		StringBuffer str = new StringBuffer() ;
-		for (int i = 0; i < tSkillInfo.size(); i++) {
-			byte[] StrSkill = getStrSkill(tSkillInfo.get(i));
+		for (int i = 0; i < EmployeeSearchInfoList.size(); i++) {
+			byte[] StrSkill = getStrSkill(EmployeeSearchInfoList.get(i));
 			for (int j = 0; j < StrSkill.length; j++) {
-				if (tSkillInfo != null && StrSkill[j] == 1) {
+				if (EmployeeSearchInfoList != null && StrSkill[j] == 1) {
 					str.append(SkillName[j]);
+					str.append(",");
 				}else {
 					continue;
 				}
-				str.append(",");
 			}
-			skillList.add(str.toString());
+			String str1 = str.toString().substring(0,str.length()-1);
+			skillList.add(str1);	
 		}
 		return skillList;
 	}
@@ -82,26 +76,26 @@ public class EmployeeSearchServiceImpl implements EmployeeSearchService{
 	 * @param tSkillInfo
 	 * @return
 	 */
-	public byte[] getStrSkill(TSkillInfo tSkillInfo) {
+	public byte[] getStrSkill(EmployeeSearchInfo employeeSearchInfo) {
 		byte[] skill = new byte[18];
-		skill[0] = tSkillInfo.getAndroid();
-		skill[1] = tSkillInfo.getAngular();
-		skill[2] = tSkillInfo.getCPlus();
-		skill[3] = tSkillInfo.getCSharp();
-		skill[4] = tSkillInfo.getCss();
-		skill[5] = tSkillInfo.getHtml();
-		skill[6] = tSkillInfo.getIos();
-		skill[7] = tSkillInfo.getJava();
-		skill[8] = tSkillInfo.getJquery();
-		skill[9] = tSkillInfo.getJsp();
-		skill[10] = tSkillInfo.getMysql();
-		skill[11] = tSkillInfo.getNet();
-		skill[12] = tSkillInfo.getOracle();
-		skill[13] = tSkillInfo.getReact();
-		skill[14] = tSkillInfo.getSpring();
-		skill[15] = tSkillInfo.getSqlserver();
-		skill[16] = tSkillInfo.getThymeleaf();
-		skill[17] = tSkillInfo.getVue();
+		skill[0] = employeeSearchInfo.getAndroid();
+		skill[1] = employeeSearchInfo.getAngular();
+		skill[2] = employeeSearchInfo.getCPlus();
+		skill[3] = employeeSearchInfo.getCSharp();
+		skill[4] = employeeSearchInfo.getCss();
+		skill[5] = employeeSearchInfo.getHtml();
+		skill[6] = employeeSearchInfo.getIos();
+		skill[7] = employeeSearchInfo.getJava();
+		skill[8] = employeeSearchInfo.getJquery();
+		skill[9] = employeeSearchInfo.getJsp();
+		skill[10] = employeeSearchInfo.getMysql();
+		skill[11] = employeeSearchInfo.getNet();
+		skill[12] = employeeSearchInfo.getOracle();
+		skill[13] = employeeSearchInfo.getReact();
+		skill[14] = employeeSearchInfo.getSpring();
+		skill[15] = employeeSearchInfo.getSqlserver();
+		skill[16] = employeeSearchInfo.getThymeleaf();
+		skill[17] = employeeSearchInfo.getVue();
 		return skill;
 	}
 	

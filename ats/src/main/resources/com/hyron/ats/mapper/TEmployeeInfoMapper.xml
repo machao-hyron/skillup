@@ -19,28 +19,80 @@
     <result column="update_time" jdbcType="DATE" property="updateTime" />
     <result column="update_user_id" jdbcType="CHAR" property="updateUserId" />
   </resultMap>
+  
+  <resultMap id="EmployeeSearchMap" type="com.hyron.ats.pojo.EmployeeSearchInfo">
+    <id column="employee_id" jdbcType="CHAR" property="employeeId" />
+    <result column="department_id" jdbcType="CHAR" property="departmentId" />
+    <result column="employee_name" jdbcType="CHAR" property="employeeName" />
+    <result column="project_name" jdbcType="CHAR" property="projectName" />
+    <result column="project_leader_id" jdbcType="CHAR" property="projectLeaderId" />
+    <result column="project_general_id" jdbcType="CHAR" property="projectGeneralId" />
+    <result column="java" jdbcType="TINYINT" property="java" />
+    <result column="c_sharp" jdbcType="TINYINT" property="cSharp" />
+    <result column="android" jdbcType="TINYINT" property="android" />
+    <result column="ios" jdbcType="TINYINT" property="ios" />
+    <result column="c_plus" jdbcType="TINYINT" property="cPlus" />
+    <result column="net" jdbcType="TINYINT" property="net" />
+    <result column="spring" jdbcType="TINYINT" property="spring" />
+    <result column="oracle" jdbcType="TINYINT" property="oracle" />
+    <result column="mysql" jdbcType="TINYINT" property="mysql" />
+    <result column="sqlserver" jdbcType="TINYINT" property="sqlserver" />
+    <result column="jsp" jdbcType="TINYINT" property="jsp" />
+    <result column="jquery" jdbcType="TINYINT" property="jquery" />
+    <result column="html" jdbcType="TINYINT" property="html" />
+    <result column="thymeleaf" jdbcType="TINYINT" property="thymeleaf" />
+    <result column="angular" jdbcType="TINYINT" property="angular" />
+    <result column="vue" jdbcType="TINYINT" property="vue" />
+    <result column="react" jdbcType="TINYINT" property="react" />
+  </resultMap>
+  
   <select id="selectById" parameterType="com.hyron.ats.pojo.TEmployeeInfo" resultMap="BaseResultMap">
     select * from t_employee_info
     where employee_id = #{employeeId,jdbcType=CHAR}
   </select>
   
-   <select id="selectAll" parameterType="com.hyron.ats.pojo.TEmployeeInfo" resultMap="BaseResultMap">
+  <select id="selectAll" parameterType="com.hyron.ats.pojo.TEmployeeInfo" resultMap="BaseResultMap">
     select * from t_employee_info
-    where employee_id=#{employeeId,jdbcType=TINYINT}
-	<!--<where>		
-		<include refid="select" />
-	</where> -->
   </select>
-
-	<sql id="select">
-		<if test="java!=null">
-			AND employee_id=#{employeeId,jdbcType=CHAR}
+	
+  <select id="selectjoin" parameterType="com.hyron.ats.pojo.EmployeeSearchInfo" resultMap="EmployeeSearchMap">
+     select t1.employee_id,t1.department_id,t1.employee_name,
+     t2.project_name,t2.project_leader_id,t2.project_general_id,
+     t3.java,
+     t3.c_sharp,
+     t3.android,
+     t3.ios,
+     t3.c_plus,
+     t3.net,
+     t3.spring,
+     t3.oracle,
+     t3.mysql,
+     t3.sqlserver,
+     t3.jsp,
+     t3.jquery,
+     t3.css,
+     t3.html,
+     t3.thymeleaf,
+     t3.angular,
+     t3.vue,
+     t3.react
+     from t_employee_info t1 
+     inner join t_project_information t2
+     ON t1.department_id = t2.department_id
+     inner join t_skill_info t3
+     on t1.employee_id = t3.employee_id
+     <where>
+     	<if test="employeeId != null and employeeId != ''">
+			AND t1.employee_id=#{employeeId,jdbcType=CHAR}
 		</if>
-		<if test="java!=null">
-			AND department_id=#{departmentId,jdbcType=CHAR}
+		<if test="departmentId != null and departmentId != ''">
+			AND t1.department_id=#{departmentId,jdbcType=CHAR}
 		</if>
-		<if test="java!=null">
-			AND employee_name=#{employeeName,jdbcType=CHAR}
+		<if test="employeeName != null and employeeName != ''">
+			AND t1.employee_name=#{employeeName,jdbcType=CHAR}
 		</if>
-	</sql>
+	 </where>
+     
+  </select>
+  
 </mapper>
