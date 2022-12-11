@@ -47,3 +47,11 @@ background-color: lightblue;
 .table1_1 tr:nth-child(even){
     background-color:#fdfdfd;
 }
+span {
+	font-family:宋体;
+	font-size:20px;
+	color: red;
+	width: auto;
+	height: auto;
+    align: center;
+}

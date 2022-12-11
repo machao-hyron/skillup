@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hyron.ats.mapper.TSkillInfoMapper">
+  <resultMap id="BaseResultMap" type="com.hyron.ats.pojo.TSkillInfo">
+    <id column="employee_id" jdbcType="CHAR" property="employeeId" />
+    <result column="java" jdbcType="TINYINT" property="java" />
+    <result column="c_sharp" jdbcType="TINYINT" property="cSharp" />
+    <result column="android" jdbcType="TINYINT" property="android" />
+    <result column="ios" jdbcType="TINYINT" property="ios" />
+    <result column="c_plus" jdbcType="TINYINT" property="cPlus" />
+    <result column="net" jdbcType="TINYINT" property="net" />
+    <result column="spring" jdbcType="TINYINT" property="spring" />
+    <result column="oracle" jdbcType="TINYINT" property="oracle" />
+    <result column="mysql" jdbcType="TINYINT" property="mysql" />
+    <result column="sqlserver" jdbcType="TINYINT" property="sqlserver" />
+    <result column="jsp" jdbcType="TINYINT" property="jsp" />
+    <result column="jquery" jdbcType="TINYINT" property="jquery" />
+    <result column="html" jdbcType="TINYINT" property="html" />
+    <result column="thymeleaf" jdbcType="TINYINT" property="thymeleaf" />
+    <result column="angular" jdbcType="TINYINT" property="angular" />
+    <result column="vue" jdbcType="TINYINT" property="vue" />
+    <result column="react" jdbcType="TINYINT" property="react" />
+    <result column="create_time" jdbcType="DATE" property="createTime" />
+    <result column="create_user_id" jdbcType="CHAR" property="createUserId" />
+    <result column="update_time" jdbcType="DATE" property="updateTime" />
+    <result column="update_user_id" jdbcType="CHAR" property="updateUserId" />
+  </resultMap>
+  <select id="selectById" parameterType="com.hyron.ats.pojo.TSkillInfo" resultMap="BaseResultMap">
+    select * from t_skill_info
+    where employee_id = #{employeeId,jdbcType=CHAR}
+  </select>
+
+  <select id="selectAll" parameterType="com.hyron.ats.pojo.TSkillInfo" resultMap="BaseResultMap">
+    select * from t_skill_info
+    where employee_id=#{employeeId,jdbcType=CHAR}
+  </select>
+  
+	<sql id="select">
+		<if test="java!=null">
+			AND employee_id=#{employeeId,jdbcType=CHAR}
+		</if>
+		<if test="java!=null">
+			AND java=#{java,jdbcType=TINYINT}
+		</if>
+		<if test="java!=null">
+			AND c_sharp=#{cSharp,jdbcType=TINYINT}
+		</if>
+		<if test="java!=null">
+			AND android=#{android,jdbcType=TINYINT}
+		</if>
+		<if test="java!=null">
+			AND ios=#{ios,jdbcType=TINYINT}
+		</if>
+		<if test="java!=null">
+			AND c_plus=#{cPlus,jdbcType=TINYINT}
+		</if>
+		<if test="java!=null">
+			AND net=#{net,jdbcType=TINYINT}
+		</if>
+		<if test="java!=null">
+			AND spring=#{spring,jdbcType=TINYINT}
+		</if>
+		<if test="java!=null">
+			AND oracle=#{oracle,jdbcType=TINYINT}
+		</if>
+		<if test="java!=null">
+			AND mysql=#{mysql,jdbcType=TINYINT}
+		</if>
+		<if test="java!=null">
+			AND sqlserver=#{sqlserver,jdbcType=TINYINT}
+		</if>
+		<if test="java!=null">
+			AND jsp=#{jsp,jdbcType=TINYINT}
+		</if>
+		<if test="java!=null">
+			AND jquery=#{jquery,jdbcType=TINYINT}
+		</if>
+		<if test="java!=null">
+			AND html=#{html,jdbcType=TINYINT}
+		</if>
+		<if test="java!=null">
+			AND thymeleaf=#{thymeleaf,jdbcType=TINYINT}
+		</if>
+		<if test="java!=null">
+			AND angular=#{angular,jdbcType=TINYINT}
+		</if>
+		<if test="java!=null">
+			AND vue=#{vue,jdbcType=TINYINT}
+		</if>
+		<if test="java!=null">
+			AND react=#{react,jdbcType=TINYINT}
+		</if>
+	</sql>
+</mapper>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hyron.ats.mapper.TEmployeeInfoMapper">
+  <resultMap id="BaseResultMap" type="com.hyron.ats.pojo.TEmployeeInfo">
+    <id column="employee_id" jdbcType="CHAR" property="employeeId" />
+    <result column="department_id" jdbcType="CHAR" property="departmentId" />
+    <result column="project_id" jdbcType="CHAR" property="projectId" />
+    <result column="employee_name" jdbcType="CHAR" property="employeeName" />
+    <result column="employee_sex" jdbcType="CHAR" property="employeeSex" />
+    <result column="employee_birth" jdbcType="DATE" property="employeeBirth" />
+    <result column="graduation_year" jdbcType="DATE" property="graduationYear" />
+    <result column="graduation_university" jdbcType="CHAR" property="graduationUniversity" />
+    <result column="induction_date" jdbcType="DATE" property="inductionDate" />
+    <result column="on_job_flg" jdbcType="TINYINT" property="onJobFlg" />
+    <result column="resignation_date" jdbcType="DATE" property="resignationDate" />
+    <result column="employee_img" jdbcType="CHAR" property="employeeImg" />
+    <result column="create_time" jdbcType="DATE" property="createTime" />
+    <result column="create_user_id" jdbcType="CHAR" property="createUserId" />
+    <result column="update_time" jdbcType="DATE" property="updateTime" />
+    <result column="update_user_id" jdbcType="CHAR" property="updateUserId" />
+  </resultMap>
+  <select id="selectById" parameterType="com.hyron.ats.pojo.TEmployeeInfo" resultMap="BaseResultMap">
+    select * from t_employee_info
+    where employee_id = #{employeeId,jdbcType=CHAR}
+  </select>
+  
+   <select id="selectAll" parameterType="com.hyron.ats.pojo.TEmployeeInfo" resultMap="BaseResultMap">
+    select * from t_employee_info
+    where employee_id=#{employeeId,jdbcType=TINYINT}
+	<!--<where>		
+		<include refid="select" />
+	</where> -->
+  </select>
+
+	<sql id="select">
+		<if test="java!=null">
+			AND employee_id=#{employeeId,jdbcType=CHAR}
+		</if>
+		<if test="java!=null">
+			AND department_id=#{departmentId,jdbcType=CHAR}
+		</if>
+		<if test="java!=null">
+			AND employee_name=#{employeeName,jdbcType=CHAR}
+		</if>
+	</sql>
+</mapper>

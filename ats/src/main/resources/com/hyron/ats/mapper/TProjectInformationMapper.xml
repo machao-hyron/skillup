@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hyron.ats.mapper.TProjectInformationMapper">
+  <resultMap id="BaseResultMap" type="com.hyron.ats.pojo.TProjectInformation">
+    <id column="department_id" jdbcType="CHAR" property="departmentId" />
+    <result column="project_id" jdbcType="CHAR" property="projectId" />
+    <result column="project_name" jdbcType="CHAR" property="projectName" />
+    <result column="project_leader_id" jdbcType="CHAR" property="projectLeaderId" />
+    <result column="project_general_id" jdbcType="CHAR" property="projectGeneralId" />
+    <result column="insert_time" jdbcType="DATE" property="insertTime" />
+    <result column="insert_person_id" jdbcType="CHAR" property="insertPersonId" />
+    <result column="update_time" jdbcType="DATE" property="updateTime" />
+    <result column="update_person_id" jdbcType="CHAR" property="updatePersonId" />
+  </resultMap>
+  <select id="selectAll" parameterType="com.hyron.ats.pojo.TProjectInformation" resultMap="BaseResultMap">
+    select * from t_project_information
+    where department_id = #{departmentId,jdbcType=CHAR}
+  </select>
+  
+</mapper>
