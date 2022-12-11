@@ -38,7 +38,7 @@ public class Employee {
     private Integer onJobFlg;//在职Flg
     @Excel(name = "退职年月日",format = "yyyy/MM/dd")
     private Date resignationDate;//退职年月日
-    @Excel(name = "照片")
+    @Excel(name = "照片",type=2)
     private String employeeImg;//照片IMG
     @ExcelIgnore
     private Timestamp createTime;//登录时间

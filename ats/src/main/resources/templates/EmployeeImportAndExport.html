@@ -7,7 +7,7 @@
 
     <script type="text/javascript" src="../static/js/jquery-3.6.1.min.js"></script>
 <!--    <script type="text/javascript" src="../static/js/EmployeeImportAndExport.js"></script>-->
-    <script type="text/javascript" src="../static/js/test.js"></script>
+<!--    <script type="text/javascript" src="../static/js/test.js"></script>-->
 </head>
 <body background="../static/img/bg1.jpg">
 <h1>员工情报一括导入</h1>
@@ -25,8 +25,10 @@
                 姓名：<input id="employeeName" type="text"  placeholder="请输入姓名">&nbsp;
                 <button id="btn1" type="button" th:action="@{/EmployeeImportAndExport/findByIdAndName}">查询</button>&nbsp;</p>
             <input class="form-control" type="file" name="excelFile" style="border: 1px #3e4c2f">
-            <input id="btn3" type="submit" class="btn3" value="导入">
-            <a th:href="@{/EmployeeImportAndExport/export}" id="btn9" class="btn9" >excel导出</a>
+<!--            <input id="btn3" type="submit" class="btn3" value="导入">-->
+            <button id="btn3" type="button" class="btn3" value="导入">导入</button>
+<!--            <a th:href="@{/EmployeeImportAndExport/export}" id="btn9" class="btn9" >excel导出</a>-->
+                <button th:href="@{/EmployeeImportAndExport/export}" id="btn9" type="button" class="btn9" >导出</button>
         </div>
     </form>
 

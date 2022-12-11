@@ -29,7 +29,7 @@
     <select id="findAll" resultMap="BaseResultMap" >
         select <include refid="Base"></include> from t_employee_info
     </select>
-    <select id="findByIdAndName" resultType="com.hyron.ats.pojo.Employee">
+    <select id="findByIdAndName" resultMap="BaseResultMap">
         select <include refid="Base"></include> from t_employee_info
         <where>
             <choose>

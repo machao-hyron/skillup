@@ -22,6 +22,11 @@ public class LoginController {
 		return "login";
 	}
 
+	@GetMapping("EmployeeImportAndExport")
+	public String Employee(){
+		return "EmployeeImportAndExport";
+	}
+
 	@PostMapping(value = "login")
 	public String loginbtn(LoginDto dto, final Model model) {
 
