@@ -8,7 +8,7 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 </head>
 <body background="./img/bg1.jpg">
-
+  <form method="post" action="employeeSearch" >
     <h1>员工情报一览</h1>
     <hr>
     <div>
@@ -16,12 +16,42 @@
     </div>
     <div align="center">
         <p>
-        姓名：<input id="username" type="text"  placeholder="请输入姓名">&nbsp;
-        工号：<input id="id" type="text"  placeholder="请输入工号">&nbsp;
-        部门：<input id="department" type="text"  placeholder="请输入部门编号">&nbsp;
-        技术特长：<select id="d1" style="width:100px"><option></option><option>java</option><option>C#</option><option>HTML</option></select>&nbsp;
-        <button id="btn1" type="button" >检索</button>&nbsp;
+        姓名：<input id="employeeName" name="employeeName" type="text"  placeholder="请输入姓名">&nbsp;
+        工号：<input id="employeeId" name="employeeId" type="text"  placeholder="请输入工号">&nbsp;
+        部门：<input id="departmentId" name="departmentId" type="text"  placeholder="请输入部门编号">&nbsp;
+        技术特长：<select id="skill" name="skill" style="width:100px"><option></option><option id="java">java</option><option id="C#">C#</option><option id="HTML">HTML</option></select>&nbsp;
+        <input id="btn1" type="submit" value="检索" > &nbsp;
         </p>
       </div>
+      <div class="">
+        <table class=table1_1 align="center">
+            <tr>
+                <th width="100px">部门ID</th>
+                <th width="100px">工号</th>
+                <th width="100px">姓名</th>
+                <th width="200px">项目组名</th>
+                <th width="100px">项目统括姓名</th>
+                <th width="200px">技术特长</th>
+                <th width="100px">编辑・新规</th>
+            </tr>
+            <tr th:each="employeeSearchOutDto,outDto:${employeeSearchOutDto}">
+                <td id="departmentId" th:text="${employeeSearchOutDto.departmentId}"></td>
+                <td id="employeeId" th:text="${employeeSearchOutDto.employeeId}"></td>
+                <td id="employeeName" th:text="${employeeSearchOutDto.employeeName}"></td>
+                <td id="projectName" th:text="${employeeSearchOutDto.projectName}"></td>
+                <td id="rojectLeaderId" th:text="${employeeSearchOutDto.rojectLeaderId}"></td>
+                <td id="skill" th:text="${employeeSearchOutDto.skill}"></td>
+                <td><button id="btn2" type="button" >编辑・新规</button></td>
+            </tr>
+        </table>
+        <br />
+        <div align="center">
+          <button id="btn3" type="button" >员工情报一括导入</button>&nbsp;&nbsp;&nbsp;
+          <button id="btn4" type="button" >考勤情报一览</button>
+        </div>
+        <span name="errorMsg" id="errorMsg" th:text="${errorMsg}" />
+    </div>
+    
+  </form>
 </body>
 </html>

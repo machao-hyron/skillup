@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hyron.ats.mapper.TEmployeeInfoMapper">
+  <resultMap id="BaseResultMap" type="com.hyron.ats.pojo.TEmployeeInfo">
+    <id column="employee_id" jdbcType="CHAR" property="employeeId" />
+    <result column="department_id" jdbcType="CHAR" property="departmentId" />
+    <result column="project_id" jdbcType="CHAR" property="projectId" />
+    <result column="employee_name" jdbcType="CHAR" property="employeeName" />
+    <result column="employee_sex" jdbcType="CHAR" property="employeeSex" />
+    <result column="employee_birth" jdbcType="DATE" property="employeeBirth" />
+    <result column="graduation_year" jdbcType="DATE" property="graduationYear" />
+    <result column="graduation_university" jdbcType="CHAR" property="graduationUniversity" />
+    <result column="induction_date" jdbcType="DATE" property="inductionDate" />
+    <result column="on_job_flg" jdbcType="TINYINT" property="onJobFlg" />
+    <result column="resignation_date" jdbcType="DATE" property="resignationDate" />
+    <result column="employee_img" jdbcType="CHAR" property="employeeImg" />
+    <result column="create_time" jdbcType="DATE" property="createTime" />
+    <result column="create_user_id" jdbcType="CHAR" property="createUserId" />
+    <result column="update_time" jdbcType="DATE" property="updateTime" />
+    <result column="update_user_id" jdbcType="CHAR" property="updateUserId" />
+  </resultMap>
+  
+  <resultMap id="EmployeeSearchMap" type="com.hyron.ats.pojo.EmployeeSearchInfo">
+    <id column="employee_id" jdbcType="CHAR" property="employeeId" />
+    <result column="department_id" jdbcType="CHAR" property="departmentId" />
+    <result column="employee_name" jdbcType="CHAR" property="employeeName" />
+    <result column="project_name" jdbcType="CHAR" property="projectName" />
+    <result column="project_leader_id" jdbcType="CHAR" property="projectLeaderId" />
+    <result column="project_general_id" jdbcType="CHAR" property="projectGeneralId" />
+    <result column="java" jdbcType="TINYINT" property="java" />
+    <result column="c_sharp" jdbcType="TINYINT" property="cSharp" />
+    <result column="android" jdbcType="TINYINT" property="android" />
+    <result column="ios" jdbcType="TINYINT" property="ios" />
+    <result column="c_plus" jdbcType="TINYINT" property="cPlus" />
+    <result column="net" jdbcType="TINYINT" property="net" />
+    <result column="spring" jdbcType="TINYINT" property="spring" />
+    <result column="oracle" jdbcType="TINYINT" property="oracle" />
+    <result column="mysql" jdbcType="TINYINT" property="mysql" />
+    <result column="sqlserver" jdbcType="TINYINT" property="sqlserver" />
+    <result column="jsp" jdbcType="TINYINT" property="jsp" />
+    <result column="jquery" jdbcType="TINYINT" property="jquery" />
+    <result column="html" jdbcType="TINYINT" property="html" />
+    <result column="thymeleaf" jdbcType="TINYINT" property="thymeleaf" />
+    <result column="angular" jdbcType="TINYINT" property="angular" />
+    <result column="vue" jdbcType="TINYINT" property="vue" />
+    <result column="react" jdbcType="TINYINT" property="react" />
+  </resultMap>
+  
+  <select id="selectById" parameterType="com.hyron.ats.pojo.TEmployeeInfo" resultMap="BaseResultMap">
+    select * from t_employee_info
+    where employee_id = #{employeeId,jdbcType=CHAR}
+  </select>
+  
+  <select id="selectAll" parameterType="com.hyron.ats.pojo.TEmployeeInfo" resultMap="BaseResultMap">
+    select * from t_employee_info
+  </select>
+	
+  <select id="selectjoin" parameterType="com.hyron.ats.pojo.EmployeeSearchInfo" resultMap="EmployeeSearchMap">
+     select t1.employee_id,t1.department_id,t1.employee_name,
+     t2.project_name,t2.project_leader_id,t2.project_general_id,
+     t3.java,
+     t3.c_sharp,
+     t3.android,
+     t3.ios,
+     t3.c_plus,
+     t3.net,
+     t3.spring,
+     t3.oracle,
+     t3.mysql,
+     t3.sqlserver,
+     t3.jsp,
+     t3.jquery,
+     t3.css,
+     t3.html,
+     t3.thymeleaf,
+     t3.angular,
+     t3.vue,
+     t3.react
+     from t_employee_info t1 
+     inner join t_project_information t2
+     ON t1.department_id = t2.department_id
+     inner join t_skill_info t3
+     on t1.employee_id = t3.employee_id
+     <where>
+     	<if test="employeeId != null and employeeId != ''">
+			AND t1.employee_id=#{employeeId,jdbcType=CHAR}
+		</if>
+		<if test="departmentId != null and departmentId != ''">
+			AND t1.department_id=#{departmentId,jdbcType=CHAR}
+		</if>
+		<if test="employeeName != null and employeeName != ''">
+			AND t1.employee_name=#{employeeName,jdbcType=CHAR}
+		</if>
+	 </where>
+     
+  </select>
+  
+</mapper>
