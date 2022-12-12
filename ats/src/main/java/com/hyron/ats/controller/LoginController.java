@@ -22,17 +22,12 @@ public class LoginController {
 		return "login";
 	}
 
-	@GetMapping("EmployeeImportAndExport")
-	public String Employee(){
-		return "EmployeeImportAndExport";
-	}
-
 	@PostMapping(value = "login")
 	public String loginbtn(LoginDto dto, final Model model) {
 
 		if (StringUtils.isNotEmpty(dto.getId()) && StringUtils.isNotBlank(dto.getPwd())) {
 			if (loginService.loginAcntCheck(dto)) {
-				return "redirect:EmployeeImportAndExport";
+				return "redirect:employeeSearch";
 			}
 		}
 		model.addAttribute("errorMsg", "请输入正确的用户名与密码。");

@@ -7,9 +7,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.sql.Date;
 import java.sql.Timestamp;
 import java.time.Year;
-import java.util.Date;
+
 
 @Data
 @AllArgsConstructor

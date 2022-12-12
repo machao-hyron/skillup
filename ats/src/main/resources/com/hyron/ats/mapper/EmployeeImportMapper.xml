@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper
-        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
 <mapper namespace="com.hyron.ats.mapper.EmployeeImportMapper">
 
     <resultMap id="BaseResultMap" type="com.hyron.ats.pojo.Employee">
@@ -13,7 +12,7 @@
         <result column="employee_birth" jdbcType="TIMESTAMP" property="employeeBirth"/>
         <result column="graduation_year" jdbcType="DATE" property="graduationYear"/>
         <result column="graduation_university" jdbcType="VARCHAR" property="graduationUniversity"/>
-        <result column="induction_date" jdbcType="Date" property="inductionDate"/>
+        <result column="induction_date" jdbcType="DATE" property="inductionDate"/>
         <result column="on_job_flg" jdbcType="TINYINT" property="onJobFlg"/>
         <result column="resignation_date" jdbcType="DATE" property="resignationDate"/>
         <result column="employee_img" jdbcType="VARCHAR" property="employeeImg"/>
@@ -34,13 +33,13 @@
         <where>
             <choose>
                 <when test=" employee_id !='' and  employee_id !=null">
-                    employee_id=#{employeeId}
+                    employee_id=#{employeeId,jdbcType=CHAR}
                 </when>
                 <when test=" department_id !='' and  department_id !=null">
-                    department_id=#{departmentId}
+                    department_id=#{departmentId,jdbcType=CHAR}
                 </when>
                 <when test=" employee_name !='' and  employee_name !=null">
-                    employee_name=#{employeeName}
+                    employee_name=#{employeeName,jdbcType=VARCHAR}
                 </when>
             </choose>
         </where>
