@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta http-equiv="Content-Type" content="application/json; charset=UTF-8">
+	<script type="text/javascript" src="../static/js/jquery-3.6.1.min.js"></script>
+	<script type="text/javascript" src="../static/js/employeeinfo.js"></script>
+	<link rel="stylesheet" href="../static/css/employeeinfo.css">
+	<title>员工详细情报</title>
+</head>
+
+<body id="employeeinfobody">
+
+
+<!--top      -->
+	<div id="top"  style="background-image:url('../static/png/top.jpg')">
+		
+		<div style="float:left;width:40%;height:100%;">
+			<div style="float:left;width:100%;height:20%;" ></div>
+			<div style="float:left;width:100%;height:80%;" ><b id="toptittletext" >>><text id="employeetoptext">员工详细情报</text></b></div>
+		</div>
+		<div style="float:left;width:30%;height:100%;"></div>
+		<div style="float:left;width:30%;height:100%;">
+			<img id="out" src="../static/png/out.png" >
+			<img id="set" src="../static/png/set.png" >
+			<img id="userinfo" src="../static/png/userinfo.png" >
+			<img id="user" src="../static/png/user.png" >
+		</div>
+	</div>
+<!-- mid	 -->
+	<div id="mid" style="background:url('../static/png/midbg4.jpg');">
+<!-- 		<div id="midleft" style="float:left;width:19%;height:1012px"></div>  -->
+		
+		<div id="midmid"  >
+			<div id="midtopimg" style="background-image:url('../static/png/midtop.jpg')"></div>
+			<div class="border1" ></div>
+			<div class="border2" ></div>
+			<div class="border3" ></div>
+			
+			<div id="midmidleft" >
+				
+				<div id="midmidlefttop" >
+					<img id="employeeimg" src="../static/png/employeesimgfile/body.jpg" >
+				</div>
+				<div class="border1" id="midmidleffimgbottom1" ></div>
+				<div class="border2" id="midmidleffimgbottom2" ></div>
+				<div class="border3" id="midmidleffimgbottom3" ></div>
+				
+				<div id="midmidleftmid1" >
+					<table style="width:95%;height:30%;margin-left:10px;margin-top:10px">
+						<tr >
+							<td style="width:50px;font-size:10px;align:left"><b>姓名：</b>
+							<input id="nameinput" type="text" value="圣代" >
+							<text id="nametext" hidden="hidden"  >圣代</text>
+							<b>性别：</b>
+							<input id="sexinput" type="text" value="男" >
+							<text id="sextext" hidden="hidden"  >女</text>
+							</td>
+							
+						</tr>
+						<tr style="height:5px"></tr>
+						<tr >
+							<td style="font-size:10px;align:left"><b>工号：</b>
+							<input id="kougoinput" type="text" value="JS0000" >
+							<text id="kougotext" hidden="hidden"  >JS1231</text>
+							<b>部门：</b>
+							<input id="bumeninput" type="text" value="D311" >
+							<text id="bumentext" hidden="hidden" >D312</text>
+							</td>
+						</tr>
+						<tr  >
+							<td style="font-size:10px;align:left"><b>出生日期：</b></td>
+						</tr>
+						<tr>	
+							<td style="width:50px;font-size:10px;align:left">
+							<input id="bornyearinput" type="text" value="2021" >
+							<text id="bornyeartext" hidden="hidden" >2232</text>
+							年
+							<input id="bornmouthinput" type="text" value="12" >
+							<text id="bornmouthtext" hidden="hidden" >11</text>
+							月
+							<input id="borndayinput" type="text" value="25" >
+							<text id="borndaytext" hidden="hidden" >03</text>
+							日
+							</td>
+						</tr>
+						<tr >
+							<td style="font-size:10px;align:left"><b>毕业院校：</b></td>
+						</tr>
+						<tr>	
+							<td style="font-size:10px;align:left">
+								<input id="schoolinput" type="text" value="毕业院校毕业院校毕业院校" >
+								<text id="schooltext" hidden="hidden" >哈哈哈哈哈哈哈哈哈</text>
+							</td>
+						</tr>
+						<tr >
+							<td style="font-size:10px;align:left"><b>毕业日期：</b></td>
+						</tr>
+						<tr>	
+							<td style="width:50px;font-size:10px;align:left">
+								<input id="leaveschoolyearinput" type="text" value="2222" >
+								<text id="leaveschoolyeartext" hidden="hidden" >1234</text>
+								年
+								<input id="leaveschoolmouthinput" type="text" value="22" >
+								<text id="leaveschoolmouthtext" hidden="hidden" >12</text>
+								月
+								<input id="leaveschooldayinput" type="text" value="22" >
+								<text id="leaveschooldaytext" hidden="hidden" >23</text>
+								日
+							</td>
+						</tr>
+						<tr >
+							<td style="font-size:10px;align:left"><b>入职日期：</b></td>
+						</tr>
+						<tr>	
+							<td style="width:50px;font-size:10px;align:left" >
+								<input id="workyearinput" type="text" value="2222" >
+								<text id="workyeartext" hidden="hidden" >1212</text>
+								年
+								<input id="workmouthinput" type="text" value="22" >
+								<text id="workmouthtext" hidden="hidden" >12</text>
+								月
+								<input id="workdayinput" type="text" value="22" >
+								<text id="workdaytext" hidden="hidden" >12</text>
+								日
+							</td>
+						</tr>
+						<tr>
+							<td style="font-size:10px;height:22px"><b >在职状况：</b>
+								<img id="workstatus1" src="../static/png/workunchoose.png" >
+								<img id="workstatus3" src="../static/png/workING.png"  hidden="hidden">
+								
+								<img id="workstatus2" src="../static/png/workoutunchoose.png" >
+								<img id="workstatus4" src="../static/png/workout.png"  hidden="hidden">
+								
+							</td>
+						</tr>
+							
+						<tr id="koumokuin1">
+							<td style="font-size:10px;align:left"><b>所属项目：</b></td>
+						</tr>
+						<tr id=koumokuin2 >	
+							<td style="font-size:10px;align:left">
+								<input id="koumokuininput" type="text"  >
+								<text id="koumokuintext" hidden="hidden" >嗒嗒嗒4123</text>
+							</td>
+						</tr>
+						<tr id="koumokuout1" hidden="hidden">
+							<td style="font-size:10px;align:left"><b>退职日期：</b></td>
+						</tr>
+						<tr id="koumokuout2" hidden="hidden">	
+							<td style="width:50px;font-size:10px;align:left">
+								<input id="leaveworkyearinput" type="text"  >
+								<text id="leaveworkyeartext" hidden="hidden" >03</text>
+								年
+								<input id="leaveworkmouthinput" type="text"  >
+								<text id="leaveworkmouthtext" hidden="hidden" >03</text>
+								月
+								<input id="leaveworkdayinput" type="text"  >
+								<text id="leaveworkdaytext" hidden="hidden" >03</text>
+								日
+							</td>
+						</tr>
+					</table>	
+					
+				</div>
+				<div class="border1" id="midmidleffkinotop1" ></div>
+				<div class="border2" id="midmidleffkinotop2" ></div>
+				<div class="border3" id="midmidleffkinotop3" ></div>
+				<div id="midmidleftmid2" >
+					
+					<b> 掌握技能：</b>
+					<table style="height:90%;margin-left:10px;border-spacing:0px;border-collapse:collapse">
+						<tr>
+							<th style="height:22px;width:70px" hidden="hidden"></th>
+							<th style="height:22px;width:22px" hidden="hidden"></th>
+							<th style="height:22px;width:5px"  hidden="hidden"></th>
+							<th style="height:22px;width:70px" hidden="hidden"></th>
+							<th style="height:22px;width:22px" hidden="hidden"></th>
+						<tr>
+						<tr >
+							<td class="skilltd1">Java</td>
+							<td class="skilltd2">
+								<img class="skill" src="../static/png/skilla.png" id="Javaskill" hidden="hidden" >
+								<img class="skillshow" src="../static/png/skillb.png" id="Javaskill2"  >
+								<img class="skillup" src="../static/png/skillup.png" id="Javaskillup" hidden="hidden" >
+								<img class="skilldown" src="../static/png/skilldown.png" id="Javaskilldown" hidden="hidden" >
+								</td>
+							<td class="skilltd3"></td>
+							<td class="skilltd1" >C#</td>
+							<td class="skilltd2">
+								<img class="skill" src="../static/png/skillb.png" id="CXskill" hidden="hidden" >
+								<img class="skillshow" src="../static/png/skillb.png" id="CXskill2"  >
+								<img class="skillup" src="../static/png/skillup.png" id="CXskillup" hidden="hidden" >
+								<img class="skilldown" src="../static/png/skilldown.png" id="CXskilldown" hidden="hidden" >
+								</td>
+						</tr>
+						<tr >
+							<td class="skilltd1" >Android</td>
+							<td class="skilltd2">
+								<img class="skill" src="../static/png/skillb.png" id="Androidskill" hidden="hidden" >
+								<img class="skillshow" src="../static/png/skillb.png" id="Androidskill2"  >
+								<img class="skillup" src="../static/png/skillup.png" id="Androidskillup" hidden="hidden" >
+								<img class="skilldown" src="../static/png/skilldown.png" id="Androidskilldown" hidden="hidden" >
+								</td>
+							<td class="skilltd3"></td>
+							<td class="skilltd1" >IOS</td>
+							<td class="skilltd2">
+								<img class="skill" src="../static/png/skillb.png" id="IOSskill" hidden="hidden" >
+								<img class="skillshow" src="../static/png/skillb.png" id="IOSskill2"  >
+								<img class="skillup" src="../static/png/skillup.png" id="IOSskillup" hidden="hidden" >
+								<img class="skilldown" src="../static/png/skilldown.png" id="IOSskilldown" hidden="hidden" >
+								</td>
+						</tr>
+						<tr >
+							<td class="skilltd1" >C++</td>
+							<td class="skilltd2">
+								<img class="skill" src="../static/png/skillc.png" id="Cupupskill" hidden="hidden" >
+								<img class="skillshow" src="../static/png/skillb.png" id="Cupupskill2"  >
+								<img class="skillup" src="../static/png/skillup.png" id="Cupupskillup" hidden="hidden" >
+								<img class="skilldown" src="../static/png/skilldown.png" id="Cupupskilldown" hidden="hidden" >
+								</td>
+							<td class="skilltd3"></td>
+							<td class="skilltd1" >.Net</td>
+							<td class="skilltd2">
+								<img class="skill" src="../static/png/skillb.png" id="tenNetskill" hidden="hidden" >
+								<img class="skillshow" src="../static/png/skillb.png" id="tenNetskill2"  >
+								<img class="skillup" src="../static/png/skillup.png" id="tenNetskillup" hidden="hidden" >
+								<img class="skilldown" src="../static/png/skilldown.png" id="tenNetskilldown" hidden="hidden" >
+								</td>
+						</tr>
+						<tr >
+							<td class="skilltd1" >Spring</td>
+							<td class="skilltd2">
+								<img class="skill" src="../static/png/skilld.png" id="Springskill" hidden="hidden" >
+								<img class="skillshow" src="../static/png/skillb.png" id="Springskill2"  >
+								<img class="skillup" src="../static/png/skillup.png" id="Springskillup" hidden="hidden" >
+								<img class="skilldown" src="../static/png/skilldown.png" id="Springskilldown" hidden="hidden" >
+								</td>
+							<td class="skilltd3"></td>
+							<td class="skilltd1" >Oracle</td>
+							<td class="skilltd2">
+								<img class="skill" src="../static/png/skillb.png" id="Oracleskill" hidden="hidden" >
+								<img class="skillshow" src="../static/png/skillb.png" id="Oracleskill2"  >	
+								<img class="skillup" src="../static/png/skillup.png" id="Oracleskillup" hidden="hidden" >
+								<img class="skilldown" src="../static/png/skilldown.png" id="Oracleskilldown" hidden="hidden" >
+								</td>
+						</tr>
+						<tr >
+							<td class="skilltd1" >Mysql</td>
+							<td class="skilltd2">
+								<img class="skill" src="../static/png/skille.png" id="Mysqlskill" hidden="hidden" >
+								<img class="skillshow" src="../static/png/skillb.png" id="Mysqlskill2"  >
+								<img class="skillup" src="../static/png/skillup.png" id="Mysqlskillup" hidden="hidden" >
+								<img class="skilldown" src="../static/png/skilldown.png" id="Mysqlskilldown" hidden="hidden" >
+								</td>
+							<td class="skilltd3"></td>
+							<td class="skilltd1" >SqlServer</td>
+							<td class="skilltd2">
+								<img class="skill" src="../static/png/skillb.png" id="SqlServerskill" hidden="hidden" >
+								<img class="skillshow" src="../static/png/skillb.png" id="SqlServerskill2"  >
+								<img class="skillup" src="../static/png/skillup.png" id="SqlServerskillup" hidden="hidden" >
+								<img class="skilldown" src="../static/png/skilldown.png" id="SqlServerskilldown" hidden="hidden" >
+								</td>
+						</tr>
+						<tr >
+							<td class="skilltd1" >JSP</td>
+							<td class="skilltd2">
+								<img class="skill" src="../static/png/skillb.png" id="JSPskill" hidden="hidden" >
+								<img class="skillshow" src="../static/png/skillb.png" id="JSPskill2"  >
+								<img class="skillup" src="../static/png/skillup.png" id="JSPskillup" hidden="hidden" >
+								<img class="skilldown" src="../static/png/skilldown.png" id="JSPskilldown" hidden="hidden" >
+								</td>
+							<td class="skilltd3"></td>
+							<td class="skilltd1" >Jquery</td>
+							<td class="skilltd2">
+								<img class="skill" src="../static/png/skillb.png" id="Jqueryskill" hidden="hidden" >
+								<img class="skillshow" src="../static/png/skillb.png" id="Jqueryskill2"  >
+								<img class="skillup" src="../static/png/skillup.png" id="Jqueryskillup" hidden="hidden" >
+								<img class="skilldown" src="../static/png/skilldown.png" id="Jqueryskilldown" hidden="hidden" >
+								</td>
+						</tr>
+						<tr >
+							<td class="skilltd1" >CSS</td>
+							<td class="skilltd2">
+								<img class="skill" src="../static/png/skillb.png" id="CSSskill" hidden="hidden" >
+								<img class="skillshow" src="../static/png/skillb.png" id="CSSskill2"  >
+								<img class="skillup" src="../static/png/skillup.png" id="CSSskillup" hidden="hidden" >
+								<img class="skilldown" src="../static/png/skilldown.png" id="CSSskilldown" hidden="hidden" >
+								</td>
+							<td class="skilltd3"></td>
+							<td class="skilltd1" >HTML</td>
+							<td class="skilltd2">
+								<img class="skill" src="../static/png/skillb.png" id="HTMLskill" hidden="hidden" >
+								<img class="skillshow" src="../static/png/skillb.png" id="HTMLskill2"  >
+								<img class="skillup" src="../static/png/skillup.png" id="HTMLskillup" hidden="hidden" >
+								<img class="skilldown" src="../static/png/skilldown.png" id="HTMLskilldown" hidden="hidden" >
+								</td>
+						</tr>
+						<tr >
+							<td class="skilltd1" >Thymeleaf</td>
+							<td class="skilltd2">
+								<img class="skill" src="../static/png/skillb.png" id="Thymeleafskill" hidden="hidden" >
+								<img class="skillshow" src="../static/png/skillb.png" id="Thymeleafskill2"  >
+								<img class="skillup" src="../static/png/skillup.png" id="Thymeleafskillup" hidden="hidden" >
+								<img class="skilldown" src="../static/png/skilldown.png" id="Thymeleafskilldown" hidden="hidden" >
+								</td>
+							<td class="skilltd3"></td>
+							<td class="skilltd1" >Angular</td>
+							<td class="skilltd2">
+								<img class="skill" src="../static/png/skillb.png" id="Angularskill" hidden="hidden" >
+								<img class="skillshow" src="../static/png/skillb.png" id="Angularskill2"  >
+								<img class="skillup" src="../static/png/skillup.png" id="Angularskillup" hidden="hidden" >
+								<img class="skilldown" src="../static/png/skilldown.png" id="Angularskilldown" hidden="hidden" >
+								</td>
+						</tr>
+						<tr >
+							<td class="skilltd1" >VUE</td>
+							<td class="skilltd2">
+								<div>
+								<img class="skill" src="../static/png/skillb.png" id="VUEskill" hidden="hidden" >
+								<img class="skillshow" src="../static/png/skillb.png" id="VUEskill2"  >
+								<img class="skillup" src="../static/png/skillup.png" id="VUEskillup" hidden="hidden" style="width:7px;align:left;margin-right:0">
+								<img class="skilldown" src="../static/png/skilldown.png" id="VUEskilldown" hidden="hidden" style="width:7px;align:right;margin-left:0">
+								</div>
+								</td>
+							<td class="skilltd3"></td>
+							<td class="skilltd1" >React</td>
+							<td class="skilltd2" >
+								<img class="skill" src="../static/png/skillb.png" id="Reactskill" hidden="hidden" hidden="hidden" >
+								<img class="skillshow" src="../static/png/skillb.png" id="Reactskill2"  >
+								<img class="skillup" src="../static/png/skillup.png" id="Reactskillup" hidden="hidden" >
+								<img class="skilldown" src="../static/png/skilldown.png" id="Reactskilldown" hidden="hidden" >
+								</td>
+						</tr>
+					</table>
+					
+					
+				</div>
+				<div class="border1" id="midmidleffkinotop1" ></div>
+				<div class="border2" id="midmidleffkinotop2" ></div>
+				<div class="border3" id="midmidleffkinotop3" ></div>
+				<div id="midmidleftbottom" >
+				
+					<img id="saveimgbutton" src="../static/png/save.png" hidden="hidden" >
+					<img id="editimgbutton" src="../static/png/edit.png" >
+					
+				</div>
+				
+			</div>
+		
+			<div id="midmidright" >
+				
+				<div id="midmidright1" >
+					<table class="worktable" >
+						<tr class="workkaishanametr" >
+							<td ><b>会社名称：</b><input class="kaishanameinput" id="kaishanameinput1" type="text" value="会社11111" ><text id="kaishanametext1" hidden="hidden"></text></td>
+						</tr>
+						<tr class="workshokumutr" >
+							<td class="workexptdborder" ><b>担任职位：</b><input class="shokumuinput" id="shokumuinput1" type="text" value="职务22222" ><text id="shokumutext1" hidden="hidden"></text></td>
+						</tr>
+						<tr class="worktimetr" >
+							<td class="workexptdborder" >
+								<b>工作时间：</b>
+								<input class="worktimeinputfromyear" id="worktimeinputfromyear1" type="text" value="0222" >
+								<text id="worktimetextfromyear1" hidden="hidden"></text>
+								<b>年</b>
+								<input class="worktimeinputfrommouth" id="worktimeinputfrommouth1" type="text" value="22" >
+								<text id="worktimetextfrommouth1" hidden="hidden"></text>
+								<b>月~</b>
+								<input class="worktimeinputtoyear"  id="worktimeinputtoyear1" type="text" value="0222" >
+								<text id="worktimetexttoyear1" hidden="hidden"></text>
+								<b>年</b>
+								<input class="worktimeinputtomouth" id="worktimeinputtomouth1" type="text" value="22" >
+								<text id="worktimetexttomouth1" hidden="hidden"></text>
+								<b>月</b>
+							</td>
+						</tr>
+						<tr class="koumokuinfotr" >
+							<td class="koumokuinfotd"   valign="top"><textarea class="koumokuinfo" id="koumokuinfotextarea1" >经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历</textarea>
+							<text id="koumokuinfotext1" hidden="hidden"></text>
+							</td>
+						</tr>
+						
+					</table>
+				</div>
+				
+				<div id="midmidright2" >
+					<table class="worktable" >
+						<tr class="workkaishanametr" >
+							<td ><b>会社名称：</b><input class="kaishanameinput" id="kaishanameinput2" type="text" value="会社11111" ><text id="kaishanametext2" hidden="hidden"></text></td>
+						</tr>
+						<tr class="workshokumutr" >
+							<td class="workexptdborder" ><b>担任职位：</b><input class="shokumuinput" id="shokumuinput2" type="text" value="职务22222" ><text id="shokumutext2" hidden="hidden"></text></td>
+						</tr>
+						<tr class="worktimetr" >
+							<td class="workexptdborder" >
+								<b>工作时间：</b>
+								<input class="worktimeinputfromyear" id="worktimeinputfromyear2" type="text" value="0222" >
+								<text id="worktimetextfromyear2" hidden="hidden"></text>
+								<b>年</b>
+								<input class="worktimeinputfrommouth" id="worktimeinputfrommouth2" type="text" value="22" >
+								<text id="worktimetextfrommouth2" hidden="hidden"></text>
+								<b>月~</b>
+								<input class="worktimeinputtoyear" id="worktimeinputtoyear2" type="text" value="0222" >
+								<text id="worktimetexttoyear2" hidden="hidden"></text>
+								<b>年</b>
+								<input class="worktimeinputtomouth" id="worktimeinputtomouth2" type="text" value="22" >
+								<text id="worktimetexttomouth2" hidden="hidden"></text>
+								<b>月</b>
+							</td>
+						</tr>
+						<tr class="koumokuinfotr" >
+							<td class="koumokuinfotd"  valign="top"><textarea class="koumokuinfo" id="koumokuinfotextarea2" >经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历</textarea>
+							<text id="koumokuinfotext2" hidden="hidden"></text>
+							</td>
+						</tr>
+						
+					</table>
+				</div>
+				
+				<div id="midmidright3" >
+					<table class="worktable" >
+						<tr class="workkaishanametr" >
+							<td ><b>会社名称：</b><input class="kaishanameinput" id="kaishanameinput3" type="text" value="会社11111" ><text id="kaishanametext3" hidden="hidden"></text></td>
+						</tr>
+						<tr class="workshokumutr" >
+							<td class="workexptdborder" ><b>担任职位：</b><input class="shokumuinput" id="shokumuinput3" type="text" value="职务22222" ><text id="shokumutext3" hidden="hidden"></text></td>
+						</tr>
+						<tr class="worktimetr" >
+							<td class="workexptdborder" >
+								<b>工作时间：</b>
+								<input class="worktimeinputfromyear" id="worktimeinputfromyear3" type="text" value="0222" >
+								<text id="worktimetextfromyear3" hidden="hidden"></text>
+								<b>年</b>
+								<input class="worktimeinputfrommouth" id="worktimeinputfrommouth3" type="text" value="22" >
+								<text id="worktimetextfrommouth3" hidden="hidden"></text>
+								<b>月~</b>
+								<input class="worktimeinputtoyear" id="worktimeinputtoyear3" type="text" value="0222" >
+								<text id="worktimetexttoyear3" hidden="hidden"></text>
+								<b>年</b>
+								<input class="worktimeinputtomouth" id="worktimeinputtomouth3" type="text" value="22" >
+								<text id="worktimetexttomouth3" hidden="hidden"></text>
+								<b>月</b>
+							</td>
+						</tr>
+						<tr class="koumokuinfotr" >
+							<td class="koumokuinfotd"  valign="top"><textarea class="koumokuinfo" id="koumokuinfotextarea3" >经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历</textarea>
+							<text id="koumokuinfotext3" hidden="hidden"></text>
+							</td>
+						</tr>
+						
+					</table>
+				</div>
+				
+				<div id="midmidright4" >
+					<table class="worktable" >
+						<tr class="workkaishanametr">
+							<td ><b>会社名称：</b><input class="kaishanameinput" id="kaishanameinput4" type="text" value="会社11111" ><text id="kaishanametext4" hidden="hidden"></text></td>
+						</tr>
+						<tr class="workshokumutr" >
+							<td class="workexptdborder" ><b>担任职位：</b><input class="shokumuinput" id="shokumuinput4" type="text" value="职务22222" ><text id="shokumutext4" hidden="hidden"></text></td>
+						</tr>
+						<tr class="worktimetr" >
+							<td class="workexptdborder">
+								<b>工作时间：</b>
+								<input class="worktimeinputfromyear" id="worktimeinputfromyear4" type="text" value="0222" >
+								<text id="worktimetextfromyear4" hidden="hidden"></text>
+								<b>年</b>
+								<input class="worktimeinputfrommouth" id="worktimeinputfrommouth4" type="text" value="22" >
+								<text id="worktimetextfrommouth4" hidden="hidden"></text>
+								<b>月~</b>
+								<input class="worktimeinputtoyear" id="worktimeinputtoyear4" type="text" value="0222" >
+								<text id="worktimetexttoyear4" hidden="hidden"></text>
+								<b>年</b>
+								<input class="worktimeinputtomouth" id="worktimeinputtomouth4" type="text" value="22" >
+								<text id="worktimetexttomouth4" hidden="hidden"></text>
+								<b>月</b>
+							</td>
+						</tr>
+						<tr class="koumokuinfotr"  >
+							<td class="koumokuinfotd"  valign="top"><textarea class="koumokuinfo" id="koumokuinfotextarea4" >经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历经历</textarea>
+							<text id="koumokuinfotext4" hidden="hidden" ></text>
+							</td>
+						</tr>
+						
+					</table>
+				</div>
+				
+			</div>
+			<div class="border1" id="midmidleffimgtop1" ></div>
+			<div class="border2" id="midmidleffimgtop2" ></div>
+			<div class="border3" id="midmidleffimgtop3" ></div>
+			<div id="midmidright6" style="background-image:url('../static/png/midbottom.jpg')"></div>
+		</div>
+<!-- 		<div id="midright"  style="float:left;width:19%;height:100%;background-image:url('../static/png/right2.jpg')"></div> -->
+	</div>
+<!-- bottom	 -->
+	<div id="bottom" style="background-image:url('../static/png/bottom.jpg')">
+	<br/>
+		<div align="center" >
+			<b style="color:rgb(255,255,255);">江苏海隆软件技术有限公司</b></br>
+			<b style="color:rgb(255,255,255);">员工考勤管理系统</b>
+		</div>
+	</div>
+
+
+</body>
+
+</html>
