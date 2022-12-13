@@ -35,7 +35,7 @@ public class Employee {
     private String graduationUniversity;//毕业学校
     @Excel(name = "入职年月日",format = "yyyy/MM/dd")
     private Date inductionDate;//入职年月日
-    @Excel(name = "是否在职",replace = {"是_0","否_1"})
+    @Excel(name = "是否在职",replace = {"是_1","否_0"})
     private Integer onJobFlg;//在职Flg
     @Excel(name = "退职年月日",format = "yyyy/MM/dd")
     private Date resignationDate;//退职年月日
