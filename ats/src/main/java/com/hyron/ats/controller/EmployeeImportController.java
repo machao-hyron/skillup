@@ -22,13 +22,14 @@ import java.net.URLEncoder;
 import java.util.List;
 
 @Controller
+@RequestMapping("/EmployeeImportAndExport")
 @Slf4j
 public class EmployeeImportController {
         @Autowired
         private EmployeeImportService employeeImportService;
 
         @GetMapping("EmployeeImportAndExport")
-        public String employeeimport(){
+        public String employeeImportAndExport(){
             return "EmployeeImportAndExport";
         }
 
@@ -36,7 +37,7 @@ public class EmployeeImportController {
         public String findAll(HttpServletRequest request){
             List<Employee> employees = employeeImportService.findAll();
             request.setAttribute("employees",employees);
-            return "EmployeeImportAndExport/findAll";
+            return "findAll";
         }
         @RequestMapping(value = "findByIdAndName",method = RequestMethod.GET)
         public String findByIdAndName(@RequestParam String employeeId,
@@ -44,7 +45,8 @@ public class EmployeeImportController {
                                       @RequestParam String employeeName,
                                       HttpServletRequest request){
             List<Employee> employees = employeeImportService.findByIdAndName(employeeId,departmentId,employeeName);
-            return "EmployeeImportAndExport/findByIdAndName";
+            request.setAttribute("employees",employees);
+            return "findByIdAndName";
 
         }
 
@@ -61,23 +63,7 @@ public class EmployeeImportController {
             List<Employee> employees = ExcelImportUtil.importExcel(excelFile.getInputStream(), Employee.class, params);//实现文件导入
             // emps.forEach(System.out::println);
             employeeImportService.setDataFromExcel(employees);//存入数据库
-            return "redirect:EmployeeImportAndExport/findAll";//上传完成后跳转到查询的路径
-        }
-        @RequestMapping("export")
-        public String exportExcel(HttpServletResponse response) throws Exception{
-            List<Employee> employees = employeeImportService.findAll();
-//        emps.forEach(emp -> {
-//            emp.setEmpImg(realPath+"/"+emp.getEmpImg());
-//        });
-            log.info("导出Excel");
-            Workbook workbook = ExcelExportUtil.exportExcel(new ExportParams("员工信息一揽", "员工信息"), Employee.class, employees);//直接看效果，效果图在文档里
-            response.setHeader("content-disposition","attachment;fileName"+ URLEncoder.encode("用户列表.xls","UTF-8"));//对响应头转码，防止中午乱码
-            ServletOutputStream outputStream = response.getOutputStream();//输出流
-            workbook.write(outputStream);//将流写入
-            //关闭流
-            outputStream.close();
-            workbook.close();
-            return "redirect:EmployeeImportAndExport/findAll";//上传完成后跳转到查询的路径
+            return "redirect:findAll";//上传完成后跳转到查询的路径
         }
 }
 
