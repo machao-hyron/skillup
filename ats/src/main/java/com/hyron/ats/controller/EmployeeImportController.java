@@ -37,7 +37,7 @@ public class EmployeeImportController {
         public String findAll(HttpServletRequest request){
             List<Employee> employees = employeeImportService.findAll();
             request.setAttribute("employees",employees);
-            return "findAll";
+            return "EmployeeImportAndExport";
         }
         @RequestMapping(value = "findByIdAndName",method = RequestMethod.GET)
         public String findByIdAndName(@RequestParam String employeeId,
@@ -46,7 +46,7 @@ public class EmployeeImportController {
                                       HttpServletRequest request){
             List<Employee> employees = employeeImportService.findByIdAndName(employeeId,departmentId,employeeName);
             request.setAttribute("employees",employees);
-            return "findByIdAndName";
+            return "EmployeeImportAndExport";
 
         }
 
