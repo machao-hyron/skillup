@@ -22,7 +22,7 @@ import java.net.URLEncoder;
 import java.util.List;
 
 @Controller
-@RequestMapping("/EmployeeImportAndExport")
+//@RequestMapping("EmployeeImportAndExport")
 @Slf4j
 public class EmployeeImportController {
         @Autowired
