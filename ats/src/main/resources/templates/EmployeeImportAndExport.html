@@ -3,27 +3,27 @@
 <head>
     <meta charset="utf-8">
     <title>Hello World</title>
-    <link rel="stylesheet" href="../static/css/EmployeeImportAndExport.css">
+    <link rel="stylesheet" href="./css/EmployeeImportAndExport.css">
 
-    <script type="text/javascript" src="../static/js/jquery-3.6.1.min.js"></script>
+    <script type="text/javascript" src="./js/jquery-3.6.1.min.js"></script>
 <!--    <script type="text/javascript" src="../static/js/EmployeeImportAndExport.js"></script>-->
 <!--    <script type="text/javascript" src="../static/js/test.js"></script>-->
 </head>
-<body background="../static/img/bg1.jpg">
+<body background="./img/bg1.jpg">
 <h1>员工情报一括导入</h1>
 <hr>
 <div>
 
     <!--        <button id="btn3" type="button" >导入</button>&nbsp;-->
     <!--        <button id="btn9" type="button" >导出</button></p>-->
-    <form th:action="@{/import}" method="post" enctype="multipart/form-data" class="form-inline" >
+    <form th:action="@{/EmployeeImportAndExport/import}" method="post" enctype="multipart/form-data" class="form-inline" >
         <div class="form-group">
             <p>请输入查询信息：</p>
             <p style="display: inline">
                 工号：<input id="employeeId" name="employeeId" type="text"  placeholder="请输入工号">&nbsp;
                 部门：<input id="departmentId" name="departmentId" type="text"  placeholder="请输入部门编号">&nbsp;
                 姓名：<input id="employeeName" name="employeeName" type="text"  placeholder="请输入姓名">&nbsp;
-                <button id="btn1" type="button" th:action="@{/findByIdAndName}">查询</button>&nbsp;</p>
+                <button id="btn1" type="button" th:action="@{/EmployeeImportAndExport/findByIdAndName}">查询</button>&nbsp;</p>
             <input class="form-control" type="file" name="excelFile" style="border: 1px #3e4c2f">
 <!--            <input id="btn3" type="submit" class="btn3" value="导入">-->
             <button id="btn3" type="button" class="btn3" value="导入">导入</button>

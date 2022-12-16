@@ -22,24 +22,24 @@ import java.net.URLEncoder;
 import java.util.List;
 
 @Controller
-//@RequestMapping("EmployeeImportAndExport")
+@RequestMapping("EmployeeImportAndExport")
 @Slf4j
 public class EmployeeImportController {
         @Autowired
         private EmployeeImportService employeeImportService;
 
-        @GetMapping("EmployeeImportAndExport")
+        @GetMapping("")
         public String employeeImportAndExport(){
             return "EmployeeImportAndExport";
         }
 
-        @RequestMapping(value = "findAll",method = RequestMethod.GET)
+        @RequestMapping(value = "/findAll",method = RequestMethod.GET)
         public String findAll(HttpServletRequest request){
             List<Employee> employees = employeeImportService.findAll();
             request.setAttribute("employees",employees);
             return "EmployeeImportAndExport";
         }
-        @RequestMapping(value = "findByIdAndName",method = RequestMethod.GET)
+        @RequestMapping(value = "/findByIdAndName",method = RequestMethod.GET)
         public String findByIdAndName(@RequestParam String employeeId,
                                       @RequestParam String departmentId,
                                       @RequestParam String employeeName,
@@ -51,7 +51,7 @@ public class EmployeeImportController {
         }
 
         //导入excel
-        @RequestMapping("import")
+        @RequestMapping("/import")
         public String importExcel(MultipartFile excelFile) throws Exception{//MultipartFile实现文件上传
             log.info("文件名：[{}]",excelFile.getOriginalFilename());
             //进行excel导入
