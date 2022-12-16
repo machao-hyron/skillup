@@ -54,13 +54,13 @@
             <th th:text="${employee.projectId}" width="100px">所属项目</th>
             <th th:text="${employee.employeeName}" width="100px">姓名</th>
             <th th:text="${employee.employeeSex}" width="100px">性别</th>
-            <th th:text="${employee.employeeBirth}" width="100px">生日</th>
-            <th th:text="${employee.graduationYear}" width="100px">毕业时间</th>
+            <th th:text="${#dates.format(employee.employeeBirth,'yyyy/MM/dd')}" width="100px">生日</th>
+            <th th:text="${#dates.format(employee.graduationYear,'yyyy')}" width="100px">毕业时间</th>
             <th th:text="${employee.graduationUniversity}" width="100px">毕业学校</th>
-            <th th:text="${employee.inductionDate}" width="100px">入职时间</th>
+            <th th:text="${#dates.format(employee.inductionDate,'yyyy/MM/dd')}" width="100px">入职时间</th>
             <th th:text="${employee.onJobFlg}" width="100px">是否在职</th>
-            <th th:text="${employee.resignationDate}" width="100px">离职时间</th>
-            <th th:text="${employee.employeeImg}" width="100px">照片</th>
+            <th th:text="${#dates.format(employee.resignationDate,'yyyy/MM/dd')}" width="100px">离职时间</th>
+            <td><img th:src="${'/'+ employee.employeeImg}" width="20" height="40" alt=""></td>
         </tr>
     </table>
 </div>
