@@ -14,21 +14,21 @@
     	<br>
     	<h1>江苏海隆软件技术有限公司</h1>
 		<h2>考勤管理系统</h2>
-        <form method="post" action="login" >
+        <form method="post" action="login">
             <fieldset>
                 <br><br>
                 <label>用户名:</label>
-                <input type="text" name="id" id="id" required pattern="^[A-Za-z0-9]{1,6}$"  ><br><br><br>
+                <input type="text" name="id" id="id" required pattern="^[A-Za-z0-9]{1,6}$"/><br><br><br>
                 <label>密&nbsp;码:</label>
-                <input type="password" name="pwd" id="pwd" required pattern="^[A-Za-z0-9]{4,15}$" ><br><br><br>
+                <input type="password" name="pwd" id="pwd" required pattern="^[A-Za-z0-9]{4,15}$"/><br><br><br>
                 <div class="btn1">
-                	<input type="submit" id="submit" value="登录"></input>
+                	<input type="submit" id="submit" value="登录"/>
                 </div>
                 <div class="btn2">
                 	<button id="clear" type="button" >清空</button>
                 </div>
                 <br><br>
-           		<span name="errorMsg" id="errorMsg" th:text="${errorMsg}" />
+                <span name="errorMsg" id="errorMsg" th:text="${errorMsg}"></span>
             </fieldset>
         </form>
     </body>
