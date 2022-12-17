@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 
 import java.sql.Date;
 import java.sql.Timestamp;
-import java.time.Year;
+
 
 
 @Data
@@ -30,7 +30,7 @@ public class Employee {
     @Excel(name = "生年月日")
     private Date employeeBirth;//生年月日
     @Excel(name = "毕业年",format = "yyyy")
-    private Year graduationYear;//毕业年
+    private Date graduationYear;//毕业年
     @Excel(name = "毕业学校")
     private String graduationUniversity;//毕业学校
     @Excel(name = "入职年月日",format = "yyyy/MM/dd")
