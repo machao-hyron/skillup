@@ -27,7 +27,7 @@ public class LoginController {
 
 		if (StringUtils.isNotEmpty(dto.getId()) && StringUtils.isNotBlank(dto.getPwd())) {
 			if (loginService.loginAcntCheck(dto)) {
-				return "redirect:employeeSearch";
+				return "redirect:EmployeeImportAndExport";
 			}
 		}
 		model.addAttribute("errorMsg", "请输入正确的用户名与密码。");
