@@ -53,9 +53,10 @@ public class EmployeeSearchServiceImpl implements EmployeeSearchService{
 	@Override
 	public List<String> getSkill(List<EmployeeSearchInfo> EmployeeSearchInfoList) {
 		List<String> skillList = new ArrayList<>();
-		StringBuffer str = new StringBuffer() ;
+		StringBuffer str ;
 		for (int i = 0; i < EmployeeSearchInfoList.size(); i++) {
 			byte[] StrSkill = getStrSkill(EmployeeSearchInfoList.get(i));
+			str = new StringBuffer() ;
 			for (int j = 0; j < StrSkill.length; j++) {
 				if (EmployeeSearchInfoList != null && StrSkill[j] == 1) {
 					str.append(SkillName[j]);
