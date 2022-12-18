@@ -21,6 +21,10 @@ public class LoginController {
 	public String login() {
 		return "login";
 	}
+	@GetMapping(value = "")
+	public String login1() {
+		return "login";
+	}
 
 	@PostMapping(value = "login")
 	public String loginbtn(LoginDto dto, final Model model) {
