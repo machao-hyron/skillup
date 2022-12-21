@@ -3,6 +3,8 @@ package com.hyron.ats.pojo;
 import cn.afterturn.easypoi.excel.annotation.Excel;
 import cn.afterturn.easypoi.excel.annotation.ExcelIgnore;
 import cn.afterturn.easypoi.excel.annotation.ExcelTarget;
+import com.baomidou.mybatisplus.annotation.FieldFill;
+import com.baomidou.mybatisplus.annotation.TableField;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -42,12 +44,16 @@ public class Employee {
     @Excel(name = "照片",type=2)
     private String employeeImg;//照片IMG
     @ExcelIgnore
+    @TableField(fill = FieldFill.INSERT)
     private Timestamp createTime;//登录时间
     @ExcelIgnore
+    @TableField(fill = FieldFill.INSERT)
     private String createUserId;//登录者
     @ExcelIgnore
+    @TableField(fill = FieldFill.INSERT_UPDATE)
     private Timestamp updateTime;//更新时间
     @ExcelIgnore
+    @TableField(fill = FieldFill.INSERT_UPDATE)
     private String updateUserId;//更新者
 }
 
