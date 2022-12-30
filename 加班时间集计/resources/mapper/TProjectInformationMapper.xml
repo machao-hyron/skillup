@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.longyue.orvetimeservice.mapper.TProjectInformationMapper">
+
+    <resultMap id="BaseResultMap" type="com.longyue.orvetimeservice.domain.TProjectInformation">
+            <id property="departmentId" column="department_id" jdbcType="CHAR"/>
+            <result property="projectId" column="project_id" jdbcType="VARCHAR"/>
+            <result property="projectName" column="project_name" jdbcType="VARCHAR"/>
+            <result property="projectLeaderId" column="project_leader_id" jdbcType="CHAR"/>
+            <result property="projectGeneralId" column="project_general_id" jdbcType="VARCHAR"/>
+            <result property="insertTime" column="insert_time" jdbcType="TIMESTAMP"/>
+            <result property="insertPersonId" column="insert_person_id" jdbcType="CHAR"/>
+            <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+            <result property="updatePersonId" column="update_person_id" jdbcType="CHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        department_id,project_id,project_name,
+        project_leader_id,project_general_id,insert_time,
+        insert_person_id,update_time,update_person_id
+    </sql>
+</mapper>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.longyue.orvetimeservice.mapper.TWorkTimeTotalMapper">
+
+    <resultMap id="BaseResultMap" type="com.longyue.orvetimeservice.domain.TWorkTimeTotal">
+            <result property="operatorId" column="operator_id" jdbcType="CHAR"/>
+            <result property="employeeId" column="employee_id" jdbcType="CHAR"/>
+            <result property="employeeName" column="employee_name" jdbcType="VARCHAR"/>
+            <result property="departmentId" column="department_id" jdbcType="CHAR"/>
+            <result property="projectId" column="project_id" jdbcType="VARCHAR"/>
+            <result property="year" column="year" jdbcType="TINYINT"/>
+            <result property="month" column="month" jdbcType="TINYINT"/>
+            <result property="extraWorkTime" column="extra_work_time" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        operator_id,employee_id,employee_name,
+        department_id,project_id,year,
+        month,extra_work_time
+    </sql>
+</mapper>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.longyue.orvetimeservice.mapper.TWorkTimeMapper">
+
+    <resultMap id="BaseResultMap" type="com.longyue.orvetimeservice.domain.TWorkTime">
+            <id property="employeeId" column="employee_id" jdbcType="CHAR"/>
+            <id property="workDate" column="work_date" jdbcType="DATE"/>
+            <result property="departmentId" column="department_id" jdbcType="CHAR"/>
+            <result property="employeeName" column="employee_name" jdbcType="VARCHAR"/>
+            <result property="arriveTime" column="arrive_time" jdbcType="TIME"/>
+            <result property="leaveTime" column="leave_time" jdbcType="TIME"/>
+            <result property="extraWorkTime" column="extra_work_time" jdbcType="TINYINT"/>
+            <result property="insertTime" column="insert_time" jdbcType="TIMESTAMP"/>
+            <result property="insertPersonId" column="insert_person_id" jdbcType="CHAR"/>
+            <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+            <result property="updatePersonId" column="update_person_id" jdbcType="CHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        employee_id,work_date,department_id,
+        employee_name,arrive_time,leave_time,
+        extra_work_time,insert_time,insert_person_id,
+        update_time,update_person_id
+    </sql>
+</mapper>

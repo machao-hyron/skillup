@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.longyue.orvetimeservice.mapper.TSkillInfoMapper">
+
+    <resultMap id="BaseResultMap" type="com.longyue.orvetimeservice.domain.TSkillInfo">
+            <id property="employeeId" column="employee_id" jdbcType="CHAR"/>
+            <result property="java" column="java" jdbcType="TINYINT"/>
+            <result property="cSharp" column="c_sharp" jdbcType="TINYINT"/>
+            <result property="android" column="android" jdbcType="TINYINT"/>
+            <result property="ios" column="ios" jdbcType="TINYINT"/>
+            <result property="cPlus" column="c_plus" jdbcType="TINYINT"/>
+            <result property="net" column="net" jdbcType="TINYINT"/>
+            <result property="spring" column="spring" jdbcType="TINYINT"/>
+            <result property="oracle" column="oracle" jdbcType="TINYINT"/>
+            <result property="mysql" column="mysql" jdbcType="TINYINT"/>
+            <result property="sqlserver" column="sqlserver" jdbcType="TINYINT"/>
+            <result property="jsp" column="jsp" jdbcType="TINYINT"/>
+            <result property="jquery" column="jquery" jdbcType="TINYINT"/>
+            <result property="css" column="css" jdbcType="TINYINT"/>
+            <result property="html" column="html" jdbcType="TINYINT"/>
+            <result property="thymeleaf" column="thymeleaf" jdbcType="TINYINT"/>
+            <result property="angular" column="angular" jdbcType="TINYINT"/>
+            <result property="vue" column="vue" jdbcType="TINYINT"/>
+            <result property="react" column="react" jdbcType="TINYINT"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="createUserId" column="create_user_id" jdbcType="CHAR"/>
+            <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+            <result property="updateUserId" column="update_user_id" jdbcType="CHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        employee_id,java,c_sharp,
+        android,ios,c_plus,
+        net,spring,oracle,
+        mysql,sqlserver,jsp,
+        jquery,css,html,
+        thymeleaf,angular,vue,
+        react,create_time,create_user_id,
+        update_time,update_user_id
+    </sql>
+</mapper>

@@ -1,0 +1,32 @@
+#swagger: "2.0"
+#info:
+#  title: Title
+#  description: Title
+#  version: 1.0.0
+#host: www
+#schemes:
+#  - https
+#paths:
+
+spring:
+  datasource:
+    username: root
+    password: Fzy990619
+    url: jdbc:mysql://rm-bp1gr540585n72ci43o.mysql.rds.aliyuncs.com:3306/over?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&useSSL=false
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  mail:
+    host: smtp.qq.com # 配置 smtp 服务器地址
+    port: 587 # smtp 服务器的端口
+    username: 1332542140@qq.com # 配置邮箱用户名(你的邮箱地址)
+    password: hdofkoqwmdxthafd # 配置申请到的授权码(刚让复制的授权码)
+    default-encoding: UTF-8 # 配置邮件编码
+    properties:
+      mail:
+        smtp:
+          socketFactoryClass: javax.net.ssl.SSLSocketFactory # 配饰 SSL 加密工厂
+        debug: true
+    from: 1332542140@qq.com # 发送方邮件，配在yml中可方便更改
+logging:
+  level:
+    com.longyue.orvetimeservice: debug
+
