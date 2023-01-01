@@ -41,7 +41,7 @@ public class EmployeeImportController {
             request.setAttribute("employees",employees);
             return "EmployeeImportAndExport";
         }
-        @RequestMapping(value = "findByIdAndName",method = RequestMethod.GET)
+        @RequestMapping(value = "findByIdAndName",method = RequestMethod.POST)
         public String findByIdAndName(@RequestParam("employeeId") String employeeId,
                                       @RequestParam("departmentId") String departmentId,
                                       @RequestParam("employeeName") String employeeName,

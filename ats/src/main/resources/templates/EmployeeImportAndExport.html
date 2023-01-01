@@ -67,7 +67,7 @@
             <th>离职时间</th>
             <th>照片</th>
         </tr>
-        <tr th:each="employee :${employees}" th:action="@{/findByIdAndName}">
+        <tr th:each="employee :${employees}">
             <td th:text="${employee.employeeId}" width="100px">工号</td>
             <td th:text="${employee.departmentId}" width="100px">部门</td>
             <td th:text="${employee.projectId}" width="100px">所属项目</td>
@@ -81,6 +81,21 @@
             <td th:text="${#dates.format(employee.resignationDate,'yyyy/MM/dd')}" width="100px">离职时间</td>
             <td><img th:src="${'/'+ employee.employeeImg}" width="20" height="40" alt=""></td>
         </tr>
+
+<!--        <tr th:each="employee :${employees}" th:action="@{/findByIdAndName}">-->
+<!--            <td th:text="${employee.employeeId}" width="100px">工号</td>-->
+<!--            <td th:text="${employee.departmentId}" width="100px">部门</td>-->
+<!--            <td th:text="${employee.projectId}" width="100px">所属项目</td>-->
+<!--            <td th:text="${employee.employeeName}" width="100px">姓名</td>-->
+<!--            <td th:text="${employee.employeeSex}" width="100px">性别</td>-->
+<!--            <td th:text="${#dates.format(employee.employeeBirth,'yyyy/MM/dd')}" width="100px">生日</td>-->
+<!--            <td th:text="${#dates.format(employee.graduationYear,'yyyy')}" width="100px">毕业时间</td>-->
+<!--            <td th:text="${employee.graduationUniversity}" width="100px">毕业学校</td>-->
+<!--            <td th:text="${#dates.format(employee.inductionDate,'yyyy/MM/dd')}" width="100px">入职时间</td>-->
+<!--            <td th:text="${employee.onJobFlg}" width="100px">是否在职</td>-->
+<!--            <td th:text="${#dates.format(employee.resignationDate,'yyyy/MM/dd')}" width="100px">离职时间</td>-->
+<!--            <td><img th:src="${'/'+ employee.employeeImg}" width="20" height="40" alt=""></td>-->
+<!--        </tr>-->
     </table>
 </div>
 </body>
