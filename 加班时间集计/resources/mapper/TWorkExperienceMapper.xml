@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.longyue.orvetimeservice.mapper.TWorkExperienceMapper">
+
+    <resultMap id="BaseResultMap" type="com.longyue.orvetimeservice.domain.TWorkExperience">
+            <id property="employeeId" column="employee_id" jdbcType="CHAR"/>
+            <result property="fromYear" column="from_year" jdbcType="OTHER"/>
+            <result property="toYear" column="to_year" jdbcType="OTHER"/>
+            <result property="position" column="position" jdbcType="VARCHAR"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="createUserId" column="create_user_id" jdbcType="CHAR"/>
+            <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+            <result property="updateUserId" column="update_user_id" jdbcType="CHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        employee_id,from_year,to_year,
+        position,create_time,create_user_id,
+        update_time,update_user_id
+    </sql>
+</mapper>

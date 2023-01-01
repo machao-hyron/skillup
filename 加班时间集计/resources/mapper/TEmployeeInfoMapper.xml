@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.longyue.orvetimeservice.mapper.TEmployeeInfoMapper">
+
+    <resultMap id="BaseResultMap" type="com.longyue.orvetimeservice.domain.TEmployeeInfo">
+            <id property="employeeId" column="employee_id" jdbcType="CHAR"/>
+            <id property="departmentId" column="department_id" jdbcType="CHAR"/>
+            <id property="projectId" column="project_id" jdbcType="VARCHAR"/>
+            <result property="employeeName" column="employee_name" jdbcType="VARCHAR"/>
+            <result property="employeeSex" column="employee_sex" jdbcType="CHAR"/>
+            <result property="employeeBirth" column="employee_birth" jdbcType="DATE"/>
+            <result property="graduationYear" column="graduation_year" jdbcType="OTHER"/>
+            <result property="graduationUniversity" column="graduation_university" jdbcType="VARCHAR"/>
+            <result property="inductionDate" column="induction_date" jdbcType="DATE"/>
+            <result property="onJobFlg" column="on_job_flg" jdbcType="TINYINT"/>
+            <result property="resignationDate" column="resignation_date" jdbcType="DATE"/>
+            <result property="employeeImg" column="employee_img" jdbcType="VARCHAR"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="createUserId" column="create_user_id" jdbcType="CHAR"/>
+            <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+            <result property="updateUserId" column="update_user_id" jdbcType="CHAR"/>
+            <association property="tDepartmentMst" column="department_id"  select="com.longyue.orvetimeservice.mapper.TDepartmentMstMapper.selectById" />
+            <association property="tWorkTime" column="employee_id" select="com.longyue.orvetimeservice.mapper.TWorkTimeMapper.selectById" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        employee_id,department_id,project_id,
+        employee_name,employee_sex,employee_birth,
+        graduation_year,graduation_university,induction_date,
+        on_job_flg,resignation_date,employee_img,
+        create_time,create_user_id,update_time,
+        update_user_id
+    </sql>
+    <select id="getTEmployeeInfoList" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List" /> FROM t_employee_info
+    </select>
+</mapper>
