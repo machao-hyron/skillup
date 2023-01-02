@@ -3,6 +3,7 @@ package com.hyron.ats.serviceImpl;
 import com.hyron.ats.mapper.EmployeeImportMapper;
 import com.hyron.ats.pojo.Employee;
 import com.hyron.ats.service.EmployeeImportService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,7 +26,9 @@ public class EmployeeImportServiceImpl implements EmployeeImportService {
     }
 
     @Override
-    public List<Employee> findByIdAndName(String employeeId, String departmentId, String name) {
-        return employeeImportMapper.findByIdAndName(employeeId,departmentId,name);
+    public List<Employee> findByIdAndName(String employeeId,
+                                          String departmentId,
+                                          String employeeName) {
+        return employeeImportMapper.findByIdAndName(employeeId,departmentId,employeeName);
     }
 }

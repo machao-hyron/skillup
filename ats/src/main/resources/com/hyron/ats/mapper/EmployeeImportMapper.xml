@@ -32,14 +32,14 @@
         select <include refid="Base"></include> from t_employee_info
         <where>
             <choose>
-                <when test=" employee_id !='' and  employee_id !=null">
-                    employee_id=#{employeeId,jdbcType=CHAR}
+                <when test=" employeeId !='' and  employeeId !=null">
+                    AND employee_id=#{employeeId}
                 </when>
-                <when test=" department_id !='' and  department_id !=null">
-                    department_id=#{departmentId,jdbcType=CHAR}
+                <when test=" departmentId !='' and  departmentId !=null">
+                    AND department_id=#{departmentId}
                 </when>
-                <when test=" employee_name !='' and  employee_name !=null">
-                    employee_name=#{employeeName,jdbcType=VARCHAR}
+                <when test=" employeeName !='' and  employeeName !=null">
+                    AND employee_name=#{employeeName}
                 </when>
             </choose>
         </where>

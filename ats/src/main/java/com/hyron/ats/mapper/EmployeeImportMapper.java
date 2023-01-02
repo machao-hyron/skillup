@@ -2,6 +2,7 @@ package com.hyron.ats.mapper;
 
 import com.hyron.ats.pojo.Employee;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 
 import java.util.List;
@@ -9,5 +10,7 @@ import java.util.List;
 public interface EmployeeImportMapper {
     List<Employee> findAll();
     void setDataFromExcel(List<Employee> employees);
-    List<Employee> findByIdAndName(String employeeId,String departmentId,String employeeName);
+    List<Employee> findByIdAndName(@Param("employeeId") String employeeId,
+                                   @Param("departmentId") String departmentId,
+                                   @Param("employeeName") String employeeName);
 }
