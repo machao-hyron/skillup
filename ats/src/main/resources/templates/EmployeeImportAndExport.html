@@ -41,15 +41,15 @@
                 工号：<input id="employeeId"  name="employeeId" type="text"  placeholder="请输入工号"/>&nbsp;
                 部门：<input id="departmentId" name="departmentId" type="text"  placeholder="请输入部门编号"/>&nbsp;
                 姓名：<input id="employeeName" name="employeeName" type="text"  placeholder="请输入部门编号"/>&nbsp;
-                <input type="submit" id="btn1" value="查询" /></p>
+                <input type="submit" class="btn1" id="btn1" value="查询" /></p>
         </div>
     </form>
 
     <form th:action="@{/EmployeeImportAndExport/import}" method="post" enctype="multipart/form-data" class="form-inline" >
         <div class="form-group">
             <input class="form-control" type="file" name="excelFile" style="border: 1px #3e4c2f">
-            <input id="btn3" type="submit" class="btn3" value="导入">
-            <a th:href="@{/EmployeeImportAndExport/export}" id="btn9" class="btn9" >excel导出</a>
+            <input id="btn3" type="submit" class="btn1" value="导入">
+<!--            <a th:href="@{/EmployeeImportAndExport/export}" id="btn9" class="btn9" >excel导出</a>-->
         </div>
     </form>
     <table th:fragment="employees" class=table1_1 align="center">
