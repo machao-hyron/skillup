@@ -48,7 +48,7 @@
 
     <insert id="setDataFromExcel"  parameterType="com.hyron.ats.pojo.Employee">
         insert into t_employee_info
-        (<include refid="Base"></include>)
+        (employee_id,department_id,project_id,employee_name,employee_sex,employee_birth,graduation_year,graduation_university,induction_date,on_job_flg,resignation_date,employee_img,create_time,create_user_id,update_time,update_user_id)
         values
         <foreach collection="list" item="employee" index="index" separator=",">
             (
@@ -63,7 +63,11 @@
             #{employee.inductionDate},
             #{employee.onJobFlg},
             #{employee.resignationDate},
-            #{employee.employeeImg}
+            #{employee.employeeImg},
+            #{employee.createTime},
+            #{employee.createUserId},
+            #{employee.updateTime},
+            #{employee.updateUserId}
             )
         </foreach>
     </insert>

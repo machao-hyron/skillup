@@ -5,20 +5,24 @@ import cn.afterturn.easypoi.excel.annotation.ExcelIgnore;
 import cn.afterturn.easypoi.excel.annotation.ExcelTarget;
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.hyron.ats.config.CreateTime;
+import com.hyron.ats.config.CreateUserId;
+import com.hyron.ats.config.UpdateTime;
+import com.hyron.ats.config.UpdateUserId;
+import com.hyron.ats.dto.CreateAndUpdate;
+import lombok.*;
 
 import java.sql.Date;
 import java.sql.Timestamp;
 
 
 
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @ExcelTarget("employee")
-public class Employee {
+public class Employee extends CreateAndUpdate {
     @Excel(name = "工号")
     private String employeeId;//工号
     @Excel(name = "部门ID")
@@ -43,17 +47,17 @@ public class Employee {
     private Date resignationDate;//退职年月日
     @Excel(name = "照片",type=2)
     private String employeeImg;//照片IMG
-    @ExcelIgnore
-    @TableField(fill = FieldFill.INSERT)
-    private Timestamp createTime;//登录时间
-    @ExcelIgnore
-    @TableField(fill = FieldFill.INSERT)
-    private String createUserId;//登录者
-    @ExcelIgnore
-    @TableField(fill = FieldFill.INSERT_UPDATE)
-    private Timestamp updateTime;//更新时间
-    @ExcelIgnore
-    @TableField(fill = FieldFill.INSERT_UPDATE)
-    private String updateUserId;//更新者
+//    @ExcelIgnore
+//    @CreateTime
+//    private Timestamp createTime;//登录时间
+//    @ExcelIgnore
+//    @CreateUserId
+//    private String createUserId;//登录者
+//    @ExcelIgnore
+//    @UpdateTime
+//    private Timestamp updateTime;//更新时间
+//    @ExcelIgnore
+//    @UpdateUserId
+//    private String updateUserId;//更新者
 }
 

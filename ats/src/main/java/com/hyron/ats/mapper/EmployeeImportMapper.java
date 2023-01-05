@@ -13,4 +13,6 @@ public interface EmployeeImportMapper {
     List<Employee> findByIdAndName(@Param("employeeId") String employeeId,
                                    @Param("departmentId") String departmentId,
                                    @Param("employeeName") String employeeName);
+
+    //public int update(Employee employee);
 }
